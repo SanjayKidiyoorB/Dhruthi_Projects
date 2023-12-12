@@ -1,0 +1,1128 @@
+{% extends "CloudCaliber/Template2.html" %}
+ 
+
+{% block title %}
+Dashboard
+{% endblock %}
+{% block content %}
+
+
+
+<form action="" method="POST"   id="LoginForm"  enctype="multipart/form-data"> 
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+
+
+    {% for Masterinstrumentslist_listA in MasterinstrumentslistUnderPur_list %}
+    
+     
+  
+       
+  
+  
+  
+  
+  
+  
+    <div class="modal"  tabindex="-1" id="myModelViewDetails-{{forloop.counter}}" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div  class="modal-dialog modal-dialog-centered" role="document" style="min-width:800px;">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #E5E7E7; min-width:600px;">
+    
+            <table style="min-width:90%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle1" ><span class="label label-default" style="min-width:200px; color: white;font-weight: 500;"> ID :   </span><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.sinstrumentid}}</span></h5>  
+            
+            
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle2" ><span class="label label-default" style="min-width:200px; color: white;font-weight: 500;"> Description :   </span><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.sdescription}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            
+            </table>
+    
+    
+            <button type="button" class="btn-close" data-bs-dismiss="modal"  style="background-color: #E5E7E7;"></button>
+          </div>
+          <div class="modal-body"  style="background-color: #f2f2f2; min-width:600px;">
+            
+    
+            <table  style="min-width:100%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle3"><span class="label label-default" style="style="color: teal;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Plant :   </span><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.splanttype}}</span></h5>  
+            
+            
+                </td> 
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            
+            </table>
+            <table  style="min-width:100%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle4"><span  class="label label-default" style="min-width:200px;">Classification : </span>  <span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.sassettype}}</span></h5>  
+            
+            
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle5"><span  class="label label-default" style="min-width:200px;">Category : </span>  <span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.categorytype}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style=" height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle6"><span  class="label label-default" style="min-width:200px;">{{Masterinstrumentslist_listA.scategorytype1}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.styperefname1}}</span></h5>  
+            
+            
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle7"><span  class="label label-default" style="min-width:200px;">{{Masterinstrumentslist_listA.scategorytype2}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.styperefname2}}</span></h5>  
+            
+              
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle8"><span  class="label label-default" style="min-width:200px;">{{Masterinstrumentslist_listA.scategorytype3}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.styperefname3}}</span></h5>  
+            
+              
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle9"><span  class="label label-default" style="min-width:200px;">{{Masterinstrumentslist_listA.scategorytype4}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.styperefname4}}</span></h5>  
+            
+              
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle10"><span  class="label label-default" style="min-width:200px;">{{Masterinstrumentslist_listA.scategorytype5}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.styperefname5}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+              </tr>
+            </table>
+    
+            
+    
+            <table style="min-width:100%;">
+    
+              <tr>
+    
+                <td style="min-width:120px;">
+    
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span  class="label label-default" style="min-width:200px;">Current Location : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.slocationname}}</span></h5>  
+            
+            
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle12"><span  class="label label-default" style="min-width:200px;">Make : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.smake}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle13"><span  class="label label-default" style="min-width:200px;">For Part No : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.spartno}}</span></h5>  
+            
+              
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle14"><span  class="label label-default" style="min-width:200px;">Old Id (if any) : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.oldinstrument_id}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle15"><span  class="label label-default" style="min-width:200px;">Status : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.scurrentstatus}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            </table>
+    
+    
+            
+    
+            <table style="min-width:100%;">
+    
+              <tr>
+    
+                <td style="min-width:120px;">
+    
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span  class="label label-default" style="min-width:200px;">Calibration Frequency : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.sfreqtype}}</span></h5>  
+            
+            
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle12"><span  class="label label-default" style="min-width:200px;">Last Calibration : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.snextcalibdate}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle13"><span  class="label label-default" style="min-width:200px;">Next Calibration : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.snextcalibdate}}</span></h5>  
+            
+              
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle14"><span  class="label label-default" style="min-width:200px;">Issued on : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.sissueddate}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle15"><span  class="label label-default" style="min-width:200px;">Returned on : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color:teal;">{{Masterinstrumentslist_listA.sreturneddate}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer" style="background-color:  #DBF9FC;">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-primary">Save changes</button> -->
+    
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    {% endfor %}
+  
+  </form> 
+
+
+<div class="" style="width:100%; height:y600px; background-color: #f6f9ff; padding-top: 10px; padding-left: 20px;  padding-right: 20px;">
+    
+    
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="row">
+            <!-- Under Purchase -->
+            <div class="col-12">
+                <div class="card top-selling overflow-auto" style="height:300px;  ">
+   
+  
+                  <div class="card-body pb-0">
+
+                    <div class="row">
+
+                        <div class="col-lg-10">
+
+                            <h5 class="card-title">Under Purchase <span>| Till Today</span></h5>
+                        </div>
+                        <div class="col-lg-2" style="padding-top:10px; float: right;  ">
+  
+                            <a class="btn" title="Create New Gauge Purchase with New ID!" style=" float: right; border-radius: 50%; height:45px; width:45px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                        font-weight: 500;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none;  padding-top:15px;  "   href="{% url 'GaugeMasterlistCreateID' %}"    target ="_blank"><i class="fa fa-plus" aria-hidden="true"></i>  </a>
+                        </div>
+                    </div>
+ 
+                    <div style="   max-height:160px;  ">
+                        <table class="table table-borderless" style="min-width:1300px;">
+                            <thead> 
+                                <tr>
+                                    <th scope="col" style="max-width:30px;">Sl No</th>
+                                    <th scope="col" style="max-width:70px;">Action</th>
+                                <th scope="col"  style="max-width:90px;">Code</th>
+                                <th scope="col"  style="min-width:110px;">Description</th> 
+                                <th scope="col"  style="min-width:110px;">Specification</th>
+                                <th scope="col"  style="min-width:110px;">Plant</th>
+                                <th scope="col"  style="min-width:110px;">Initiated on</th> 
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                {% for Masterinstrumentslist_listA in MasterinstrumentslistUnderPur_list %}
+                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+
+                                          <td   scope="col" style="max-width:30px;   height:21px; border: 1px solid lightgray;  background-color: white;">
+                                              <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                      
+                                          </td>  
+                                          <td    scope="col" style="max-width:70px;   height:21px; border: 1px solid lightgray;  background-color: white;">
+                                          
+     
+                                              <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;"   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                <span class="fa fa-eye"></span>
+                                              </button>
+
+
+                                              <a  type="button" id="idHistory"  title="Edit Details" class="read-book btn btn-sm btn-warning"  style="border:1px gray solid;"     href="/GaugeMasterlistUnderPurchaseDetails/{{Masterinstrumentslist_listA.lid}}"   target ="_blank" >
+                                                <span class="fa fa-pencil"></span>
+                                              </a> 
+ 
+                                          </td>  
+                                          <td    scope="col" style=" max-width:90px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                              <h6 style="color:black; text-align: center;  font-size: 12px; min-width:90px;">  {{Masterinstrumentslist_listA.sinstrumentid}}</h6> 
+                                      
+                                          </td>   
+                                          <td    scope="col" style="min-width:110px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                              <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.sdescription}}</h6> 
+                                      
+                                          </td>   
+                                          <td    scope="col" style="min-width:110px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                              <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;"> {{Masterinstrumentslist_listA.styperefname1}},  {{Masterinstrumentslist_listA.styperefname2}}  {{Masterinstrumentslist_listA.styperefname3}}  {{Masterinstrumentslist_listA.styperefname4}}  {{Masterinstrumentslist_listA.styperefname5}}</h6> 
+                                      
+                                          </td>     
+                                          <td    scope="col" style="min-width:110px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                              <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.splanttype}}</h6> 
+                                      
+                                          </td>   
+                                          <td    scope="col" style="min-width:110px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                               
+                                              <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.sinitiatedon}}</h6> 
+                                      
+                                          </td>  
+                                        </tr> 
+ 
+                                      {% endfor %}
+                            </tbody>
+                        </table>
+    
+                        <center style="margin-top:15px;">
+
+
+                            <ul class="pagination">
+                                {% if Masterinstrumentslist_lists.has_previous %}
+                                  <li><a href="?page={{ Masterinstrumentslist_lists.previous_page_number }}">&laquo;</a></li>
+                                {% else %}
+                                  <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in Masterinstrumentslist_lists.paginator.page_range %}
+                                  {% if Masterinstrumentslist_lists.number == i %}
+                                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                  {% else %}
+                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                                {% if Masterinstrumentslist_lists.has_next %}
+                                  <li><a href="?page={{ Masterinstrumentslist_lists.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                  <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                              </ul>
+                            </center>
+                    </div>
+                  </div>
+  
+                </div>
+              </div><!-- End Under Purchase -->
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="row">
+            <!-- Under Purchase -->
+            <div class="col-12">
+                <div class="card top-selling overflow-auto" style="height:300px;  ">
+   
+  
+                  <div class="card-body pb-0">
+
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            <h5 class="card-title">Under Calibration <span style="display:none;">| Today</span></h5>
+                        </div> 
+                    </div>
+
+                    <div style="max-height:200px; overflow:auto; min-height:220px; ">
+                        <table class="table table-borderless" style="min-width:900px;">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="min-width:30px;">Sl No</th>
+                                    <th scope="col" style="min-width:30px;">Action</th>
+                                    <th scope="col"  style="min-width:60px;">Started On</th>
+                                <th scope="col"  style="min-width:170px;">Code</th>
+                                <th scope="col"  style="min-width:170px;">Description</th> 
+                                <th scope="col"  style="min-width:170px;">Plant</th> 
+                                <th scope="col"  style="min-width:170px;">Planned Calibration Due on</th> 
+                                </tr>
+                            </thead>
+                            <tbody> 
+
+
+                              {% for Masterinstrumentslist_listA in MasterinstrumentslistUnderCalibration_listS %}
+                              
+                              <tr   style="width:100%;  height:21px; border:none;">
+
+
+
+                                    <td   scope="col" style="min-width:30px;   height:21px; border: 1px solid lightgray;  background-color: white; text-align: center;">
+                                        <h6 style="color:black;   font-size: 12px; width:30px;"> {{ forloop.counter }}</h6> 
+                                
+                                    </td>  
+                                    <td    scope="col" style="min-width:30px;   height:21px; border: 1px solid lightgray;  background-color: white;">
+                                    
+ 
+                                      <a  type="button" id="idEdit1"  title="Under Calibration" class="read-book btn btn-sm btn-outline-danger"  style="border:1px gray solid;"     href="/CalibrationPendingDetailsGet/{{Masterinstrumentslist_listA.lhistorycard}}"   target ="_blank" >
+                                        <span class="fa fa-tools"></span>
+                                      </a>  
+                                    </td>  
+                                    <td    scope="col" style=" min-width:60px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:60px;">  {{Masterinstrumentslist_listA.scalibrationstartdate}}</h6> 
+                                
+                                    </td>   
+                                    <td    scope="col" style=" min-width:160px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: left;  font-size: 12px; min-width:90px;">  {{Masterinstrumentslist_listA.sinstrumentid}}</h6> 
+                                
+                                    </td>   
+                                    <td    scope="col" style="min-width:180px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.sdescription}}</h6> 
+                                
+                                    </td>         
+                                    <td    scope="col" style="min-width:160px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.splanttype}}</h6> 
+                                
+                                    </td>        
+                                    <td    scope="col" style="min-width:160px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.snextcalibdate}}</h6> 
+                                
+                                    </td>   
+                                  </tr> 
+
+                                {% endfor %}
+
+
+                            </tbody>
+                        </table>
+    
+                    </div>
+
+
+
+                  </div>
+  
+                </div>
+              </div><!-- End Under Purchase -->
+            </div>
+        </div>
+
+        
+        <div class="col-lg-3">
+            <div class="row">
+            <!-- Under Purchase -->
+            <div class="col-12">
+                <div class="card top-selling overflow-auto" style="height:300px;  ">
+   
+  
+                  <div class="card-body pb-0">
+
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            <h5 class="card-title">Damaged / Under Maintenance <span style="display:none;">| Today</span></h5>
+                        </div> 
+                    </div>
+
+                    <div style="max-height:200px; overflow:auto; min-height:220px; ">
+                      <table class="table table-borderless" style="min-width:900px;">
+                          <thead>
+                              <tr>
+                                  <th scope="col" style="min-width:70px;">Sl No</th>
+                                  <th scope="col" style="min-width:90px;">Action</th>
+                                  <th scope="col"  style="min-width:110px;">Damaged On</th>
+                              <th scope="col"  style="min-width:170px;">Code</th>
+                              <th scope="col"  style="min-width:170px;">Description</th> 
+                              <th scope="col"  style="min-width:170px;">Plant</th> 
+                              <th scope="col"  style="min-width:170px;">Location</th> 
+                              </tr>
+                          </thead>
+                          <tbody> 
+
+
+                            {% for Masterinstrumentslist_listA in MasterinstrumentslistDamaged_listS %}
+                            
+                            <tr   style="width:100%;  height:21px; border:none;">
+
+
+
+                                  <td   scope="col" style="min-width:70px;   height:21px; border: 1px solid lightgray;  background-color: white; text-align: center;">
+                                      <h6 style="color:black;   font-size: 12px; width:60px;"> {{ forloop.counter }}</h6> 
+                              
+                                  </td>  
+                                  <td    scope="col" style="min-width:90px;   height:21px; border: 1px solid lightgray;  background-color: white;">
+                                  
+
+                              
+                                      <button type="button"  title="Continue Calibration" class="read-book btn btn-sm btn-outline-primary" style="border:1px gray solid;"    hx-get="{% url 'DetailsMasterListPurchase' %}"   hx-target="#dialog"    >
+                                        <span class="fa fa-pencil"></span>
+                                      </button>
+                                  </td>  
+                                  <td    scope="col" style=" min-width:110px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                      <h6 style="color:black; text-align: center;  font-size: 12px; min-width:90px;">  {{Masterinstrumentslist_listA.sdamagedon}}</h6> 
+                              
+                                  </td>   
+                                  <td    scope="col" style=" min-width:160px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                      <h6 style="color:black; text-align: center;  font-size: 12px; min-width:90px;">  {{Masterinstrumentslist_listA.sinstrumentid}}</h6> 
+                              
+                                  </td>   
+                                  <td    scope="col" style="min-width:180px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                      <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.sdescription}}</h6> 
+                              
+                                  </td>         
+                                  <td    scope="col" style="min-width:160px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                      <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.splanttype}}</h6> 
+                              
+                                  </td>        
+                                  <td    scope="col" style="min-width:160px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                      <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.slocationname}}</h6> 
+                              
+                                  </td>   
+                                </tr> 
+
+                              {% endfor %}
+
+
+                          </tbody>
+                      </table>
+  
+                  </div>
+
+
+
+                  </div>
+  
+                </div>
+              </div><!-- End Under Purchase -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-lg-8">
+            <div class="row">
+            <!-- Under Purchase -->
+            <div class="col-12">
+                <div class="card top-selling overflow-auto" style="height:300px;  ">
+   
+  
+                  <div class="card-body pb-0">
+
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            <h5 class="card-title">30 days Calibration Due <span>| {{ sRangeDate1 }}</span></h5>
+                        </div> 
+                    </div>
+
+                    <div style="max-height:200px; overflow:auto; min-height:220px; ">
+                        <table class="table table-borderless"  style="min-width:700px;">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="max-width:60px;">Sl No</th>
+                                    <th scope="col" style="max-width:70px;">Action</th>
+                                    <th scope="col"  style="max-width:90px;">Due on</th>
+                                <th scope="col"  style="max-width:90px;">Code</th>
+                                <th scope="col"  style="min-width:110px;">Description</th> 
+                                <th scope="col"  style="max-width:90px;">Location</th>
+                                <th scope="col"  style="max-width:90px;">Specification</th>
+                                <th scope="col"  style="max-width:90px;">Plant</th>
+                                <th scope="col"  style="max-width:90px;">Last Calibration on</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+
+
+                              {% for Masterinstrumentslist_listA in Masterinstrumentslist30DayDue_listS %}
+                              
+                              <tr   style="width:100%;  height:21px; border:none;">
+
+
+
+                                    <td   scope="col" style="max-width:60px;   height:21px; border: 1px solid lightgray;  background-color: white; text-align: center;">
+                                        <h6 style="color:black;   font-size: 12px; width:60px;"> {{ forloop.counter }}</h6> 
+                                
+                                    </td>  
+                                    <td    scope="col" style="max-width:70px;   height:21px; border: 1px solid lightgray;  background-color: white;">
+                                    
+ 
+                                
+                                        <button type="button"  title="Start Calibration" class="read-book btn btn-sm btn-outline-primary" style="border:1px gray solid;"    hx-get="{% url 'DetailsMasterListPurchase' %}"   hx-target="#dialog"    >
+                                          <span class="fa fa-play"></span>
+                                        </button>
+                                    </td>  
+                                    <td    scope="col" style=" max-width:90px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:90px;">  {{Masterinstrumentslist_listA.snextcalibdate}}</h6> 
+                                
+                                    </td>   
+                                    <td    scope="col" style=" max-width:160px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:90px;">  {{Masterinstrumentslist_listA.sinstrumentid}}</h6> 
+                                
+                                    </td>   
+                                    <td    scope="col" style="min-width:180px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.sdescription}}</h6> 
+                                
+                                    </td>       
+                                    <td    scope="col" style="min-width:110px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.slocationname}}</h6> 
+                                
+                                    </td>    
+                                    <td    scope="col" style="min-width:190px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;"> {{Masterinstrumentslist_listA.styperefname1}},  {{Masterinstrumentslist_listA.styperefname2}}  {{Masterinstrumentslist_listA.styperefname3}}  {{Masterinstrumentslist_listA.styperefname4}}  {{Masterinstrumentslist_listA.styperefname5}}</h6> 
+                                
+                                    </td>     
+                                    <td    scope="col" style="min-width:90px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.splanttype}}</h6> 
+                                
+                                    </td>        
+                                    <td    scope="col" style="min-width:90px;    height:21px; border: 1px solid lightgray;  background-color: white;">
+                                        <h6 style="color:black; text-align: center;  font-size: 12px; min-width:110px;">  {{Masterinstrumentslist_listA.slastcalibdate}}</h6> 
+                                
+                                    </td>   
+                                  </tr> 
+
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+    
+    
+                        <center style="margin-top:15px;">
+
+
+                          <ul class="pagination">
+                              {% if Masterinstrumentslist30DayDue_listS.has_previous %}
+                                <li><a href="?page={{ Masterinstrumentslist30DayDue_listS.previous_page_number }}">&laquo;</a></li>
+                              {% else %}
+                                <li class="disabled"><span>&laquo;</span></li>
+                              {% endif %}
+                              {% for i in Masterinstrumentslist30DayDue_listS.paginator.page_range %}
+                                {% if Masterinstrumentslist30DayDue_listS.number == i %}
+                                  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                  <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                              {% endfor %}
+                              {% if Masterinstrumentslist30DayDue_listS.has_next %}
+                                <li><a href="?page={{ Masterinstrumentslist30DayDue_listS.next_page_number }}">&raquo;</a></li>
+                              {% else %}
+                                <li class="disabled"><span>&raquo;</span></li>
+                              {% endif %}
+                            </ul>
+                          </center>
+                    </div>
+                  </div>
+  
+                </div>
+              </div><!-- End Under Purchase -->
+            </div>
+        </div>
+
+        <div class="col-lg-4" style="display:none;">
+            <div class="row">
+            <!-- Under Purchase -->
+            <div class="col-12">
+                <div class="card top-selling overflow-auto" style="height:300px;  ">
+   
+  
+                  <div class="card-body pb-0">
+
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            <h5 class="card-title">Calibration Over Due from <span  >| {{ YesterdayDate }}</span></h5>
+                        </div> 
+                    </div>
+
+                    <div style="max-height:200px; overflow:auto; min-height:220px; ">
+                        <table class="table table-borderless" style="min-width:700px;">
+                            <thead>
+                                <tr> 
+                                        <th scope="col" style="max-width:30px;">Sl No</th>
+                                        <th scope="col" style="max-width:70px;">Action</th>
+                                    <th scope="col"  style="max-width:90px;">Code</th>
+                                    <th scope="col"  style="max-width:90px;">Due on</th>
+                                    <th scope="col"  style="min-width:110px;">Description</th> 
+                                    <th scope="col"  style="max-width:90px;">Location</th>
+                                    <th scope="col"  style="max-width:90px;">Specification</th>
+                                    <th scope="col"  style="max-width:90px;">Last Calibration on</th> 
+                                </tr>
+                            </thead>
+                            <tbody> 
+                            </tbody>
+                        </table>
+    
+                    </div>
+                  </div>
+  
+                </div>
+              </div><!-- End Under Purchase -->
+            </div>
+        </div>
+
+        
+        <div class="col-lg-4">
+            <div class="row"> 
+                <div class="col-12">
+                    <div class="card top-selling overflow-auto" style="height:300px;  ">
+       
+      
+                        <div class="card-body pb-0">
+ 
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px;">
+        
+                                    <span style="border-radius: 10%;  min-height:145px; min-width:145px; padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; max-width:300px; text-align:right;">&nbsp; &nbsp; {{MasterinstrumentslistCount1}}   &nbsp; &nbsp;   </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Gauges / Instruments - <span style="color:#5499C7; font-weight:600; text-decoration: underline;"> Plant : {{sPlantName}} </span> </p>
+                                </div> 
+                            </div>
+                            <div class="row">
+ 
+                                <div class="col-lg-3" style="Padding-top:20px;">
+        
+                                    <span style="border-radius: 10%;  min-height:145px; min-width:145px; padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; max-width:300px; text-align:right;">&nbsp; &nbsp; {{MasterinstrumentslistCount2}}   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Issued Gauges / Instruments  </p>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px;">
+        
+                                    <span style="border-radius: 10%;  min-height:145px; min-width:145px; padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; max-width:300px; text-align:right;">&nbsp; &nbsp; {{MasterinstrumentslistCount3}}   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Idle Gauges / Instruments  </p>
+                                </div> 
+                            </div> 
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px;">
+        
+                                    <span style="border-radius: 10%;  min-height:145px; min-width:145px; padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; max-width:300px; text-align:right;">&nbsp; &nbsp; {{MasterinstrumentslistCount4}}   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Spare (New) Gauges / Instruments  </p>
+                                </div>  
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px;">
+        
+                                    <span style="border-radius: 10%;  min-height:145px;  padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; min-width:300px; text-align:right;">&nbsp; &nbsp; {{MasterinstrumentslistCount5}}   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Scraped Gauges / Instruments  </p>
+                                </div>   
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px; ">
+        
+                                    <span style="border-radius: 10%;  min-height:145px;  padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; min-width:300px; text-align:right;">&nbsp; &nbsp; 0   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Quarantine Gauges / Instruments  </p>
+                                </div>  
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px; ">
+        
+                                    <span style="border-radius: 10%;  min-height:145px;  padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; min-width:300px; text-align:right;">&nbsp; &nbsp; 0   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Limited Usage  Gauges / Instruments  </p>
+                                </div>   
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px; ">
+        
+                                    <span style="border-radius: 10%;  min-height:145px;  padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; min-width:300px; text-align:right;">&nbsp; &nbsp; 0   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Damaged Gauges / Instruments  </p>
+                                </div>   
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-3" style="Padding-top:20px; ">
+        
+                                    <span style="border-radius: 10%;  min-height:145px;  padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; min-width:300px; text-align:right;">&nbsp; &nbsp; 0   &nbsp; &nbsp; </span> 
+                               </div> 
+                                <div class="col-lg-9">
+        
+                                    <p class="card-title" style="font-size:13px; font-weight:bold;">Total Calibration Started Gauges / Instruments  </p>
+                                </div>   
+                            </div>
+                            <div class="row">
+
+                                <div class="row">
+
+                                    <div class="col-lg-3" style="Padding-top:20px; ">
+            
+                                        <span style="border-radius: 10%;  min-height:145px;  padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; min-width:300px; text-align:right;">&nbsp; &nbsp; 0   &nbsp; &nbsp; </span> 
+                                   </div> 
+                                    <div class="col-lg-9">
+            
+                                        <p class="card-title" style="font-size:13px; font-weight:bold;">Total MSA Study Started  Gauges / Instruments  </p>
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="row">
+
+                                    <div class="col-lg-3" style="Padding-top:20px; ">
+            
+                                        <span style="border-radius: 10%;  min-height:145px;  padding-top:5px; padding-bottom:5px;  font-family: 'Roboto', sans-serif;  text-transform: uppercase;                     font-weight: bold;            color: white;            background-color: #2EE59D;            border: none;             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);            transition: all 0.3s ease 0s;            cursor: pointer;            outline: none; padding:left:14px; padding:right:14px; min-width:300px; text-align:right;">&nbsp; &nbsp; 0   &nbsp; &nbsp; </span> 
+                                   </div> 
+                                    <div class="col-lg-9">
+            
+                                        <p class="card-title" style="font-size:13px; font-weight:bold;">Total Validation Started  Gauges / Instruments  </p>
+                                    </div>   
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-lg-12">
+
+
+
+        </div>
+    </div>
+
+
+    
+    <div class="row">
+
+        <div class="col-lg-12" >
+
+            <div class="card top-selling" style="height:700px;  ">
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        
+                        <div class="top-row topnav" id="NaveId">
+
+                            <a id="nave1"  onclick="myFunction1()"   class="btn active" >Calibration Calendar</a>
+                            <a id="nave2"  class="btn" onclick="myFunction2()" >MSA Calendar</a>
+                            <a id="nave3"  class="btn" onclick="myFunction3()"  >Validation Calendar</a>
+                        </div>
+
+                        <script>
+                            function myFunction1()  {
+
+                                document.getElementById("nave1").className = 'btn active';
+                                document.getElementById("nave2").className = 'btn';
+                                document.getElementById("nave3").className = 'btn';
+                            };
+                            function myFunction2()  {
+                                document.getElementById("nave1").className = 'btn';
+                                document.getElementById("nave2").className = 'btn active';
+                                document.getElementById("nave3").className = 'btn';
+
+ 
+                            };
+                            function myFunction3()  {
+                                document.getElementById("nave1").className = 'btn';
+                                document.getElementById("nave2").className = 'btn';
+                                document.getElementById("nave3").className = 'btn active';
+
+ 
+                            };
+
+
+                            $(document).ready(function () {
+                                $('.nav li a').click(function(e) {
+                            
+                                    $('.nav li.active').removeClass('active');
+                            
+                                    var $parent = $(this).parent();
+                                    $parent.addClass('active');
+                                    e.preventDefault();
+                                });
+                            });
+                            </script>
+
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-12" >
+                        <div class="" style="height:600px;  padding-top:20px;">
+                            <center>
+                            {{ cal|safe }}
+                            </center>
+                        </div>
+            
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row">
+
+        <div class="col-lg-12" >
+
+            <div class="card top-selling" style="height:400px;  ">
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        
+                        <div class="top-row topnav" id="NaveId">
+
+                            <a id="navea1"  onclick="myFunctionA1()"   class="btn active" >Calibration Planned vs Actual</a>
+                            <a id="navea2"  class="btn" onclick="myFunctionA2()" >MSA  Planned vs Actual</a>
+                            <a id="navea3"  class="btn" onclick="myFunctionA3()"  >Validation  Planned vs Actual</a>
+                        </div>
+
+                        <script>
+                            function myFunctionA1()  {
+
+                                document.getElementById("navea1").className = 'btn active';
+                                document.getElementById("navea2").className = 'btn';
+                                document.getElementById("navea3").className = 'btn';
+                            };
+                            function myFunctionA2()  {
+                                document.getElementById("navea1").className = 'btn';
+                                document.getElementById("navea2").className = 'btn active';
+                                document.getElementById("navea3").className = 'btn';
+
+ 
+                            };
+                            function myFunctionA3()  {
+                                document.getElementById("navea1").className = 'btn';
+                                document.getElementById("navea2").className = 'btn';
+                                document.getElementById("navea3").className = 'btn active';
+
+ 
+                            };
+
+
+                            $(document).ready(function () {
+                                $('.nav li a').click(function(e) {
+                            
+                                    $('.nav li.active').removeClass('active');
+                            
+                                    var $parent = $(this).parent();
+                                    $parent.addClass('active');
+                                    e.preventDefault();
+                                });
+                            });
+                            </script>
+
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-12" style="padding-left:20px; padding-right:20px; " >
+                        
+                    <div style="max-height:340px; overflow:auto; ">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th scope="col-1">Sl No</th>
+                                <th scope="col">Code</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Specification</th>
+                                <th scope="col">Last Calibration on</th>
+                                <th scope="col">Next Calibration on</th>
+                                <th scope="col">Last Issued on</th>
+                                <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>   
+                        </table>
+    
+                    </div>
+            
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-12">
+
+
+
+        </div>
+    </div>
+     
+</div>
+
+{% endblock %}

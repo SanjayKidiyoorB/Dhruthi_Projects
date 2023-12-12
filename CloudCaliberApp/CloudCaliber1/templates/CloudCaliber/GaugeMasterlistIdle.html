@@ -1,0 +1,1238 @@
+{% extends "CloudCaliber/Template2.html" %}
+
+
+{% block title %}
+    Master List
+{% endblock %}
+{% block content %}
+ 
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST"   id="LoginForm"  enctype="multipart/form-data"> 
+
+
+  {% for Masterinstrumentslist_listA in Masterinstrumentslist_lists %}
+  
+   
+
+     
+
+
+
+
+
+  <div class="modal"  tabindex="-1" id="myModelViewDetails-{{forloop.counter}}" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div  class="modal-dialog modal-dialog-centered" role="document" style="min-width:800px;">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #DBF9FC; min-width:600px;">
+  
+          <table style="min-width:90%;">
+  
+            <tr>
+  
+              <td>
+  
+                <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>ID : </span><span>{{Masterinstrumentslist_listA.sinstrumentid}}</span></h5>  
+          
+          
+              </td>
+              <td>
+    
+                <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Description : </span><span>{{Masterinstrumentslist_listA.sdescription}}</span></h5>  
+          
+            
+              </td>
+          
+            </tr>
+          
+          </table>
+  
+  
+          <button type="button" class="btn-close" data-bs-dismiss="modal"  style="background-color: #92caff;"></button>
+        </div>
+        <div class="modal-body"  style="background-color: #f2f2f2; min-width:600px;">
+          
+  
+          <table  style="min-width:100%;">
+  
+            <tr>
+  
+              <td>
+  
+                <h5 class="modal-title" id="exampleModalLongTitle3"><span style="font-weight:bold; color:blue;">Plant : </span><span>{{Masterinstrumentslist_listA.splanttype}}</span></h5>  
+          
+          
+              </td> 
+          
+            </tr>
+          </table>
+  
+          <table  style="min-width:100%; margin-top:10px;">
+          
+            <tr>
+  
+              <td style="height:10px; border-top: 1px lightgray solid;"> 
+   
+          
+              </td> 
+          
+            </tr>
+          
+          </table>
+          <table  style="min-width:100%;">
+  
+            <tr>
+  
+              <td>
+  
+                <h5 class="modal-title" id="exampleModalLongTitle4"><span style="font-weight:bold; color:blue;">Classification : </span>  <span>{{Masterinstrumentslist_listA.sassettype}}</span></h5>  
+          
+          
+              </td>
+              <td>
+    
+                <h5 class="modal-title" id="exampleModalLongTitle5"><span style="font-weight:bold; color:blue;">Category : </span>  <span>{{Masterinstrumentslist_listA.categorytype}}</span></h5>  
+          
+            
+              </td>
+          
+            </tr>
+          </table>
+  
+          <table  style="min-width:100%; margin-top:10px;">
+          
+            <tr>
+  
+              <td style=" height:10px; border-top: 1px lightgray solid;"> 
+   
+          
+              </td> 
+          
+            </tr>
+          </table>
+  
+          <table  style="min-width:100%;">
+  
+            <tr>
+  
+              <td>
+  
+                <h5 class="modal-title" id="exampleModalLongTitle6"><span style="font-weight:bold; color:blue;">{{Masterinstrumentslist_listA.scategorytype1}} : </span> </br><span>{{Masterinstrumentslist_listA.styperefname1}}</span></h5>  
+          
+          
+              </td>
+              <td>
+    
+                <h5 class="modal-title" id="exampleModalLongTitle7"><span style="font-weight:bold; color:blue;">{{Masterinstrumentslist_listA.scategorytype2}} : </span> </br><span>{{Masterinstrumentslist_listA.styperefname2}}</span></h5>  
+          
+            
+              </td>
+              <td>
+    
+                <h5 class="modal-title" id="exampleModalLongTitle8"><span style="font-weight:bold; color:blue;">{{Masterinstrumentslist_listA.scategorytype3}} : </span> </br><span>{{Masterinstrumentslist_listA.styperefname3}}</span></h5>  
+          
+            
+              </td>
+              <td>
+    
+                <h5 class="modal-title" id="exampleModalLongTitle9"><span style="font-weight:bold; color:blue;">{{Masterinstrumentslist_listA.scategorytype4}} : </span> </br><span>{{Masterinstrumentslist_listA.styperefname4}}</span></h5>  
+          
+            
+              </td>
+              <td>
+    
+                <h5 class="modal-title" id="exampleModalLongTitle10"><span style="font-weight:bold; color:blue;">{{Masterinstrumentslist_listA.scategorytype5}} : </span> </br><span>{{Masterinstrumentslist_listA.styperefname5}}</span></h5>  
+          
+            
+              </td>
+          
+            </tr>
+          </table>
+  
+          <table  style="min-width:100%; margin-top:10px;">
+          
+            <tr>
+  
+              <td style="height:10px; border-top: 1px lightgray solid;"> 
+   
+          
+              </td> 
+            </tr>
+          </table>
+  
+          
+  
+          <table style="min-width:100%;">
+  
+            <tr>
+  
+              <td style="min-width:120px;">
+  
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:bold; color:blue;">Current Location : </span> </br><span>{{Masterinstrumentslist_listA.slocationname}}</span></h5>  
+          
+          
+              </td>
+              <td style="width:30px;">
+    
+              </td>
+              <td style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle12"><span style="font-weight:bold; color:blue;">Make : </span> </br><span>{{Masterinstrumentslist_listA.smake}}</span></h5>  
+          
+            
+              </td>
+              <td style="width:30px;">
+    
+              </td>
+              <td style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle13"><span style="font-weight:bold; color:blue;">For Part No : </span> </br><span>{{Masterinstrumentslist_listA.spartno}}</span></h5>  
+          
+            
+              </td>
+              <td  style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle14"><span style="font-weight:bold; color:blue;">Old Id (if any) : </span> </br><span>{{Masterinstrumentslist_listA.oldinstrument_id}}</span></h5>  
+          
+            
+              </td>
+              <td style="width:30px;">
+    
+              </td>
+              <td  style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle15"><span style="font-weight:bold; color:blue;">Status : </span> </br><span>{{Masterinstrumentslist_listA.scurrentstatus}}</span></h5>  
+          
+            
+              </td>
+          
+            </tr>
+          </table>
+  
+          <table  style="min-width:100%; margin-top:10px;">
+          
+            <tr>
+  
+              <td style="height:10px; border-top: 1px lightgray solid;"> 
+   
+          
+              </td> 
+          
+            </tr>
+          </table>
+  
+  
+          
+  
+          <table style="min-width:100%;">
+  
+            <tr>
+  
+              <td style="min-width:120px;">
+  
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:bold; color:blue;">Calibration Frequency : </span> </br><span>{{Masterinstrumentslist_listA.sfreqtype}}</span></h5>  
+          
+          
+              </td>
+              <td style="width:30px;">
+    
+              </td>
+              <td style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle12"><span style="font-weight:bold; color:blue;">Last Calibration : </span> </br><span>{{Masterinstrumentslist_listA.dtlastcalib}}</span></h5>  
+          
+            
+              </td>
+              <td style="width:30px;">
+    
+              </td>
+              <td style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle13"><span style="font-weight:bold; color:blue;">Next Calibration : </span> </br><span>{{Masterinstrumentslist_listA.dtnextcalib}}</span></h5>  
+          
+            
+              </td>
+              <td  style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle14"><span style="font-weight:bold; color:blue;">Issued on : </span> </br><span>{{Masterinstrumentslist_listA.sissueddate}}</span></h5>  
+          
+            
+              </td>
+              <td style="width:30px;">
+    
+              </td>
+              <td  style="min-width:120px;">
+    
+                <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle15"><span style="font-weight:bold; color:blue;">Returned on : </span> </br><span>{{Masterinstrumentslist_listA.sreturneddate}}</span></h5>  
+          
+            
+              </td>
+          
+            </tr>
+          </table>
+  
+          <table  style="min-width:100%; margin-top:10px;">
+          
+            <tr>
+  
+              <td style="height:10px; border-top: 1px lightgray solid;"> 
+   
+          
+              </td> 
+          
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer" style="background-color:  #DBF9FC;">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <!--<button type="button" class="btn btn-primary">Save changes</button> -->
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% endfor %}
+
+</form> 
+
+
+<div class="modal"  tabindex="-1" id="myModalDelete1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div  class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="myModalDelete" role="dialog" style="min-width: 90% !important;">
+  <div class="modal-dialog"  style="min-width: 90% !important;">
+  
+    <!-- Modal content-->
+    <div class="modal-content"  >
+      <div class="modal-header" style="background-color: #DBF9FC;">
+        <h4 class="modal-title">Delete Tool Issue</h4>
+        <button type="button" class="close" data-dismiss="m style="background-color: #92caff;"odal">&times;</button>
+      </div>
+      <div class="modal-body"  style="background-color: #f2f2f2;">
+
+
+          <div class="row">
+
+              <div class="col" style="text-align: center;">
+                  
+                  <h6 > Do you want to Delete SAP Code Tool Issue : </h6>
+                  
+              </div>
+
+          </div>
+
+      </div>
+      <div class="modal-footer" style="background-color:  #DBF9FC;">
+          
+          <div class="row">
+
+              <div class="col">
+
+                  
+              </div>
+              <div class="col">
+
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                  
+              </div>
+              <div class="col">
+
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  
+              </div>
+
+          </div>
+
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<form method="post" id="CreateIDForm"     >
+    {% csrf_token %}
+{% comment %} 
+    
+    data-Classification-url="{% url 'ajax_load_ClassificationDue' %}" data-courses-url="{% url 'ajax_load_CategoriesDue' %}" data-loadCodeFlowLabel1-url="{% url 'ajax_loadCode_FlowLabel1Due' %}" data-loadCodeFlow1-url="{% url 'ajax_loadCode_Flow1Due' %}"  data-loadCodeFlowLabel2-url="{% url 'ajax_loadCode_FlowLabel2Due' %}" data-loadCodeFlow2-url="{% url 'ajax_loadCode_Flow2Due' %}"   data-loadCodeFlowLabel3-url="{% url 'ajax_loadCode_FlowLabel3Due' %}" data-loadCodeFlow3-url="{% url 'ajax_loadCode_Flow3Due' %}"  data-loadCodeFlowLabel4-url="{% url 'ajax_loadCode_FlowLabel4Due' %}" data-loadCodeFlow4-url="{% url 'ajax_loadCode_Flow4Due' %}"  data-loadCodeFlowLabel5-url="{% url 'ajax_loadCode_FlowLabel5Due' %}" data-loadCodeFlow5-url="{% url 'ajax_loadCode_Flow5Due' %}"
+ {% endcomment %}
+
+
+    <div class="">
+
+
+
+        <div class="" style="width:100%; height:660px; background-color: white; padding-top: 10px; padding-left: 20px;  padding-right: 20px; "> 
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px; padding-top:12px; ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master List - IDLE</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                            <div class="col-1" style="padding-top:12px;  height:90px;">
+            
+                                                
+                                                <button type="submit" name="cmbPrinttoExcel"  class="btn btn-warning" style="font-size:14px; color:white; height:30px; width:180px;">
+                                                    <i class="fa fa-file-excel" style="color:white; font:16px;"></i>  &nbsp;  &nbsp;  &nbsp; Export to Excel 
+                                                </button>  
+
+                                            </div>   
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row" style="margin-top: 20px;">
+
+
+
+                            <div class="col box-Type3" style="height:508px; margin:10px 10px 10px 10px; ">
+                                 
+                                <div class="row" style="background-color:#E5E5E5; ">
+
+                                        <div class="col" style="padding-top:40px; height:90px;">
+
+                                            <h6  style="color:black; text-align: center;  width: 240px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">  </h6> 
+                                    
+                                            <input type="text" value="{{txtSearch}}"  name="txtSearchID" class="form-control"   placeholder="A Asset ID / Description / Make / Model No / Tolerance Class" tabindex="1"     style=" width: 300px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                            
+                                        </div>
+                                    <div class="col" style="padding-top:20px; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Location / Line</h6> 
+                                
+                                        <select name="Location" id="cmbLocation" class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:90%; min-height:52px;  font-size: 12px;" >
+                                                                
+                                            <option value="0" disabled="true" selected> --- Select Area of Usage --- </option> 
+                                            {% for AreaofUselist_list in AreaofUselist_list %}  
+
+                                              {% if Location == AreaofUselist_list.lid %} 
+                                                <option selected="selected" value="{{ AreaofUselist_list.lid }}" data-tokens="{{AreaofUselist_list.slocationname}}" >{{AreaofUselist_list.slocationname}} </option>
+                                          
+                                              {% else %}
+                                                <option value="{{ AreaofUselist_list.lid }}" data-tokens="{{AreaofUselist_list.slocationname}}" >{{AreaofUselist_list.slocationname}} </option>
+                                          
+                                              {% endif %}
+
+
+                                              {% endfor %}
+                                        </select>
+  
+
+
+
+                                    </div>
+                                    <div class="col" style="padding-top:20px; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Classification</h6> 
+                                
+
+                                        <div class="row">
+
+                                          <div class="col">
+
+                                            <select name="Classification" id="cmbClassification" class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                                
+                                              <option value="0" disabled="true" selected> --- Select Classification --- </option> 
+                                              {% for Adminassettypelist_list in Adminassettypelist_list %} 
+  
+                                                  {% if cmbClassificationID == Adminassettypelist_list.lcategorytypeid %} 
+                                                    <option selected="true" value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                              
+                                                  {% else %}
+                                                    <option   value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                              
+                                                  {% endif %}
+  
+                                                {% endfor %}
+                                          </select>
+   
+                                          </div>
+                                          <div class="col-2">
+  
+                                            <button name="cmbGetCategory"  type="submit"><i class="fa fa-arrow-circle-right" style="font-size:16px; color:green"></i></button>
+      
+                                          </div>
+                                        </div>
+                                          
+                                    </div>
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Category</h6> 
+                                
+
+
+
+                                        <div class="row">
+
+                                          <div class="col">
+
+                                            <select name="Categories" id="Categories" class="  selectpicker"  data-show-subtext="true" data-live-search="true" style="color:black;   -moz-appearance: none; appearance: none;  -webkit-appearance: menulist; background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                              <option  value="0"   value="">---select Categories---</option>
+                                              <option  value="0"   value=""> </option>
+                                              {% for tcategoriesLsts in tcategoriesLst %}
+                                                
+                                              
+                                                  {% if cmbCategoryID == tcategoriesLsts.lcategoryid %} 
+                                                    <option selected="true" value="{{ tcategoriesLsts.lcategoryid }}"  data-tokens="{{tcategoriesLsts.categorytype}}" >{{ tcategoriesLsts.categorytype }}</option>
+                                              
+                                                  {% else %}
+                                                    <option   value="{{ tcategoriesLsts.lcategoryid }}"  data-tokens="{{tcategoriesLsts.categorytype}}" >{{ tcategoriesLsts.categorytype }}</option>
+                                              
+                                                  {% endif %}
+                                                
+                                              {% endfor %} 
+                                            </select>
+                                          </div>
+                                          <div class="col-2">
+  
+                                            <button name="cmbGetFlow"  type="submit"><i class="fa fa-arrow-circle-down" style="font-size:16px; color:green"></i></button>
+      
+                                          </div>
+                                        </div>
+  
+
+
+
+
+ 
+
+
+
+
+                                    </div>
+
+
+
+                                </div> 
+ 
+                                
+
+                                <div class="row" style="margin-top:5px;">
+ 
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6 id="flowID1" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow1label  }} </h6> 
+                                
+                                        <select name="Flow1" id="Flow1"  class="  selectpicker"  data-show-subtext="true" data-live-search="true" style="color:black;   -moz-appearance: none; appearance: none;  -webkit-appearance: menulist; background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+
+                                          <option  value="0"   value="">---select  {{ cmbFlow1label  }}---</option>
+                                          <option  value="0"   value=""> </option>
+                                          {% for tcategoriesLsts in Adminassetcategorytypelist1_AddNew1OBJ %}
+                                            {% if cmbFlow1label == "Part No" %}
+
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% endif %}
+
+                                            {% elif cmbFlow1label == "Equipment" %}
+
+                                            
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% endif %}
+
+
+                                            {% elif cmbFlow1label == "Operation" %}
+
+                                            
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% endif %}
+
+
+
+                                            {% elif cmbFlow1label == "Material" %}
+
+                                              
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% endif %}
+
+                                            {% else %}
+                                            
+                                              {% if cmbFlow1ID == tcategoriesLsts.lcategorytypeid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% endif %}
+
+                                            {% endif %}
+ 
+                                          {% endfor %}
+
+                                        </select>
+                                        
+                                        
+                                        
+ 
+
+
+
+  
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  id="flowID2" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">  {{ cmbFlow2label  }} </h6> 
+                                
+                                        <select name="Flow2" id="Flow2"  class="  selectpicker"  data-show-subtext="true" data-live-search="true" style="color:black;   -moz-appearance: none; appearance: none;  -webkit-appearance: menulist; background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+
+                                          <option  value="0"   value="">---select  {{ cmbFlow2label  }}---</option>
+                                          <option  value="0"   value=""> </option>
+                                          {% for tcategoriesLsts in Adminassetcategorytypelist2_AddNew1OBJ %}
+                                            {% if cmbFlow2label == "Part No" %}
+  
+                                              {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% elif cmbFlow2label == "Equipment" %}
+  
+                                            
+                                              {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+                                            {% elif cmbFlow2label == "Operation" %}
+  
+                                            
+                                              {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+  
+                                            {% elif cmbFlow2label == "Material" %}
+  
+                                              
+                                              {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% else %}
+                                            
+                                              {% if cmbFlow2ID == tcategoriesLsts.lcategorytypeid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% endif %}
+  
+                                          {% endfor %}
+  
+                                        </select>
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  id="flowID3" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow3label  }}  </h6> 
+                                
+                                        <select name="Flow3" id="Flow3"  class="  selectpicker"  data-show-subtext="true" data-live-search="true" style="color:black;   -moz-appearance: none; appearance: none;  -webkit-appearance: menulist; background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+
+                                          <option  value="0"   value="">---select  {{ cmbFlow3label  }}---</option>
+                                          <option  value="0"   value=""> </option>
+                                          {% for tcategoriesLsts in Adminassetcategorytypelist3_AddNew1OBJ %}
+                                            {% if cmbFlow3label == "Part No" %}
+  
+                                              {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% elif cmbFlow3label == "Equipment" %}
+  
+                                            
+                                              {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+                                            {% elif cmbFlow3label == "Operation" %}
+  
+                                            
+                                              {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+  
+                                            {% elif cmbFlow3label == "Material" %}
+  
+                                              
+                                              {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% else %}
+                                            
+                                              {% if cmbFlow3ID == tcategoriesLsts.lcategorytypeid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% endif %}
+  
+                                          {% endfor %}
+  
+                                        </select>
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6 id="flowID4"  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow4label  }}  </h6> 
+                                
+                                        <select name="Flow4" id="Flow4"  class="  selectpicker"  data-show-subtext="true" data-live-search="true" style="color:black;   -moz-appearance: none; appearance: none;  -webkit-appearance: menulist; background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+
+                                          <option  value="0"   value="">---select  {{ cmbFlow4label  }}---</option>
+                                          <option  value="0"   value=""> </option>
+                                          {% for tcategoriesLsts in Adminassetcategorytypelist4_AddNew1OBJ %}
+                                            {% if cmbFlow4label == "Part No" %}
+  
+                                              {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% elif cmbFlow4label == "Equipment" %}
+  
+                                            
+                                              {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+                                            {% elif cmbFlow4label == "Operation" %}
+  
+                                            
+                                              {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+  
+                                            {% elif cmbFlow4label == "Material" %}
+  
+                                              
+                                              {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% else %}
+                                            
+                                              {% if cmbFlow4ID == tcategoriesLsts.lcategorytypeid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% endif %}
+  
+                                          {% endfor %}
+  
+                                        </select>
+                                        
+
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6 id="flowID5"  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow5label  }}  </h6> 
+                                
+                                        <select name="Flow5" id="Flow5"  class="  selectpicker"  data-show-subtext="true" data-live-search="true" style="color:black;   -moz-appearance: none; appearance: none;  -webkit-appearance: menulist; background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+
+                                          <option  value="0"   value="">---select  {{ cmbFlow5label  }}---</option>
+                                          <option  value="0"   value=""> </option>
+                                          {% for tcategoriesLsts in Adminassetcategorytypelist5_AddNew1OBJ %}
+                                            {% if cmbFlow5label == "Part No" %}
+  
+                                              {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% elif cmbFlow5label == "Equipment" %}
+  
+                                            
+                                              {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+                                            {% elif cmbFlow5label == "Operation" %}
+  
+                                            
+                                              {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% endif %}
+  
+  
+  
+                                            {% elif cmbFlow5label == "Material" %}
+  
+                                              
+                                              {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% else %}
+                                            
+                                              {% if cmbFlow5ID == tcategoriesLsts.lcategorytypeid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% endif %}
+  
+                                            {% endif %}
+  
+                                          {% endfor %}
+  
+                                        </select>
+                                        
+
+
+                                    </div> 
+
+
+                                    <div class="col-1" style="padding-top:26px; background-color:#E5E5E5; height:90px;">
+    
+                                         
+                                      <button type="submit" name="cmbSearch"  class="btn btn-success" style="font-size:14px; height:30px; width:30px; padding-left:7px; padding-top:5px;">
+                                        <i class="fa fa-search"></i>  
+                                      </button>
+
+
+                                    </div> 
+
+
+
+                                </div> 
+
+
+                                <div class="row" style="margin-top:5px;">
+ 
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:390px; overflow: auto;">
+          
+                                      {% if Masterinstrumentslist_lists %}
+                                   
+                                            <div style="width:100%; height:310px; overflow: auto;">   
+                                                <table  class="table" style="width:100%;    ">
+                                                    
+                                                    <thead>         
+                                                        <tr   style="width:100%; height:46px;">
+                                                            <th   style="padding-top:10px; width:5%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Sl No</h6>
+                                                            
+                                                            </th>    
+                                                            <th   style="padding-top:10px; width:150px; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">ID </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:150px; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Description </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Location </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Specification </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Plant </h6>
+                                                            
+                                                            </th> 
+                                                            <th   style="padding-top:10px; width:100px;  border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px;  width:100px; ">Action</h6>
+                                                            
+                                                            </th>   
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Status </h6>
+                                                            
+                                                            </th>   
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Last Calibration Date </h6>
+                                                            
+                                                            </th>   
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Next Calibration Date </h6>
+                                                            
+                                                            </th>   
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Last Issued Date </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Last Returned Date </h6>
+                                                            
+                                                            </th>  
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      {% for Masterinstrumentslist_listA in Masterinstrumentslist_lists %}
+                                                          <tr   style="width:100%;  height:21px; border:none;">
+                
+                         
+                                                            
+                
+                                                                <td   style=" width:5%; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                    <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                            
+                                                                </td>  
+                                                                <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:190px; "> {{Masterinstrumentslist_listA.sinstrumentid}} </h6>  
+                                                                
+                
+                                                                </td>   
+                                                                <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:150px; "> {{Masterinstrumentslist_listA.sdescription}} </h6>  
+                                                                
+                
+                                                                </td> 
+
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.slocationname}} </h6>  
+                                                                
+                
+                                                                </td>  
+                                                                <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                  <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.styperefname1}},  {{Masterinstrumentslist_listA.styperefname2}}  {{Masterinstrumentslist_listA.styperefname3}}  {{Masterinstrumentslist_listA.styperefname4}}  {{Masterinstrumentslist_listA.styperefname5}} </h6>  
+                                                                
+                                                                </td>  
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                  <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.splanttype}} </h6>  
+                                                                
+                                                                
+                                                                </td>   
+                                                                <td   style="   height:21px; border: 1px solid lightgray; background-color: white; width:120px; ">
+                                                                         
+                                                                  
+                                                                  <button type="button"  title="Issue to Line" class="update-book btn btn-sm btn-default"  style="border:1px gray solid; font-size:10px; width:20px; height:20px; padding-top:1px; padding-left:1px;"   hx-get="{% url 'DetailsMasterListPurchase' %}"   hx-target="#dialog"    >
+                                                                    <span class="fa fa-share"></span>
+                                                                  </button> 
+                                                                </td> 
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                
+                                                                  <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.scurrentstatus}} </h6>
+                
+                
+                                                                </td>   
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                
+                                                                  <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.slastcalibdate}} </h6>
+                
+                
+                                                                </td>   
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                  
+                                                                  {% if Masterinstrumentslist_listA.dtnextcalib.date < CurDateNow.date %}
+
+                                                                  <h6 style="background-color:red;  color:white;  font-weight:bold; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.snextcalibdate}} </h6>
+                                                                  
+                                                                  {% elif Masterinstrumentslist_listA.dtnextcalib.date >= CurDateNow.date and Masterinstrumentslist_listA.dtnextcalib.date <= 30DateNow.date %}
+
+                                                                  <h6 style="background-color:skyblue;  color:white;   font-weight:bold;  text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.snextcalibdate}} </h6>
+                                                                  
+
+                                                                  {% else %}
+
+                                                                  <h6 style="  color:darkgreen; text-align: center; font-weight:bold;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.snextcalibdate}} </h6>
+                                                                  
+
+
+                                                                  
+                                                                  {% endif %}
+                
+                                                                </td>   
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                
+                                                                  <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.sissueddate}} </h6>
+                
+                
+                                                                </td>   
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                
+                                                                  <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.sreturneddate}} </h6>
+                
+                
+                                                                </td>   
+
+                                                            </tr> 
+                     
+                                                          {% endfor %}
+                                                    
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>  
+                                    
+                                          <center style="margin-top:15px;">
+
+
+                                            <ul class="pagination">
+                                                {% if Masterinstrumentslist_lists.has_previous %}
+                                                  <li><a href="?page={{ Masterinstrumentslist_lists.previous_page_number }}">&laquo;</a></li>
+                                                {% else %}
+                                                  <li class="disabled"><span>&laquo;</span></li>
+                                                {% endif %}
+                                                {% for i in Masterinstrumentslist_lists.paginator.page_range %}
+                                                  {% if Masterinstrumentslist_lists.number == i %}
+                                                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                                  {% else %}
+                                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                  {% endif %}
+                                                {% endfor %}
+                                                {% if Masterinstrumentslist_lists.has_next %}
+                                                  <li><a href="?page={{ Masterinstrumentslist_lists.next_page_number }}">&raquo;</a></li>
+                                                {% else %}
+                                                  <li class="disabled"><span>&raquo;</span></li>
+                                                {% endif %}
+                                              </ul>
+                                            </center>
+                                    
+                                      {% else %}
+                                                
+                                            <table style="width:100%;    ">
+                                                <tr class="row" style="width:100%;  height:40px;">
+                                                    <td class="col"  style="padding-top:10px; width:2%; background-color: white;">
+                                                            
+                                                        
+                                                    </td> 
+                                                    <td class="col"  style="padding-top:10px; width:90%; background-color: white;">
+                                                        
+                                                    
+                                                        <p>No INstrument / Gauge List are available.</p> 
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:8%; background-color: white;">
+                                                        
+                                                      
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+                                      {% endif %}
+                                    </div>    
+                                </div>
+
+ 
+
+
+
+
+                            </div>
+                        </div> 
+                        
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</form>
+
+
+{% endblock %}
+
+
+

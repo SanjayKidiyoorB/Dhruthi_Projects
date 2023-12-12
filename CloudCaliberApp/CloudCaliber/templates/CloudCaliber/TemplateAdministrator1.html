@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %}{% endblock %} Cloud Caliber - Metrology Asset Calibration, Inventory & Traceablity Management</title>
+        {% load static %} 
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/site.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/Style1.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/Style2.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/TabSS.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/bootstrap/bootstrap.min.css' %}"/> 
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/sb-admin-2.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/Select2022.css' %}"/>
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.1/css/all.css">
+        <link rel="shortcut icon" href="{% static 'favicon.png' %}"/>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.14/css/bootstrap-select.min.css" />
+    
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+       
+       
+     <style>
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: rgb(9, 101, 98);
+  color:white;
+  border-radius: 50%;
+  display: inline-block;
+  font-size:12px;
+  padding-left:5px;
+
+}
+
+
+        select {
+            width: 50%; 
+            min-height:30px;
+            background-color: white !important;
+            border-style: solid;
+            border-left-width: 3px;
+            border-left-color: #00DDDD;
+            border-top: 1px;
+            border-bottom: 1px;
+            border-right: 1px;
+            border-top: 1px;
+            border-bottom: 1px;
+            border-right: 3px;
+            border-top-color: #00DDDD;
+            border-bottom-color: #00DDDD;
+            border-right-color: #00DDDD;
+            border:1px black solid;
+            color: black;
+            font-size: 12px;
+            font-weight: normal;
+            padding-top: 0px;
+            padding-left: 6px;
+            padding-bottom: 0px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border:1px black solid ;
+        }
+        .selectpicker{
+            width: 50%; 
+            min-height:24px; 
+            background-color: white !important;
+            border-style: solid;
+            border-left-width: 3px;
+            border-left-color: #00DDDD;
+            border-top: 1px;
+            border-bottom: 1px;
+            border-right: 1px;
+            border-top-color: #00DDDD;
+            border-bottom-color: #00DDDD;
+            border-right-color: #00DDDD;
+            color: black;
+            font-size: 12px;
+            font-weight: normal;
+            padding-top: 2px;
+            padding-left: 6px;
+            padding-bottom: 0px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border:1px gray solid;
+        } 
+        .bootstrap-select {
+        width: 98% !important; 
+        font-size:12px;  
+        } 
+        .wia-filter-value {
+            width: 50%; 
+            background-color: white !important;
+            border-style: solid;
+            border-left-width: 3px;
+            border-left-color: #00DDDD;
+            border-top: none;
+            border-bottom: none;
+            border-right: none;
+            color: white;
+            font-size: 12px;
+            padding-top: 3px;
+            padding-left: 6px;
+            padding-bottom: 0px;
+            font-weight: normal;
+            padding-left: 6px;
+        }
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 1px;
+        }
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+     </style>
+     
+
+
+    <script>
+        $(document).ready(function(){
+            if($('#bIDFlowA12:checked').length){
+                $('#bIDFlowA1').attr('disabled',true); // On Load, should it be read only?
+            }
+
+            $('#bIDFlowA12').change(function(){
+                if($('#bIDFlowA1:checked').length){
+                    $('#bIDFlowA1').attr('disabled',true); //If checked - Read only
+                }else{
+                    $('#bIDFlowA1').attr('disabled',false);//Not Checked - Normal
+                }
+            });
+        }); 
+    </script>
+
+
+     <script>
+		$(function () {
+			$('#lstFruits').multiselect({
+				includeSelectAllOption: true
+			});
+			$('#btnSelected').click(function () {
+				var selected = $("#lstFruits option:selected");
+				var message = "";
+				selected.each(function () {
+					message += $(this).text() + " " + $(this).val() + "\n";
+				});
+			});
+		});
+	</script>
+        
+        <script src="{% static 'js/select2022.js' %}"></script> 
+        <style>
+            /* width */
+            ::-webkit-scrollbar {
+              width: 10px;
+              height: 10px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+              box-shadow: inset 0 0 5px grey; 
+              border-radius: 10px;
+            }
+             
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: rgb(99, 140, 163); 
+              border-radius: 10px;
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background: rgb(99, 140, 163); 
+            }
+        </style>
+        <style>
+         .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 13px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+            }
+        </style>
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            
+            .callout { 
+            bottom: 35px;
+            right: 20px;
+            margin-left: 20px;
+            max-width: 300px;
+            z-index: 1000;
+            position: absolute;
+            }
+            
+            .callout-header {
+            padding: 25px 15px;
+            background: #555;
+            font-size: 30px;
+            color: white;
+            }
+            
+            .callout-container {
+            padding: 15px;
+            background-color: #ccc;
+            color: black
+            }
+            
+            .closebtn {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            }
+            
+            .closebtn:hover {
+            color: lightgrey;
+            }
+        </style>
+
+
+    </head>
+
+    <body> 
+            <div class="top-row hidewhenPrint" style="width:100%;   margin:auto;  background-color: rgb(41, 176, 255); background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 70%); color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.4); z-index: 1030; ">
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                        <img src="{% static 'CloudCaliber/Images/Dhruthilogo.png' %}" alt="logo" width="100" height="48">
+                    
+                    </div>
+                    <div class="col">
+                        
+                        <img src="{% static 'CloudCaliber/Images/logo.png' %}" alt="logo" width="100" height="48">
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div> 
+            </div>
+            
+            <aside class="sidebar" style="min-width:200px;">
+                <nav class="nav">
+                <ul>
+                    <li><a href="{% url 'AdminMasterlistDashboard' %}">Masterlist</a></li>
+                    <li class="active"><a href="{% url 'GaugeAdministrator' %}">Administrator</a></li> 
+                </ul>
+                </nav>
+            </aside>
+            <div class="body-content">
+                {% block content %}
+                {% endblock %}
+                <hr/>
+                <footer>
+                    <p>© 2022 - Dhruthi Technologies</p>
+                </footer>
+            </div> 
+    </body>
+</html>

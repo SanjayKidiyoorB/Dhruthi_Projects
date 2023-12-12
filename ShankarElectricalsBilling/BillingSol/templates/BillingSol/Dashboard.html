@@ -1,0 +1,29 @@
+{% extends "BillingSol/templateuser.html" %}
+{% load static %} 
+{% block title %}
+Welcome to
+{% endblock %}
+{% block content %}
+
+{% for message in messages %}       
+    
+    <div class="callout">
+        <div class="callout-header">Notifications</div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        <div class="callout-container">
+        
+            <div class="alert alert-danger alert-dismissible">
+                <p> {{ message }}</p>
+                </div>
+        </div>
+    </div>
+
+
+
+{% endfor %}
+ 
+     
+   
+
+
+{% endblock %}

@@ -1,0 +1,2892 @@
+{% extends "CloudCaliber/TemplateAdministratorA.html" %}
+{% block title %}
+Add New User List
+{% endblock %}
+{% block content %}
+
+
+
+
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST">
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:710px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:710px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+
+
+
+
+
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; height:20%"> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master - Add New User List</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+ 
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col" style="padding-top: 10px; height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                            
+                                            <div class="row">
+ 
+                                                <div class="col-2">
+
+                                                       
+                                                    <h6  style="color:black; text-align: right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Employee Name</h6> 
+                                                                                        
+                                                </div>
+                                                <div class="col-4">
+
+                                                    <input type="text"  name="txtUserName" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                                                                        
+                                                </div>       
+                                                <div class="col-2">
+
+                                                       
+                                                    <h6  style="color:black; text-align: right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Current Unit</h6> 
+                                                                                         
+                                                </div>
+                                                <div class="col-3">
+
+                                                    {% if Unitlist_list %}  
+                                                                                  
+                                                        <select name="cmbPlant1" id="cmbPlant1" class="form-control select classic selectpicker" data-show-subtext="true" data-live-search="true" style="Top:5px; color :rgb(3, 44, 90); text-shadow: 1px 1px #ffffff ;  background-color: #f1e9e9; padding: 0 0 0 0; color:black;   min-width:100%;   font-size: 10px; " >
+                                                            
+                                                            <option value="0" disabled="true" selected> --- Select Plant for Login --- </option> 
+                                                            {% for Unitlist_list in Unitlist_list %}   
+ 
+
+                                                                    <option value="{{ Unitlist_list.lplantid }}">{{Unitlist_list.splantno}} || {{Unitlist_list.splantname}} </option>
+                                                         
+                                                            {% endfor %}
+                                                        </select>
+                                                    
+                                                    {% else %}
+                                                    
+                                                        <select name="PlantEmpty" id="cmbPlantEmpty1" class="select classic" style="color:black;   width:295px; height:32px;  font-size: 12px;" >
+                                                            <option  value="0"  disabled="true" selected >No Plant is Available</option> 
+                                                        </select>
+
+                                                    {% endif %}                                        
+                                                                                                 
+                                                </div>
+                                                <div class="col-1">                                              
+                                                </div>  
+
+                                            </div> 
+
+                                        </div> 
+                                    </div> 
+                                </div> 
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+ 
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col" style="padding-top: 10px; height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                            
+                                            <div class="row">
+ 
+                                                <div class="col-2">
+
+                                                       
+                                                    <h6  style="color:black; text-align: right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Employee Email Address</h6> 
+                                                                                        
+                                                </div>
+                                                <div class="col-4">
+
+                                                    <input type="text"  name="txtEmailAddress" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                                                                        
+                                                </div>       
+                                                <div class="col-2">
+
+                                                       
+                                                    <h6  style="color:black; text-align: right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Employee Mobile #</h6> 
+                                                                                         
+                                                </div>
+                                                <div class="col-3">
+
+                                                    <input type="text"  name="txtMobile" class="form-input basic " required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                              
+                                                                                                       
+                                                                                                 
+                                                </div>
+                                                <div class="col-1">                                              
+                                                </div>  
+
+                                            </div> 
+
+                                        </div> 
+                                    </div> 
+                                </div> 
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+ 
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col" style="padding-top: 10px; height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                            
+                                            <div class="row">
+ 
+                                                <div class="col-2">
+
+                                                       
+                                                    <h6  style="color:black; text-align: right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Employee Id No.</h6> 
+                                                                                        
+                                                </div>
+                                                <div class="col-4">
+
+                                                    <input type="text"  name="txtEmployeeId" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                                                                        
+                                                </div>       
+                                                <div class="col-2">
+
+                                                       
+                                                    <h6  style="color:black; text-align: right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Initial Password</h6> 
+                                                                                         
+                                                </div>
+                                                <div class="col-3">
+
+                                                    <input type="password"  name="txtPassword" class="form-input basic " readonly     tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                                 
+                                            <div style="display:none;"     >       
+                                                <table style="width:100%; height:100%">
+                                                    <tr class="row" style="width:100%; height:20%"> 
+                                                        <td class=""  style="width:100%;">
+                                                                
+                                                            <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Unit</h6> 
+                                            
+                                                        </td>  
+                                                        <td class=""  style="width:100%;">
+                                                             
+                                                            {% if Unitlist_list %}  
+                                                                                    
+                                                            <select name="cmbPlant1" id="cmbPlant1" class="select classic selectpicker" data-show-subtext="true" data-live-search="true" style="Top:5px; color :rgb(3, 44, 90); text-shadow: 1px 1px #ffffff ;  background-color: #f1e9e9; padding: 0 0 0 0; color:black;   min-width:100%;   font-size: 10px; " >
+                                                                
+                                                                <option value="0" disabled="true" selected> --- Select Plant for Login --- </option> 
+                                                                {% for Unitlist_list in Unitlist_list %}  
+                                                                    <option value="{{ Unitlist_list.lplantid }}">{{Unitlist_list.splantno}} || {{Unitlist_list.splantname}} </option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        
+                                                        {% else %}
+                                                        
+                                                            <select name="PlantEmpty" id="cmbPlantEmpty1" class="select classic" style="color:black;   width:295px; height:32px;  font-size: 12px;" >
+                                                                <option  value="0"  disabled="true" selected >No Plant is Available</option> 
+                                                            </select>
+    
+                                                        {% endif %}
+                                                        </td> 
+                                                    </tr>
+                                                </table>
+                                                </div>                                
+                                                                                                 
+                                                </div>
+                                                <div class="col-1">  
+                                                    <input type="submit" name="cmbReset"  value="Re-Set" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                                                                                
+                                                </div>  
+
+                                            </div> 
+
+                                        </div> 
+                                    </div> 
+                                </div>  
+
+                                
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+ 
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col" style="padding-top: 10px; height: 80px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:80px;   ">
+                                            
+                                            <div class="row">
+ 
+                                                <div class="col-1">
+
+                                                                                     
+                                                </div>
+                                                <div class="col-2">
+  
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Active Users</h6> 
+                                        
+                                                    {% if    AdminUser_listOBJ.bactive == 1  %} 
+                                                        <input type="checkbox" id="bactive1" name="bactive" value="bactive"  checked   onclick="disableSelectDiv();">
+        
+                                                    {% else %}
+                                                        <input type="checkbox" id="bactive1" name="bactive" value="bactive"    onclick="disableSelectDiv();" >
+        
+                                                    {% endif %}    
+                                                                                                        
+                                                </div>       
+                                                <div class="col-3">
+
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Administrator Access</h6> 
+                                                                         
+                                                                 
+                                                    {% if    AdminUser_listOBJ.badmin == 1  %} 
+                                                        <input type="checkbox" id="badmin1" name="badmin" value="badmin"  checked   onclick="disableSelectDiv();">
+        
+                                                    {% else %}
+                                                        <input type="checkbox" id="badmin1" name="badmin" value="badmin"    onclick="disableSelectDiv();" >
+        
+                                                    {% endif %}   
+
+                                                </div>
+                                                <div class="col-3">
+                      
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Only MasterList Search Access</h6> 
+                                                                         
+                                                                 
+                                                    {% if    AdminUser_listOBJ.bmasterlistonlyallplant == 1  %} 
+                                                        <input type="checkbox" id="bmasterlistonlyallplant1" name="bmasterlistonlyallplant" value="bmasterlistonlyallplant"  checked   onclick="disableSelectDiv();">
+        
+                                                    {% else %}
+                                                        <input type="checkbox" id="bmasterlistonlyallplant1" name="bmasterlistonlyallplant" value="bmasterlistonlyallplant"     onclick="disableSelectDiv();">
+        
+                                                    {% endif %}  
+
+                                                </div> 
+                                                <div class="col-2">
+                      
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Access Matrix</h6> 
+                                                                         
+                                                                 
+                                                    {% if    AdminUser_listOBJ.bmatrix == 1  %} 
+                                                        <input type="checkbox" id="bmatrixA" name="bmatrix" value="bmatrix"  checked   onclick="disableSelectDiv();">
+        
+                                                    {% else %}
+                                                        <input type="checkbox" id="bmatrixA" name="bmatrix" value="bmatrix"   onclick="disableSelectDiv();"  >
+        
+                                                    {% endif %}         
+                                                              
+                                                    <script>
+                                                        window.onload = function() {
+
+                                                            disableSelectDiv(); 
+
+                                                        }
+                                                    </script>
+                                                    <script>
+                                                        function disableSelectDiv() { 
+                                                            var divA1 = document.getElementById('divMatrix');
+                                                            divA1.style.display = "none";
+                                                            var bmatrixA = document.getElementById('bmatrixA'); 
+                                                            if(bmatrixA.checked==true)
+                                                            { 
+                                                                divA1.style.display = "block";
+                                                            } 
+                                                        }
+                                                    </script>                                   
+                                                </div> 
+                                                <div class="col-1">
+                      
+                                                                                                 
+                                                </div> 
+
+                                            </div> 
+
+                                        </div> 
+                                    </div> 
+                                </div>  
+
+                                
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+ 
+ 
+ 
+                                <div class="container"   id="divMatrix">
+                                    <div class="row">
+                                        <div class="col" style="padding-left:10px; padding-top: 10px; height: 70px; box-shadow: 2px 2px lightgray; background-color: #92caff;     ">
+                                            
+                                            <div class="row">
+ 
+                                                <div class="col-3" style="background-color: #92caff; height:60px; border: 1px gray solid;">
+
+                                                       
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plants </h6> 
+                                                                                        
+                                                </div>
+                                                
+                                                <div class="col-1" style="background-color: #92caff; height:60px; border: 1px gray solid;">
+
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">
+                                                        All Features Access</h6> 
+                                                                         
+                                                                                     
+                                                </div>  
+                                                <div class="col-1" style="background-color: #92caff; height:60px; border: 1px gray solid;">
+
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Only Calibration Access</h6> 
+                                                                         
+                                                                                     
+                                                </div> 
+                                                <div class="col-1" style="background-color: #92caff; height:60px; border: 1px gray solid;">
+
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Only MSA Access</h6> 
+                                                                         
+                                                                                     
+                                                </div> 
+                                                <div class="col-1" style="background-color: #92caff; height:60px; border: 1px gray solid;">
+
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Only Stores Access</h6> 
+                                                                         
+                                                                                     
+                                                </div> 
+                                                <div class="col-1" style="background-color: #92caff; height:60px; border: 1px gray solid;">
+
+                                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Read-only Access</h6> 
+                                                                         
+                                                                                     
+                                                </div>  
+                                                <div class="col-1" style="background-color: #92caff; height:60px; border: 1px gray solid;">
+             
+                                                                                     
+                                                </div>  
+
+                                            </div> 
+
+                                        </div> 
+                                    </div>  
+                                    
+                                                        
+                                    {% if  lUnitId1 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+    
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId1" class="form-input basic"  value="{{lUnitId1}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName1}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                                
+                                                            <input type="checkbox" id="ballfeatures1A" name="ballfeatures1" value="ballfeatures1"     >
+                   
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+  
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration1A" name="bcalibration1" value="bcalibration1"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa1A" name="bmsa1" value="bmsa1"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                              
+            
+                                                        
+                                                            <input type="checkbox" id="bstores1A" name="bstores1" value="bstores1"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly1A" name="breadonly1" value="breadonly1"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                    {% if  lUnitId2 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+    
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId2" class="form-input basic"  value="{{lUnitId2}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName2}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                                
+                                                            <input type="checkbox" id="ballfeatures2A" name="ballfeatures2" value="ballfeatures2"     >
+                    
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+  
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration2A" name="bcalibration2" value="bcalibration2"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa2A" name="bmsa2" value="bmsa2"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                              
+            
+                                                        
+                                                            <input type="checkbox" id="bstores2A" name="bstores2" value="bstores2"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly2A" name="breadonly2" value="breadonly2"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                        {% endif %}
+                                     
+                                    {% if  lUnitId3 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId3" class="form-input basic"  value="{{lUnitId3}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName3}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                            <input type="checkbox" id="ballfeatures3A" name="ballfeatures3" value="ballfeatures3"     >
+                   
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration3A" name="bcalibration3" value="bcalibration3"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa3A" name="bmsa3" value="bmsa3"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores3A" name="bstores3" value="bstores3"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+                                                        
+                                                            <input type="checkbox" id="breadonly3A" name="breadonly3" value="breadonly3"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId4 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId4" class="form-input basic"  value="{{lUnitId4}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName4}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                            <input type="checkbox" id="ballfeatures4A" name="ballfeatures4" value="ballfeatures4"     >
+                    
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration4A" name="bcalibration4" value="bcalibration4"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa4A" name="bmsa4" value="bmsa4"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="bstores4A" name="bstores4" value="bstores4"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly4A" name="breadonly4" value="breadonly4"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId5 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId5" class="form-input basic"  value="{{lUnitId5}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName5}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                            <input type="checkbox" id="ballfeatures5A" name="ballfeatures5" value="ballfeatures5"     >
+                      
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration5A" name="bcalibration5" value="bcalibration5"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+                                                        
+                                                            <input type="checkbox" id="bmsa5A" name="bmsa5" value="bmsa5"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores5A" name="bstores5" value="bstores5"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly5A" name="breadonly5" value="breadonly5"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId6 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId6" class="form-input basic"  value="{{lUnitId6}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName6}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                           
+                                                            <input type="checkbox" id="ballfeatures6A" name="ballfeatures6" value="ballfeatures6"     >
+                    
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bcalibration6A" name="bcalibration6" value="bcalibration6"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa6A" name="bmsa6" value="bmsa6"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores6A" name="bstores6" value="bstores6"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly6A" name="breadonly6" value="breadonly6"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+
+                                        {% endif %}
+                                        
+                                    {% if  lUnitId7 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId7" class="form-input basic"  value="{{lUnitId7}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName7}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                            <input type="checkbox" id="ballfeatures7A" name="ballfeatures7" value="ballfeatures7"     >
+                    
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                            <input type="checkbox" id="bcalibration7A" name="bcalibration7" value="bcalibration7"     >
+                                             
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+                                                            <input type="checkbox" id="bmsa7A" name="bmsa7" value="bmsa7"     >
+                                              
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bstores7A" name="bstores7" value="bstores7"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+                                                        
+                                                            <input type="checkbox" id="breadonly7A" name="breadonly7" value="breadonly7"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                    {% endif %}
+
+                                        
+                                    {% if  lUnitId8 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId8" class="form-input basic"  value="{{lUnitId8}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName8}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures8A" name="ballfeatures8" value="ballfeatures8"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration8A" name="bcalibration8" value="bcalibration8"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+                                                        
+                                                            <input type="checkbox" id="bmsa8A" name="bmsa8" value="bmsa8"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores8A" name="bstores8" value="bstores8"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+                                                        
+                                                            <input type="checkbox" id="breadonly8A" name="breadonly8" value="breadonly8"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+
+                                        {% endif %}
+                                        
+                                    {% if  lUnitId9 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId9" class="form-input basic"  value="{{lUnitId9}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName9}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures9A" name="ballfeatures9" value="ballfeatures9"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration9A" name="bcalibration9" value="bcalibration9"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bmsa9A" name="bmsa9" value="bmsa9"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores9A" name="bstores9" value="bstores9"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+             
+                                                        
+                                                            <input type="checkbox" id="breadonly9A" name="breadonly9" value="breadonly9"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId10 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId10" class="form-input basic"  value="{{lUnitId10}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName10}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="ballfeatures10A" name="ballfeatures10" value="ballfeatures10"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bcalibration10A" name="bcalibration10" value="bcalibration10"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+                                                        
+                                                            <input type="checkbox" id="bmsa10A" name="bmsa10" value="bmsa10"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="bstores10A" name="bstores10" value="bstores10"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                               
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly10A" name="breadonly10" value="breadonly10"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+
+                                        {% endif %}
+
+                                    
+                                                        
+                                    {% if  lUnitId11 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+    
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId11" class="form-input basic"  value="{{lUnitId11}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName11}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                                
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures11A" name="ballfeatures11" value="ballfeatures11"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+  
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration11A" name="bcalibration11" value="bcalibration11"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa11A" name="bmsa11" value="bmsa11"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                              
+            
+                                                        
+                                                            <input type="checkbox" id="bstores11A" name="bstores11" value="bstores11"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+                                                        
+                                                            <input type="checkbox" id="breadonly11A" name="breadonly11" value="breadonly11"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                        {% endif %}
+
+
+                                    {% if  lUnitId12 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+    
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId12" class="form-input basic"  value="{{lUnitId12}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName12}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                                
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures12A" name="ballfeatures12" value="ballfeatures12"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+  
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration12A" name="bcalibration12" value="bcalibration12"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa12A" name="bmsa12" value="bmsa12"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+  
+            
+                                                        
+                                                            <input type="checkbox" id="bstores12A" name="bstores12" value="bstores12"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly12A" name="breadonly12" value="breadonly12"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                        {% endif %}
+                                     
+                                    {% if  lUnitId13 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId13" class="form-input basic"  value="{{lUnitId13}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName13}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures13A" name="ballfeatures13" value="ballfeatures13"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bcalibration13A" name="bcalibration13" value="bcalibration13"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa13A" name="bmsa13" value="bmsa13"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="bstores13A" name="bstores13" value="bstores13"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly13A" name="breadonly13" value="breadonly13"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId14 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId14" class="form-input basic"  value="{{lUnitId14}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName14}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures14A" name="ballfeatures14" value="ballfeatures14"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration14A" name="bcalibration14" value="bcalibration14"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+                                                        
+                                                            <input type="checkbox" id="bmsa14A" name="bmsa14" value="bmsa14"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bstores14A" name="bstores14" value="bstores14"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+             
+                                                        
+                                                            <input type="checkbox" id="breadonly14A" name="breadonly14" value="breadonly14"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                        {% endif %}
+
+
+                                        
+                                    {% if  lUnitId15 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId15" class="form-input basic"  value="{{lUnitId15}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:215px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName15}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="ballfeatures15A" name="ballfeatures15" value="ballfeatures15"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bcalibration15A" name="bcalibration15" value="bcalibration15"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa15A" name="bmsa15" value="bmsa15"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores15A" name="bstores15" value="bstores15"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly15A" name="breadonly15" value="breadonly15"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId16 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId16" class="form-input basic"  value="{{lUnitId16}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h16  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName16}}</h16> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="ballfeatures16A" name="ballfeatures16" value="ballfeatures16"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration16A" name="bcalibration16" value="bcalibration16"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa16A" name="bmsa16" value="bmsa16"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="bstores16A" name="bstores16" value="bstores16"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly16A" name="breadonly16" value="breadonly16"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId17 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId17" class="form-input basic"  value="{{lUnitId17}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName17}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures17A" name="ballfeatures17" value="ballfeatures17"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration17A" name="bcalibration17" value="bcalibration17"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa17A" name="bmsa17" value="bmsa17"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores17A" name="bstores17" value="bstores17"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+                                                        
+                                                            <input type="checkbox" id="breadonly17A" name="breadonly17" value="breadonly17"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId18 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId18" class="form-input basic"  value="{{lUnitId18}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName18}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="ballfeatures18A" name="ballfeatures18" value="ballfeatures18"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration18A" name="bcalibration18" value="bcalibration18"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+                                                        
+                                                            <input type="checkbox" id="bmsa18A" name="bmsa18" value="bmsa18"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores18A" name="bstores18" value="bstores18"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+                                                        
+                                                            <input type="checkbox" id="breadonly18A" name="breadonly18" value="breadonly18"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId19 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId19" class="form-input basic"  value="{{lUnitId19}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName19}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures19A" name="ballfeatures19" value="ballfeatures19"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration19A" name="bcalibration19" value="bcalibration19"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa19A" name="bmsa19" value="bmsa19"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+            
+                                                        
+                                                            <input type="checkbox" id="bstores19A" name="bstores19" value="bstores19"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly19A" name="breadonly19" value="breadonly19"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId20 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId20" class="form-input basic"  value="{{lUnitId20}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName20}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="ballfeatures20A" name="ballfeatures20" value="ballfeatures20"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                        
+                                                            <input type="checkbox" id="bcalibration20A" name="bcalibration20" value="bcalibration20"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa20A" name="bmsa20" value="bmsa20"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                             
+                                                        
+                                                            <input type="checkbox" id="bstores20A" name="bstores20" value="bstores20"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly20A" name="breadonly20" value="breadonly20"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+
+
+
+
+                                        {% endif %}
+
+                                    
+                                                        
+                                    {% if  lUnitId21 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+    
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId21" class="form-input basic"  value="{{lUnitId21}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName21}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                                
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures21A" name="ballfeatures21" value="ballfeatures21"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+  
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration21A" name="bcalibration21" value="bcalibration21"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                        
+                                                            <input type="checkbox" id="bmsa21A" name="bmsa21" value="bmsa21"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                              
+            
+                                                        
+                                                            <input type="checkbox" id="bstores21A" name="bstores21" value="bstores21"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                 
+                                                        
+                                                            <input type="checkbox" id="breadonly21A" name="breadonly21" value="breadonly21"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+
+                                        {% endif %}
+                                    
+
+
+                                    {% if  lUnitId22 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+    
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId22" class="form-input basic"  value="{{lUnitId22}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                             
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName22}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                                
+                                                        
+                                                            <input type="checkbox" id="ballfeatures22A" name="ballfeatures22" value="ballfeatures22"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+  
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration22A" name="bcalibration22" value="bcalibration22"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                           
+                                
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa22A" name="bmsa22" value="bmsa22"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+                                                             
+                                                     
+                                                        
+                                                            <input type="checkbox" id="bstores22A" name="bstores22" value="bstores22"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                  
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly22A" name="breadonly22" value="breadonly22"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                        {% endif %}
+                                     
+                                    {% if  lUnitId23 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId23" class="form-input basic"  value="{{lUnitId23}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName23}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures23A" name="ballfeatures23" value="ballfeatures23"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration23A" name="bcalibration23" value="bcalibration23"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa23A" name="bmsa23" value="bmsa23"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                        
+                                                        
+                                                            <input type="checkbox" id="bstores23A" name="bstores23" value="bstores23"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly23A" name="breadonly23" value="breadonly23"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                        {% endif %}
+
+
+                                        
+                                    {% if  lUnitId24 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId24" class="form-input basic"  value="{{lUnitId24}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName24}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                        
+                                                        
+                                                            <input type="checkbox" id="ballfeatures24A" name="ballfeatures24" value="ballfeatures24"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration24A" name="bcalibration24" value="bcalibration24"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                         
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa24A" name="bmsa24" value="bmsa24"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="bstores24A" name="bstores24" value="bstores24"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly24A" name="breadonly24" value="breadonly24"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId25 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId25" class="form-input basic"  value="{{lUnitId25}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:225px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName25}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures25A" name="ballfeatures25" value="ballfeatures25"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+ 
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration25A" name="bcalibration25" value="bcalibration25"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                       
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa25A" name="bmsa25" value="bmsa25"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="bstores25A" name="bstores25" value="bstores25"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly25A" name="breadonly25" value="breadonly25"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                        {% endif %}
+
+
+                                        
+                                    {% if  lUnitId26 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId26" class="form-input basic"  value="{{lUnitId26}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h26  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName26}}</h26> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                     
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures26A" name="ballfeatures26" value="ballfeatures26"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration26A" name="bcalibration26" value="bcalibration26"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                     
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa26A" name="bmsa26" value="bmsa26"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                    
+            
+                                                        
+                                                            <input type="checkbox" id="bstores26A" name="bstores26" value="bstores26"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly26A" name="breadonly26" value="breadonly26"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+
+                                        
+                                    {% if  lUnitId27 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId27" class="form-input basic"  value="{{lUnitId27}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName27}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures27A" name="ballfeatures27" value="ballfeatures27"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                       
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration27A" name="bcalibration27" value="bcalibration27"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                    
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa27A" name="bmsa27" value="bmsa27"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="bstores27A" name="bstores27" value="bstores27"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                     
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly27A" name="breadonly27" value="breadonly27"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+
+                                        {% endif %}
+                                        
+                                    {% if  lUnitId28 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId28" class="form-input basic"  value="{{lUnitId28}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName28}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures28A" name="ballfeatures28" value="ballfeatures28"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration28A" name="bcalibration28" value="bcalibration28"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa28A" name="bmsa28" value="bmsa28"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                    
+            
+                                                        
+                                                            <input type="checkbox" id="bstores28A" name="bstores28" value="bstores28"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                   
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly28A" name="breadonly28" value="breadonly28"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                    {% endif %}
+
+
+                                        
+                                    {% if  lUnitId29 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId29" class="form-input basic"  value="{{lUnitId29}}" required    tabindex="1"  maxlength="20"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName29}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                     
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures29A" name="ballfeatures29" value="ballfeatures29"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                       
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration29A" name="bcalibration29" value="bcalibration29"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                       
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa29A" name="bmsa29" value="bmsa29"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="bstores29A" name="bstores29" value="bstores29"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                     
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly29A" name="breadonly29" value="breadonly29"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+                                    
+
+                                    {% endif %}
+                                    
+
+                                        
+                                    {% if  lUnitId30 != lUnitIdA %} 
+
+                                        <div class="row">
+                                            <div class="col" style="padding-left:10px;  height: 30px; box-shadow: 2px 2px lightgray; background-color: white;     ">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-3" style="background-color: white; height:30px; border: 1px gray solid;">
+                                                        
+                                                        <div style="display:none;">
+                                                            
+                                                            <input type="text"  name="lUnitId30" class="form-input basic"  value="{{lUnitId30}}" required    tabindex="1"  maxlength="30"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                        </div>
+                                                        
+                                                        <h6  style="color:black; text-align: Right;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{sUnitName30}}</h6> 
+                                                                                            
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                       
+            
+                                                        
+                                                            <input type="checkbox" id="ballfeatures30A" name="ballfeatures30" value="ballfeatures30"     >
+            
+                                                                 
+                                                                                        
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                       
+            
+                                                        
+                                                            <input type="checkbox" id="bcalibration30A" name="bcalibration30" value="bcalibration30"     >
+            
+                                                                                         
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                        
+                                                       
+            
+                                                        
+                                                            <input type="checkbox" id="bmsa30A" name="bmsa30" value="bmsa30"     >
+            
+                                                                                           
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+
+                                                            
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="bstores30A" name="bstores30" value="bstores30"     >
+            
+                                                                                          
+                                                    </div> 
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+            
+                                                                
+                                                      
+            
+                                                        
+                                                            <input type="checkbox" id="breadonly30A" name="breadonly30" value="breadonly30"     >
+            
+                                                                                       
+                                                    </div>  
+                                                    <div class="col-1" style="background-color: white; height:30px; border: 1px gray solid;">
+                
+                                                                                        
+                                                    </div>  
+
+                                                </div> 
+
+                                            </div> 
+                                        </div>
+
+
+                                    {% endif %}
+                                    
+
+
+
+
+                                </div> 
+ 
+
+
+
+
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:60px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                 
+                                                
+                                                      
+
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+
+
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}

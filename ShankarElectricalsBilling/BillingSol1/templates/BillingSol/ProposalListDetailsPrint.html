@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>Proposal Print</title>
+        {% load static %} 
+        {% load qr_code %} 
+        <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'code-39-font-master/code39_all.css' %}"/>
+      
+            <style type="text/css">
+                @page {size: a4 portrait;  @frame content_frame { left: 10pt; right: 15pt; width: 555pt; top: 5pt; height: 1200pt;}  }
+{% comment %}              
+                @pageFGH {  size: a4; margin: 0.5cm; }
+
+                @pageAA { size: a4 } {% endcomment %}
+ 
+                    </style>
+            </head>
+            <body>
+        
+                
+                
+            <div class="" style="margin:10px;  width:1100px;  height:1138px;  b  >
+                 
+               
+ 
+                
+                <div class="" style="margin:10px;  width:1100px;  height:1138px;   " >
+                 
+                    <table  style="  ">
+                        <tr style="    ">
+            
+                            <td style="height:1138px; ">  
+                                 <img src="static_collected/BillingSol/Images/Business.png" alt="user logo" height="1338px" width="1100px"/>
+                                                    
+                            </td>
+                        </tr>
+                    </table> 
+
+             
+
+
+ 
+            </div>
+
+            <table  style="   ">
+                <tr style="   ">
+    
+                    <td style="height:40px; padding-top:10px;">  
+                    </td>
+                    <td style="height:40px; padding-top:10px;">  
+                            
+                    </td>
+                    <td style="height:40px; padding-top:10px;"> 
+                            
+                    </td>
+                </tr>
+            </table> 
+ 
+
+                
+            <div class="" style="margin:10px;  width:1100px;  height:1138px;   " >
+                
+                <div class="row" chass="height:40px;">
+
+                </div>
+                <table  style="  ">
+                    <tr style="    ">
+        
+                        <td style="height:30px; padding-top:10px;">  
+                        </td>
+                        <td style="height:30px; padding-top:10px;"> 
+                        </td>
+                        <td style="height:30px; padding-top:10px;">
+                        </td>
+                    </tr>
+                </table> 
+
+
+                <table >
+                    <tr >
+        
+                        <td  style=" width:788px; border:1px solid black; height:1101px;  vertical-align: top; ">
+
+                            <table >
+                                <tr style=" width:788px;  height:40px; vertical-align: top;">
+                    
+                                    <td   style="width: 60%%;    height:40px;">
+                                                
+                                                <h5  style="color:black; text-align: right; width: 500px;     font-weight: bold; font-size:12px;">Dhruthi Technologies -  Proposal for     {{Tserviceinvoicelist_list.scategoryofservice }}   {{Tserviceinvoicelist_list.stype1 }} </h5> 
+                                       
+               
+                                           </td>
+                                    <td   style="width:40%;   ">
+             
+                                        <h5  style="color:black; text-align: right;  font-weight: bold; font-size:12px;"> Page 2</h5> 
+                                
+        
+                                    </td>
+                                </tr>
+                            </table> 
+                                <table >
+                                <tr style=" width:788px; height:150px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td   style="width:100%;  ">
+            
+                                        <table  style=" width:750px;  margin:10px;">
+                                            <tr  >
+                                                <td  style="vertical-align: top; margin:10px;">
+                                                    
+                                                    
+                                                    <h4  style="   font-weight: bold;  width: 600px;  float: center;  font-size:13px;     ">  <span style="font-size:11px;">  To : {{Tserviceinvoicelist_list.saddress1site }} </span> <br/>{{Tserviceinvoicelist_list.customername }} <br/> <span style="font-size:11px;">  {{Tserviceinvoicelist_list.saddressclient }} </span></h4> 
+                                             
+                                                </td>
+                                                <td  style="vertical-align: top; margin:10px;">
+                                                    
+                                                    
+                                                    <h4  style="   font-weight: bold;  width: 600px;  float: center;  font-size:13px;     ">  <span style="font-size:11px;">  From : {{Tserviceinvoicelist_list.saddress2site }}  </span><br/> DHRUTHI TECHNOLOGIES <br/> <span style="font-size:11px;">  {{Tserviceinvoicelist_list.scompanyaddress }} <br/> GST No. :  {{Tserviceinvoicelist_list.slocationgstno }} &nbsp;&nbsp;&nbsp;&nbsp;    Pan No. :  {{Tserviceinvoicelist_list.slocationpanno }}  &nbsp;&nbsp;&nbsp;  Phone : 98457 39307 </span></h4> 
+                                            
+                                                </td>
+                                            </tr> 
+                                        </table>
+        
+                                    </td> 
+                                </tr>
+                            </table> 
+        
+ 
+                            <table >
+                                <tr style=" width:788px; height:50px;      border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  >
+                                        <table style="width:100%; ">
+                                        
+                                            <tr class="row" style="width:100%; " >
+
+                                                <td class=""  style="width:100%;   ">
+                                                    
+                                                    <table style="width:100%; ">
+                                
+                                                        <tr class="row" style="width:100%; " >
+
+                                                            <td class=""  style="width:25%;   ">
+ 
+                                                                <h6  style="color: black;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Reference No : <br/> {{Tserviceinvoicelist_list.sinvoicerefno }}</h6> 
+                                                        
+
+                                                            </td> 
+                                                            <td class=""  style="width:20%;   ">
+
+                                                                <h6  style="color: black;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Proposal Date : <br/> {{Tserviceinvoicelist_list.sdate }}</h6> 
+                                                 
+
+                                                            </td>
+                                                            <td class=""  style="width:15%;   ">
+       
+
+                                                                <h6  style="color: black;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Revision # : <br/> {{Tserviceinvoicelist_list.pono }}</h6> 
+                                                 
+                                                            </td> 
+                                                            <td class=""  style="width:35%;   ">
+
+                                                                <h6  style="color: black;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Attention : <br/> {{Tserviceinvoicelist_list.saddress1site }}</h6> 
+                           
+ 
+                                                            </td> 
+                                                        </tr>  
+                                                    </table>
+
+                                                
+                                                
+                                                
+                                                </td> 
+                                            </tr>
+                                        </table>
+
+                                    </td> 
+                                </tr>
+                            </table>
+                            <table >
+                                <tr style=" width:788px; height:30px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  >
+        
+                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">Statement of Confidentiality & Disclaimer</h6> 
+                        
+                                    </td> 
+                                </tr>
+                            </table>
+                            <table >
+                                <tr style=" width:788px; height:90px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  style="width:95%;  " >
+         
+                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">The information contained in this document is confidential and proprietary to M/s Dhruthi Technologies. M/s Dhruthi Technologies submits this information with the understanding that M/s {{Tserviceinvoicelist_list.customername }} will hold it in strict confidence. The contents are not to be disclosed, duplicated or used, in whole or in part, for any purpose other than the evaluation of M/s Dhruthi Technologies qualification or participation in the scope of work identified within this document. <br/> <br/> The obligation of the parties to perform the effort identified in this document is subject to the execution of a written agreement between the parties in accordance with the terms and conditions contained herein. The information included in this Response to Business Proposal has been prepared and included for the purpose of this document only and shall not be construed as a precedent in any other situation outside this proposal and context.</h6> 
+                           
+{% comment %}         
+                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Dispatch To :<br/><span style="font:11px; font-weight:normal"> {{Tserviceinvoicelist_list.customernamesite }} <br/> {{Tserviceinvoicelist_list.saddresssite }}</span> <br/> State Code :<span style="font:11px; font-weight:normal">  {{Tserviceinvoicelist_list.spinsite }}</span> &nbsp;&nbsp;&nbsp;&nbsp; GST # :<span style="font:11px; font-weight:normal"> {{Tserviceinvoicelist_list.sstatesite }}</span> </h6> 
+                                     {% endcomment %}
+                                    </td> 
+                                </td> 
+                                <td    style="width:10%;  ">
+                                </tr>
+                            </table>
+                            
+
+                            <table >
+                                <tr style=" width:708px; height:70px;   border-bottom:1px solid black; vertical-align: top;">
+                     
+{% comment %}                     
+                                        <td style=" width:35%;" >   
+                                            <h6  style="color: black;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Work From :<span style="font:11px; font-weight:normal"> {{Tserviceinvoicelist_list.sfromdate }}</span>  &nbsp;&nbsp;To :<span style="font:11px; font-weight:normal"> {{Tserviceinvoicelist_list.stodate }}</span>  </h6> 
+                                   
+                                        </td>   {% endcomment %}
+                                        <td style=" width:100%;" >
+            
+                                            <h6  style="color: black;  font-weight: bold;  max-width:400pt;  float: left;    font-size: 12px;  ">Work Description :<span style="font:11px; font-weight:normal; max-width:600pt; "> {{Tserviceinvoicelist_list.note1 }}</span>  </h6> 
+                                                
+                                        </td>  
+                                </tr>
+                            </table> 
+                            <table style="  padding:0;">
+                                <tr style=" width:788px; height:40px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  >
+        
+                                        <table style="width:100%;  padding:0;">
+                                        
+                                            <thead  >
+                                                <tr class="row" style="width:100%; padding:0; " >
+
+                                                    <th class=""  style="width:3%;  padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Sl</h6> 
+                                                
+
+                                                    </th> 
+                                                    <th class=""  style="width:30%;  padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Description</h6> 
+                                                
+
+                                                    </th> 
+                                                    <th class=""  style="width:12%; padding:0;  ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Base Price</h6> 
+                                                
+
+                                                    </th>
+                                                    <th class=""  style="width:10%;  padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Discount</h6> 
+                                                
+
+                                                    </th>
+                                                    <th class=""  style="width:8%;  padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Units</h6> 
+                                                
+
+                                                    </th> 
+                                                    <th class=""  style="width:8%;  padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Quantity</h6> 
+                                                
+
+                                                    </th>   
+                                                    <th class=""  style="width:10%;  padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Rate (INR)</h6> 
+                                                
+
+                                                    </th>  
+                                                    <th class=""  style="width:8%; padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Total (INR)</h6> 
+                                                
+
+                                                    </th>   
+                                                    <th class=""  style="width:8%;  padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">GST %</h6> 
+                                                
+
+                                                    </th> 
+                                                    <th class=""  style="width:12%; padding:0;  ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">Grand Total (INR)</h6> 
+                                                
+
+                                                    </th> 
+                                                </tr>
+                                            </thead> 
+                                                    
+            
+                                        </table> 
+                                    </td> 
+                                </tr>
+                            </table>
+                            <table class="top"  style="  padding:0;">
+                                <tr style=" width:788px; height:280px; margin-top:0;padding-top:0;  border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  style="margin-top:0;padding-top:0; vertical-align: top;">
+        
+                                        <table  class="top" style="width:788px; height:20px;  vertical-align: top; margin-top:0;padding:0; ">
+                                            
+                                            <tbody  style="margin-top:0;padding:0;">
+                                                {% for Tserviceinvoicedetailslist_list in Tserviceinvoicedetailslist_list %}
+                                                <tr class="row"    style="margin:0;padding:0; height:25px;">
+
+                                                    <td class=""  style="width:3%;  padding:0; ">
+
+                                                        <h6  style="color: black;    width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  "> {{ forloop.counter }}</h6> 
+                                                
+
+                                                    </td>  
+                                                    <td class=""  style="width:30%; padding:0; ">
+
+                                                        <h6  style="color: black;     width: 130px;  text-align: left;  width: 320px;  text-align:left; font-size: 10px;  ">{{Tserviceinvoicedetailslist_list.sdesc }}</h6> 
+                                                
+
+                                                    </td> 
+                                                    <td class=""  style="width:10%; padding:0; ">
+
+                                                        <h6  style="color: black;       text-align: right;    font-size: 10px;  ">{{Tserviceinvoicedetailslist_list.shsn }}</h6> 
+                                                
+
+                                                    </td>
+                                                    <td class=""  style="width:10%;padding:0;  ">
+
+                                                        <h6  style="color: black;    width: 130px;  text-align: right;  width: 320px;    font-size: 10px;  ">{{Tserviceinvoicedetailslist_list.staxnotify }}</h6> 
+                                                
+
+                                                    </td>
+                                                    <td class=""  style="width:8%; padding:0; ">
+
+                                                        <h6  style="color: black;    width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">{{Tserviceinvoicedetailslist_list.units }}</h6> 
+                                                
+
+                                                    </td> 
+                                                    <td class=""  style="width:8%;padding:0;  ">
+
+                                                        <h6  style="color: black;    width: 130px;   text-align:center;  width: 320px;   font-size: 10px;  "> {{Tserviceinvoicedetailslist_list.qty }}</h6> 
+                                                
+
+                                                    </td>   
+                                                    <td class=""  style="width:10%; padding:0; ">
+
+                                                        <h6  style="color: black;     width: 130px;    text-align:right;   width: 320px;   font-size: 10px;  ">{{Tserviceinvoicedetailslist_list.unitprice|floatformat:"2g"  }}</h6> 
+                                                
+
+                                                    </td>  
+                                                    <td class=""  style="width:10%; padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">{{Tserviceinvoicedetailslist_list.unitprice|floatformat:"2g"  }}</h6> 
+                                                
+
+                                                    </td>   
+                                                    <td class=""  style="width:8%; padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 10px;  ">{{Tserviceinvoicedetailslist_list.dsgst01|floatformat:"2g"  }}</h6> 
+                                                
+
+                                                    </td> 
+                                                    <td class=""  style="width:12%; padding:0; ">
+
+                                                        <h6  style="color: black;  font-weight: bold;  width: 130px;  text-align: center;  width: 320px;   font-size: 11px;  ">{{Tserviceinvoicedetailslist_list.ddescitemtotal|floatformat:"2g"  }}</h6> 
+                                                
+
+                                                    </td> 
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                                    
+            
+                                        </table>  
+
+
+                                    </td> 
+                                </tr>
+                            </table> 
+                            
+                            <table > 
+
+                               
+                                <tr style=" width:788px; height:30px;     text-align: top;">
+                    
+
+                                                    <td class=""  style="width:3%;  ">
+    
+
+                                                    </td> 
+                                                    <td class=""  style="width:20%;  ">
+    
+ 
+                                                        <h6  style="color: black;        text-align:right;   width: 200px;   font-size: 11px;  "> Payment Terms :   </h6> 
+                                            
+                                                    </td> 
+                                                    <td class=""  style="width:70%;   ">
+
+
+    
+
+                                                        <h6  style="color: black;        text-align:left;   width: 100%;   font-size: 11px;  ">   {{Tserviceinvoicelist_list.stermms1  }} </h6> 
+                                                
+                                                    </td>  
+                                                    <td class=""  style="width:4%;  ">
+ 
+
+                                                    </td>   
+                                </tr>  
+
+                               
+                                <tr style=" width:788px; height:30px;         text-align: top;">
+                    
+
+                                                    <td class=""  style="width:3%;  ">
+    
+
+                                                    </td> 
+                                                    <td class=""  style="width:20%;  ">
+    
+
+                                                        <h6  style="color: black;        text-align:right;   width: 200px;   font-size: 11px;  ">Quote Valid Till :   </h6> 
+                                                
+ 
+                                                    </td> 
+                                                    <td class=""  style="width:70%;   ">
+
+    
+
+                                                        <h6  style="color: black;        text-align:left;   width: 100%;   font-size: 11px;  ">  {{Tserviceinvoicelist_list.stermms2  }} </h6> 
+                                                
+                                                    </td>  
+                                                    <td class=""  style="width:4%;  ">
+ 
+
+                                                    </td>   
+                                </tr>
+
+                               
+                                <tr style=" width:788px; height:30px;     text-align: top;">
+                    
+
+                                                    <td class=""  style="width:3%;  ">
+    
+
+                                                    </td> 
+                                                    <td class=""  style="width:20%;  ">
+    
+                                                        <h6  style="color: black;        text-align:right;   width: 200px;   font-size: 11px;  ">License :   </h6> 
+                                                
+ 
+                                                    </td> 
+                                                    <td class=""  style="width:70%;   ">
+
+
+    
+
+                                                        <h6  style="color: black;        text-align:left;   width: 100%;   font-size: 11px;  "> {{Tserviceinvoicelist_list.stermms3  }} </h6> 
+                                                
+                                                    </td>  
+                                                    <td class=""  style="width:4%;  ">
+ 
+
+                                                    </td>   
+ 
+                                </tr>
+
+                               
+                                <tr style=" width:788px; height:30px;     text-align: top;">
+                    
+
+                                                    <td class=""  style="width:3%;  ">
+    
+
+                                                    </td> 
+                                                    <td class=""  style="width:20%;  ">
+    
+                                                        <h6  style="color: black;        text-align:right;   width: 200px;   font-size: 11px;  ">Training & Implementation     </h6> 
+                                                
+ 
+                                                    </td> 
+                                                    <td class=""  style="width:70%;   ">
+
+
+    
+
+                                                        <h6  style="color: black;        text-align:left;   width: 100%;   font-size: 11px;  "> {{Tserviceinvoicelist_list.stermms4  }}   </h6> 
+                                                
+                                                    </td>  
+                                                    <td class=""  style="width:4%;  ">
+ 
+
+                                                    </td>   
+                                </tr>
+
+                               
+                                <tr style=" width:788px; height:30px;     text-align: top;">
+                    
+
+                                                    <td class=""  style="width:3%;  ">
+    
+
+                                                    </td> 
+                                                    <td class=""  style="width:20%;  ">
+    
+                                                        <h6  style="color: black;        text-align:right;   width: 200px;   font-size: 11px;  ">Support :   </h6> 
+                                                
+ 
+                                                    </td> 
+                                                    <td class=""  style="width:70%;   ">
+
+
+    
+
+                                                        <h6  style="color: black;        text-align:left;   width: 100%;   font-size: 11px;  ">    {{Tserviceinvoicelist_list.stermms5  }} </h6> 
+                                                
+                                                    </td>  
+                                                    <td class=""  style="width:4%;  ">
+ 
+
+                                                    </td>   
+                                </tr>
+
+                               
+                                <tr style=" width:788px; height:60px;      vertical-align: top;">
+                    
+
+                                                    <td class=""  style="width:3%;  ">
+    
+
+                                                    </td> 
+                                                    <td class=""  style="width:20%;  vertical-align: top; ">
+    
+                                                        <h6  style="color: black;        text-align:right;   width: 200px;   font-size: 11px;  ">Scope :   </h6> 
+                                                
+ 
+                                                    </td> 
+                                                    <td class=""  style="width:70%;   vertical-align: top; ">
+
+
+    
+
+                                                        <h6  style="color: black;        text-align:left;   width: 100%;   font-size: 11px;  ">   {{Tserviceinvoicelist_list.stermms6  }}</h6> 
+                                                
+                                                    </td>   
+                                                    <td class=""  style="width:4%;  ">
+ 
+
+                                                    </td>   
+                                </tr>
+
+                               
+                                <tr style=" width:788px; height:60px;     vertical-align: top;">
+                    
+
+                                                    <td class=""  style="width:3%;  ">
+    
+
+                                                    </td> 
+                                                    <td class=""  style="width:20%;   vertical-align: top;">
+    
+ 
+                                                        <h6  style="color: black;        text-align:right;   width: 200px;   font-size: 11px;  ">Any Other Terms :   </h6> 
+                                                
+                                                    </td> 
+                                                    <td class=""  style="width:70%;   ">
+
+    
+
+                                                        <h6  style="color: black;        text-align:left;   width: 100%;   font-size: 11px;  ">  {{Tserviceinvoicelist_list.stermms7  }} </h6> 
+                                                
+                                                    </td>  
+                                                    <td class=""  style="width:4%;  ">
+ 
+
+                                                    </td>   
+                                </tr>
+                            </table>
+
+                                 
+                        </td>
+                    </tr>
+                </table>
+
+             
+
+
+ 
+            </div>
+
+
+                
+                
+            <div class="" style="margin:10px;  width:1100px;  height:1138px;   " >
+                
+                <div class="row" chass="height:40px;">
+
+                </div>
+                <table  style="  ">
+                    <tr style="    ">
+        
+                        <td style="height:30px; padding-top:10px;">  
+                        </td>
+                        <td style="height:30px; padding-top:10px;"> 
+                        </td>
+                        <td style="height:30px; padding-top:10px;">
+                        </td>
+                    </tr>
+                </table> 
+
+
+                <table >
+                    <tr >
+        
+                        <td  style=" width:788px; border:1px solid black; height:1101px;  vertical-align: top; ">
+
+                            <table >
+                                <tr style=" width:788px;  height:40px; vertical-align: top;">
+                    
+                                    <td   style="width: 60%%;    height:40px;">
+                                                
+                                                <h5  style="color:black; text-align: right; width: 500px;     font-weight: bold; font-size:12px;">Dhruthi Technologies -  Proposal for     {{Tserviceinvoicelist_list.scategoryofservice }}   {{Tserviceinvoicelist_list.stype1 }} </h5> 
+                                       
+               
+                                           </td>
+                                    <td   style="width:40%;   ">
+             
+                                        <h5  style="color:black; text-align: right;  font-weight: bold; font-size:12px;"> Page 3</h5> 
+                                
+        
+                                    </td>
+                                </tr>
+                            </table>  
+        
+  
+                            <table   style="vertical-align: top;">
+                                <tr style=" width:788px; height:30px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td    style="vertical-align: top;">
+        
+                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">Scope</h6> 
+                        
+                                    </td> 
+                                </tr>
+                            </table> 
+                            
+                            <table   style="vertical-align: top;">
+                                <tr style=" width:788px; height:730px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  style="vertical-align: top;">
+          
+                                        <pre  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 11px;  "> {{Tserviceinvoicelist_list.sprofile1 }}</pre> 
+                         
+                                    </td> 
+                                </tr>
+                            </table> 
+ 
+                        </td>
+                    </tr>
+                </table>
+
+             
+
+
+ 
+            </div>
+
+
+            <div class="" style="margin:10px;  width:1100px;  height:1138px;   " >
+                
+                <div class="row" chass="height:40px;">
+
+                </div>
+                <table  style="  ">
+                    <tr style="    ">
+        
+                        <td style="height:30px; padding-top:10px;">  
+                        </td>
+                        <td style="height:30px; padding-top:10px;"> 
+                        </td>
+                        <td style="height:30px; padding-top:10px;">
+                        </td>
+                    </tr>
+                </table> 
+
+
+                <table >
+                    <tr >
+        
+                        <td  style=" width:788px; border:1px solid black; height:1101px;  vertical-align: top; ">
+
+                            <table >
+                                <tr style=" width:788px;  height:40px; vertical-align: top;">
+                    
+                                    <td   style="width: 60%%;    height:40px;">
+                                                
+                                                <h5  style="color:black; text-align: right; width: 500px;     font-weight: bold; font-size:12px;">Dhruthi Technologies -  Proposal for     {{Tserviceinvoicelist_list.scategoryofservice }}   {{Tserviceinvoicelist_list.stype1 }} </h5> 
+                                       
+               
+                                           </td>
+                                    <td   style="width:40%;   ">
+             
+                                        <h5  style="color:black; text-align: right;  font-weight: bold; font-size:12px;"> Page 4</h5> 
+                                
+        
+                                    </td>
+                                </tr>
+                            </table>  
+        
+  
+                            <table >
+                                <tr style=" width:788px; height:30px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  >
+        
+                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">Our Profile</h6> 
+                        
+                                    </td> 
+                                </tr>
+                            </table> 
+                            
+                            <table >
+                                <tr style=" width:788px; height:230px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  >
+        
+                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">Dhruthi Technologies is thrilled to have this opportunity to propose our Caliber 21 1 Year maintenance for the year 2022-23. We strongly believe, as is elaborated in detail in this proposal document, that we bring all the desired attributes of a reliable partner along with demonstrated successes in providing world-class services.
+                                            We believe our proposal conforms to the entire requirements of the work. We are confident of incorporating all the must have features within the solution. In addition to this response, we are totally open to discussing any further highly recommended and/or nice to have features that may be desired to be added as we evolve the solution. We enthusiastically look forward to the collaboration with M/s. {{Tserviceinvoicelist_list.customername }} to build these solutions understanding the gap in the knowledge between our teams. This response therefore has been tailored to demonstrate creativity at Dhruthi Technologies rather than solution specific features which we believe we understand at the macro level and have therefore been able to arrive at a commercial and effort estimate. <br/> <br/> Statement of Commitment  <br/> <br/> Dhruthi Technologies would like to commit that this relationship with M/s. {{Tserviceinvoicelist_list.customername }} would be regarded as a Full Life Cycle Business, which in other words would be treated as a strategic relationship and would receive the highest attention from the senior management.
+                                            Dhruthi Technologies brings to M/s. {{Tserviceinvoicelist_list.customername }} the aggression, flexibility and swiftness of a start-up along with the maturity and stability. We strongly believe that our experience, combined with our focus on quality, our aggressive pricing, our flexible business model, our willingness to partner and make specific investments for a strategic relationship with M/s. {{Tserviceinvoicelist_list.customername }} combine to provide a compelling value proposition to M/s. {{Tserviceinvoicelist_list.customername }} and their esteem clients, and we will be willing to do all it takes to make the partnership successful. </h6> 
+                        
+                                    </td> 
+                                </tr>
+                            </table> 
+                            <table >
+                                <tr style=" width:788px; height:430px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  >
+        
+                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">      The salient feature of our offering being: Dhruthi Technologies is a true one-stop shop.
+                                            <br/><br/>
+
+                                            · MICROLABS LTD. <br/>· B C INSTRUMENTS PVT. LTD. <br/>· HEATERS INDIA PVT. LTD. <br/>· MOOG CONTROLS PVT. LTD  
+                                            
+                                            · MOOG INDIA TECHNOLOGIES PVT. LTD. <br/>
+                                            · MOOG CONTROL - INTERNATIONAL (CHINA, US & PHILLIPHINES) <br/>
+                                            · QUEST MACHINING AND MANUFACTURING PVT. LTD- AUROSPACE - BELGAUM <br/>
+                                            
+                                            · DEUTSCH INDIA POWER CONNECTORS PRIVATE LIMITED <br/>
+                                            
+                                            · OMNISCIENT ELECTRONICS PVT. LTD. <br/>
+                                            · QUEST MACHINING AND MANUFACTURING PVT. LTD <br/>
+                                             
+                                            · HAMPSON INDUSTRIES PRIVATE LIMITED <br/>
+                                            · WEIR MINERALS INDIA PVT. LTD. <br/>
+                                            · KAR MOBILES LIMITED <br/>
+                                            
+                                            · RANE MADRAS LIMITED <br/>
+                                            
+                                            · RANE DieCast Ltd.<br/>
+                                             · RANE NSK Steering Systems Limited <br/>
+                                            
+                                            · ANKIT FASTENERS PVT LTD. <br/>
+                                            · VISTEON ELECTRONICS Pvt Ltd <br/>
+                                            
+                                            · DANFOSS Industries Pvt. Ltd. <br/>
+                                            · Curtiss Wright Surface Technologies Ind. Pvt. Ltd<br/>
+                                            
+                                            · Nash Industries Ltd. <br/>
+                                            · CARBORUNDUM UNIVERSAL LTD. <br/>
+                                            · Mach Aero Components Pvt Ltd <br/>
+                                            
+                                            · AEQUS PRIVATE LIMITED ·<br/>
+                                             Aerostructures Assemblies India Pvt. Ltd <br/>
+                                            
+                                            · Mando Automotive India Limited <br/>
+                                            
+                                            · MITTER FASTENERS <br/>
+                                            · RITTAL INDIA PVT. LTD. <br/>
+                                            · SHANKAR ELECTRICALS <br/>
+                                            
+                                            · Triton Valves Limited <br/>
+                                            · MICRON INSTRUMENTS PVT LTD. <br/>
+                                            · TRIVENI TURBINE LTD. <br/>
+                                            · MAINI PRECISION PRODUCT PVT. LTD.<br/> 
+                                            · BORGWARNER MORSE SYSTEMS INDIA PVT LTD.<br/> 
+                                            · JSW STEELS LTD <br/>
+                                            
+                                            · TOYOTA KIRLOSKAR AUTO PARTS PVT LTD. <br/>
+                                            · MAHINDRA AEROSPACE INDIA PVT. LTD. <br/>
+                                            · WHIRLPOOL OF INDIA LIMITED
+                                            </h6> 
+                        
+                                    </td> 
+                                </tr>
+                            </table> 
+                            <table >
+                                <tr style=" width:788px; height:230px;   border-bottom:1px solid black; vertical-align: top;">
+                    
+                                    <td  >
+        
+                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  "> {{Tserviceinvoicelist_list.sprofile2 }}</h6> 
+                        
+                                    </td> 
+                                </tr>
+                            </table> 
+ 
+                        </td>
+                    </tr>
+                </table>
+
+             
+
+
+ 
+            </div>
+
+
+
+    </body>
+</html>

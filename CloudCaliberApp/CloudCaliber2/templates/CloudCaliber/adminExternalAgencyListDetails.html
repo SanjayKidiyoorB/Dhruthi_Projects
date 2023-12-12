@@ -1,0 +1,447 @@
+{% extends "CloudCaliber/Template2.html" %}
+{% block title %}
+View / Update Vendor or Enternal Agency List
+{% endblock %}
+{% block content %}
+
+
+
+
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:660px; background-color: white; padding-top: 10px; padding-left: 30px; padding-right: 30px;   ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master - View / Update Vendor or Enternal Agency List</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+
+                                            <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Vendor Name</h6> 
+                                        
+                                            <input type="text"  name="txtVendorName"  value="{{Adminexternalagencylist_list.sdescription}}"  class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                        </div>
+                                        <div class="col">
+                                            
+                                            <div class="row">
+                                                <div class="col">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">for Calibration</h6> 
+                                                   
+ 
+                                                    {% if Adminexternalagencylist_list.bcalib == 1 %}
+                                                    <input type="checkbox" id="bCalibration" name="bCalibration" value="bCalibration"  checked  >
+                                                    {% else %}
+                                                    <input type="checkbox" id="bCalibration" name="bCalibration" value="bCalibration"    >
+                                                    {% endif %}
+
+        
+                                                </div> 
+                                                <div class="col">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">for Purchase</h6> 
+                                          
+                                                    {% if Adminexternalagencylist_list.bmaker == 1 %}
+                                                    <input type="checkbox" id="bPurchaseVendor" name="bPurchaseVendor" value="bPurchaseVendor1"  checked  >
+                                                    {% else %}
+                                                    <input type="checkbox" id="bPurchaseVendor" name="bPurchaseVendor1" value="bPurchaseVendor1"    >
+                                                    {% endif %} 
+
+                                                </div> 
+                                                <div class="col">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">for Service</h6> 
+                                          
+                                                    {% if Adminexternalagencylist_list.bservice == 1 %}
+                                                    <input type="checkbox" id="bService" name="bService" value="bService"  checked  >
+                                                    {% else %}
+                                                    <input type="checkbox" id="bService" name="bService" value="bService"    >
+                                                    {% endif %}   
+
+                                                </div> 
+                                                <div class="col">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">for Inspection</h6> 
+                                          
+                                                    {% if Adminexternalagencylist_list.bmeasurement == 1 %}
+                                                    <input type="checkbox" id="bInspection" name="bInspection" value="bInspection"  checked  >
+                                                    {% else %}
+                                                    <input type="checkbox" id="bInspection" name="bInspection" value="bInspection"    >
+                                                    {% endif %}  
+
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+ 
+                                    <div class="row" style="margin-top: 20px;">
+
+
+
+                                        <div class="col box-Type3" style="height:508px; margin:10px 10px 10px 10px;">
+                                            
+                                            <div class="row">
+                                                <div class="col" style=" margin-left:10px; margin-right:10px;">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Scope of Calibration</h6> 
+                                        
+                                                    <input type="text"  name="txtScopeofCalibration" value="{{Adminexternalagencylist_list.s_o_calib}}"  class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                          
+                                                </div> 
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Basis of Vendor Approval</h6> 
+                                         
+                                                    <select name="BasisofApproval" id="cmbBasisofApproval" class="form-control select classic selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;   min-width:100%; height:32px;  font-size: 12px;" >
+                                                        
+                                                        {% if Adminexternalagencylist_list.sbasisofaffiliation == "NABL Certified" %}
+                                                            <option  value="0"  data-tokens="NABL Certified" selected >NABL Certified</option> 
+                                                        {% else %}
+                                                            <option  value="0"  selected  data-tokens="NABL Certified" selected >NABL Certified</option> 
+                                                        {% endif %}  
+                                                        {% if Adminexternalagencylist_list.sbasisofaffiliation == "Other Certification" %}
+                                                            <option  value="1"  data-tokens="Other Certification"  selected >Other Certification</option>
+                                                        {% else %}
+                                                            <option  value="1"  selected  data-tokens="Other Certification"  selected >Other Certification</option>
+                                                        {% endif %}  
+                                                        {% if Adminexternalagencylist_list.sbasisofaffiliation == "Certification N. A." %}
+                                                            <option  value="2"  data-tokens="Certification N. A."   selected >Certification N. A.</option>
+                                                        {% else %}
+                                                            <option  value="2"  selected   data-tokens="Certification N. A."   selected >Certification N. A.</option>
+                                                        {% endif %}  
+                                                        
+                                                    </select>
+                                                          
+                                                </div> 
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+  
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Approval Certificate Validity</h6> 
+                                        
+                                                    <input type="date"  name="dtnablcertificatevalidity"   value="{{sExpiryDate}}"   class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                          
+                                                </div> 
+                                                <div class="col" style="margin-top:5px;  margin-left:10px; margin-right:10px;">
+  
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Approval Certificate No.</h6> 
+                                        
+                                                    <input type="text"  name="txtNABLCertNo"   value="{{Adminexternalagencylist_list.scertificateno}}"  class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                            
+                                                </div> 
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+  
+                                                    <div class="row">
+                                                        <div class="col" style="height:5px; margin:10px 10px 10px 10px;">
+          
+                                                            <h6  style="color:black; text-align: left;  width:100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Upload and view NABL Certificate</h6> 
+                                        
+                                                        </div> 
+                                                    </div> 
+                                                </div>   
+                                            </div>
+                                            <div class="row">
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+   
+                                                    <div class="row">
+                                                        <div class="col"  style="height:35px; margin:10px 10px 10px 10px; padding-top:10px;"> 
+                                                             
+                                                               
+                                                            <button name="cmdDownloadCertificate" style="color:black;" type="submit"><i class="fa fa-download" aria-hidden="true"></i></button>
+                                                             
+                                                            <p>File uploaded at:  {{ Adminexternalagencylist_list.snablcertificatefile }}  </p>
+                                                               
+                    
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+                                                    <div class="fileUpload btn btn-primary">
+                                                        <span>Select</span>
+                                                        <input type="file" class="upload" id="UploadFiles"  name="UploadFiles"/>
+                                                    </div>
+                                                </div> 
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+                                                    <div class="fileUpload btn btn-primary">
+                                                        <button style="color:black;" type="submit">Upload</button>
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col" style="  margin:10px 10px 10px 10px;  padding-top:30px;">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Uncertainity Percentage</h6> 
+                                        
+                                                    <input type="text"  name="txtUncertainityVal"  value="{{Adminexternalagencylist_list.sconfidencelevel}}"   class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                           
+                                                </div> 
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+
+
+
+
+                                        <div class="col box-Type3" style="height:508px; margin:10px 10px 10px 10px;">
+                                            
+                                            <div class="row">
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Vendor Code</h6> 
+                                        
+                                                    <input type="text"  name="txtVendorCode"  value="{{Adminexternalagencylist_list.svendorid}}"  class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                           
+                                                </div> 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Contact Person</h6> 
+                                        
+                                                    <input type="text"  name="txtContaqctPerson" value="{{Adminexternalagencylist_list.scontact_person}}"  class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                           
+                                                </div> 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"  style="margin-top:5px; margin-left:10px; margin-right:10px;">
+
+                                                    <div class="row">
+                                                        <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+        
+                                                            <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Contact Number</h6> 
+                                                
+                                                            <input type="text"  name="txtContactNumber" value="{{Adminexternalagencylist_list.scontact_no}}"  class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                                   
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                                <div class="col"  style="margin-top:5px; margin-left:10px; margin-right:10px;">
+
+                                                    <div class="row">
+                                                        <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+        
+                                                            <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Email Address</h6> 
+                                                
+                                                            <input type="text"  name="txtEmailAddress" value="{{Adminexternalagencylist_list.semail}}"  class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                                   
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+
+                                                    <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Address</h6> 
+                                        
+                                                     
+                                                    <textarea id="txtAddress" name="w3review" value="{{Adminexternalagencylist_list.saddress1}}"  rows="4" cols="50"  style=" padding: 0 0 0 0; width: 100%; height:90px; font-size: 12px; border:1px gray solid; border-radius: 0ch;">   </textarea>   
+                                                </div> 
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col"  style="margin-top:5px; margin-left:10px; margin-right:10px;">
+    
+                                                    <div class="row">
+                                                        <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+        
+                                                            <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">City</h6> 
+                                                
+                                                            <input type="text"  name="txtCity" value="{{Adminexternalagencylist_list.scity}}" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                                   
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                                <div class="col"  style="margin-top:5px; margin-left:10px; margin-right:10px;">
+    
+                                                    <div class="row">
+                                                        <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+        
+                                                            <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Pin</h6> 
+                                                
+                                                            <input type="text"  name="txtPin" value="{{Adminexternalagencylist_list.pin}}" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                                   
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"  style="margin-top:5px; margin-left:10px; margin-right:10px;">
+    
+                                                    <div class="row">
+                                                        <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+        
+                                                            <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">State</h6> 
+                                                
+                                                            <input type="text"  name="txtState" value="{{Adminexternalagencylist_list.sstate}}" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                                   
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                                <div class="col"  style="margin-top:5px; margin-left:10px; margin-right:10px;">
+    
+                                                    <div class="row">
+                                                        <div class="col" style="margin-top:5px; margin-left:10px; margin-right:10px;">
+        
+                                                            <h6  style="color:black; text-align: left;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Country</h6> 
+                                                
+                                                            <input type="text" value="{{Adminexternalagencylist_list.saddress3}}"  name="txtCountry" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                                   
+                                                        </div> 
+                                                    </div>
+                                                </div> 
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+ 
+
+
+
+
+
+                                    <div class="row">
+                                        <div class="col">
+
+                                        </div>
+                                        <div class="col">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+
+                                        </div>
+                                        <div class="col">
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                                   
+ 
+ 
+
+
+                            </div>  
+                        </div>
+                    
+                    
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+    <script>
+        $(document).ready(function() { $("#education").select2(); });
+    </script>
+
+{% endblock %}

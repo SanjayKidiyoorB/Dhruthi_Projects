@@ -1,0 +1,517 @@
+{% extends "CloudCaliber/TemplateBlankDetails.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block content %}
+
+<form method="post" id="CreateIDForm" data-Classification-url="{% url 'ajax_load_ClassificationDue' %}" data-courses-url="{% url 'ajax_load_CategoriesDue' %}" data-loadCodeFlowLabel1-url="{% url 'ajax_loadCode_FlowLabel1Due' %}" data-loadCodeFlow1-url="{% url 'ajax_loadCode_Flow1Due' %}"  data-loadCodeFlowLabel2-url="{% url 'ajax_loadCode_FlowLabel2Due' %}" data-loadCodeFlow2-url="{% url 'ajax_loadCode_Flow2Due' %}"   data-loadCodeFlowLabel3-url="{% url 'ajax_loadCode_FlowLabel3Due' %}" data-loadCodeFlow3-url="{% url 'ajax_loadCode_Flow3Due' %}"  data-loadCodeFlowLabel4-url="{% url 'ajax_loadCode_FlowLabel4Due' %}" data-loadCodeFlow4-url="{% url 'ajax_loadCode_Flow4Due' %}"  data-loadCodeFlowLabel5-url="{% url 'ajax_loadCode_FlowLabel5Due' %}" data-loadCodeFlow5-url="{% url 'ajax_loadCode_Flow5Due' %}"     >
+    {% csrf_token %}
+
+<div class="">
+
+    <div class="" style="width:100%; height:860px; background-color: white; padding-top: 10px;  ">
+        <div class="row">
+            <div class="col">
+
+                <div class="box-Type3" style="height:860px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                
+
+
+
+                    <div class="row">
+                            
+                        <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                            
+
+                            <div class="row">
+
+                                <div class="col-2">
+
+                                    <h6  style="color:black;    width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Masterlist Details for </h6> 
+                        
+                                </div>  
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>ID :  </br></span><span style="color:black;">{{MasterinstrumentslistOBJ.sinstrumentid}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Description :  </br></span><span style="color:black;">{{MasterinstrumentslistOBJ.sdescription}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+ 
+                                    <h5 class="modal-title" id="exampleModalLongTitle3"><span style="font-weight:bold; color:blue;">Plant :   </br></span><span>{{MasterinstrumentslistOBJ.splanttype}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+ 
+                                    <h5 class="modal-title" id="exampleModalLongTitle4"><span style="font-weight:bold; color:blue;">Classification :   </br></span>  <span>{{MasterinstrumentslistOBJ.sassettype}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+ 
+                                    <h5 class="modal-title" id="exampleModalLongTitle5"><span style="font-weight:bold; color:blue;">Category :   </br> </span>  <span>{{MasterinstrumentslistOBJ.categorytype}}</span></h5>  
+          
+                                </div>
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="row" style="margin-top:10px;">
+                            
+                        <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                            
+
+                            <div class="row">
+
+                                <div class="col-2">
+                                    
+                                    <h5    class="modal-title" ><span style="font-weight:bold; color:blue;">is Calibration Standard?</span> </h5> 
+                                        
+                                    {% if    MasterinstrumentslistOBJ.bcalibstandards == 1  %} 
+                                        <input type="checkbox" id="bcalibstandards1" name="bcalibstandards" value="bcalibstandards"  checked   >
+
+                                    {% else %}
+                                        <input type="checkbox" id="bcalibstandards1" name="bcalibstandards" value="bcalibstandards"     >
+
+                                    {% endif %}    
+                                </div>  
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle6"><span style="font-weight:bold; color:blue;">{{MasterinstrumentslistOBJ.scategorytype1}} : </span> </br><span>{{MasterinstrumentslistOBJ.styperefname1}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle6"><span style="font-weight:bold; color:blue;">{{MasterinstrumentslistOBJ.scategorytype2}} : </span> </br><span>{{MasterinstrumentslistOBJ.styperefname2}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+ 
+                                    <h5 class="modal-title" id="exampleModalLongTitle6"><span style="font-weight:bold; color:blue;">{{MasterinstrumentslistOBJ.scategorytype3}} : </span> </br><span>{{MasterinstrumentslistOBJ.styperefname3}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+ 
+                                    <h5 class="modal-title" id="exampleModalLongTitle6"><span style="font-weight:bold; color:blue;">{{MasterinstrumentslistOBJ.scategorytype4}} : </span> </br><span>{{MasterinstrumentslistOBJ.styperefname4}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+ 
+                                    <h5 class="modal-title" id="exampleModalLongTitle6"><span style="font-weight:bold; color:blue;">{{MasterinstrumentslistOBJ.scategorytype5}} : </span> </br><span>{{MasterinstrumentslistOBJ.styperefname5}}</span></h5>  
+          
+                                </div>
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+
+
+
+                    <div class="row" style="margin-top:20px;">
+
+                        <div class="col" style="margin-left:10px; margin-right:10px;">
+ 
+                            <div class="box-Type3" style="height:350px; ">
+                                
+                                <div class="row" style="">
+                                    
+                                    <div class="col" style="height:20px;  background-color: #92caff;">
+                                        
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px;">
+                                    
+                                    <div class="col" style="padding-left:10px; padding-right:10px; ">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Current Location : </span> </br><span>{{MasterinstrumentslistOBJ.slocationname}}</span></h5>  
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Current Status : </span> </br><span>{{MasterinstrumentslistOBJ.scurrentstatus}}</span></h5>  
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">OLD ID (if any) : </span> </br><span>{{MasterinstrumentslistOBJ.oldinstrument_id}}</span></h5>  
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Storage Location : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" value="{{Masterinstrumentslistpart2OBJ.sstoragerack}}" name="txtStorage" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px; margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Make : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" value="{{MasterinstrumentslistOBJ.smake}}" name="txtMake" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Model : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" value="{{Masterinstrumentslistpart2OBJ.smodelno}}" name="txtmodelno" class="form-input basic "      tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Serial # : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" value="{{Masterinstrumentslistpart2OBJ.sserialno}}" name="txtserialno" class="form-input basic "      tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                        <div class="col" style="margin-left:10px; margin-right:10px;">
+ 
+                            <div class="box-Type3" style="height:350px;">
+                                
+                                <div class="row" style="">
+                                    
+                                    <div class="col" style="height:20px;  background-color: #92caff;">
+                                        
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px;">
+                                    
+                                    <div class="col" style="padding-left:10px; padding-right:10px; ">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">ERP / SAP Code : </span> </br><span>{{MasterinstrumentslistOBJ.serpcode}}</span></h5>  
+          
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                         
+                                        <h5    class="modal-title" ><span style="font-weight:normal; color:gray;">For Sample or </span> </h5> 
+                                            
+                                        {% if    MasterinstrumentslistOBJ.bsamplepartusage == 1  %} 
+                                            <input type="checkbox" id="bsamplepartusage1" name="bsamplepartusage" value="bsamplepartusage"  checked   >
+
+                                        {% else %}
+                                            <input type="checkbox" id="bsamplepartusage1" name="bcalibstandards" value="bsamplepartusage"     >
+
+                                        {% endif %}    
+                                    </div>
+                                    <div class="col" style="">
+                                         
+                                        <h5    class="modal-title" ><span style="font-weight:normal; color:gray;">Regular Parts</span> </h5> 
+                                            
+                                        {% if    MasterinstrumentslistOBJ.bregularpartusage == 1  %} 
+                                            <input type="checkbox" id="bregularpartusage1" name="bregularpartusage" value="bregularpartusage"  checked   >
+
+                                        {% else %}
+                                            <input type="checkbox" id="bregularpartusage1" name="bregularpartusage" value="bregularpartusage"     >
+
+                                        {% endif %}    
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">L C : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" value="{{Masterinstrumentslistpart2OBJ.fleastcount}}" name="txtLC" class="form-input basic "      tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Acceptance Criteria : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" value="{{Masterinstrumentslistpart2OBJ.saccuracy}}" name="txtsaccuracy" class="form-input basic "      tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Tolerance : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" value="{{Masterinstrumentslistpart2OBJ.sproducttolerance}}" name="txtAcceptanceCriteria" class="form-input basic "      tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Comments : </span> </br><span></span></h5> 
+                                        
+                                        <textarea type="text" value="{{Masterinstrumentslistpart2OBJ.scomment}}" name="txtscomment" class="form-input basic "      tabindex="1"  maxlength="700"     style=" padding: 0 0 0 0; width: 100%; height:65px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   ></textarea>
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+ 
+
+ 
+                        </div>
+
+
+
+
+                        
+                        <div class="col" style="margin-left:10px; margin-right:10px;">
+ 
+                            <div class="box-Type3" style="height:350px;">
+                                
+                                
+                                <div class="row" style="">
+                                    
+                                    <div class="col" style="height:20px;  background-color: #92caff;">
+                                        
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row" style="padding-left:10px;">
+                                    
+                                    <div class="col" style="padding-left:10px; padding-right:10px; ">
+                                        
+                                        <h5    class="modal-title" ><span style="font-weight:normal; color:gray;">Reference Gauge (No Calibration)</span> </h5> 
+                                            
+                                        {% if    MasterinstrumentslistOBJ.bfreezecalib == 1  %} 
+                                            <input type="checkbox" id="bfreezecalib1" name="bfreezecalib" value="bfreezecalib"  checked   >
+
+                                        {% else %}
+                                            <input type="checkbox" id="bfreezecalib1" name="bfreezecalib" value="bfreezecalib"     >
+
+                                        {% endif %}   
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="row" style="padding-left:10px; padding-right:10px;  margin-top:6px;">
+                                    
+                                    <div class="col" style="">
+                                        
+                                        <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:normal; color:gray;">Purchased on : </span> </br><span></span></h5> 
+                                        
+                                        <input type="text" readyonly="readonly" value="{{Masterinstrumentslistpart2OBJ.sverifiedforpurchaseon}}" name="txtPurchasedon" class="form-input basic "      tabindex="1"  maxlength="200"     style=" padding: 0 0 0 0; width: 100%; height:25px; font-size: 12px;  font-size: 12px; border-radius: 0ch;"   />
+                                                              
+          
+                                    </div>
+                                </div>
+
+
+
+
+                                
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="col" style="margin-left:10px; margin-right:10px;">
+ 
+                            <div class="box-Type3" style="height:350px;">
+                                
+                                
+                                <div class="row" style="">
+                                    
+                                    <div class="col" style="height:20px;  background-color: #92caff;">
+                                        
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row" style="padding-left:10px;">
+                                    
+                                    <div class="col" style="padding-left:10px; padding-right:10px; ">
+                                        
+                                    </div>
+                                </div>
+
+
+                                
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col" style="margin-left:10px; margin-right:10px;">
+ 
+                            <div class="box-Type3" style="height:350px;">
+                                
+                                
+                                <div class="row" style="">
+                                    
+                                    <div class="col" style="height:20px;  background-color: #92caff;">
+                                        
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row" style="padding-left:10px;">
+                                    
+                                    <div class="col" style="padding-left:10px; padding-right:10px; ">
+                                        
+                                    </div>
+                                </div>
+
+
+                                
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        
+                    </div>
+
+
+
+
+
+
+
+                    <div class="row" style="margin-top:20px;">
+
+                        <div class="col-3" style="margin-left:10px; margin-right:10px;">
+ 
+                            <div class="box-Type3" style="height:300px;">
+                                
+                                <div class="row" style="">
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                        <div class="col" style="margin-left:10px; margin-right:10px;">
+ 
+                            <div class="box-Type3" style="height:300px;">
+                                
+                                <div class="row" style="">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>  
+    </div>
+    
+    
+</div>
+    
+</form>
+    
+    
+{% endblock %}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %}{% endblock %}BillingSol</title>
+        {% load static %} 
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>  
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    
+        
+          
+        <link rel="stylesheet" type="text/css" href="{% static 'BillingSol/sb-admin-2.min.css' %}"/>  
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+    
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+      <!-- Google Fonts Roboto -->
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    </script><script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+     
+      <!-- MDB -->
+      <link rel="stylesheet" href="css/mdb.min.css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <style> 
+              body { 
+                background-image:  url("BillingSol/Images/Background.jpg") no-repeat center center fixed;
+            }
+            .card {
+                border: 1px solid #28a745;
+                box-shadow: 0 0 50px #ccc;
+            }
+            .card-login {
+                margin-top: 130px;
+                padding: 18px;
+                max-width: 30rem;
+            }
+    
+            .card-header {
+                color: #fff;
+                /*background: #ff0000;*/
+                font-family: sans-serif;
+                font-size: 15px;
+                letter-spacing: 5px;
+                font-weight: 600 !important;
+                margin-top: 10px;
+                border-bottom: 0;
+            }
+    
+            .input-group-prepend span{
+                width: 50px;
+                background-color: #ff0000;
+                color: #fff;
+                border:0 !important;
+            }
+    
+            input:focus{
+                outline: 0 0 0 0  !important;
+                box-shadow: 0 0 0 0 !important;
+            }
+    
+            .login_btn{
+                width: 160px;
+            }
+    
+            .login_btn:hover{
+                color: #fff;
+                background-color: #ff0000;
+            }
+    
+            .btn-outline-danger {
+                color: #fff;
+                font-size: 19px;
+                background-color: #28a745;
+                background-image: none;
+                border-color: #28a745;
+            }
+    
+            .form-control {
+                display: block;
+                width: 100%;
+                height: calc(2.25rem + 2px);
+                padding: 0.375rem 0.75rem;
+                font-size: 1.2rem;
+                line-height: 1.6;
+                color: #28a745;
+                background-color: transparent;
+                background-clip: padding-box;
+                border: 1px solid #28a745;
+                border-radius: 0;
+                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+    
+            .input-group-text {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                align-items: center;
+                padding: 0.375rem 0.75rem;
+                margin-bottom: 0;
+                font-size: 1.5rem;
+                font-weight: 700;
+                line-height: 1.6;
+                color: #495057;
+                text-align: center;
+                white-space: nowrap;
+                background-color: #e9ecef;
+                border: 1px solid #ced4da;
+                border-radius: 0;
+            }
+        </style>
+        <style>
+            .background-radial-gradient {
+              background-color: hsl(218, 41%, 15%);
+              background-image: radial-gradient(650px circle at 0% 0%,
+                  hsl(218, 41%, 35%) 15%,
+                  hsl(218, 41%, 30%) 35%,
+                  hsl(218, 41%, 20%) 75%,
+                  hsl(218, 41%, 19%) 80%,
+                  transparent 100%),
+                radial-gradient(1250px circle at 100% 100%,
+                  hsl(218, 41%, 45%) 15%,
+                  hsl(218, 41%, 30%) 35%,
+                  hsl(218, 41%, 20%) 75%,
+                  hsl(218, 41%, 19%) 80%,
+                  transparent 100%);
+            }
+        
+            #radius-shape-1 {
+              height: 220px;
+              width: 220px;
+              top: -60px;
+              left: -130px;
+              background: radial-gradient(#44006b, #ad1fff);
+              overflow: hidden;
+            }
+        
+            #radius-shape-2 {
+              border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+              bottom: -60px;
+              right: -110px;
+              width: 300px;
+              height: 300px;
+              background: radial-gradient(#44006b, #ad1fff);
+              overflow: hidden;
+            }
+        
+            .bg-glass {
+              background-color: hsla(0, 0%, 100%, 0.9) !important;
+              backdrop-filter: saturate(200%) blur(25px);
+            }
+          </style>
+
+          <style>
+            .cascading-right {
+              margin-right: -50px;
+            }
+        
+            @media (max-width: 991.98px) {
+              .cascading-right {
+                margin-right: 0;
+              }
+            }
+          </style>
+    </head>
+
+    <body> 
+
+        
+    <script src=<s>"</s>{% static 'BillingSol/js/bootstrap.js' %}<s>"</s>></script>
+    <script src=<s>"</s>{% static 'BillingSol/js/jquery.js' %}<s>"</s>></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+
+    <!-- jQuery first, then Popper.js, 
+        then Bootstrap JS -->
+        <script src=
+        "https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity=
+        "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous">
+            </script>
+              
+            <!-- Popper -->
+            <script src=
+        "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity=
+        "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous">
+            </script>
+              
+            <!-- Latest compiled and minified 
+                Bootstrap JavaScript -->
+            <script src=
+        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity=
+        "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous">
+            </script>
+
+
+    <!-- You can alternatively load the minified version -->
+    <script src=<s>"</s>{% static 'js/jquery.bootstrap.modal.forms.min.js' %}<s>"</s>></script>
+            <div class="top-row hidewhenPrint" style="width:100%;   margin:auto;  background-color: rgb(41, 176, 255); background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 70%); color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.4); z-index: 1030; ">
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                        <img src="{% static 'BillingSol/Images/Dhruthilogo.png' %}" alt="logo" width="140" height="48">
+                    
+                    </div>
+                    <div class="col">
+                        
+                        <img src="{% static 'BillingSol/Images/logo.png' %}" alt="logo" width="48" height="48">
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div> 
+            </div>
+
+            <div class="body-content"  style="background-position: center;   background-image: url('{% static 'BillingSol/Images/back3.jpg' %}'); ">
+                {% block content %}
+                {% endblock %}
+                <hr/>
+                <footer>
+                    <p>© 2023 - Dhruthi Technologies</p>
+                </footer>
+            </div> 
+    </body>
+</html>

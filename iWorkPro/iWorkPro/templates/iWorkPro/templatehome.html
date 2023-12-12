@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %}{% endblock %} iWorkPro - Track Projects & Daily Tasks</title>
+        {% load static %} 
+        <link rel="shortcut icon" href="{% static 'favicon.png' %}"/> 
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+            
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %} 
+        {% load static  %} 
+        {% load fontawesome_5 %}
+        <!-- Our project just needs Font Awesome Free's Solid and Brand files -->
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"/> 
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css"/>
+  
+
+
+        <link href="{% static 'easyselect2/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+             
+
+        <script src="{% static 'easyselect2/js/select2.min.js' %}"></script> 
+
+
+       
+        <style> 
+          body { 
+            background-image:  url("BillingSol/Images/Background.jpg") no-repeat center center fixed;
+        }
+        .card {
+            border: 1px solid #28a745;
+            box-shadow: 0 0 50px #ccc;
+        }
+        .card-login {
+            margin-top: 130px;
+            padding: 18px;
+            max-width: 30rem;
+        }
+
+        .card-header {
+            color: #fff;
+            /*background: #ff0000;*/
+            font-family: sans-serif;
+            font-size: 15px;
+            letter-spacing: 5px;
+            font-weight: 600 !important;
+            margin-top: 10px;
+            border-bottom: 0;
+        }
+
+        .input-group-prepend span{
+            width: 50px;
+            background-color: #ff0000;
+            color: #fff;
+            border:0 !important;
+        }
+
+        input:focus{
+            outline: 0 0 0 0  !important;
+            box-shadow: 0 0 0 0 !important;
+        }
+
+        .login_btn{
+            width: 160px;
+        }
+
+        .login_btn:hover{
+            color: #fff;
+            background-color: #ff0000;
+        }
+
+        .btn-outline-danger {
+            color: #fff;
+            font-size: 19px;
+            background-color: #28a745;
+            background-image: none;
+            border-color: #28a745;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(2.25rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #28a745;
+            background-color: transparent;
+            background-clip: padding-box;
+            border: 1px solid #28a745;
+            border-radius: 0;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .input-group-text {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            margin-bottom: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: #495057;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 0;
+        }
+    </style>
+    <style>
+        .background-radial-gradient {
+          background-color: hsl(218, 41%, 15%);
+          background-image: radial-gradient(650px circle at 0% 0%,
+              hsl(218, 41%, 35%) 15%,
+              hsl(218, 41%, 30%) 35%,
+              hsl(218, 41%, 20%) 75%,
+              hsl(218, 41%, 19%) 80%,
+              transparent 100%),
+            radial-gradient(1250px circle at 100% 100%,
+              hsl(218, 41%, 45%) 15%,
+              hsl(218, 41%, 30%) 35%,
+              hsl(218, 41%, 20%) 75%,
+              hsl(218, 41%, 19%) 80%,
+              transparent 100%);
+        }
+    
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        .bg-glass {
+          background-color: hsla(0, 0%, 100%, 0.9) !important;
+          backdrop-filter: saturate(200%) blur(25px);
+        }
+      </style>
+
+      <style>
+        .cascading-right {
+          margin-right: -50px;
+        }
+    
+        @media (max-width: 991.98px) {
+          .cascading-right {
+            margin-right: 0;
+          }
+        }
+      </style>
+        
+        <style>
+
+            .gradient-custom {
+                /* fallback for old browsers */
+                background: url("/static/iWorkPro/Images/Background.jpg") 50% 0 no-repeat fixed;;
+                 
+                }
+        </style> 
+
+
+        <style>
+          body {font-family: Arial, Helvetica, sans-serif;}
+          
+          .callout { 
+          bottom: 35px;
+          right: 20px;
+          margin-left: 20px;
+          max-width: 300px;
+          z-index: 1000;
+          position: absolute;
+          }
+          
+          .callout-header {
+          padding: 25px 15px;
+          background: #555;
+          font-size: 30px;
+          color: white;
+          }
+          
+          .callout-container {
+          padding: 15px;
+          background-color: #ccc;
+          color: black
+          }
+          
+          .closebtn {
+          position: absolute;
+          top: 5px;
+          right: 15px;
+          color: white;
+          font-size: 30px;
+          cursor: pointer;
+          }
+          
+          .closebtn:hover {
+          color: lightgrey;
+          }
+        </style>
+
+          <style>
+            
+            
+            .pseudo-search {
+              display: inline;
+              border: 2px solid #ccc;
+              border-radius: 100px;
+              padding: 10px 15px;
+              transition: background-color 0.5 ease-in-out;
+            
+              input {
+                border: 0;
+                background-color: transparent;
+                width: 100px;
+            
+                &:focus {
+                  // Unsure how to fix this...
+                  outline: none;
+                }
+              }
+              
+              button, i {
+                border: none;
+                background: none;
+                cursor: pointer;
+              }
+              
+              select {
+                border: none;
+              }
+            
+            }
+        </style>
+
+
+          <style>
+             
+              input,
+              input::-webkit-input-placeholder {
+                  font-size: 12px;
+                  line-height: 2;
+              }
+            </style>
+    
+              <style>
+
+                .bootstrap-select {
+                  max-width: 200px;
+                }
+                .bootstrap-select .btn {
+                  background-color: #141414;
+                  border-style: solid;
+                  border-left-width: 3px;
+                  border-left-color: #00DDDD;
+                  border-top: none;
+                  border-bottom: none;
+                  border-right: none;
+                  color: white;
+                  font-weight: 200;
+                  padding: 12px 12px;
+                  font-size: 16px;
+                  margin-bottom: 10px;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none;
+                }
+                .bootstrap-select .dropdown-menu {
+                  margin: 15px 0 0;
+                }
+                select::-ms-expand {
+                  /* for IE 11 */
+                  display: none;
+                }
+          </style>
+
+    </head>
+
+    <body> 
+
+        
+        
+    
+
+        
+            <div class="top-row hidewhenPrint" style="width:100%;   margin:auto;  background-color: rgb(41, 176, 255); background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 70%); color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.4); z-index: 1030; ">
+
+                <div class="row">
+                    <div class="col-lg-4">
+
+                        <div class="row" style= "  width:640px; padding-left:15px; font-size:10px;">  
+
+                          <div class="col-lg-2"  style="padding-top:20px; ">
+                            {% if Menu2 == "" %}
+    
+                              {% if Menu1  != "" %}
+       
+      
+                                <a class="nav-link" aria-current="page" href="#" style="pointer-events: none; font-size:10px; color:white;  width:100px; text-align: right;">{{MenuName1}}</a>  
+                     
+      
+                              {% endif %}
+    
+                            {% else %} 
+    
+                                <a class="nav-link" aria-current="page" href="{% url 'Dashboard' %}" style="font-size:10px;  color:white; width:100px; text-align: right;">{{MenuName1}}</a>  
+                     
+    
+                            {% endif %}
+                          </div>   
+                          <div class="col-lg-1"  style="padding-top:20px; ">
+                            
+                            {% if Menu2  != "" %}
+                              <a class="nav-link" aria-current="page" href="#" style="pointer-events: none; font-size:10px; color:white;    text-align: right;"> / </a>  
+                     
+                            {% endif %} 
+                          </div>   
+                          <div class="col-lg-2"  style="padding-top:20px; ">
+                              {% if Menu3 == "" %}
+      
+                                {% if Menu2 != "" %}
+         
+                                <a class="nav-link" aria-current="page" href="#" style="pointer-events: none; font-size:10px;   width:150px; text-align: right;  color:white;">   {{MenuName2}}</a>  
+                      
+                                {% endif %} 
+      
+                              {% else %} 
+      
+                                    <a class="nav-link" aria-current="page" href='{% url Menu2 %}' style="font-size:10px;  width:150px; text-align: right; color:white;">   {{MenuName2}}</a>  
+                       
+      
+                              {% endif %}
+                          </div>   
+                          <div class="col-lg-1"  style="padding-top:20px; ">
+                            
+                            {% if Menu3  != "" %}
+                              <a class="nav-link" aria-current="page" href="#" style="pointer-events: none; font-size:10px; color:white;    text-align: right;"> / </a>  
+                     
+                            {% endif %} 
+                          </div>   
+                          <div class="col-lg-2"  style="padding-top:20px; ">
+                              {% if Menu4 == "" %}
+      
+      
+                                {% if Menu3  != "" %}
+           
+        
+                                    <a class="nav-link" aria-current="page" href="#" style="pointer-events: none; font-size:10px;  width:130px; text-align: right; color:white;">   {{MenuName3}}</a>  
+                      
+        
+                                {% endif %} 
+      
+                              {% else %} 
+      
+                                    <a class="nav-link" aria-current="page" href="{% url Menu3 %}" style="font-size:10px;  width:130px; text-align: right; color:white;">   {{MenuName3}}</a>  
+                       
+      
+                              {% endif %}
+                          </div>   
+                          <div class="col-lg-1"  style="padding-top:20px; ">
+                            
+                            {% if Menu4  != "" %}
+                              <a class="nav-link" aria-current="page" href="#" style="pointer-events: none; font-size:10px; color:white;    text-align: right;"> / </a>  
+                     
+                            {% endif %} 
+                          </div>   
+                          <div class="col-lg-2"  style="padding-top:20px; ">
+                              {% if Menu5 == "" %}
+      
+      
+        
+                                {% if Menu4  != "" %}
+               
+        
+                                    <a class="nav-link" aria-current="page" href="#" style="pointer-events: none; font-size:10px;  width:130px; text-align: right; color:white;">   {{MenuName4}}</a>  
+                      
+        
+                                {% endif %} 
+        
+                              {% else %} 
+      
+                                  <a class="nav-link" aria-current="page" href="{% url Menu4 %}" style="font-size:10px;  width:130px; text-align: right; color:white;">  {{MenuName4}}</a>  
+                       
+      
+                              {% endif %}
+                          </div>  
+ 
+                        </div> 
+                      </div>
+                    <div class="col-lg-1">
+
+                        <img src="{% static 'iWorkPro/Images/Logo.png' %}" alt="logo" width="100" height="48">
+                    
+                    </div>
+                    <div class="col-lg-1">
+                        
+                        <img src="{% static 'iWorkPro/Images/ProductLogo.png' %}" alt="logo" width="88" height="48">
+                    </div> 
+                    <div class="col-lg-4">
+                        
+                      
+                      <div class="row" style="padding-top:10px; padding-left:15px; ">
+                        
+                        <div class="col-lg-2">
+
+                          {% if bHome == 0%}
+    
+                                  
+            
+                                    {% if badmin == 1%} 
+                                          
+                                          <a class="nav-link" aria-current="page" href="{% url 'EmployeeList' %}" style="font-size:11px;  color:white; width:110px; text-align: left;"> Employee List</a>  
+                                  
+                                    {% elif bEmployee == 1 %} 
+                                      
+                                      <a class="nav-link" aria-current="page"  href="{% url 'EmployeelistDetails' %}"    style="font-size:11px;  color:white; width:110px; text-align: left;"> My Details</a>  
+                                  
+                                    {% endif %}
+    
+
+                            {% endif %}
+
+
+    
+                        </div> 
+                        <div class="col-lg-2">
+
+                          {% if bHome == 0%}
+    
+                                  
+            
+                                    {% if badmin == 1%} 
+                                          
+                                          <a class="nav-link" aria-current="page" href="{% url 'DesignationList' %}" style="font-size:11px;  color:white; width:130px; text-align: left;"> Designation List</a>  
+                                  
+                                      
+                                    {% endif %}
+    
+
+                            {% endif %}
+
+
+    
+                        </div> 
+                        <div class="col-lg-2">
+                            
+
+
+                          {% if bHome == 0%}
+    
+                                  
+            
+                                    {% if badmin == 1%} 
+                                          
+                                          <a class="nav-link" aria-current="page" href="{% url 'DepartmentList' %}" style="font-size:11px; color:white;   width:130px; text-align: left;"> Department List</a>  
+                                  
+                                          
+                                    {% endif %}
+    
+
+                            {% endif %}
+
+
+    
+                        </div> 
+                        <div class="col-lg-2">
+                            
+
+
+                          {% if bHome == 0%}
+    
+                                  
+            
+                                    {% if badmin == 1%} 
+                                        
+                                          <a class="nav-link" aria-current="page" href="{% url 'CategoryList' %}" style="font-size:11px; color:white;   width:110px; text-align: left;"> Category List</a>  
+                                  
+                                          
+                                    {% endif %}
+    
+
+                            {% endif %}
+
+
+    
+                        </div> 
+                        <div class="col-lg-2">
+                            
+
+
+                          {% if bHome == 0%}
+    
+                                  
+            
+                                    {% if badmin == 1%} 
+                                      
+                                          <a class="nav-link" aria-current="page" href="{% url 'CustomerList' %}" style="font-size:11px; color:white;  width:110px; text-align: left;"> Customer List</a>  
+                                  
+                                    {% endif %}
+    
+
+                            {% endif %}
+
+
+                          </div> 
+                          <div class="col-lg-2">
+    
+                        </div>
+
+                        
+                      </div>
+                    
+                    
+                    </div> 
+                   
+                    <div class="col-lg-2" style="padding-top:20px;">
+                      <a class="nav-link" aria-current="page" href="{% url 'Logout' %}" style="font-size:10px; color:white;  width:290px; text-align: left;">   {{sName}} - Logout</a>  
+           
+                  </div>
+                </div> 
+            </div>
+
+            <div class="body-content"  >
+                {% block content %}
+                {% endblock %}
+                <hr/>
+                <footer>
+                    <p>© 2024 - Dhruthi Technologies</p>
+                </footer>
+            </div> 
+    </body>
+</html>

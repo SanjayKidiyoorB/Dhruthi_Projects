@@ -1,0 +1,354 @@
+{% extends "BillingSol/templateusermaster.html" %}
+{% block title %}
+Add New Client List
+{% endblock %}
+{% block content %}
+
+
+
+
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST">
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:560px; background-color: white; padding-top: 10px;    ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:560px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray;  height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master - Add New Client List</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 3px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-default btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 3px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+
+                                <table style="width:100%; height:100%">
+                                    <tr class="row" style="width:100%; ">
+                                        <td class=""  style="width:5%;">
+
+                                        </td>
+                                        <td class=""  style="width:80%;">
+                                              
+                                                        
+                                            <table style="width:100%;  ">
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:30%;">
+                                                        
+                                                    </td> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Client Name</h6> 
+                                        
+                                                        <input type="text"  name="txtsClient"   class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 400px;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                    
+                                                    </td>   
+                                                    <td class=""  style="width:30%;">
+                                                        
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:10px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+  
+                                            <table style="width:100%; height:100%">
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:10%;">
+                                                        
+                                                    </td> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        
+                                                        <table style="width:100%; height:100%">
+
+                                                            <tr class="row" style="width:100%; ">
+                                                                
+                                                                
+                                                                <td class=""  style="width:100%;">
+                                                                                
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Address</h6> 
+                                                    
+                                                                    <input type="text"  name="txtAddress1"  placeholder="Address Line 1"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 100%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                
+                                                                </td> 
+
+
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; ">
+                                                                
+                                                                
+                                                                <td class=""  style="width:100%;">
+                                                                              
+                                                                    <input type="text"  name="txtAddress2"  placeholder="Address Line 2"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 100%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                
+                                                                </td> 
+
+
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; ">
+                                                                
+                                                                
+                                                                <td class=""  style="width:100%;">
+                                                                              
+                                                                    <input type="text"  name="txtAddress3"  placeholder="Address Line 3"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 100%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                
+                                                                </td> 
+
+
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; ">
+                                                                
+                                                                
+                                                                <td class=""  style="width:100%;">
+                                                                    <div class="row"   >
+                                                                        <div class="col-5"   >
+       
+                                                                            <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">City</h6> 
+                                                    
+                                                                            <input type="text"  name="txtCity"  placeholder="City"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                        
+                                                                        </div>
+                                                                        <div class="col-2"   >
+    
+                                                                            <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Pincode</h6> 
+                                                    
+                                                                            <input type="text"  name="txtPincode"  placeholder="Pincode"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 70px;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                        
+                                                                        </div>
+                                                                        <div class="col-5"   >
+    
+                                                                            <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">State</h6> 
+                                                    
+                                                                            <input type="text"  name="txtState"  placeholder="State"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                        
+                                                                        </div>
+                                                                    </div>
+
+                                                                </td> 
+
+
+                                                            </tr>
+
+                                                        </table>
+
+
+
+                                                    </td>   
+                                                    <td class=""  style="width:40%;">
+                                                           
+                                                        <table style="width:100%; height:100%">
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                          
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">GST #</h6> 
+                                                    
+                                                                    <input type="text"  name="txtGST"  placeholder="GST #"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 100%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                
+                                                                </td> 
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                          
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">PAN #</h6> 
+                                                    
+                                                                    <input type="text"  name="txtPAN"  placeholder="PAN #"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff; height:25px; width: 100%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                
+                                                                </td> 
+                                                            </tr> 
+                                                            <tr class="row"  style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                      
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Contact Person</h6> 
+                                                    
+                                                                    <input type="text"  name="txtContactPerson"  placeholder="Contact Person"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                         
+                                                                </td> 
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                        
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Contact Number</h6> 
+                                                    
+                                                                    <input type="text"  name="txtContactNumber"  placeholder="Contact Number"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                       
+                                                                </td> 
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                        
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">EMail Address</h6> 
+                                                    
+                                                                    <input type="text"  name="txtEMailAddress"  placeholder="EMail Address"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                       
+                                                                </td> 
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                        
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">State GST Code</h6> 
+                                                    
+                                                                    <input type="text"  name="txtStateCode"  placeholder="State Code"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                       
+                                                                </td> 
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                                    
+                                                                    <table style="width:100%; height:100%">
+                                                                        <tr class="row" style="width:100%; "> 
+                                                                            <td class=""  style="width:50%;">
+                                                                                <input type="radio" id="radActive" name="fav_language" value="Active">
+                                                                                <label for="radActive">Active</label> 
+                                                                                
+                                                                            </td> 
+                                                                            <td class=""  style="width:50%;">
+                                                                                 <input type="radio" id="radinActive" name="fav_language" value="inActive">
+                                                                                <label for="radinActive">inActive</label> 
+                                                                            </td> 
+                                                                        </tr> 
+                                                                    </table>
+
+
+                                                                </td> 
+                                                            </tr> 
+                                                        </table>
+
+
+                                                        <table style="width:100%; height:100%">
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                    
+                                                                </td> 
+                                                            </tr> 
+                                                        </table>
+
+  
+                                                    </td>   
+                                                    <td class=""  style="width:10%;">
+                                                        
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+
+                                             
+                                        </td> 
+                                        <td class=""  style="width:5%;">
+                                                
+                                        </td>
+                                    </tr>
+                                </table>
+ 
+
+
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}

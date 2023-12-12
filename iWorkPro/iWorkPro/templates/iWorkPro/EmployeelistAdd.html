@@ -1,0 +1,519 @@
+{% extends "iWorkPro/templatehome.html" %}
+{% load static %} 
+{% block title %}
+Welcome to
+{% endblock %}
+{% block content %}
+
+    {% for message in messages %}
+        <!-- <div class="alert alert-danger alert-dismissible" role="alert" onclick="this.style.display='none';">
+
+
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"> {{ message }}</span>
+            
+                
+                
+        </div>-->
+        <div class="callout">
+            <div class="callout-header">Notifications</div>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+            <div class="callout-container">
+            
+                <div class="alert alert-danger alert-dismissible">
+                    <p> {{ message }}</p>
+                    </div>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+     
+    <form action="" method="POST"> 
+        <div class="" >
+
+
+
+
+            <div class="" style="width:100%; height:590px; background-color:  #f1f1f1;  padding-left: 10px;   padding-right: 10px;    ">
+                <div class="row">
+                    <div class="col">
+            
+                        <div class="box-Type3" style="height:590px; overflow-y:scroll; background-color: white; padding-left: 1.4ch; padding-right: 2ch;  margin-left: 1.4ch;   margin-right: 20px; ">
+                        
+            
+            
+            
+                            <div class="row">
+                                    
+                                <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #dad6d6; height:50px;   ">
+                                     
+                                    <table style="width:100%; height:100%">
+                                                                   
+                                         
+                                        <tr class="" style="width:100%; height:60%">
+                                            <td class=""  style="width:10%; padding-top: 1px;">
+            
+                                                <h6  style="color:black; text-align: right;  width: 420px; font-weight: bold; font-size: 15px;  ">Master - Employee List</h6> 
+                                
+                                            </td> 
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style="width:20%; padding-top:1px;">
+                                                       
+                                            </td> 
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style=" width:20%; padding-top:1px;"> 
+                                                
+               
+                                            </td>
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style="width:10%; ppadding-top:1px;">
+                                                     
+                                                    <input type="submit" name="cmdSave"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px;   background-image: linear-gradient(#42A1EC, #0070C9);  border: 1px solid #13aa52;  border-radius: 4px;  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;  box-sizing: border-box;  color: #fff; transform: translateY(0);  transition: transform 150ms, box-shadow 150ms;  user-select: none;  -webkit-user-select: none;  touch-action: manipulation; height:31px; width:90px;"> 
+                                                        
+                                            </td> 
+                                        </tr>
+                                    </table> 
+
+                                    <div class="row" style="padding-top:20px;">
+
+
+                                        <div class="col-lg-4">
+                                         
+                                            <div class="row" style="padding-top:5px; padding-left:20px;">
+                                                <div class="col-lg-5">
+                                                    <img src="{% static 'iWorkPro/Images/ProductLogo.png' %}" alt="logo" width="158" height="158" style="border:1px solid #CDCDCD;">
+                                                    
+
+                                                </div>
+                                                <div class="col-lg-1" style="padding-top:110px;">
+
+         
+                                                    <a  type="button" id="idUpload1"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                                        <span class="fa fa-upload"></span>
+                                                    </a>  
+                                                </div> 
+                                                <div class="col-lg-5">
+
+
+                                                </div> 
+                                            </div> 
+                                        </div> 
+
+                                        <div class="col-lg-6">
+
+                                            <div class="row">
+
+
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="width:100%; font-size:12px; font-weight:bold; color:#494a4c">Employee No :</label> 
+                                            
+                                                    <input type="text" name="txtEmpNo" maxlength="20" placeholder="Enter Employee No..." autofocus required style="width:30%; border:1px solid #b8babe;"/>
+                                                     
+
+                                            </div>
+
+                                            <div class="row">
+
+
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Employee Name :</label> 
+                                            
+                                                    <input type="text" name="txtName" maxlength="250" placeholder="Enter Employee Name..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+        
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row" style="padding-top:15px;">
+
+
+                                        
+                                                <div class="col-lg-12">
+         
+                                                    <div class="row">
+
+
+                                                
+                                                        <div class="col-lg-4">
+                
+                                                            <div class="col-3" style="font-size:12px; width:130px; font-weight:bold; color:#494a4c">
+                                                         
+                                                                <label for="chkActiveEmployee">Active Employee</label>
+                         
+                                                            </div>
+                                                            <div class="col-2" style="  ">
+                                                                   
+                                                                    <input type="checkbox" id="chkActiveEmployee" name="chkActiveEmployee"       value=""  tabindex="35"  style="  "  />
+                                                               
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                
+                                                            <div class="col-3" style="font-size:12px; width:130px; font-weight:bold; color:#494a4c">
+                                                         
+                                                                <label for="chkAdmin">App Admin</label>
+                         
+                                                            </div>
+                                                            <div class="col-2" style="  ">
+                                                                   
+                                                                    <input type="checkbox" id="chkAdmin" name="chkAdmin"       value=""  tabindex="35"  style="  "  />
+                                                               
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                
+                                                            <div class="col-3" style="font-size:12px; width:130px; font-weight:bold; color:#494a4c">
+                                                         
+                                                                <label for="chkApprover">Workflow Approver</label>
+                         
+                                                            </div>
+                                                            <div class="col-2" style="  ">
+                                                                   
+                                                                    <input type="checkbox" id="chkApprover" name="chkApprover"       value=""  tabindex="35"  style="  "  />
+                                                               
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+
+
+                                                </div>
+
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+
+                                        <div class="col-lg-2">
+
+
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+                                    <div class="row" style="padding-top:20px;">
+
+
+                                        <div class="col-lg-1">
+                                        
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <div class="row" style="margin-top:10px;">
+
+
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Department Manager :</label> 
+     
+
+
+                                                    <select name="DepartmentManager" id="DepartmentManager"     title="Choose Department Manager..."     style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 10px;" >
+                                                                                                    
+                                                    
+                                                        <option  value="0"   style="color:black;    font-size: 10px;"   value="">---select Department Manager---</option>
+                                                        <option  value="0"    style="color:black;    font-size: 10px;"  value=""> </option>
+                                                        {% for Adepartmentlist_lists in Adepartmentlist_list %}
+                                                        
+                                                        
+                                                            {% if lDepartmentID == Adepartmentlist_lists.lid %} 
+                                                            <option selected="true"   style="color:black;    font-size: 10px;"  value="{{ Adepartmentlist_lists.lid }}"  data-tokens=" {{Adepartmentlist_lists.sdeptname}}" > {{ Adepartmentlist_lists.sdeptname }}</option>
+                                                        
+                                                            {% else %}
+                                                            <option    style="color:black;    font-size: 10px;"  value="{{ Adepartmentlist_lists.lid }}"  data-tokens=" {{Adepartmentlist_lists.sdeptname}}" > {{ Adepartmentlist_lists.sdeptname }}</option>
+                                                        
+                                                            {% endif %}
+                                                        
+                                                        {% endfor %} 
+                                                    </select>
+         
+                                                </div>
+
+                                            </div>
+                                            <div class="row" style="margin-top:10px;">
+
+
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Designation Manager :</label> 
+     
+
+
+                                                    <select name="DesignationManager" id="DesignationManager"     title="Choose Designation Manager..."     style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 10px;" >
+                                                                                                    
+                                                    
+                                                        <option  value="0"   style="color:black;    font-size: 10px;"   value="">---select Designation Manager---</option>
+                                                        <option  value="0"    style="color:black;    font-size: 10px;"  value=""> </option>
+                                                        {% for Adesignationlist_lists in Adesignationlist_list %}
+                                                        
+                                                        
+                                                            {% if lDesignationID == Adesignationlist_lists.lid %} 
+                                                            <option selected="true"   style="color:black;    font-size: 10px;"  value="{{ Adesignationlist_lists.lid }}"  data-tokens=" {{Adesignationlist_lists.sdesignation}}" >  {{ Adesignationlist_lists.sdesignation }}</option>
+                                                        
+                                                            {% else %}
+                                                            <option    style="color:black;    font-size: 10px;"  value="{{ Adesignationlist_lists.lid }}"  data-tokens=" {{Adesignationlist_lists.sdesignation}}" > {{ Adesignationlist_lists.sdesignation }}</option>
+                                                        
+                                                            {% endif %}
+                                                        
+                                                        {% endfor %} 
+                                                    </select>
+         
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row" style="margin-top:10px;">
+
+
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Reporting Manager :</label> 
+     
+
+
+                                                    <select name="ReportingManager" id="ReportingManager"     title="Choose Reporting Manager..."     style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 10px;" >
+                                                                                                    
+                                                    
+                                                        <option  value="0"   style="color:black;    font-size: 10px;"   value="">---select Reporting Manager---</option>
+                                                        <option  value="0"    style="color:black;    font-size: 10px;"  value=""> </option>
+                                                        {% for AemployeelistRepManager_lists in AemployeelistRepManager_list %}
+                                                        
+                                                        
+                                                            {% if ReportingManagerID == AemployeelistRepManager_lists.lid %} 
+                                                            <option selected="true"   style="color:black;    font-size: 10px;"  value="{{ AemployeelistRepManager_lists.lid }}"  data-tokens="{{ AemployeelistRepManager_lists.sempid}} | {{AemployeelistRepManager_lists.susername}}" >{{ AemployeelistRepManager_lists.sempid}} | {{ AemployeelistRepManager_lists.susername }}</option>
+                                                        
+                                                            {% else %}
+                                                            <option    style="color:black;    font-size: 10px;"  value="{{ AemployeelistRepManager_lists.lid }}"  data-tokens="{{ AemployeelistRepManager_lists.sempid}} | {{AemployeelistRepManager_lists.susername}}" >{{ AemployeelistRepManager_lists.sempid}} | {{ AemployeelistRepManager_lists.susername }}</option>
+                                                        
+                                                            {% endif %}
+                                                        
+                                                        {% endfor %} 
+                                                    </select>
+        
+                                                    <script>
+                                                        $(document).ready(function()
+                                                        {
+
+                                                            $('#DepartmentManager').select2();
+                                                            $('#DesignationManager').select2();
+                                                            $('#ReportingManager').select2();
+                                                        }
+                                                        );
+
+                                                    </script>
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Address :</label> 
+                                                                                                
+                                                    <textarea id="txtAddress" name="txtAddress" rows="4" cols="50">
+                                                        
+                                                    </textarea>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-lg-2">
+                                        
+                                        </div>
+                                        <div class="col-lg-4">
+
+
+
+                                            
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Date of Birth :</label> 
+                                            
+                                                    <input type="date" name="txtDateofBirth"   style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Date of Joining :</label> 
+                                            
+                                                    <input type="date" name="txtDateofJoining"   style="width:100%; border:1px solid #b8babe;"/>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">EMail Address :</label> 
+                                            
+                                                    <input type="text" name="txtEMailAddress" maxlength="250" placeholder="Enter Email Address..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+
+                                            </div>
+                                            
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-12">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Contact No. :</label> 
+                                            
+                                                    <input type="text" name="txtContactNo" maxlength="20" placeholder="Enter Contact No..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Father / Spouse Name :</label> 
+                                            
+                                                    <input type="text" name="txtFatherSpouseName" maxlength="200" placeholder="Enter Father / Spouse Name.." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Emergency Contact :</label> 
+                                            
+                                                    <input type="text" name="txtEmergencyContact" maxlength="50" placeholder="Enter Emergency Contact ..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+
+                                            </div>
+                                            
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Aadhar No. :</label> 
+                                            
+                                                    <input type="text" name="txtAAdharNo" maxlength="50" placeholder="Enter Aadhar No..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">PAN No. :</label> 
+                                            
+                                                    <input type="text" name="txtPANNo" maxlength="50" placeholder="Enter PAN No..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+
+                                            </div>
+
+                                            
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">PF No. :</label> 
+                                            
+                                                    <input type="text" name="txtPFNo" maxlength="50" placeholder="Enter PF No..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+                                                <div class="col-lg-6">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Insurance Details :</label> 
+                                            
+                                                    <input type="text" name="txtInsuranceDetails" maxlength="50" placeholder="Enter Insurance Details..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+
+                                            </div>
+
+
+
+                                            
+
+                                            <div class="row">
+                                        
+                                                <div class="col-lg-4">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">Bank Name :</label> 
+                                            
+                                                    <input type="text" name="txtBankName" maxlength="50" placeholder="Enter Bank Name..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+                                                <div class="col-lg-4">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">IFSC Details :</label> 
+                                            
+                                                    <input type="text" name="txtIFSCDetails" maxlength="50" placeholder="Enter IFSC Details..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+                                                <div class="col-lg-4">
+        
+                                                    <label style="font-size:12px; font-weight:bold; color:#494a4c">A/c No. :</label> 
+                                            
+                                                    <input type="text" name="txtBankAccountNo" maxlength="50" placeholder="Enter A/c No. ..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                </div>
+
+                                            </div>
+
+
+
+                                            
+                                        </div>
+
+                                        <div class="col-lg-1">
+
+
+                                        </div>
+
+
+
+                                    </div> 
+                                </div>  
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div>
+            
+
+        </div> 
+
+
+    </form>
+
+        {% endblock %}

@@ -1,0 +1,2191 @@
+{% extends "CloudCaliber/Template2.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block content %}
+
+<form method="post" id="CreateIDForm"    >
+    {% csrf_token %}
+
+<div class="">
+
+
+
+    <div class="" style="width:100%; height:660px; background-color: white; padding-top: 10px; padding-left: 20px;  padding-right: 20px; "> 
+            
+        <div class="row">
+            <div class="col">
+
+                <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                
+
+
+
+                    <div class="row">
+                            
+                        <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                            
+
+                            <div class="row">
+
+                                <div class="col-2">
+
+                                    <h6  style="color:black;    width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">History List for </h6> 
+                        
+                                </div>
+                                <div class="col-1">
+ 
+                                </div>
+                                <div class="col-4">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>ID : </span><span>{{Masterinstrumentslist_list.sinstrumentid}}</span></h5>  
+          
+                                </div>
+                                <div class="col-5">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Description : </span><span>{{Masterinstrumentslist_list.sdescription}}</span></h5>  
+          
+                                </div>
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+
+
+
+                    <div class="row" style="margin-top: 20px;">
+
+
+
+                        <div class="col box-Type3" style="height:580px; margin:10px 10px 10px 10px; ">
+                             
+                            <div class="container-fluid">
+                                <div class="row" >
+                                    
+                                    <div class="col" style="background-color: white;   margin-left: 4px; margin-right: 4px;">
+                                                
+                                        
+                                            <div   style="   height:140px;  ">
+                                                
+
+                                                
+                                                <div   style=" height:575px; overflow: auto;"> 
+                                                        <table  class="table" >
+                                                            
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:46px;">
+                                                                    <th   style="padding-top:10px; width:40px; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;   width:40px;  font-size: 11px; ">Sl No</h6>
+                                                                    
+                                                                    </th>    
+                                                                    <th   style="padding-top:10px; width:150px; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;   width:120px; font-size: 11px; ">Transaction Type </h6>
+                                                                    
+                                                                    </th>  
+                                                                    <th   style="padding-top:10px; width:150px; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center; width:150px; font-size: 11px; ">Vendor (if any) </h6>
+                                                                    
+                                                                    </th>  
+                                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;  width:110px; ">Entered By </h6>
+                                                                    
+                                                                    </th>  
+                                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;  width:110px; ">Status </h6>
+                                                                    
+                                                                    </th>  
+                                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;  width:110px; ">Date of Transaction </h6>
+                                                                    
+                                                                    </th> 
+                                                                    <th   style="padding-top:10px;   min-width:70px;  border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;   ">Action</h6>
+                                                                    
+                                                                    </th>   
+                                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;   width:110px;">Received By </h6>
+                                                                    
+                                                                    </th>     
+                                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;   width:110px;">Returned By </h6>
+                                                                    
+                                                                    </th>     
+                                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;   width:110px;">Received On </h6>
+                                                                    
+                                                                    </th>     
+                                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  font-size: 11px;   width:110px; ">Returned On </h6>
+                                                                    
+                                                                    </th>  
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;">Process Started</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+
+                                                                
+
+                                                                {% for ThistorytransactionsInprocess_ListOBJ in ThistorytransactionsInprocess_List %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "Calibration Started" %}
+                                                                    <tr   style="width:100%;  border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> 1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %} 
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "RnR Started" %}
+                                                                    <tr   style="width:100%;   border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> 1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %} 
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "Attribute Started" %}
+                                                                    <tr   style="width:100%;  border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> 1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %} 
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "Stability Started" %}
+                                                                    <tr   style="width:100%;    border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> 1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %} 
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "Bias Started" %}
+                                                                    <tr   style="width:100%;   border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> 1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "Linearity Started" %}
+                                                                    <tr   style="width:100%;   border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;">1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "8D Started" %}
+                                                                    <tr   style="width:100%;   border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;">1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "Validation Started" %}
+                                                                    <tr   style="width:100%;   border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> 1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+
+
+
+                                                            
+                                                                {% if ThistorytransactionsInprocess_ListOBJ.scurrentstatus == "Damaged Started" %}
+                                                                    <tr   style="width:100%;   border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> 1</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsInprocess_ListOBJ.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsInprocess_ListOBJ.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+
+
+
+
+
+                                                            {% endfor %}
+
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Calibration History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsCalibration_listOBJBA in ThistorytransactionsCalibration_List %}
+
+
+                                                             
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;">   {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsCalibration_listOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsCalibration_listOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsCalibration_listOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsCalibration_listOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsCalibration_listOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+  
+                                                                                <a type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "     href="/GaugeCalibrationHistoryDetails/{{ThistorytransactionsCalibration_listOBJBA.lid}}"      target ="_blank"   >
+                                                                                    <span class="fa fa-eye"></span>
+                                                                                </a> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                                <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsCalibration_listOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                                <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsCalibration_listOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                                <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsCalibration_listOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                                <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsCalibration_listOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                    </tr> 
+ 
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Issue History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsIssue_ListObj in ThistorytransactionsIssue_ListVal %}
+
+
+                                                             
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsIssue_ListObj.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsIssue_ListObj.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsIssue_ListObj.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsIssue_ListObj.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsIssue_ListObj.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                <div style="display:none;">    
+                                                                                    <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                        <span class="fa fa-eye"></span>
+                                                                                    </button> 
+                                                                                </div> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsIssue_ListObj.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsIssue_ListObj.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsIssue_ListObj.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsIssue_ListObj.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+ 
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Request for Gauges / Instruments</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsRequest_ListDOBJBA in ThistorytransactionsRequest_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsRequest_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsRequest_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsRequest_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsRequest_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsRequest_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsRequest_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td>  
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> MSA History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for Thistorytransactionmsa_ListDOBJBA in Thistorytransactionmsa_ListD %}
+
+
+                                                            
+                                                                {% if Thistorytransactionmsa_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{Thistorytransactionmsa_ListDOBJBA.historytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{Thistorytransactionmsa_ListDOBJBA.calibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{Thistorytransactionmsa_ListDOBJBA.enteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{Thistorytransactionmsa_ListDOBJBA.currentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{Thistorytransactionmsa_ListDOBJBA.calibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Validation History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsValidation_ListDOBJBA in ThistorytransactionsValidation_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsValidation_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsValidation_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsValidation_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsValidation_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsValidation_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsValidation_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsValidation_ListDOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsValidation_ListDOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsValidation_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsValidation_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Damaged / Repair History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsDamaged_ListDOBJBA in ThistorytransactionsDamaged_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsDamaged_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsDamaged_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsDamaged_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsDamaged_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsDamaged_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsDamaged_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsDamaged_ListDOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsDamaged_ListDOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsDamaged_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsDamaged_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Service History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsService_ListDOBJBA in ThistorytransactionsService_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsService_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsService_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsService_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsService_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsService_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsService_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsService_ListDOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsService_ListDOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsService_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsService_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Usage History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsUsage_ListDOBJBA in ThistorytransactionsUsage_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsUsage_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsUsage_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsUsage_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsUsage_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsUsage_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsUsage_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsUsage_ListDOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsUsage_ListDOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsUsage_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsUsage_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> 8D History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for Thistorytransactions8D_ListDOBJBA in Thistorytransactions8D_ListD %}
+
+
+                                                            
+                                                                {% if Thistorytransactions8D_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{Thistorytransactions8D_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{Thistorytransactions8D_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{Thistorytransactions8D_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{Thistorytransactions8D_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{Thistorytransactions8D_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{Thistorytransactions8D_ListDOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{Thistorytransactions8D_ListDOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{Thistorytransactions8D_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{Thistorytransactions8D_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Master Details Edit History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsEditied_ListDOBJBA in ThistorytransactionsEditied_ListD %}
+
+
+                                                             
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsEditied_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsEditied_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsEditied_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsEditied_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsEditied_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsEditied_ListDOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsEditied_ListDOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsEditied_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsEditied_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+ 
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Issued Gauges / Instrument transferred History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsTransfer_ListDOBJBA in ThistorytransactionsTransfer_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsTransfer_ListDOBJBA.shistorytype == "Calibration" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsTransfer_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsTransfer_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsTransfer_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsTransfer_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsTransfer_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            <button type="button"  title="View Details" class="read-book btn btn-sm btn-primary" style="border:1px gray solid;  "   data-bs-toggle="modal" data-bs-target="#myModelViewDetails-{{forloop.counter}}"   >
+                                                                                <span class="fa fa-eye"></span>
+                                                                            </button> 
+                                                                            </td> 
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsTransfer_ListDOBJBA.sto}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsTransfer_ListDOBJBA.sfrom}} </h6>
+
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsTransfer_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsTransfer_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Calibration Prepone History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsPrepone_ListDOBJBA in ThistorytransactionsPrepone_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsPrepone_ListDOBJBA.shistorytype == "Prepone" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsPrepone_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsPrepone_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPrepone_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPrepone_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPrepone_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                    
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  min-width:110px; "> {{ThistorytransactionsPrepone_ListDOBJBA.scomment}} </h6>
+
+                                                           
+                                                                             
+
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPrepone_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPrepone_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+                                                        <table  class="table" >
+                                                            <thead>         
+                                                                <tr   style="width:100%; height:26px;">
+                                                                    <th   style="    border: 1px solid white; background-color:lightgray;">
+                                                                        
+                                                                        <h6  style="color:white; text-align: left; min-width:1150px; font-size: 14px;   text-shadow: 2px 0 lightblue,   -2px 0 lightblue,  1px 1px lightblue;"> Calibration Postpone History</h6>
+                                                                    
+                                                                    </th>  
+                                                                </thead>  
+                                                        </table>
+                                                        <table  class="table"  >
+                                                            <tbody>
+                                                            {% for ThistorytransactionsPostpone_ListDOBJBA in ThistorytransactionsPostpone_ListD %}
+
+
+                                                            
+                                                                {% if ThistorytransactionsPostpone_ListDOBJBA.shistorytype == "Postpone" %}
+                                                                    <tr   style="width:100%;  height:21px; border:none;">
+
+
+                                                                        
+
+                                                                            <td   style=" width:40px; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                                <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                                        
+                                                                            </td>  
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:120px; "> {{ThistorytransactionsPostpone_ListDOBJBA.shistorytype}} </h6>  
+                                                                            
+
+                                                                            </td>   
+                                                                            <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:150px; "> {{ThistorytransactionsPostpone_ListDOBJBA.scalibrationvendor}} </h6>  
+                                                                            
+
+                                                                            </td> 
+
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                                <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPostpone_ListDOBJBA.senteredby}} </h6>  
+                                                                            
+
+                                                                            </td>  
+                                                                            <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: left;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPostpone_ListDOBJBA.scurrentstatus}} </h6>  
+                                                                            
+                                                                            </td>  
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPostpone_ListDOBJBA.dtcalibrationdate|date:"d M, Y"}} </h6>  
+                                                                            
+                                                                            
+                                                                            </td>   
+                                                                            <td   style="   height:21px; border: 1px solid lightgray; background-color: white;  min-width:70px; ">
+                                                                                  
+                                                                             
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  min-width:110px; "> {{ThistorytransactionsPostpone_ListDOBJBA.scomment}} </h6>
+
+ 
+                                                                            </td>    
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPostpone_ListDOBJBA.dthistorydate|date:"d M, Y"}} </h6>
+
+
+                                                                            </td>   
+                                                                            <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                                
+                                                                            
+                                                                            <h6 style="color:black; text-align: center;  font-size: 11px;  width:110px; "> {{ThistorytransactionsPostpone_ListDOBJBA.sreturneddate}} </h6>
+
+
+                                                                            </td>   
+
+                                                                        </tr> 
+
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+
+
+
+
+
+
+
+
+
+
+                                                    </div>  
+                                            
+
+
+
+
+                                            </div>    
+                                        </div>
+
+                                    </div> 
+
+                                </div>
+
+                                 
+                        </div>
+
+                        </div>
+
+                         
+                    </div>
+                  
+
+
+
+                    
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>  
+
+
+</form>
+
+{% endblock %}

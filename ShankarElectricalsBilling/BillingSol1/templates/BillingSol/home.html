@@ -1,0 +1,91 @@
+{% extends "BillingSol/templateHome.html" %}
+{% load static %} 
+{% block title %}
+Welcome to
+{% endblock %}
+{% block content %}
+
+{% for message in messages %}       
+    
+    <div class="callout">
+        <div class="callout-header">Notifications</div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        <div class="callout-container">
+        
+            <div class="alert alert-danger alert-dismissible">
+                <p> {{ message }}</p>
+                </div>
+        </div>
+    </div>
+
+
+
+{% endfor %}
+
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+     
+  
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Login now</h2> 
+              <form action="" method="POST">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">/*                  
+                <div class="col-md-3 mb-4">  
+                </div>          
+                <div class="col-md-6 mb-4">
+                  
+
+                  <div class="form-group">  
+                    <img src="{% static 'BillingSol/Images/logo.png' %}" class="w-75" alt="Logo"  width="198" height="168">
+                  </div>
+
+
+                </div>               
+                <div class="col-md-3 mb-4">  
+                </div>          
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="text" name="txtEmployeeID" class="form-control" />
+                <label class="form-label" for="form3Example3"> User Name</label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" name="txtPassword" class="form-control" />
+                <label class="form-label" for="form3Example4">Password</label>
+              </div>
+ 
+
+              <!-- Submit button -->
+              <input type="submit" name="btnGo" value="Enter" class="btn btn-primary btn-block mb-4"  style="font-size: 15px; padding-right:14px; padding-left:14px;"/>  
+               
+ 
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="{% static 'BillingSol/Images/se.jpg' %}"  class="w-100 rounded-4 shadow-4" style="border-radius:5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+          alt="" />
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
+
+
+
+{% endblock %}

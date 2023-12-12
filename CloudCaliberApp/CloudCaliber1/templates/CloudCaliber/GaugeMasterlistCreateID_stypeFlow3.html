@@ -1,0 +1,5 @@
+<option  value="0"   value="">---select {{ styperefname1 }}---</option>
+<option  value="0"   value=""> </option>
+{% for tcategoriesLsts in Adminassetcategorytypelist1_AddNew1OBJ %}
+<option value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+{% endfor %}

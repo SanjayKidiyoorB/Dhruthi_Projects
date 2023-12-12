@@ -1,0 +1,107 @@
+{% extends "CloudCaliber/TemplateScheduler1.html" %}
+{% block title %}
+    Calibration Detail
+{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+
+<form method="post" id="CreateIDForm" data-Classification-url="{% url 'ajax_load_ClassificationDue' %}" data-courses-url="{% url 'ajax_load_CategoriesDue' %}" data-loadCodeFlowLabel1-url="{% url 'ajax_loadCode_FlowLabel1Due' %}" data-loadCodeFlow1-url="{% url 'ajax_loadCode_Flow1Due' %}"  data-loadCodeFlowLabel2-url="{% url 'ajax_loadCode_FlowLabel2Due' %}" data-loadCodeFlow2-url="{% url 'ajax_loadCode_Flow2Due' %}"   data-loadCodeFlowLabel3-url="{% url 'ajax_loadCode_FlowLabel3Due' %}" data-loadCodeFlow3-url="{% url 'ajax_loadCode_Flow3Due' %}"  data-loadCodeFlowLabel4-url="{% url 'ajax_loadCode_FlowLabel4Due' %}" data-loadCodeFlow4-url="{% url 'ajax_loadCode_Flow4Due' %}"  data-loadCodeFlowLabel5-url="{% url 'ajax_loadCode_FlowLabel5Due' %}" data-loadCodeFlow5-url="{% url 'ajax_loadCode_Flow5Due' %}"     >
+    {% csrf_token %}
+
+    
+    <div class="">
+
+
+
+        <div class="" style="width:100%; height:660px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                   
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Calibration Details</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+                        
+                            </div>
+
+                        
+                        </div>
+
+
+
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</form>
+
+
+{% endblock %}

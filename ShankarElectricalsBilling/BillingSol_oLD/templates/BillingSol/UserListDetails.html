@@ -1,0 +1,294 @@
+{% extends "BillingSol/templateusermaster.html" %}
+{% block title %}
+View / Edit User List
+{% endblock %}
+{% block content %}
+
+
+
+
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST">
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:560px; background-color: white; padding-top: 10px;    ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:560px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray;  height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master - View / Edit Unit List</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 3px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-default btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 3px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+
+                                <table style="width:100%; height:100%">
+                                    <tr class="row" style="width:100%; ">
+                                        <td class=""  style="width:5%;">
+
+                                        </td>
+                                        <td class=""  style="width:80%;">
+                                              
+                                                        
+                                            <table style="width:100%;  ">
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:30%;">
+                                                        
+                                                    </td> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Employee Name</h6> 
+                                        
+                                                        <input type="text"  name="txtEmployeeName"  value="{{ Userlist_list.sname }}"   class="form-control" required    tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 400px;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                    
+                                                    </td>   
+                                                    <td class=""  style="width:30%;">
+                                                        
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:10px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+  
+                                            <table style="width:100%; height:100%">
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:10%;">
+                                                        
+                                                    </td> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        
+                                                        <table style="width:100%; height:100%">
+
+                                                            <tr class="row" style="width:100%; ">
+                                                                
+                                                                
+                                                                <td class=""  style="width:100%;">
+                                                                                
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Employee ID (Login User Name)</h6> 
+                                                    
+                                                                    <input type="text"  name="txtEmployeeID"  value="{{ Userlist_list.u1_username }}"  placeholder="User ID"  class="form-control" required    tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 100%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                
+                                                                </td> 
+
+
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; ">
+                                                                
+                                                                
+                                                                <td class=""  style="width:100%;">
+                                                                          
+                                                                    <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Password</h6> 
+                                                           
+                                                                    <input type="text"  name="txtPassword"   value="{{ Userlist_list.u1_password }}" placeholder="Password"  class="form-control" required    tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 100%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                
+                                                                </td> 
+
+
+                                                            </tr> 
+                                                            <tr class="row" style="width:100%; height:10px;">
+                                                            </tr>   
+
+                                                        </table>
+
+
+
+                                                    </td>   
+                                                    <td class=""  style="width:60%;">
+                                                           
+                                                        <table style="width:100%; height:100%">  
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                                    
+                                                                    <table style="width:100%; height:100%">
+                                                                        <tr class="row" style="width:100%; "> 
+                                                                            <td class=""  style="width:20%;">
+
+                                                                                {% if Userlist_list.sadmin == 0 %}
+                                                                                    
+                                                                                    <input type="radio" id="radSoftwareAdmin" name="fav_language" selected value="SoftwareAdmin">
+                                                                                   <label for="radSoftwareAdmin">Software Admin</label> 
+                                                                               
+                                                                                {% else %} 
+                                                                                    <input type="radio" id="radSoftwareAdmin" name="fav_language" value="SoftwareAdmin">
+                                                                                    <label for="radSoftwareAdmin">Software Admin</label> 
+                                                                           
+                                                                                {% endif %}
+
+
+                                                                            </td> 
+                                                                            <td class=""  style="width:20%;">
+
+                                                                                {% if Userlist_list.bmaintenancebill == 0 %}
+                                                                                    
+                                                                                    <input type="radio" selected id="radHREntry" name="fav_language" value="HREntry">
+                                                                                    <label for="radHREntry">Invoice</label> 
+                                                                                {% else %} 
+                                                                                    <input type="radio" id="radHREntry" name="fav_language" value="HREntry">
+                                                                                    <label for="radHREntry">Invoice</label> 
+                                                                                {% endif %}
+
+                                                                                
+                                                                            </td> 
+                                                                            <td class=""  style="width:20%;">
+
+
+                                                                                {% if Userlist_list.bpo == 0 %}
+                                                                                    <input type="radio" selected id="radSalaryCompliance" name="fav_language" value="SalaryCompliance">
+                                                                                    <label for="radSalaryCompliance">Purchase Order</label> 
+                                                                                
+                                                                                {% else %} 
+                                                                                    <input type="radio" id="radSalaryCompliance" name="fav_language" value="SalaryCompliance">
+                                                                                    <label for="radSalaryCompliance">Purchase Order</label> 
+                                                                                    
+                                                                                {% endif %}
+
+                                                                            </td>  
+                                                                            <td class=""  style="width:30%;">
+
+                                                                                {% if Userlist_list.bblock == 0 %}
+                                                                                    
+                                                                                    <input type="radio" id="radBlock" name="fav_language" selected value="Block">
+                                                                                    <label for="radBlock">Blocked (Software Usage)</label> 
+                                                                                
+                                                                               
+                                                                                {% else %} 
+                                                                                    <input type="radio" id="radBlock" name="fav_language" value="Block">
+                                                                                    <label for="radBlock">Blocked (Software Usage)</label> 
+                                                                                    
+                                                                           
+                                                                                {% endif %}
+
+                                                                            </td> 
+                                                                        </tr> 
+                                                                    </table>
+
+
+                                                                </td> 
+                                                            </tr> 
+                                                        </table>
+
+
+                                                        <table style="width:100%; height:100%">
+                                                            <tr class="row" style="width:100%; "> 
+                                                                <td class=""  style="width:100%;">
+                                                                    
+                                                                </td> 
+                                                            </tr> 
+                                                        </table>
+
+  
+                                                    </td>   
+                                                    <td class=""  style="width:10%;">
+                                                        
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+
+                                             
+                                        </td> 
+                                        <td class=""  style="width:5%;">
+                                                
+                                        </td>
+                                    </tr>
+                                </table>
+ 
+
+
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}

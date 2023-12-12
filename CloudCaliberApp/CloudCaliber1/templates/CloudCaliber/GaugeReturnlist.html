@@ -1,0 +1,537 @@
+{% extends "CloudCaliber/TemplateReturn.html" %}
+{% block title %}
+Return back Instruments & Gauges
+{% endblock %}
+{% block content %}
+ 
+{% for message in messages %}
+
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+
+
+
+{% endfor %}
+<form action="" method="POST">
+    <div class="" style="height:800px; background-color: white; padding-top: 10px; padding-left: 230px; ">
+        
+        <div class="row" >
+                
+            <div class="col">
+    
+                <div class="box-Type3" style="height:350px; background-color: white; ">
+                    
+
+
+
+                    <div class="row">
+                            
+                        <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; margin-left: 10px; margin-right: 10px;">
+                            
+
+                            <table style="width:100%; height:100%">
+                                    
+                                <tr class="row" style="width:100%; height:20%">
+                                    <td class="col"  style="width:3%;">
+
+                                    </td>
+                                    <td class="col"  style="width:10%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:55%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:10%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:25%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:3%;">
+                                            
+                                    </td>
+                                </tr>
+                                <tr class="row" style="width:100%; height:60%">
+                                    
+
+                                    <td class="col"  style="width:3%; padding-top: 0.3em;">
+
+                                        <h6  style="color:black; text-align: right;  width: 120px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Instruments & Gauges Return</h6> 
+                        
+
+                                    </td> 
+                                    <td class="col"  style="width:55%; padding-top: 0.1em;">
+                                            
+                                        <input type="text"  name="txtQRCOde" class="form-input basic smooth-corner"    placeholder="Scan Issue Slip QR Code" tabindex="1"     style=" width: 300px;  font-size: 12px;"  autofocus/>
+
+                                            
+                                    </td>
+                                    <td class="col"  style="width:10%; padding-top: 0.6em;">
+                                            
+                                        <h6  style="color:black; text-align: left;  width: 160px; font-size: 13px; ">Slip Number </h6> 
+                        
+                                            
+                                    </td>
+                                    <td class="col"  style="width:25%;padding-top: 0.1em;">
+                                          
+                                        <h6  style="color:rgb(170, 0, 0); text-align: center; font-weight: bold; font-size: 13px; border:rgb(73, 70, 64); border-width:1px; border-style:solid; height:29px;">  </h6> 
+
+                                            
+                                    </td>
+                                    <td class="col"  style="width:10%;">
+
+                                        <input type="submit" name="cmbSearch"  value="Get Details" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px;  box-shadow: 2px 1px 2px rgb(141, 124, 124); height:31px; width:80px;"> 
+                                            
+                                    </td> 
+
+        
+                                </tr>
+                                <tr class="row" style="width:100%; height:20%">
+                                    <td class="col"  style="width:3%;">
+
+                                    </td>
+                                    <td class="col"  style="width:10%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:55%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:10%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:25%;">
+                                            
+                                    </td>
+                                    <td class="col"  style="width:3%;">
+                                            
+                                    </td>
+                                </tr>
+                            </table>
+
+
+
+
+
+
+
+                        </div>
+                        
+                        
+                    </div>
+                    
+
+                    <div class="row">
+                            
+                        <div class="col" >
+                            
+
+                            <table style="width:100%; height:100%;">
+
+                                    <tr>
+                                        <td style="height:8px;">
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:100%; ">
+                                                
+                                            <table style="width:100%; height:100%;  margin-left: 14px;">
+                                            
+                                                
+                                                <tr class="row" style="width:100%; height:46px;">
+                                                    <td class="col"  style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">ID</h6>
+                                                    
+                                                    </td> 
+                                                    <td class="col"  style="padding-top:10px; width:20%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Slip No</h6>  
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Description</h6>
+                                                        
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:20%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Parameter</h6> 
+                                                        
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:2%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Old Id</h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:2%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Last Calib Date</h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:2%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Next Calib Date</h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:2%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Issue date</h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:2%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Operator Name</h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:2%; border: 1px solid white; background-color: #92caff;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Gauge Crib Name</h6> 
+                                                    
+                                                    </td>
+                                                </tr>
+                                                <tr class="row" style="width:100%;  height:40px;">
+                                                    <td class="col"  style="width:10%; border: 1px solid lightgrey; background-color: white;">
+
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">   </h6> 
+
+                                                    </td> 
+                                                    <td class="col"  style="width:20%; border: 1px solid lightgrey; background-color: white;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">   </h6> 
+
+                                                    </td>
+                                                    <td class="col"  style="width:10%; border: 1px solid lightgrey; background-color: white;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">   </h6> 
+
+                                                    </td>
+                                                    <td class="col"  style="width:20%; border: 1px solid lightgrey; background-color: white;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">  </h6> 
+
+                                                    </td>
+                                                    <td class="col"  style="width:2%; border: 1px solid lightgrey; background-color: white;">
+                                                            
+                                                            <h6  style="color:black; text-align: center;  font-size: 13px; ">   </h6> 
+
+                                                    </td>
+                                                    <td class="col"  style="width:2%; border: 1px solid lightgrey; background-color: white;">
+                                                    
+                                                            <h6  style="color:black; text-align: center;  font-size: 13px; ">   </h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col"  style="width:2%; border: 1px solid lightgrey; background-color: white;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">   </h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col"  style="width:2%; border: 1px solid lightgrey; background-color: white;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">  </h6> 
+                                                    
+                                                    </td>
+                                                    <td class="col" style="width:2%; border: 1px solid lightgrey; background-color: white;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">   </h6> 
+
+                                                    </td>
+                                                    <td class="col" style="width:2%; border: 1px solid lightgrey; background-color: white;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">  </h6> 
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:8px;">
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:100%; ">
+                                            
+                                            <table style="width:100%;  border-collapse: collapse;">
+                                            
+                                                
+                                                <thead>
+                                                
+                                                    <tr class="row" style="width:100%;  "> 
+                                                        <td class="col"  style="width:2%;padding: 0; ">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0;  padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:240px; color:black; text-align: center;  font-size: 13px; ">Machine Name</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:240px; color:black; text-align: center;  font-size: 13px; ">Product</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:240px; color:black; text-align: center;  font-size: 13px; ">Life</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:240px; color:black; text-align: center;  font-size: 13px; ">Operator</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </thead>
+                                                <tr class="row" style="width:100%;  "> 
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;   width:20%; border: 1px solid white; background-color: white;">
+                                                    
+                                                        <h6  style="color:black; text-align: center;  width:220px; font-size: 13px;  border:rgb(73, 70, 64); border-width:1px; border-style:solid; height:29px;">   </h6> 
+                                                        
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;  width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                        <h6  style="color:black; text-align: center; width:220px;  font-size: 13px;  border:rgb(73, 70, 64); border-width:1px; border-style:solid; height:29px;">    </h6> 
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;  width:20%; border: 1px solid white; background-color: white; ">
+                                                        
+                                                        <input type="text" name="txtLife"  class="form-input basic smooth-corner"    placeholder="Life" tabindex="1"     style=" width: 220px;  font-size: 12px;"     autocomplete="off" />
+
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;   width:20%; border: 1px solid white; background-color: white;">
+                                                         
+
+                                                         
+                                                        
+                                                            <select name="OperatorDetailsEmpty" id="cmbOperatorDetailsEmpty" class="select classic" style="color:black;   width:220px; height:32px;  font-size: 12px;" >
+                                                                <option value="0"  disabled="true" selected>No Operator Details is Available</option> 
+                                                            </select>
+ 
+
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                </tr> 
+                                            </table>
+
+                                            
+                                            <table style="width:100%;  border-collapse: collapse;">
+                                            
+                                                
+                                                <thead>
+                                                
+                                                    <tr class="row" style="width:100%;  "> 
+                                                        <td class="col"  style="width:2%;padding: 0; ">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0;  padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:180px; color:black; text-align: center;  font-size: 13px; ">Status</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:180px; color:black; text-align: center;  font-size: 13px; ">Remarks</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:130px; color:black; text-align: center;  font-size: 13px; ">Next Action</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; padding-top:10px; width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                            <h6  style=" width:180px; color:black; text-align: center;  font-size: 13px; ">Remarks</h6> 
+                                                            
+                                                        </td>
+                                                        <td class="col"  style="padding: 0; width:2%;">
+                                                                
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </thead>
+                                                <tr class="row" style="width:100%;  "> 
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;     width:20%; border: 1px solid white; background-color: white;">
+                                                    
+                                                         
+                                                            <select name="StatusEmpty" id="cmbStatusEmpty" class="select classic" style="color:black;   width:220px; height:32px;  font-size: 12px;" >
+                                                                <option value="0"  disabled="true" selected>No Status is Available</option> 
+                                                            </select>
+ 
+                                                        
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;   width:20%; border: 1px solid white; background-color: white;">
+                                                        
+                                                         
+                                                        
+                                                            <select name="StatusRemarksEmpty" id="cmbStatusRemarksEmpty" class="select classic" style="color:black;   width:220px; height:32px;  font-size: 12px;" >
+                                                                <option value="0"  disabled="true" selected>No Status Remarks is Available</option> 
+                                                            </select>
+ 
+
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; padding-left:-50px; width:20%; border: 1px solid white; background-color: white;  ">
+                                                        
+                                                         
+                                                        
+                                                            <select name="ActionsEmpty" id="cmbActions" class="select classic" style="color:black;   width:220px; height:32px;  font-size: 12px;" >
+                                                                <option value="0"  disabled="true" selected>No Action is Available</option> 
+                                                            </select>
+ 
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;  padding-left:-30px ; width:20%; border: 1px solid white; background-color: white;">
+                                                         
+                                                        
+                                                            <select name="ActionRemarksEmpty" id="cmbActionRemarksEmpty" class="select classic" style="color:black;   width:220px; height:32px;  font-size: 12px;" >
+                                                                <option value="0"  disabled="true" selected>No Action Remarks is Available</option> 
+                                                            </select>
+ 
+
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                             
+
+                                            
+                                            <table style="width:100%;  border-collapse: collapse;">
+                                            
+                                                <tr class="row" style="padding: 0; width:100%;  "> 
+                                                    <td class="col"  style="width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding: 0;   width:20%; border: 1px solid white; background-color: white;">
+                                                    
+                                                    
+                                                        
+                                                    </td>
+                                                    <td class="col"  style="padding: 0; width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:50%; border: 1px solid white; background-color: white;">
+                                                        
+                                                
+                                                        <h6  style="color:rgb(2, 56, 16); text-align: center;  font-size: 13px; font-weight: bold; width:500px;">  </h6> 
+                                                        
+                                                    </td>
+                                                    <td class="col"  style="width:2%;">
+                                                            
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:20%; border: 1px solid white; background-color: white; padding-left: 20px;;">
+                                                        
+                                                        <input type="submit" name="cmbSave"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:20%; border: 1px solid white; background-color: white; padding-left: 20px;;">
+                                                        
+                                                        <input type="submit" name="cmbPrint"  value="Print New QR" class="btn btn-warning btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                                    </td>
+                                                    <td class="col"  style="width:2%;">
+                                                            
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height:10px;">
+                                            
+                                        </td>
+                                    </tr>  
+
+                            </table>
+
+
+
+
+
+
+                        </div>
+                        
+                        
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                
+            <div class="col" style="height: 10px;">
+            </div>
+        </div>
+ 
+    </div>
+</form>
+
+ 
+{% endblock %}

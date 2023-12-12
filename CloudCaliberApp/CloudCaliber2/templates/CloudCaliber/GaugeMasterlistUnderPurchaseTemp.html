@@ -1,0 +1,42 @@
+{% extends "CloudCaliber/TemplateMasterList.html" %}
+
+
+
+{% block title %}
+    Master List
+{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ 
+
+
+
+<div class="col" style="padding-top:20px; height:90px;">
+    
+    <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Classification</h6> 
+
+    <select name="Classification" id="cmbClassification" class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                            
+        <option value="0" disabled="true" selected> --- Select Classification --- </option> 
+        {% for Adminassettypelist_list in Adminassettypelist_list %}  
+            <option value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+        {% endfor %}
+    </select>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+      $("#cmbClassification").change(function () { 
+        alert("3"); 
+
+  
+      });
+    </script>
+
+
+
+</div>
+
+{% endblock %}

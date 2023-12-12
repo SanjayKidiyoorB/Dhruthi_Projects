@@ -1,0 +1,744 @@
+{% extends "iWorkPro/templatehome.html" %}
+{% load static %} 
+{% block title %}
+Welcome to
+{% endblock %}
+{% block content %}
+
+    {% for message in messages %}
+        <!-- <div class="alert alert-danger alert-dismissible" role="alert" onclick="this.style.display='none';">
+
+
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"> {{ message }}</span>
+            
+                
+                
+        </div>-->
+        <div class="callout">
+            <div class="callout-header">Notifications</div>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+            <div class="callout-container">
+            
+                <div class="alert alert-danger alert-dismissible">
+                    <p> {{ message }}</p>
+                    </div>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+     
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="" >
+
+
+
+
+            <div class="" style="width:100%; height:590px; background-color:  #f1f1f1;  padding-left: 10px;   padding-right: 10px;    ">
+                <div class="row">
+                    <div class="col">
+            
+                        <div class="box-Type3" style="height:590px; overflow-y:scroll; background-color: white; padding-left: 1.4ch; padding-right: 2ch;  margin-left: 1.4ch;   margin-right: 20px; ">
+                        
+            
+            
+            
+                            <div class="row">
+                                    
+                                <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #dad6d6; height:50px;   ">
+                                     
+
+                                    <table style="width:100%; height:100%">
+                                                                   
+                                         
+                                        <tr class="" style="width:100%; height:60%">
+                                            <td class=""  style="width:10%; padding-top: 1px;">
+            
+                                                <h6  style="color:black; text-align: right;  width: 420px; font-weight: bold; font-size: 15px;  ">Master - Employee List</h6> 
+                                
+                                            </td> 
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style="width:20%; padding-top:1px;">
+                                                       
+                                            </td> 
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style=" width:20%; padding-top:1px;"> 
+                                                
+               
+                                            </td>
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style="width:10%; ppadding-top:1px;">
+                                                     
+                                                    <input type="submit" name="cmdSave"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px;   background-image: linear-gradient(#42A1EC, #0070C9);  border: 1px solid #13aa52;  border-radius: 4px;  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;  box-sizing: border-box;  color: #fff; transform: translateY(0);  transition: transform 150ms, box-shadow 150ms;  user-select: none;  -webkit-user-select: none;  touch-action: manipulation; height:31px; width:90px;"> 
+                                                        
+                                            </td> 
+                                        </tr>
+                                    </table> 
+
+                                </div> 
+
+
+
+                                <div class="row" style="padding-top:20px;">
+
+
+                                    <div class="col-lg-4">
+                                     
+                                        <div class="row" style="padding-top:5px; padding-left:20px;">
+                                            <div class="col-lg-5">
+                                                <img src="{{  Aemployeelist_list.sphotofile }}" alt="logo" width="158" height="158" style="border:1px solid #CDCDCD;">
+                                                 
+                                            </div> 
+                                            <div class="col-lg-5" style="padding-top:35px;  ">
+                                                <a  onclick="document.getElementById('UploadFilePhoto').click()">
+                                                <div class="fileUpload btn btn-primary" style="margin-top:-10px; ">
+                                                    <span style=" font-size:12px;"> <i class="fa fa-upload" aria-hidden="true"></i> Select Photo to Upload</span>
+                                                    <input type="file"  style="display:none"  accept=".jpg,.png,.jpeg" class="upload" id="UploadFilePhoto"  name="UploadFilePhoto"/>
+                                                </div> </a>
+                                                <br/> 
+                                                <br/> 
+                                                <div class="fileUpload btn btn-primary">
+                                                    <button style="color:black; font-size:12px;" type="submit">Upload Photo</button>
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                    </div> 
+
+                                    <div class="col-lg-6">
+
+                                        <div class="row">
+
+
+                                    
+                                            <div class="col-lg-12">
+    
+                                                <label style="width:100%; font-size:12px; font-weight:bold; color:#494a4c">Employee No :</label> 
+                                        
+                                                <input type="text" value="{{Aemployeelist_list.sempid}}" name="txtEmpNo" maxlength="20" placeholder="Enter Employee No..." disabled autofocus     style="width:30%; border:1px solid #b8babe;"/>
+                                                 
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+
+                                    
+                                            <div class="col-lg-12">
+    
+                                                <label style="font-size:12px; font-weight:bold; color:#494a4c">Employee Name :</label> 
+                                        
+                                                <input type="text" name="txtName" value="{{Aemployeelist_list.susername}}" maxlength="250" placeholder="Enter Employee Name..." autofocus required    style="width:100%; border:1px solid #b8babe;"/>
+                                                
+    
+                                                <div style="display:none;">
+     
+                                                    <input type="text" name="txtPassword" value="{{Aemployeelist_list.spassword}}" maxlength="250" placeholder="Enter Employee Name..." autofocus     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+        
+                                                </div>
+                                            </div>
+
+ 
+
+                                        </div>
+
+                                        <div class="row" style="padding-top:15px;">
+
+
+                                    
+                                            <div class="col-lg-12">
+     
+                                                <div class="row">
+
+
+                                            
+                                                    <div class="col-lg-4">
+            
+                                                        <div class="col-3" style="font-size:12px; width:130px; font-weight:bold; color:#494a4c">
+                                                     
+                                                            <label for="chkActiveEmployee">Active Employee</label>
+                     
+                                                        </div>
+                                                        <div class="col-2" style="  ">
+                                                               
+                                                            {% if  Aemployeelist_list.bactive == 1 %} 
+                                                                <input type="checkbox" id="bactive" name="bactive"   checked    value=""  tabindex="35"  style="  "  />
+                                                            {%else%}
+                                                                <input type="checkbox" id="bactive" name="bactive"        value=""  tabindex="35"  style="  "  />
+                                                            {%endif%}
+                                                           
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+            
+                                                        <div class="col-3" style="font-size:12px; width:130px; font-weight:bold; color:#494a4c">
+                                                     
+                                                            <label for="chkAdmin">App Admin</label>
+                     
+                                                        </div>
+                                                        <div class="col-2" style="  ">
+                                                                  
+                                                            {% if  Aemployeelist_list.badmin == 1 %} 
+                                                                <input type="checkbox" id="chkAdmin" name="chkAdmin"   checked    value=""  tabindex="35"  style="  "  />
+                                                            {%else%}
+                                                                <input type="checkbox" id="chkAdmin" name="chkAdmin"        value=""  tabindex="35"  style="  "  />
+                                                            {%endif%} 
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+            
+                                                        <div class="col-3" style="font-size:12px; width:130px; font-weight:bold; color:#494a4c">
+                                                     
+                                                            <label for="chkApprover">Workflow Approver</label>
+                     
+                                                        </div>
+                                                        <div class="col-2" style="  ">
+                                                                  
+                                                            {% if  Aemployeelist_list.bpm == 1 %} 
+                                                                <input type="checkbox" id="bactive" name="chkApprover"   checked    value=""  tabindex="35"  style="  "  />
+                                                            {%else%}
+                                                                <input type="checkbox" id="chkApprover" name="chkApprover"        value=""  tabindex="35"  style="  "  />
+                                                            {%endif%} 
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+
+
+                                            </div>
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+
+                                    <div class="col-lg-2">
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                                
+                            </div> 
+
+
+
+                            <div class="row" style="padding-top:20px;">
+
+
+                                <div class="col-lg-1">
+                                
+                                </div>
+                                <div class="col-lg-4">
+
+                                    <div class="row" style="margin-top:10px;">
+
+
+                                
+                                        <div class="col-lg-12">
+
+                                            <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Department Manager :</label> 
+
+
+
+                                            <select name="DepartmentManager" id="DepartmentManager"     title="Choose Department Manager..."     style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 10px;" >
+                                                                                            
+                                            
+                                                <option  value="0"   style="color:black;    font-size: 10px;"   value="">---select Department Manager---</option>
+                                                <option  value="0"    style="color:black;    font-size: 10px;"  value=""> </option>
+                                                {% for Adepartmentlist_lists in Adepartmentlist_list %}
+                                                
+                                                
+                                                    {% if  Aemployeelist_list.ldeptid  == Adepartmentlist_lists.lid %} 
+                                                    <option selected="true"   style="color:black;    font-size: 10px;"  value="{{ Adepartmentlist_lists.lid }}"  data-tokens=" {{Adepartmentlist_lists.sdeptname}}" > {{ Adepartmentlist_lists.sdeptname }}</option>
+                                                
+                                                    {% else %}
+                                                    <option    style="color:black;    font-size: 10px;"  value="{{ Adepartmentlist_lists.lid }}"  data-tokens=" {{Adepartmentlist_lists.sdeptname}}" > {{ Adepartmentlist_lists.sdeptname }}</option>
+                                                
+                                                    {% endif %}
+                                                
+                                                {% endfor %} 
+                                            </select>
+ 
+                                        </div>
+
+                                    </div>
+                                    <div class="row" style="margin-top:10px;">
+
+
+                                
+                                        <div class="col-lg-12">
+
+                                            <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Designation Manager :</label> 
+
+
+
+                                            <select name="DesignationManager" id="DesignationManager"     title="Choose Designation Manager..."     style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 10px;" >
+                                                                                            
+                                            
+                                                <option  value="0"   style="color:black;    font-size: 10px;"   value="">---select Designation Manager---</option>
+                                                <option  value="0"    style="color:black;    font-size: 10px;"  value=""> </option>
+                                                {% for Adesignationlist_lists in Adesignationlist_list %}
+                                                
+                                                
+                                                    {% if   Aemployeelist_list.ldesignationid  == Adesignationlist_lists.lid %} 
+                                                    <option selected="true"   style="color:black;    font-size: 10px;"  value="{{ Adesignationlist_lists.lid }}"  data-tokens=" {{Adesignationlist_lists.sdesignation}}" >  {{ Adesignationlist_lists.sdesignation }}</option>
+                                                
+                                                    {% else %}
+                                                    <option    style="color:black;    font-size: 10px;"  value="{{ Adesignationlist_lists.lid }}"  data-tokens=" {{Adesignationlist_lists.sdesignation}}" > {{ Adesignationlist_lists.sdesignation }}</option>
+                                                
+                                                    {% endif %}
+                                                
+                                                {% endfor %} 
+                                            </select>
+ 
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="margin-top:10px;">
+
+
+                                
+                                        <div class="col-lg-12">
+
+                                            <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Reporting Manager :</label> 
+
+
+
+                                            <select name="ReportingManager" id="ReportingManager"     title="Choose Reporting Manager..."     style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 10px;" >
+                                                                                            
+                                            
+                                                <option  value="0"   style="color:black;    font-size: 10px;"   value="">---select Reporting Manager---</option>
+                                                <option  value="0"    style="color:black;    font-size: 10px;"  value=""> </option>
+                                                {% for AemployeelistRepManager_lists in AemployeelistRepManager_list %}
+                                                
+                                                
+                                                    {% if    Aemployeelist_list.lreportmanagerid  == AemployeelistRepManager_lists.lid %} 
+                                                    <option selected="true"   style="color:black;    font-size: 10px;"  value="{{ AemployeelistRepManager_lists.lid }}"  data-tokens="{{ AemployeelistRepManager_lists.sempid}} | {{AemployeelistRepManager_lists.susername}}" >{{ AemployeelistRepManager_lists.sempid}} | {{ AemployeelistRepManager_lists.susername }}</option>
+                                                
+                                                    {% else %}
+                                                    <option    style="color:black;    font-size: 10px;"  value="{{ AemployeelistRepManager_lists.lid }}"  data-tokens="{{ AemployeelistRepManager_lists.sempid}} | {{AemployeelistRepManager_lists.susername}}" >{{ AemployeelistRepManager_lists.sempid}} | {{ AemployeelistRepManager_lists.susername }}</option>
+                                                
+                                                    {% endif %}
+                                                
+                                                {% endfor %} 
+                                            </select>
+
+
+                                            </script>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-12">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Address :</label> 
+                                                                                        
+                                            <textarea id="txtAddress" name="txtAddress" rows="4" cols="50"  style="width:100%; border:1px solid #b8babe;   ">
+                                                 {{Aemployeelist_list.saddress}}
+                                            </textarea>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-6">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Document Type :</label> 
+                                                 
+                                            <select name="DocumentType" id="DocumentType"     title="Choose Document Type..."     style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 10px;" >
+                                                                                            
+                                            
+                                                <option  value="0"   style="color:black;    font-size: 10px;"   value="">---select Document Type---</option>
+                                                <option  value="0"    style="color:black;    font-size: 10px;"  value=""> </option>
+                                                <option  value="Job Requirement"    style="color:black;    font-size: 10px;"  value=""> Job Requirement </option>
+                                                <option  value="Interview Call Letter"    style="color:black;    font-size: 10px;"  value=""> Interview Call Letter </option>
+                                                <option  value="CV / Resume"    style="color:black;    font-size: 10px;"  value=""> CV / Resume </option>
+                                                <option  value="Offer Letter"    style="color:black;    font-size: 10px;"  value=""> Offer Letter </option>
+                                                <option  value="Confirmation Letter"    style="color:black;    font-size: 10px;"  value=""> Confirmation Letter </option>
+                                                <option  value="Appointment Letter"    style="color:black;    font-size: 10px;"  value=""> Appointment Letter </option>
+                                                <option  value="Joining Letter"    style="color:black;    font-size: 10px;"  value=""> Joining Letter </option>
+                                               
+                                                <option  value="Contract Signature"    style="color:black;    font-size: 10px;"  value=""> Contract Signature </option>
+                                                <option  value="10th Certificate"    style="color:black;    font-size: 10px;"  value=""> 10th Certificate </option>
+                                                <option  value="12th Certificate"    style="color:black;    font-size: 10px;"  value=""> 12th Certificate </option>
+                                                <option  value="Graduation Markscard"    style="color:black;    font-size: 10px;"  value=""> Graduation Markscard </option>
+                                                <option  value="Graduation Certificate"    style="color:black;    font-size: 10px;"  value=""> Graduation Certificate </option>
+                                                <option  value="Higher Education Markscard"    style="color:black;    font-size: 10px;"  value=""> Higher Education Markscard </option>
+                                                <option  value="Higher Education Certificate"    style="color:black;    font-size: 10px;"  value=""> Higher Education Certificate </option>
+                                                <option  value="Background Verification"    style="color:black;    font-size: 10px;"  value=""> Background Verification </option>
+                                                <option  value="AAdhar Card"    style="color:black;    font-size: 10px;"  value=""> AAdhar Card </option>
+                                                <option  value="PAN Card"    style="color:black;    font-size: 10px;"  value=""> PAN Card </option>
+                                                <option  value="PF / ESI / Insurance Certificate"    style="color:black;    font-size: 10px;"  value=""> PF / ESI / Insurance Certificate </option>
+                                                <option  value="Apprisal / Increment Approvals"    style="color:black;    font-size: 10px;"  value=""> Apprisal / Increment Approvals </option>
+                                                <option  value="Apprisal / Increment Letter"    style="color:black;    font-size: 10px;"  value=""> Apprisal / Increment Letter </option>
+                                                <option  value="Promotion Letter"    style="color:black;    font-size: 10px;"  value=""> Promotion Letter </option>
+                                                <option  value="Appreciations"    style="color:black;    font-size: 10px;"  value=""> Appreciations </option>
+                                                <option  value="Letter of Recommendation"    style="color:black;    font-size: 10px;"  value=""> Letter of Recommendation </option>
+                                                <option  value="Relieving Letters / Documents"    style="color:black;    font-size: 10px;"  value=""> Relieving Letters / Documents </option>
+                                                <option  value="Experience Letter"    style="color:black;    font-size: 10px;"  value=""> Experience Letter </option>
+                                                <option  value="Warning Letters"    style="color:black;    font-size: 10px;"  value=""> Warning Letters </option>
+                                                <option  value="Disciplinary Letter"    style="color:black;    font-size: 10px;"  value=""> Disciplinary Letter </option>
+                                                <option  value="Termination Letter"    style="color:black;    font-size: 10px;"  value=""> Termination Letter </option>
+                                                <option  value="Length of Absence Letter"    style="color:black;    font-size: 10px;"  value=""> Length of Absence Letter </option>
+                                            
+                                            
+                                            
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-5"  style="margin-top:5px; ">
+                                            <a  onclick="document.getElementById('UploadFilePDocument').click()">
+                                            <div class="fileUpload btn btn-primary" style="  height:50px;">
+                                                <span style=" font-size:10px;"> <i class="fa fa-upload" aria-hidden="true"></i> Select Documents to Upload</span>
+                                                <input type="file"  style="display:none"   class="upload" id="UploadFilePDocument"  name="UploadFilePDocument"/>
+                                            </div> </a> 
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <div class="fileUpload btn btn-primary"  style="margin-top:5px; ">
+                                                <button style="color:black; font-size:10px;" type="submit">Upload Files</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <script>
+                                        $(document).ready(function()
+                                        {
+
+                                            $('#DepartmentManager').select2();
+                                            $('#DesignationManager').select2();
+                                            $('#ReportingManager').select2();
+                                            $('#DocumentType').select2();
+                                        }
+                                        );
+                                    </script>
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-12">
+ 
+                                            {% if Aemployeedoclist_list %}
+                            
+                                                <div style="width:100%; height:250px; overflow: auto;">         
+                                                    <table  class="table  table-borderless   table-hover" style="width:100%;   border:none;  ">
+                                                        
+                                                        <thead>         
+                                                            <tr   style="width:100%; height:46px;  border:none; border-bottom:2px solid #E8E8E8;">  
+                                                                <th   style="padding-top:10px; width:10%;  border:none; ">
+                                                                    
+                                                                    <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Sl No</h6>
+                                                                
+                                                                </th>  
+                                                                <th   style="  width:50%;  height:21px; border:none;  background-color: white;">
+                                                                    
+                                                                    <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Document Type</h6>
+                                                                
+                                                                </th>  
+                                                                <th   style="  width:40%;  height:21px; border:none;  background-color: white;">
+                                                                    
+                                                                    <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Document File</h6>
+                                                                
+                                                                </th>  
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for Aemployeedoclist_listOBJ in Aemployeedoclist_list %}
+                                                            <tr   style="width:100%;  height:21px; border:none; border-bottom:2px solid #E8E8E8;">
+                
+                
+                
+                                                                <td   style=" width:5%; height:21px;  border:none;  background-color: white;">
+                                                                    <h6 style="color:black; text-align: left;  font-size: 12px; "> {{ forloop.counter }}</h6> 
+                                                            
+                                                                </td> 
+                                                                <td   style="  width:50%;  height:21px; border:none;  background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: left;  font-size: 9px; ">{{Aemployeedoclist_listOBJ.sfiledesc}}</h6>  
+                                                                
+                                                                </td>  
+                                                                <td   style="  width:40%;  height:21px; border:none;  background-color: white;">
+                                                                    
+                                                                    <a  href="{{  Aemployeedoclist_listOBJ.sfilename }}">
+                                                                        <h6 style="color:black; text-align: left;  font-size: 9px; ">{{Aemployeedoclist_listOBJ.sfilename}}</h6>  
+                                                                    
+                                                                    </a>
+                                                                        
+                                                                </td>   
+                                                            </tr> 
+                                                        </tbody>     
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                            
+                                        <table style="width:100%;    ">
+                                            <tr class="row" style="width:100%;  height:40px;">
+                                                <td class="col"  style="padding-top:10px; width:2%;  background-color: white;">
+                                                        
+                                                    
+                                                </td> 
+                                                <td class="col"  style="padding-top:10px; width:90%;  background-color: white;">
+                                                    
+                                                
+                                                    <p>No Document List are available.</p> 
+                                                </td>
+                                                <td class="col"  style="padding-top:10px; width:8%;  background-color: white;">
+                                                    
+                                                
+                                                </td> 
+                                            </table>
+                                    {% endif %}
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+
+
+                                <div class="col-lg-2">
+                                
+                                </div>
+                                <div class="col-lg-4">
+
+
+
+                                    
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-6">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Date of Birth :</label> 
+                                    
+                                            <input type="date" name="txtDateofBirth" value="{{Aemployeelist_list.sdateofbirth}}"   style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Date of Joining :</label> 
+                                    
+                                            <input type="text" name="txtDateofJoining" disabled  value="{{Aemployeelist_list.sdateofjoin}}"   style="width:100%; border:1px solid #b8babe;"/>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-12">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">EMail Address :</label> 
+                                    
+                                            <input type="email" name="txtEMailAddress" maxlength="250" value="{{Aemployeelist_list.sempemailid}}"   placeholder="Enter Email Address..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+
+                                    </div>
+                                    
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-12">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Contact No. :</label> 
+                                    
+                                            <input type="text" name="txtContactNo" maxlength="20" value="{{Aemployeelist_list.smobile}}"   placeholder="Enter Contact No..." autofocus required    style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-6">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Father / Spouse Name :</label> 
+                                    
+                                            <input type="text" name="txtFatherSpouseName" value="{{Aemployeelist_list.sspousename}}"   maxlength="200" placeholder="Enter Father / Spouse Name.." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Emergency Contact :</label> 
+                                    
+                                            <input type="text" name="txtEmergencyContact" value="{{Aemployeelist_list.sscontact}}"   maxlength="50" placeholder="Enter Emergency Contact ..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+
+                                    </div>
+                                    
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-5">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Aadhar No. :</label> 
+                                    
+                                            <input type="text" name="txtAAdharNo" maxlength="50" value="{{Aemployeelist_list.sadharno}}"   placeholder="Enter Aadhar No..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">PAN No. :</label> 
+                                    
+                                            <input type="text" name="txtPANNo" maxlength="50" value="{{Aemployeelist_list.spanno}}"   placeholder="Enter PAN No..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-3">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Blood Group :</label> 
+                                    
+                                            <input type="text" name="txtBloodGroup" maxlength="50" value="{{Aemployeelist_list.sbloodgroup}}"   placeholder="Enter Blood Group..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+
+                                    </div>
+
+                                    
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-4">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">PF No. :</label> 
+                                    
+                                            <input type="text" name="txtPFNo" maxlength="50" value="{{Aemployeelist_list.spfno}}"   placeholder="Enter PF No..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Insurance Details :</label> 
+                                    
+                                            <input type="text" name="txtInsuranceDetails" maxlength="50" value="{{Aemployeelist_list.sinsurancedetails}}"   placeholder="Enter Insurance Details..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Salary (in Numeric) :</label> 
+                                    
+                                            <input type="text" name="txtSalary" maxlength="50" value="{{Aemployeelist_list.fcosttocompany1}}"   placeholder="Enter Salary (in Numeric)..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+
+                                    </div>
+
+
+
+                                    
+
+                                    <div class="row">
+                                
+                                        <div class="col-lg-4">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">Bank Name :</label> 
+                                    
+                                            <input type="text" name="txtBankName" maxlength="50" value="{{Aemployeelist_list.sbankname}}"   placeholder="Enter Bank Name..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">IFSC Details :</label> 
+                                    
+                                            <input type="text" name="txtIFSCDetails" maxlength="50" value="{{Aemployeelist_list.sifsccode}}"   placeholder="Enter IFSC Details..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <label style="font-size:12px; font-weight:bold; color:#494a4c">A/c No. :</label> 
+                                    
+                                            <input type="text" name="txtBankAccountNo" maxlength="50" value="{{Aemployeelist_list.bankaccountno}}"   placeholder="Enter A/c No. ..." autofocus required     style="width:100%; border:1px solid #b8babe;"/>
+                                                    
+                                        </div>
+
+                                    </div>
+
+
+
+                                    
+                                </div>
+
+                                <div class="col-lg-1">
+
+
+                                </div>
+
+
+
+                            </div> 
+
+
+
+
+
+
+
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+            
+
+        </div> 
+
+
+    </form>
+
+        {% endblock %}

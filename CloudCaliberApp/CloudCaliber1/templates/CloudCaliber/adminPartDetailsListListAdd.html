@@ -1,0 +1,316 @@
+{% extends "CloudCaliber/TemplateAdministratorA.html" %}
+{% block title %}
+Add New PartNo List
+{% endblock %}
+{% block content %}
+
+
+
+
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST">
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:560px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:560px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master - Add New PartNo List</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+
+                                <table style="width:100%; height:100%">
+                                    <tr class="row" style="width:100%; ">
+                                        <td class=""  style="width:5%;">
+
+                                        </td>
+                                        <td class=""  style="width:80%;">
+                                              
+                                                        
+                                            <table style="width:100%; height:100%">
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Part No</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                        
+                                                        <input type="text"  name="txtsPartNo" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" width: 100%;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Part Name</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                        
+                                                        <input type="text"  name="txtsPartName" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" width: 100%;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Code</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                        
+                                                        <input type="text"  name="txtCode" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" width: 100%;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Customer</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                                         
+                                                        <select name="Customer" id="cmbCustomer" class="form-control select classic selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;   min-width:100%; height:32px;  font-size: 12px;" >
+                                                                
+                                                            <option value="0" disabled="true" selected> --- Select Customer --- </option> 
+                                                            {% for Admincustomerlist_list in Admincustomerlist_list %}  
+                                                                <option value="{{ Admincustomerlist_list.lid }}" data-tokens="{{Admincustomerlist_list.scustomername}}" >{{Admincustomerlist_list.scustomername}} </option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">MSA Interval</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                        
+                                                        <input type="text"  name="txtInterval" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" width: 100%;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Customer</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                                         
+                                                        <select name="MSAPeriod" id="cmbMSAPeriod" class="form-control select classic selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;   min-width:100%; height:32px;  font-size: 12px;" >
+                                                                
+                                                            <option value="0" disabled="true" selected> --- Select MSA Period --- </option> 
+                                                             
+                                                                <option value="0" data-tokens="Day" >Day </option>
+                                                                <option value="1" data-tokens="Week" >Week </option>
+                                                                <option value="2" data-tokens="Month" >Month </option>
+                                                                <option value="3" data-tokens="Hour" >Hour </option>
+                                                             
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">MSA Last Done</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                        
+                                                        <input type="date"  name="txtLast" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" width: 100%;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">MSA Next On</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                        
+                                                        <input type="text"  name="txtNext" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" width: 100%;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+
+
+                                             
+                                        </td> 
+                                        <td class=""  style="width:5%;">
+                                                
+                                        </td>
+                                    </tr>
+                                </table>
+ 
+
+
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}

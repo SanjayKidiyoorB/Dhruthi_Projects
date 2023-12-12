@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Create Masterlist Asset Ids - Cloud Caliber - Metrology Asset Calibration, Inventory & Traceablity Management</title>
+        {% load static %} 
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/site.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/Style1.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/Style2.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/TabSS.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/bootstrap/bootstrap.min.css' %}"/> 
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/sb-admin-2.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'CloudCaliber/Select2022.css' %}"/>
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.1/css/all.css">
+        <link rel="shortcut icon" href="{% static 'favicon.png' %}"/><link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+       
+        <style>
+            .dot {
+              height: 15px;
+              width: 15px;
+              background-color: rgb(9, 101, 98);
+              color:white;
+              border-radius: 50%;
+              display: inline-block;
+              font-size:10px;
+              padding-left:5px;
+            
+            }
+            select {
+                width: 50%; 
+                min-height:30px;
+                background-color: white !important;
+                border-style: solid;
+                border-left-width: 3px;
+                border-left-color: #00DDDD;
+                border-top: 1px;
+                border-bottom: 1px;
+                border-right: 1px;
+                border-top: 1px;
+                border-bottom: 1px;
+                border-right: 3px;
+                border-top-color: #00DDDD;
+                border-bottom-color: #00DDDD;
+                border-right-color: #00DDDD;
+                border:1px black solid;
+                color: black;
+                font-size: 12px;
+                font-weight: normal;
+                padding-top: 0px;
+                padding-left: 6px;
+                padding-bottom: 0px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border:1px black solid ;
+                -webkit-appearance: listbox !important
+            }
+            .selectpicker{
+                width: 50%; 
+                min-height:24px; 
+                background-color: white !important;
+                border-style: solid;
+                border-left-width: 3px;
+                border-left-color: #00DDDD;
+                border-top: 1px;
+                border-bottom: 1px;
+                border-right: 1px;
+                border-top-color: #00DDDD;
+                border-bottom-color: #00DDDD;
+                border-right-color: #00DDDD;
+                color: black;
+                font-size: 12px;
+                font-weight: normal;
+                padding-top: 2px;
+                padding-left: 6px;
+                padding-bottom: 0px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border:1px gray solid;
+            } 
+            .bootstrap-select {
+            width: 98% !important; 
+            font-size:12px;  
+            } 
+            .wia-filter-value {
+                width: 50%; 
+                background-color: white !important;
+                border-style: solid;
+                border-left-width: 3px;
+                border-left-color: #00DDDD;
+                border-top: none;
+                border-bottom: none;
+                border-right: none;
+                color: white;
+                font-size: 12px;
+                padding-top: 3px;
+                padding-left: 6px;
+                padding-bottom: 0px;
+                font-weight: normal;
+                padding-left: 6px;
+            }
+            /* width */
+            ::-webkit-scrollbar {
+              width: 10px;
+              height: 10px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+              box-shadow: inset 0 0 5px grey; 
+              border-radius: 10px;
+            }
+             
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: rgb(99, 140, 163); 
+              border-radius: 10px;
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background: rgb(99, 140, 163); 
+            }
+        </style>
+        <style>
+         .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 13px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+            }
+        </style>
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            
+            .callout { 
+            bottom: 35px;
+            right: 20px;
+            margin-left: 20px;
+            max-width: 300px;
+            z-index: 1000;
+            position: absolute;
+            }
+            
+            .callout-header {
+            padding: 25px 15px;
+            background: #555;
+            font-size: 30px;
+            color: white;
+            }
+            
+            .callout-container {
+            padding: 15px;
+            background-color: #ccc;
+            color: black
+            }
+            
+            .closebtn {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            }
+            
+            .closebtn:hover {
+            color: lightgrey;
+            }
+        </style>
+
+    </head>
+
+    <body> 
+            <div class="top-row hidewhenPrint" style="width:100%;   margin:auto;  background-color: rgb(41, 176, 255); background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 70%); color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.4); z-index: 1030; ">
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                        <img src="{% static 'CloudCaliber/Images/Dhruthilogo.png' %}" alt="logo" width="100" height="48">
+                    
+                    </div>
+                    <div class="col">
+                        
+                        <img src="{% static 'CloudCaliber/Images/logo.png' %}" alt="logo" width="100" height="48">
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div> 
+            </div>
+            
+            <aside class="sidebar" style="min-width:200px;">
+                <nav class="nav">
+                <ul>
+                    <li class="active"><a href="{% url 'Dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'GaugeMasterlist' %}">Masterlist</a></li>
+                    <li><a href="{% url 'GaugeScheduler' %}">Scheduler</a></li>
+                    <li><a href="{% url 'GaugeIssue' %}">Gauge Issues</a></li>
+                    <li><a href="{% url 'GaugeReturn' %}">Gauge Returns</a></li>
+                    <li><a href="{% url 'GaugeMSA' %}">MSA</a></li>
+                    <li><a href="{% url 'GaugeVerifications' %}">Gauge Verifications</a></li>
+                    <li><a href="{% url 'GaugeUtility' %}">Utility</a></li>
+                    <li><a href="{% url 'GaugeMasters' %}">Masters</a></li>
+                    <li><a href="{% url 'GaugeAdministrator' %}">Administrator</a></li>
+                    <li><a href="{% url 'home' %}">Logout</a></li>
+                </ul>
+                </nav>
+            </aside>
+            <div class="body-content">
+                {% block content %}
+                
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST" id="IDCreationForm" data-validate-classification-url="{% url 'ajax_load_GMlistClassificationCreate_ID' %}" novalidate>
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:560px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:560px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:5%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Create Masterlist</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:30%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save & Create New Asset" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:140px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                    <div class="col"  style="padding-top:10px;"> 
+
+                                        
+                                        <input type="text"  name="txtPlant" class="form-input basic" value="{{sPlantName}}" 
+                                          autocomplete="off"   tabindex="10"  maxlength="200"  readonly   style="Top:5px;  color :rgb(3, 44, 90); text-shadow: 1px 1px #ffffff ;  background-color: #a3c3ff;   border:1px gray solid; width:100%;     padding: 0 0 0 0; height:20px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                        
+                                    </div>
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Classification</h6> 
+                                
+                                    </div>
+                                    <div class="col" style="padding-top:10px;">
+
+                                        <select name="Classification" id="cmbClassification" class="selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;   width:100%;   font-size: 12px;" >
+                                                         
+                                            {% if  cmbClassificationID == SelectedSeries0 %} 
+
+                                                <option value="0"   style="color:black;    font-size: 12px;"  selected> --- Select Classification  --- </option> 
+                                            
+                                            {% else %}
+
+                                                <option value="0"   style="color:black;    font-size: 12px;"   > --- Select Classification  --- </option> 
+                                            
+                                            {% endif %}
+                                            {% for Adminassettypelist_list in Adminassettypelist_list %}  
+
+         
+                                                {% if  cmbClassificationID == SelectedSeries0 %} 
+
+                                                    <option value="{{ Adminassettypelist_list.lcategorytypeid }}" selected   data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                                
+                                                {% else %}
+
+                                                    <option value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                                
+                                                {% endif %}
+                                            
+                                            {% endfor %}
+
+                                            
+                                        </select>
+                                        
+                                        <div style="display:none;">
+                                            
+                                            <input type="submit" name="cmdClassification"  value="Save & Create New Asset" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:140px;"> 
+                                            
+                                        </div>
+
+                                        <script type="text/javascript">
+
+                                            $("#cmbClassification").change(function () {
+                                                
+                                                var url = $("#IDCreationForm").attr("data-validate-classification-url");  // get the url of the `load_cities` view
+                                                var cmbClassificationID = $(this).val();  // get the selected country ID from the HTML input
+                                               
+                                                
+
+                                                $.ajax({                       // initialize an AJAX request
+                                                    url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+                                                    data: {
+                                                    'cmbClassificationID': cmbClassificationID       // add the country id to the GET parameters
+                                                    },
+                                                    success: function (data) {   // `data` is the return of the `load_cities` view function
+                                                        
+                                                        $("#IDCreationForm").html(data);  // replace the contents of the city input with the data that came from the server
+                                                    }
+                                                });
+
+                                                });
+                                        </script>
+
+                                        <script type="text/javascript">
+                                            function getClassification() {
+                                                document.getElementById("cmdClassification").click();
+                                               // onchange="getClassification();"
+                                            }
+                                        </script>
+ 
+ 
+                                    </div>
+                                    <div class="col-1">
+
+ 
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+
+
+
+                        
+                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                    <div class="col"  style="padding-top:10px;"> 
+
+                                        
+                                        <select name="Category" id="cmbCategory" class="selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;   width:100%;   font-size: 12px;" >
+                                                  
+                                            <option value="0" disabled="true" selected> --- Select Category --- </option> 
+                                             
+                                            {% for Adminassetcategorylistobj1 in Adminassetcategorylistobj %}  
+                                                <option value="{{ Adminassetcategorylistobj1.lcategoryid }}"   data-tokens="{{Adminassetcategorylistobj1.categorytype}}">{{Adminassetcategorylistobj1.categorytype}} </option>
+                                            {% endfor %}        
+                                        </select>
+
+                                    </div>
+                                    <div class="col-1" style="padding-top:4px;">
+
+ 
+                                    </div>
+                                    <div class="col" style="padding-top:10px;">
+ 
+                                        
+                                    </div>
+                                    <div class="col-1">
+
+ 
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" >
+
+                                <div class="row">
+                                
+                                    <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                        
+                                        <div class="row" >
+                                             <div class="col"   >
+                                                <div id="idFlow1" style="display:none;">
+                                                
+                                                    <div class="row">
+
+                                                        
+                                                        <div class="col-1" style="padding-top:4px;">
+ 
+
+                                                        </div>
+                                                            <div class="col-1" style="padding-top:4px;">
+
+                                                                <span class="dot">1</span> 
+
+                                                            </div>
+                                                            <div class="col-1" style="padding-top:4px;">
+ 
+                                                                <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                                        
+                                                                
+
+                                                            </div>
+                                                            <div class="col-8"  style="padding-top:10px;"> 
+
+                                                                
+                                                                <select name="getFlow1" id="cmbgetFlow1" class="select" data-show-subtext="true" data-live-search="true" style="color:black;   width:70%;   font-size: 12px;" >
+                                                                                
+                                                                    <option value="0" disabled="true" selected> --- Select Classification --- </option> 
+                                                                    {% for Adminassettypelist_list in Adminassettypelist_list %}  
+                                                                        <option value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                    </div>
+
+                                                </div>
+
+                                             </div>
+
+                                             
+                                             <div class="col"   >
+                                                <div id="idFlow2" style="display:none;">
+                                                
+                                                </div>
+
+                                             </div>
+                                        </div>
+
+
+                                        
+                                    </div>
+                                </div> 
+
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+        
+                                        </td> 
+                                    </tr>
+                                </table>
+
+                                <div class="row">
+                                
+                                    <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                            
+                                        <div class="row" >
+                                            <div class="col"   >
+                                               <div id="idFlow3" style="display:none;">
+                                               
+
+
+                                               </div>
+
+                                            </div>
+
+                                            
+                                            <div class="col"   >
+                                               <div id="idFlow4" style="display:none;">
+                                               
+                                               </div>
+
+                                            </div>
+                                       </div>
+                                    </div>
+                                </div> 
+
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+        
+                                        </td> 
+                                    </tr>
+                                </table>
+
+                                <div class="row">
+                                
+                                    <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                            
+                                        <div class="row" >
+                                            <div class="col"   >
+                                               <div id="idFlow5" style="display:none;">
+                                               
+
+
+                                               </div>
+
+                                            </div>
+
+                                            
+                                            <div class="col"   >
+                                               <div id="idFlow6" style="display:none;">
+                                               
+                                               </div>
+
+                                            </div>
+                                       </div>
+                                    </div>
+                                </div> 
+
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+        
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+ 
+
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:50px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">New ID</h6> 
+                                
+
+                                    </div>
+                                    <div class="col-2" style="padding-top:4px;">
+
+ 
+                                        <button type="submit" name="cmdCreate"  id="cmdCreate" class="btn btn-warning btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:70px;"> 
+                                         <i class="fa fa-search" ></i> Get ID</button>
+                                    </div>
+                                    <div class="col" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                    <div class="col" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+                {% endblock %}
+                <hr/>
+                <footer>
+                    <p>© 2022 - Dhruthi Technologies</p>
+                </footer>
+            </div> 
+    </body>
+</html>

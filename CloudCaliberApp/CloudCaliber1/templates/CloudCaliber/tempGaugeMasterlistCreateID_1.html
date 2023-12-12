@@ -1,0 +1,493 @@
+{% extends "CloudCaliber/Template2.html" %}
+{% block title %}
+Create Masterlist
+{% endblock %}
+{% block content %}
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST" id="IDCreationForm" data-validate-classification-url="{% url 'ajax_load_GMlistClassificationCreate_ID' %}" novalidate>
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:560px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:560px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:5%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Create Masterlist</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:30%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save & Create New Asset" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:140px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                    <div class="col"  style="padding-top:10px;"> 
+
+                                        
+                                        <input type="text"  name="txtPlant" class="form-input basic" value="{{sPlantName}}" 
+                                          autocomplete="off"   tabindex="10"  maxlength="200"  readonly   style="Top:5px;  color :rgb(3, 44, 90); text-shadow: 1px 1px #ffffff ;  background-color: #a3c3ff;   border:1px gray solid; width:100%;     padding: 0 0 0 0; height:20px; font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                        
+                                    </div>
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Classification</h6> 
+                                
+                                    </div>
+                                    <div class="col" style="padding-top:10px;">
+
+                                        <select name="Classification" id="cmbClassification" class="selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;   width:100%;   font-size: 12px;" >
+                                                         
+                                            {% if  cmbClassificationID == SelectedSeries0 %} 
+
+                                                <option value="0"   style="color:black;    font-size: 12px;"  selected> --- Select Classification  --- </option> 
+                                            
+                                            {% else %}
+
+                                                <option value="0"   style="color:black;    font-size: 12px;"   > --- Select Classification  --- </option> 
+                                            
+                                            {% endif %}
+                                            {% for Adminassettypelist_list in Adminassettypelist_list %}  
+
+         
+                                                {% if  cmbClassificationID == SelectedSeries0 %} 
+
+                                                    <option value="{{ Adminassettypelist_list.lcategorytypeid }}" selected   data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                                
+                                                {% else %}
+
+                                                    <option value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                                
+                                                {% endif %}
+                                            
+                                            {% endfor %}
+
+                                            
+                                        </select>
+                                        
+                                        <div style="display:none;">
+                                            
+                                            <input type="submit" name="cmdClassification"  value="Save & Create New Asset" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:140px;"> 
+                                            
+                                        </div>
+
+                                        <script type="text/javascript">
+
+                                            $("#cmbClassification").change(function () {
+                                                
+                                                var url = $("#IDCreationForm").attr("data-validate-classification-url");  // get the url of the `load_cities` view
+                                                var cmbClassificationID = $(this).val();  // get the selected country ID from the HTML input
+                                               
+                                                
+
+                                                $.ajax({                       // initialize an AJAX request
+                                                    url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+                                                    data: {
+                                                    'cmbClassificationID': cmbClassificationID       // add the country id to the GET parameters
+                                                    },
+                                                    success: function (data) {   // `data` is the return of the `load_cities` view function
+                                                        
+                                                        $("#IDCreationForm").html(data);  // replace the contents of the city input with the data that came from the server
+                                                    }
+                                                });
+
+                                                });
+                                        </script>
+
+                                        <script type="text/javascript">
+                                            function getClassification() {
+                                                document.getElementById("cmdClassification").click();
+                                               // onchange="getClassification();"
+                                            }
+                                        </script>
+ 
+ 
+                                    </div>
+                                    <div class="col-1">
+
+ 
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+
+
+
+                        
+                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                    <div class="col"  style="padding-top:10px;"> 
+
+                                        
+                                        <select name="Category" id="cmbCategory" class="selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;   width:100%;   font-size: 12px;" >
+                                                  
+                                            <option value="0" disabled="true" selected> --- Select Category --- </option> 
+                                             
+                                            {% for Adminassetcategorylistobj1 in Adminassetcategorylistobj %}  
+                                                <option value="{{ Adminassetcategorylistobj1.lcategoryid }}"   data-tokens="{{Adminassetcategorylistobj1.categorytype}}">{{Adminassetcategorylistobj1.categorytype}} </option>
+                                            {% endfor %}        
+                                        </select>
+
+                                    </div>
+                                    <div class="col-1" style="padding-top:4px;">
+
+ 
+                                    </div>
+                                    <div class="col" style="padding-top:10px;">
+ 
+                                        
+                                    </div>
+                                    <div class="col-1">
+
+ 
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" >
+
+                                <div class="row">
+                                
+                                    <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                        
+                                        <div class="row" >
+                                             <div class="col"   >
+                                                <div id="idFlow1" style="display:none;">
+                                                
+                                                    <div class="row">
+
+                                                        
+                                                        <div class="col-1" style="padding-top:4px;">
+ 
+
+                                                        </div>
+                                                            <div class="col-1" style="padding-top:4px;">
+
+                                                                <span class="dot">1</span> 
+
+                                                            </div>
+                                                            <div class="col-1" style="padding-top:4px;">
+ 
+                                                                <h6  style="color:black; text-align: left;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                                        
+                                                                
+
+                                                            </div>
+                                                            <div class="col-8"  style="padding-top:10px;"> 
+
+                                                                
+                                                                <select name="getFlow1" id="cmbgetFlow1" class="select" data-show-subtext="true" data-live-search="true" style="color:black;   width:70%;   font-size: 12px;" >
+                                                                                
+                                                                    <option value="0" disabled="true" selected> --- Select Classification --- </option> 
+                                                                    {% for Adminassettypelist_list in Adminassettypelist_list %}  
+                                                                        <option value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                    </div>
+
+                                                </div>
+
+                                             </div>
+
+                                             
+                                             <div class="col"   >
+                                                <div id="idFlow2" style="display:none;">
+                                                
+                                                </div>
+
+                                             </div>
+                                        </div>
+
+
+                                        
+                                    </div>
+                                </div> 
+
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+        
+                                        </td> 
+                                    </tr>
+                                </table>
+
+                                <div class="row">
+                                
+                                    <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                            
+                                        <div class="row" >
+                                            <div class="col"   >
+                                               <div id="idFlow3" style="display:none;">
+                                               
+
+
+                                               </div>
+
+                                            </div>
+
+                                            
+                                            <div class="col"   >
+                                               <div id="idFlow4" style="display:none;">
+                                               
+                                               </div>
+
+                                            </div>
+                                       </div>
+                                    </div>
+                                </div> 
+
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+        
+                                        </td> 
+                                    </tr>
+                                </table>
+
+                                <div class="row">
+                                
+                                    <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                            
+                                        <div class="row" >
+                                            <div class="col"   >
+                                               <div id="idFlow5" style="display:none;">
+                                               
+
+
+                                               </div>
+
+                                            </div>
+
+                                            
+                                            <div class="col"   >
+                                               <div id="idFlow6" style="display:none;">
+                                               
+                                               </div>
+
+                                            </div>
+                                       </div>
+                                    </div>
+                                </div> 
+
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+        
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+ 
+
+
+                        <table style="width:100%; ">
+                                            
+                            <tr class="row" style="width:100%; " >
+                                <td class=""  style="width:10%; padding-top: 0.1em; height:50px;">
+
+                                </td> 
+                            </tr>
+                        </table>
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-1" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">New ID</h6> 
+                                
+
+                                    </div>
+                                    <div class="col-2" style="padding-top:4px;">
+
+ 
+                                        <button type="submit" name="cmdCreate"  id="cmdCreate" class="btn btn-warning btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:70px;"> 
+                                         <i class="fa fa-search" ></i> Get ID</button>
+                                    </div>
+                                    <div class="col" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                    <div class="col" style="padding-top:4px;">
+
+
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+
+                                    </div>
+                                </div>
+                            </div> 
+                    
+                    
+                    
+                    
+                        </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

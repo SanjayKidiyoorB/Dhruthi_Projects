@@ -1,0 +1,206 @@
+{% extends "CloudCaliber/TemplateAdministratorA.html" %}
+{% block title %}
+Admin Operation List
+{% endblock %}
+{% block content %}
+
+
+<div class="" style="width:100%; height:660px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+    <div class="row">
+        <div class="col">
+
+            <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+            
+
+
+
+                <div class="row">
+                        
+                    <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                         
+                        <table style="width:100%; height:100%">
+                                
+                            <tr class="row" style="width:100%; height:20%">
+                                <td class="col"  style="width:10%;">
+
+                                </td>
+                                <td class="col"  style="width:20%;">
+                                        
+                                </td>
+                                <td class="col"  style="width:60%;">
+                                        
+                                </td>
+                                <td class="col"  style="width:10%;">
+                                        
+                                </td>
+                            </tr>
+                            <tr class="row" style="width:100%; height:60%">
+                                <td class="col"  style="width:10%; padding-top: 0.3em;">
+
+                                    <h6  style="color:black; text-align: right;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master - Operation List</h6> 
+                    
+                                </td>
+                                <td class="col"  style="width:5%; padding-top: 1em;"> 
+                                </td>
+                                <td class="col"  style="width:20%; padding-top: 0.2em;">
+                                         
+                                    <form action="" method="POST"> 
+                                        <input type="submit" name="cmbAdd"  value="Add Operation" class="btn btn-default btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px;  box-shadow: 2px 1px 2px rgb(141, 124, 124); height:31px; width:120px;"> 
+                                            
+                                    </form>
+                                </td>
+                                <td class="col"  style="width:5%; padding-top: 1em;"> 
+                                </td>
+                                <td class="col"  style="width:50%; padding-top: 0.1em;">
+                                         
+                                    <form action="" method="POST">
+                                        <input type="text"  name="txtSearch" class="form-input basic " required  placeholder="Search..." tabindex="1"     style=" width: 300px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                        
+                                    </form>
+                                </td>
+                                <td class="col"  style="width:10%;">
+                                      
+                                </td> 
+                            </tr>
+                            <tr class="row" style="width:100%; height:20%">
+                                <td class="col"  style="width:10%;">
+
+                                </td>
+                                <td class="col"  style="width:20%;">
+                                        
+                                </td>
+                                <td class="col"  style="width:60%;">
+                                        
+                                </td>
+                                <td class="col"  style="width:10%;">
+                                        
+                                </td>
+                            </tr>
+                        </table>
+                    </div>  
+                </div>
+
+ 
+                <div class="row" style="padding-left: 1.4ch;  ">
+                        
+                    <div class="col" >
+                         
+                        <table style="width:100%;  ">                             
+
+                            <tr>
+                                <td style="height:13px;">
+                                    
+                                </td> 
+                            </tr>
+                        </table>
+ 
+                        <table style="width:100%;  ">                             
+
+                            <tr>
+                                <td style="height:13px;">
+                                    
+                                </td> 
+                            </tr>
+                        </table>
+
+                        
+ 
+                        {% if Admininstrumentoperationlist_list %}
+                                   
+                            <div style="width:100%; height:500px; overflow: auto;">   
+                                <table  class="table" style="width:100%;    ">
+                                    
+                                    <thead>         
+                                        <tr   style="width:100%; height:46px;">
+                                            <th   style="padding-top:10px; width:5%; border: 1px solid white; background-color: #92caff;">
+                                                
+                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Sl No</h6>
+                                            
+                                            </th>    
+                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                
+                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Operation </h6>
+                                            
+                                            </th>  
+                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                
+                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Operation Code</h6>
+                                            
+                                            </th>  
+                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                
+                                                <h6  style="color:black; text-align: center;  font-size: 13px;  width:90px; ">Action</h6>
+                                            
+                                            </th>  
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for Admininstrumentoperationlist_list in Admininstrumentoperationlist_list %}
+                                            <tr   style="width:100%;  height:21px; border:none;">
+
+
+
+                                                <td   style=" width:5%; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                    <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                            
+                                                </td>  
+                                                <td   style="  width:80%;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                    
+                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:190px; "> {{Admininstrumentoperationlist_list.soperation}} </h6>  
+                                                
+
+                                                </td>  
+                                                <td   style="  width:80%;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                    
+                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:190px; "> {{Admininstrumentoperationlist_list.scode}} </h6>  
+                                                
+
+                                                </td>           
+                                                <td   style=" width:10%; height:21px; border: 1px solid lightgray; background-color: white; width:90px; ">
+                                                    
+                                                    <a  class="btn btn-info" style="height:20px; width:20px; font-size:10px; font-weight: bold; padding: 0; padding-top:2px;" href="/adminInstrumentOperationListDetails/{{Admininstrumentoperationlist_list.lid}}"><i class="fas fa-edit"></i></a>
+                                                  
+                                                </td> 
+                                            </tr> 
+    
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                                   
+                            <table style="width:100%;    ">
+                                <tr class="row" style="width:100%;  height:40px;">
+                                    <td class="col"  style="padding-top:10px; width:2%; background-color: white;">
+                                            
+                                        
+                                    </td> 
+                                    <td class="col"  style="padding-top:10px; width:90%; background-color: white;">
+                                        
+                                    
+                                        <p>No Operation List are available.</p> 
+                                    </td>
+                                    <td class="col"  style="padding-top:10px; width:8%; background-color: white;">
+                                        
+                                      
+                                    </td> 
+                                </tr> 
+                            </table>
+                        {% endif %}
+
+
+
+
+
+                    </div>  
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

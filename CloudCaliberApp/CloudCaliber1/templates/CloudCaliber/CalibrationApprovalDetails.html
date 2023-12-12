@@ -1,0 +1,1973 @@
+{% extends "CloudCaliber/Template2.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block content %}
+
+<form action="" method="POST">
+
+<div class="">
+
+    <div class="" style="width:100%; height:770px; background-color: white; padding-top: 10px; padding-left: 20px;  padding-right: 20px; "> 
+            
+        <div class="row">
+            <div class="col">
+
+                <div class="box-Type3" style="height:770px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                
+
+
+
+                    <div class="row">
+                            
+                        <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                            
+
+                            <div class="row">
+
+                                <div class="col-2">
+
+                                    <h6  style="color:black;    width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Calibration Details for </h6> 
+                        
+                                </div> 
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Calibration Ref # : </br> </span><span style="color:black;">{{ThistorymainOBJA.scalibrationcertificateno}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>ID :  </br></span><span style="color:black;">{{MasterinstrumentslistOBJ.sinstrumentid}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Description :  </br></span><span style="color:black;">{{MasterinstrumentslistOBJ.sdescription}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Planned Calibration Date :  </br></span><span style="color:black;">{{ThistorymainOBJA.dtduedate|date:"d M, Y"}}</span></h5>  
+          
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Actual Calibration Date :  </br></span></h5>  
+
+                                    
+                                    <input type="date"  name="txtActualCalibrationDate" class="custom-select"     tabindex="1"  maxlength="200"    value="{{sActualDate}}"  style=" width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                           
+                                         
+          
+                                </div>
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="row">
+                            
+                        <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: lightgray; height:50px;  margin-top:20px; ">
+                            
+
+                            <div class="row">
+ 
+                                <div class="col-4">
+
+                                    {% if Masterinstrumentslistpart2OBJ.sagencycalib == "E" %}
+                                        <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Calibration Vendor : </br> </span><span style="color:black;"> {{ThistorymainOBJA.scalibrationvendor}}</span></h5>  
+                                        
+                                        <select name="sExternalVendor" id="sExternalVendor"   class="selectpicker" data-show-subtext="true"  title="Choose External Vendor..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                    
+                                            <option  value="0"   value="">---select  External Vendor---</option>
+                                        </select>
+                                    {% endif %}
+                                </div>
+                                <div class="col-3">
+ 
+                                    {% if Masterinstrumentslistpart2OBJ.sagencycalib == "I" %}
+                                        <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Calibration Type : </br> </span><span style="color:black;"> Inhouse</span></h5>  
+            
+                                    {% endif %}
+                                    {% if Masterinstrumentslistpart2OBJ.sagencycalib == "E" %}
+                                        <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Calibration Type : </br> </span><span style="color:black;"> External Vendor</span></h5>  
+            
+                                    {% endif %}
+                                    {% if Masterinstrumentslistpart2OBJ.sagencycalib == "C" %}
+                                        <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Calibration Type : </br> </span><span style="color:black;"> Customer</span></h5>  
+            
+                                    {% endif %}
+
+                   
+                                </div>
+                                <div class="col-3">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Temperature :  </br></span> </h5>  
+                                    
+                                    <input type="text"  name="txtTemperature" class="form-control"        tabindex="1"  maxlength="200"    value="{{ThistorymainOBJA.stemperature}}" readonly style="background-color:#DCF4FD;  width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                           
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Humidity :  </br></span> </h5>  
+          
+                                    <input type="text"  name="txtHumidity" class="form-control"        tabindex="1"  maxlength="200"    value="{{ThistorymainOBJA.shumidity}}" readonly style="background-color:#DCF4FD;  width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                        
+                                </div>
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+
+                    
+
+
+                    <div class="row">
+                            
+                        <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: lightgray; height:50px;  margin-top:20px; padding-top:15px;">
+                            
+
+                            <div class="row">
+ 
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>External Certificate (if, any) : </br> </span><span style="color:black;"></span></h5>  
+                                               
+          
+                                </div>
+                                <div class="col-3">
+                                    {% comment %}                                     
+                                    <input type="text"  name="txtFile1"  class="form-control"    value="{{Masterinstrumentslistpart3Det.stypeoffile1}}"     tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                     {% endcomment %}                             
+                                    <input type="text"  name="txtFile1"  class="form-control"          tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                </div>
+                                <div class="col-1" style="display:none;">
+ 
+                                    <a  type="button" id="idUpload1"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                        <span class="fa fa-upload"></span>
+                                    </a>  
+                                </div> 
+                                <div class="col-3">
+                                    {% comment %}                                     
+                                    <input type="text"  name="txtFile1"  class="form-control"    value="{{Masterinstrumentslistpart3Det.stypeoffile1}}"     tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                     {% endcomment %}                             
+                                    <input type="text"  name="txtFile2"  class="form-control"          tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                </div>
+                                <div class="col-1" style="display:none;">
+ 
+                                    <a  type="button" id="idUpload1"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                        <span class="fa fa-upload"></span>
+                                    </a>  
+                                </div> 
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="row">
+                            
+                        <div class="col" style=" box-shadow: 2px 2px lightgray; background-color: lightgray;   margin-top:20px; ">
+                            
+
+                            <div class="row" style="padding-top:10px;">
+
+                                <div class="col-4">
+
+                                    <div class="row"  >
+
+                                        <div class="col">
+        
+                                            <label >Gauge Master to be Used for Calibration</label>
+                                        </div>
+        
+                                    </div>
+                                    <div class="row"  style="padding-top:10px;">
+
+                                        <div class="col">
+                                     
+                                            <input type="text"  name="txtMasterGauge1"  class="form-control"     value="{{Thistorymainpart1OBJ.smasterinstrumentid1}}"      tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                        </div>
+        
+                                    </div>
+                                    <div class="row"  style="padding-top:10px;">
+
+                                        <div class="col">
+                                     
+                                            <input type="text"  name="txtMasterGauge2"  class="form-control"     value="{{Thistorymainpart1OBJ.smasterinstrumentid2}}"      tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                        </div>
+        
+                                    </div>
+                                    <div class="row"  style="padding-top:10px;">
+
+                                        <div class="col">
+                                     
+                                            <input type="text"  name="txtMasterGauge3"  class="form-control"      value="{{Thistorymainpart1OBJ.smasterinstrumentid3}}"     tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                        </div>
+        
+                                    </div>
+        
+                                </div>
+
+
+                                <div class="col-8">
+ 
+        
+                                            <div class="row"  style="padding-top:10px;">
+
+                                                <div class="col">
+                                              
+                                                    
+                                                        <div class="row" style="margin:5px;">
+                                                        
+                                                            <div class="col" style="  box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                                            
+
+                                                                <div class="row"  style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-8" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Calibration Parameters & Acceptance Criteria</h6> 
+                                                        
+                                
+                                
+                                                                    </div>
+                                                                    <div class="col-4" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Allowed Error</h6> 
+                                                        
+                                
+                                
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Serial</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Parameter</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Applied Value</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">from</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">To</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Calibration Value</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Result</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">1</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue1}}"    name="txtParamter1"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea1}}"    name="txtAcceptanceCriteria11"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin1}}"   id="txtACFrom1"  name="txtACFrom1"  class="form-control"      tabindex="53"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax1}}"  id="txtACTo1"   name="txtACTo1"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea1 >= Thistorymainpart1OBJ.dmin1 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea1 <= Thistorymainpart1OBJ.dmax1 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal11"   name="txtCalibVal11"  value="{{Thistorymainpart2OBJ.factualvaluea1}}"     class="form-control"      tabindex="54"   maxlength="200"     style="background-color:white;   color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal11"   name="txtCalibVal11"  value="{{Thistorymainpart2OBJ.factualvaluea1}}"     class="form-control"      tabindex="54"   maxlength="200"      style="background-color: white;  color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal11"   name="txtCalibVal11"  value="{{Thistorymainpart2OBJ.factualvaluea1}}"     class="form-control"      tabindex="54"   maxlength="200"        style="background-color:white; color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal11").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom1").value;
+                                                                                    textB = document.getElementById("txtACTo1").value;
+                                                                                    textC = document.getElementById("txtCalibVal11").value; 
+
+                                                                                    
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes11").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes11").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal11").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green";
+                                                                                        }
+                                                                                        else
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes11").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes11").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal11").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        document.getElementById("txtCalibVal11").readOnly = true;
+                                                                                        document.getElementById("txtCalibVal11").value = '0.0';
+                                                                                    }
+                                                                                      
+                                                                                    
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea1 >= Thistorymainpart1OBJ.dmin1 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea1 <= Thistorymainpart1OBJ.dmax1 %}      
+                                                                                <input type="text"  name="txtCalibValRes1"   id="txtCalibValRes11" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes1"   id="txtCalibValRes11" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes1"   id="txtCalibValRes11" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">2</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue2}}"    name="txtParamter12"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea2}}"    name="txtAcceptanceCriteria12"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin2}}"   id="txtACFrom12"   name="txtACFrom12"  class="form-control"      tabindex="53"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax2}}"     id="txtACTo12"  name="txtACTo12"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea2 >= Thistorymainpart1OBJ.dmin2 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea2 <= Thistorymainpart1OBJ.dmax2 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal12"   name="txtCalibVal12"  value="{{Thistorymainpart2OBJ.factualvaluea2}}"     class="form-control"       tabindex="54"   maxlength="200"     style="background-color:white;   color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal12"   name="txtCalibVal12"  value="{{Thistorymainpart2OBJ.factualvaluea2}}"     class="form-control"       tabindex="54"   maxlength="200"      style="background-color:white;  color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal12"   name="txtCalibVal12"  value="{{Thistorymainpart2OBJ.factualvaluea2}}"     class="form-control"       tabindex="54"   maxlength="200"        style="background-color:white; color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal12").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom12").value;
+                                                                                    textB = document.getElementById("txtACTo12").value;
+                                                                                    textC = document.getElementById("txtCalibVal12").value; 
+
+
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+
+                                                                                            document.getElementById("txtCalibValRes12").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes12").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal12").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+
+                                                                                            document.getElementById("txtCalibValRes12").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes12").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal12").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        document.getElementById("txtCalibVal12").readOnly = true;
+                                                                                        document.getElementById("txtCalibVal12").value = '0.0';
+                                                                                    }
+                                                                                
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea2 >= Thistorymainpart1OBJ.dmin2 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea2 <= Thistorymainpart1OBJ.dmax2 %}      
+                                                                                <input type="text"  name="txtCalibValRes12"   id="txtCalibValRes12" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes12"   id="txtCalibValRes12" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes12"   id="txtCalibValRes12" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+                                                                
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">3</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue3}}"    name="txtParamter13"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea3}}"    name="txtAcceptanceCriteria13"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin3}}"   id="txtACFrom13"   name="txtACFrom13"  class="form-control"      tabindex="53"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax3}}"     id="txtACTo13"  name="txtACTo13"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea3 >= Thistorymainpart1OBJ.dmin3 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea3 <= Thistorymainpart1OBJ.dmax3 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal13"   name="txtCalibVal13"  value="{{Thistorymainpart2OBJ.factualvaluea3}}"     class="form-control"       tabindex="54"   maxlength="200"       style="background-color:white;   color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal13"   name="txtCalibVal13"  value="{{Thistorymainpart2OBJ.factualvaluea3}}"     class="form-control"       tabindex="54"   maxlength="200"        style="background-color:white;  color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal13"   name="txtCalibVal13"  value="{{Thistorymainpart2OBJ.factualvaluea3}}"     class="form-control"       tabindex="54"   maxlength="200"          style="background-color:white; color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal13").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom13").value;
+                                                                                    textB = document.getElementById("txtACTo13").value;
+                                                                                    textC = document.getElementById("txtCalibVal13").value; 
+
+
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes13").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes13").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal13").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes13").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes13").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal13").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }        
+                                                                                    else
+                                                                                    {
+                                                                                        document.getElementById("txtCalibVal13").readOnly = true;
+                                                                                        document.getElementById("txtCalibVal13").value = '0.0';
+                                                                                    }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea3 >= Thistorymainpart1OBJ.dmin3 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea3 <= Thistorymainpart1OBJ.dmax3 %}      
+                                                                                <input type="text"  name="txtCalibValRes13"   id="txtCalibValRes13" class="form-control"   value="PASS"   tabindex="54"   maxlength="200"    readonly   style="background-color:#DCF4FD;color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes13"   id="txtCalibValRes13" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200"    readonly   style="background-color:#DCF4FD; width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes13"   id="txtCalibValRes13" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200"    readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+                                                                
+
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">4</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue4}}"    name="txtParamter14"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea4}}"    name="txtAcceptanceCriteria14"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin4}}"   id="txtACFrom14"   name="txtACFrom14"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax4}}"     id="txtACTo14"  name="txtACTo14"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea4 >= Thistorymainpart1OBJ.dmin4 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea4 <= Thistorymainpart1OBJ.dmax4 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal14"   name="txtCalibVal14"  value="{{Thistorymainpart2OBJ.factualvaluea4}}"     class="form-control"       tabindex="54"   maxlength="200"       style="background-color:white;   color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal14"   name="txtCalibVal14"  value="{{Thistorymainpart2OBJ.factualvaluea4}}"     class="form-control"       tabindex="54"   maxlength="200"        style="background-color:white;  color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal14"   name="txtCalibVal14"  value="{{Thistorymainpart2OBJ.factualvaluea4}}"     class="form-control"       tabindex="54"   maxlength="200"          style="background-color:white; color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal14").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom14").value;
+                                                                                    textB = document.getElementById("txtACTo14").value;
+                                                                                    textC = document.getElementById("txtCalibVal14").value; 
+
+
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                    if(textC >= textA && textC <= textB)
+                                                                                    {
+
+                                                                                        document.getElementById("txtCalibValRes14").value = "PASS" ;
+                                                                                        
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                        
+                                                                                        document.getElementById("txtResult").value = "OK";
+                                                                                        document.getElementById("txtCalibValRes14").style.color = "green";
+                                                                                        document.getElementById("txtCalibVal14").style.color = "green";
+                                                                                        document.getElementById("txtResult").style.color = "green"; 
+                                                                                    }
+                                                                                    else
+                                                                                    {
+
+                                                                                        document.getElementById("txtCalibValRes14").value = "FAIL" ;
+                                                                                        document.getElementById("txtStatus").value = "7";
+                                                                                        document.getElementById("txtResult").value = "NOT OK";
+                                                                                        document.getElementById("txtCalibValRes14").style.color = "Red";
+                                                                                        document.getElementById("txtResult").style.color = "Red";
+                                                                                        document.getElementById("txtCalibVal14").style.color = "Red";
+                                                                                        document.getElementById("txtStatus").style.color = "Red";
+                                                                                        //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                    }
+                                                                                    }
+                                                                                else
+                                                                                {
+                                                                                    document.getElementById("txtCalibVal14").readOnly = true;
+                                                                                    document.getElementById("txtCalibVal14").value = '0.0';
+                                                                                }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea4 >= Thistorymainpart1OBJ.dmin4 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea4 <= Thistorymainpart1OBJ.dmax4 %}      
+                                                                                <input type="text"  name="txtCalibValRes14"   id="txtCalibValRes14" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes14"   id="txtCalibValRes14" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes14"   id="txtCalibValRes14" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+                                                                
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">5</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue5}}"    name="txtParamter15"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea5}}"    name="txtAcceptanceCriteria15"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin5}}"   id="txtACFrom15"   name="txtACFrom15"  class="form-control"      tabindex="55"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax5}}"     id="txtACTo15"  name="txtACTo15"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea5 >= Thistorymainpart1OBJ.dmin5 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea5 <= Thistorymainpart1OBJ.dmax5 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal15"   name="txtCalibVal15"  value="{{Thistorymainpart2OBJ.factualvaluea5}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;   color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal15"   name="txtCalibVal15"  value="{{Thistorymainpart2OBJ.factualvaluea5}}"     class="form-control"       tabindex="54"   maxlength="200"   style="background-color:white;   color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal15"   name="txtCalibVal15"  value="{{Thistorymainpart2OBJ.factualvaluea5}}"     class="form-control"       tabindex="54"   maxlength="200"   style="background-color:white;  color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal15").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom15").value;
+                                                                                    textB = document.getElementById("txtACTo15").value;
+                                                                                    textC = document.getElementById("txtCalibVal15").value; 
+
+
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+
+                                                                                            document.getElementById("txtCalibValRes15").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes15").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal15").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+
+                                                                                            document.getElementById("txtCalibValRes15").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes15").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal15").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        document.getElementById("txtCalibVal15").readOnly = true;
+                                                                                        document.getElementById("txtCalibVal15").value = '0.0';
+                                                                                    }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea5 >= Thistorymainpart1OBJ.dmin5 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea5 <= Thistorymainpart1OBJ.dmax5 %}      
+                                                                                <input type="text"  name="txtCalibValRes15"   id="txtCalibValRes15" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes15"   id="txtCalibValRes15" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes15"   id="txtCalibValRes15" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+
+ 
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">6</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue6}}"    name="txtParamter16"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea6}}"    name="txtAcceptanceCriteria16"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin6}}"   id="txtACFrom16"   name="txtACFrom16"  class="form-control"      tabindex="56"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax6}}"     id="txtACTo16"  name="txtACTo16"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea6 >= Thistorymainpart1OBJ.dmin6 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea6 <= Thistorymainpart1OBJ.dmax6 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal16"   name="txtCalibVal16"  value="{{Thistorymainpart2OBJ.factualvaluea6}}"     class="form-control"       tabindex="54"   maxlength="200"  style="background-color:white;    color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal16"   name="txtCalibVal16"  value="{{Thistorymainpart2OBJ.factualvaluea6}}"     class="form-control"       tabindex="54"   maxlength="200"  style="background-color:white;  color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal16"   name="txtCalibVal16"  value="{{Thistorymainpart2OBJ.factualvaluea6}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;  color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal16").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom16").value;
+                                                                                    textB = document.getElementById("txtACTo16").value;
+                                                                                    textC = document.getElementById("txtCalibVal16").value; 
+
+                                                                                    if( textA != textB)
+                                                                                    {
+
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes16").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes16").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal16").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes16").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes16").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal16").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                      document.getElementById("txtCalibVal16").readOnly = true;
+                                                                                      document.getElementById("txtCalibVal16").value = '0.0';
+                                                                                    }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea6 >= Thistorymainpart1OBJ.dmin6 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea6 <= Thistorymainpart1OBJ.dmax6 %}      
+                                                                                <input type="text"  name="txtCalibValRes16"   id="txtCalibValRes16" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes16"   id="txtCalibValRes16" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes16"   id="txtCalibValRes16" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+
+                                                                
+
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">7</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue7}}"    name="txtParamter17"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea7}}"    name="txtAcceptanceCriteria17"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin7}}"   id="txtACFrom17"   name="txtACFrom17"  class="form-control"      tabindex="57"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax7}}"     id="txtACTo17"  name="txtACTo17"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea7 >= Thistorymainpart1OBJ.dmin7 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea7 <= Thistorymainpart1OBJ.dmax7 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal17"   name="txtCalibVal17"  value="{{Thistorymainpart2OBJ.factualvaluea7}}"     class="form-control"       tabindex="54"   maxlength="200"  style="background-color:white;    color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal17"   name="txtCalibVal17"  value="{{Thistorymainpart2OBJ.factualvaluea7}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;   color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal17"   name="txtCalibVal17"  value="{{Thistorymainpart2OBJ.factualvaluea7}}"     class="form-control"       tabindex="54"   maxlength="200"   style="background-color:white;  color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal17").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom17").value;
+                                                                                    textB = document.getElementById("txtACTo17").value;
+                                                                                    textC = document.getElementById("txtCalibVal17").value; 
+
+
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes17").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes17").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal17").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes17").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes17").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal17").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                      document.getElementById("txtCalibVal17").readOnly = true;
+                                                                                      document.getElementById("txtCalibVal17").value = '0.0';
+                                                                                    }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea7 >= Thistorymainpart1OBJ.dmin7 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea7 <= Thistorymainpart1OBJ.dmax7 %}      
+                                                                                <input type="text"  name="txtCalibValRes17"   id="txtCalibValRes17" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes17"   id="txtCalibValRes17" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes17"   id="txtCalibValRes17" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">8</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue8}}"    name="txtParamter18"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea8}}"    name="txtAcceptanceCriteria18"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin8}}"   id="txtACFrom18"   name="txtACFrom18"  class="form-control"      tabindex="58"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax8}}"     id="txtACTo18"  name="txtACTo18"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea8 >= Thistorymainpart1OBJ.dmin8 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea8 <= Thistorymainpart1OBJ.dmax8 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal18"   name="txtCalibVal18"  value="{{Thistorymainpart2OBJ.factualvaluea8}}"     class="form-control"       tabindex="54"   maxlength="200"   style="background-color:white;    color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal18"   name="txtCalibVal18"  value="{{Thistorymainpart2OBJ.factualvaluea8}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;   color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal18"   name="txtCalibVal18"  value="{{Thistorymainpart2OBJ.factualvaluea8}}"     class="form-control"       tabindex="54"   maxlength="200"     style="background-color:white;  color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal18").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom18").value;
+                                                                                    textB = document.getElementById("txtACTo18").value;
+                                                                                    textC = document.getElementById("txtCalibVal18").value; 
+
+                                                                                    if( textA != textB)
+                                                                                    {
+
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes18").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes18").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal18").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes18").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes18").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal18").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                      document.getElementById("txtCalibVal18").readOnly = true;
+                                                                                      document.getElementById("txtCalibVal18").value = '0.0';
+                                                                                    }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea8 >= Thistorymainpart1OBJ.dmin8 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea8 <= Thistorymainpart1OBJ.dmax8 %}      
+                                                                                <input type="text"  name="txtCalibValRes18"   id="txtCalibValRes18" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes18"   id="txtCalibValRes18" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes18"   id="txtCalibValRes18" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">9</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue9}}"    name="txtParamter19"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea9}}"    name="txtAcceptanceCriteria19"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin9}}"   id="txtACFrom19"   name="txtACFrom19"  class="form-control"      tabindex="59"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax9}}"     id="txtACTo19"  name="txtACTo19"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea9 >= Thistorymainpart1OBJ.dmin9 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea9 <= Thistorymainpart1OBJ.dmax9 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal19"   name="txtCalibVal19"  value="{{Thistorymainpart2OBJ.factualvaluea9}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;    color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal19"   name="txtCalibVal19"  value="{{Thistorymainpart2OBJ.factualvaluea9}}"     class="form-control"       tabindex="54"   maxlength="200"     style="background-color:white;   color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal19"   name="txtCalibVal19"  value="{{Thistorymainpart2OBJ.factualvaluea9}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;  color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal19").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom19").value;
+                                                                                    textB = document.getElementById("txtACTo19").value;
+                                                                                    textC = document.getElementById("txtCalibVal19").value; 
+
+
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes19").value = "PASS" ;
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes19").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal19").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes19").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes19").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal19").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                      document.getElementById("txtCalibVal19").readOnly = true;
+                                                                                      document.getElementById("txtCalibVal19").value = '0.0';
+                                                                                    }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea9 >= Thistorymainpart1OBJ.dmin9 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea9 <= Thistorymainpart1OBJ.dmax9 %}      
+                                                                                <input type="text"  name="txtCalibValRes19"   id="txtCalibValRes19" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes19"   id="txtCalibValRes19" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes19"   id="txtCalibValRes19" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row" style="padding-top:5px;">
+                                                                
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">10</h6> 
+                                                        
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"     value="{{Thistorymainpart1OBJ.sappliedvalue10}}"    name="txtParamter110"  class="form-control"      tabindex="51"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.fappliedvaluea10}}"    name="txtAcceptanceCriteria110"  class="form-control"      tabindex="52"   maxlength="200" readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"    value="{{Thistorymainpart1OBJ.dmin10}}"   id="txtACFrom110"   name="txtACFrom110"  class="form-control"      tabindex="510"   maxlength="200" readonly   style="background-color:#DCF4FD;  font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        <input type="text"   value="{{Thistorymainpart1OBJ.dmax10}}"     id="txtACTo110"  name="txtACTo110"  class="form-control"      tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD;   font-weight:bold;   width: 80%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                                                    </div>
+                                                                    <div class="col-2" style="  ">
+                                                                        
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea10 >= Thistorymainpart1OBJ.dmin10 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea10 <= Thistorymainpart1OBJ.dmax10 %}       
+                                                                                    
+                                                                                <input type="text" id="txtCalibVal110"   name="txtCalibVal110"  value="{{Thistorymainpart2OBJ.factualvaluea10}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;   color:green; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                                      
+                                                                            {% else %}    
+                                                                            <input type="text" id="txtCalibVal110"   name="txtCalibVal110"  value="{{Thistorymainpart2OBJ.factualvaluea10}}"     class="form-control"       tabindex="54"   maxlength="200"     style="background-color:white;   color:red; font-weight:bold;  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                      
+                                                                            {% endif %}         
+                                                                        {% else %} 
+                                                                            <input type="text" id="txtCalibVal110"   name="txtCalibVal110"  value="{{Thistorymainpart2OBJ.factualvaluea10}}"     class="form-control"       tabindex="54"   maxlength="200"    style="background-color:white;  color:red; font-weight:bold;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                                         
+                                                                        {% endif %}  
+                                                                                    
+                                                                            <script> 
+                                                                                $("#txtCalibVal110").focusout(function() {  
+                                                                                    var textA = 0;
+                                                                                    var textB = 0;
+                                                                                    var textC = 0; 
+                                                                                    textA = document.getElementById("txtACFrom110").value;
+                                                                                    textB = document.getElementById("txtACTo110").value;
+                                                                                    textC = document.getElementById("txtCalibVal110").value; 
+
+
+                                                                                    if( textA != textB)
+                                                                                    {
+                                                                                        if(textC >= textA && textC <= textB)
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes110").value = "PASS" ;
+                                                                                            
+                                                                                            
+                                                                                            if(document.getElementById("txtStatus").value == "0")
+                                                                                            {
+                                                                                                document.getElementById("txtStatus").value = "1";
+                                                                                                document.getElementById("txtStatus").style.color = "green";
+                                                                                                document.getElementById("txtStatus").style.backcolor = "yellow";
+                                                                                            }
+                                                                                            
+                                                                                            document.getElementById("txtResult").value = "OK";
+                                                                                            document.getElementById("txtCalibValRes110").style.color = "green";
+                                                                                            document.getElementById("txtCalibVal110").style.color = "green";
+                                                                                            document.getElementById("txtResult").style.color = "green"; 
+                                                                                        }
+                                                                                        else
+                                                                                        {
+    
+                                                                                            document.getElementById("txtCalibValRes110").value = "FAIL" ;
+                                                                                            document.getElementById("txtStatus").value = "7";
+                                                                                            document.getElementById("txtResult").value = "NOT OK";
+                                                                                            document.getElementById("txtCalibValRes110").style.color = "Red";
+                                                                                            document.getElementById("txtResult").style.color = "Red";
+                                                                                            document.getElementById("txtCalibVal110").style.color = "Red";
+                                                                                            document.getElementById("txtStatus").style.color = "Red";
+                                                                                            //document.getElementById("txtStatus").style.backgroundColor  = "yellow";
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                      document.getElementById("txtCalibVal110").readOnly = true;
+                                                                                      document.getElementById("txtCalibVal110").value = '0.0';
+                                                                                    }
+                                                                                }); 
+                                                                            </script>  
+
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1" style="  ">
+                                                                        
+                                                                                                    
+                                                                        {% if Thistorymainpart2OBJ.factualvaluea10 >= Thistorymainpart1OBJ.dmin10 %}
+                                                                                            
+                                                                            {% if Thistorymainpart2OBJ.factualvaluea10 <= Thistorymainpart1OBJ.dmax10 %}      
+                                                                                <input type="text"  name="txtCalibValRes110"   id="txtCalibValRes110" class="form-control"   value="PASS"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:green;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% else %}        
+                                                                                <input type="text"  name="txtCalibValRes110"   id="txtCalibValRes110" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%;  font-weight:bold; font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                            {% endif %}         
+                                                                        {% else %}        
+                                                                            <input type="text"  name="txtCalibValRes110"   id="txtCalibValRes110" class="form-control"   value="FAIL"   tabindex="54"   maxlength="200" readonly   style="background-color:#DCF4FD; color:red;  width: 100%; font-weight:bold;  font-size: 12px;  "  autofocus/>
+                                                                                            
+                                                                        {% endif %}  
+                            
+                                
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="row">
+                                                                        
+                                                                    <div class="col" style="  ">
+                                                                        
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="row">
+                                                                        
+                                                                    <div class="col" style="  ">
+                                                                        
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="row">
+                                                                        
+                                                                    <div class="col" style="  ">
+                                                                        
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="row">
+                                                                        
+                                                                    <div class="col" style="  ">
+                                                                        
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="row">
+                                                                        
+                                                                    <div class="col" style="  ">
+                                                                        
+
+                                                                    </div>
+                                                                </div>
+
+
+
+
+
+                                                            </div>  
+                                                            
+                                                        </div> 
+
+
+
+
+                                                </div>
+                
+                                            </div>
+ 
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="row" style="padding-top:10px;">
+
+                                <div class="col-2">
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div> 
+
+
+
+
+{% comment %} 
+                    <div class="row">
+                            
+                        <div class="col" style="height: 320px; box-shadow: 2px 2px lightgray; background-color: lightgray;    margin-top:20px; ">
+                            
+
+                            <div class="row">
+ 
+                                <div class="col">
+ 
+                                    <div style="width:100%; height:310px; overflow: auto;">   
+                                        <table  class="table" style="width:150%;    ">
+                                            
+                                            <thead>         
+                                                <tr   style="width:100%; height:46px;">
+                                                    <th   style="padding-top:10px; width:5%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Sl No</h6>
+                                                    
+                                                    </th>    
+                                                    <th   style="padding-top:10px; width:150px; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Parameter </h6>
+                                                    
+                                                    </th>  
+                                                    <th   style="padding-top:10px; width:150px; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Acceptance Criteria </h6>
+                                                    
+                                                    </th>  
+                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Lower Error Limit </h6>
+                                                    
+                                                    </th>  
+                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Upper Error Limit  </h6>
+                                                    
+                                                    </th>  
+                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Actual Value Before Adjustment </h6>
+                                                    
+                                                    </th>  
+                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Status </h6>
+                                                    
+                                                    </th>   
+                                                    <th   style="padding-top:10px; width:100px;  border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:100px; ">Actual Value After Adjustment (if, any)</h6>
+                                                    
+                                                    </th>   
+                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; ">Status </h6>
+                                                    
+                                                    </th>   
+                                                    <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px; "Action</h6>
+                                                    
+                                                    </th>    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                              {% for ThistorymultiOBJ_oBJA in ThistorymultiOBJ %}
+                                                  <tr   style="width:100%;  height:21px; border:none;">
+        
+                 
+                                                    
+        
+                                                        <td   style=" width:5%; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                            <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                    
+                                                        </td>  
+                                                        <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                            
+                                                            <h6 style="color:black; text-align: center;  font-size: 13px;  width:190px; "> {{ThistorymultiOBJ_oBJA.sappliedvalue}} </h6>  
+                                                        
+        
+                                                        </td>   
+                                                        <td   style="  width:150px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                            
+                                                            <h6 style="color:black; text-align: center;  font-size: 13px;  width:150px; "> {{ThistorymultiOBJ_oBJA.derrorallowed}} </h6>  
+                                                        
+        
+                                                        </td> 
+
+                                                        <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                            
+                                                            <h6 style="color:black; text-align: center;  font-size: 13px;  width:150px; "> {{ThistorymultiOBJ_oBJA.dmin}} </h6>
+                                                        
+        
+                                                        </td>  
+                                                        <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                            
+                                                            <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.dmax}} </h6>  
+
+                                                        </td>  
+                                                        <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                            
+                                                            {% if ThistorymultiOBJ_oBJA.dmin|floatformat:"5" <= ThistorymultiOBJ_oBJA.calibrationresultvalue|floatformat:"5" and ThistorymultiOBJ_oBJA.dmax|floatformat:"5" >= ThistorymultiOBJ_oBJA.calibrationresultvalue|floatformat:"5"    %}
+                                                                
+                                                                <h6 style="color:white; background-color:green;  height:21px;  text-align: center;   font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresultvalue}} </h6>  
+                                                        
+                                                            
+                                                            {%else%}
+
+                                                                <h6 style="color:white; background-color:red;  height:21px;  text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresultvalue}} </h6>  
+                                                        
+                                                            
+                                                            {%endif%}
+                                                        
+                                                        </td>     
+                                                        <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                             
+                                                            
+                                                            {% if ThistorymultiOBJ_oBJA.dmin|floatformat:"5" <= ThistorymultiOBJ_oBJA.calibrationresultvalue|floatformat:"5" and ThistorymultiOBJ_oBJA.dmax|floatformat:"5" >= ThistorymultiOBJ_oBJA.calibrationresultvalue|floatformat:"5"    %}
+                                                                  
+                                                            <h6 style="color:white; background-color:green;  height:21px;  text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresult}} </h6>
+        
+                                                            {%else%}
+ 
+                                                            <h6 style="color:white; background-color:red;  height:21px;  text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresult}} </h6>
+        
+                                                            
+                                                            {%endif%}
+        
+                                                        </td>   
+                                                        <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                             
+                                                        
+                                                            {% if ThistorymultiOBJ_oBJA.calibrationresultadjusted !=  ""    %}
+                                                                
+                                                                {% if ThistorymultiOBJ_oBJA.dmin|floatformat:"5" <= ThistorymultiOBJ_oBJA.calibrationresultvalueadjusted|floatformat:"5" and ThistorymultiOBJ_oBJA.dmax|floatformat:"5" >= ThistorymultiOBJ_oBJA.calibrationresultvalueadjusted|floatformat:"5"    %}
+                                                                    
+                                                                    <h6 style="color:white; background-color:green;  height:21px;  text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresultvalueadjusted}} </h6>
+        
+                                                                
+                                                                {%else%}
+
+                                                                <h6 style="color:white; background-color:red;  height:21px;  text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresultvalueadjusted}} </h6>
+        
+                                                                
+                                                                {%endif%}
+                                                            
+                                                            {%endif%}
+        
+                                                        </td>   
+                                                        <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                             
+                                                            {% if ThistorymultiOBJ_oBJA.calibrationresultadjusted !=  ""    %}
+                                                                
+                                                            {% if ThistorymultiOBJ_oBJA.dmin|floatformat:"5" <= ThistorymultiOBJ_oBJA.calibrationresultvalueadjusted|floatformat:"5" and ThistorymultiOBJ_oBJA.dmax|floatformat:"5" >= ThistorymultiOBJ_oBJA.calibrationresultvalueadjusted|floatformat:"5"    %}
+                                                                
+                                                                <h6 style="color:white; background-color:green;  height:21px;  text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresultadjusted}} </h6>
+    
+                                                            
+                                                            {%else%}
+
+                                                            <h6 style="color:white; background-color:red;  height:21px;  text-align: center;  font-size: 13px;  width:110px; "> {{ThistorymultiOBJ_oBJA.calibrationresultadjusted}} </h6>
+    
+                                                            
+                                                            {%endif%}
+                                                        
+                                                        {%endif%}
+                                                         
+        
+                                                        </td>    
+                                                        <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                             
+                                                         
+        
+                                                        </td>   
+
+                                                    </tr> 
+             
+                                                  {% endfor %}
+                                            
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>  
+                                    
+                                </div> 
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+
+ {% endcomment %}
+
+
+                    <div class="row">
+                            
+                        <div class="col" style="  box-shadow: 2px 2px lightgray; background-color: lightgray;    margin-top:20px; ">
+                            
+
+                            <div class="row">
+ 
+                                <div class="col-3">
+  
+                                    <div class="row">
+ 
+                                        <div class="col">
+
+                                            <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Calibration Status</h6> 
+                                        
+                                            <select name="txtStatus" id="txtStatus" class="custom-select" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                    
+                                                <option value="0" disabled="true" > --- Select Status --- </option> 
+                                                {% if txtStatus == 1 %}
+                                                    <option value="1" selected  >ACCEPT, GOOD CONDITION</option> 
+                                                {% else %} 
+                                                    <option value="1"   >ACCEPT, GOOD CONDITION</option> 
+                                                {% endif %} 
+                                                
+                                                {% if txtStatus == 2 %}
+                                                    <option value="2"   selected>ACCEPT WITH CORRECTION FACTORS</option> 
+                                                {% else %} 
+                                                    <option value="2"   >ACCEPT WITH CORRECTION FACTORS</option> 
+                                                {% endif %} 
+                                                
+                                                {% if txtStatus == 3 %}
+                                                    <option value="3"   selected>ACCEPT WITHOUT CORRECTION FACTORS</option> 
+                                                {% else %} 
+                                                    <option value="3"   >ACCEPT WITHOUT CORRECTION FACTORS</option> 
+                                                {% endif %}  
+                                                {% if txtStatus == 4 %}
+                                                    <option value="4"   selected>ERROR - LIMITED USAGE</option> 
+                                                {% else %} 
+                                                    <option value="4"   >ERROR - LIMITED USAGE</option> 
+                                                {% endif %}   
+                                                {% if txtStatus == 5 %}
+                                                    <option value="5"   selected>ERROR - DAMAGED</option> 
+                                                {% else %} 
+                                                    <option value="5"   >ERROR - DAMAGED</option> 
+                                                {% endif %}   
+                                                {% if txtStatus == 6 %}
+                                                    <option value="6"   selected>ERROR - QUARANTINE</option> 
+                                                {% else %} 
+                                                    <option value="6"   >ERROR - QUARANTINE</option> 
+                                                {% endif %}    
+                                                {% if txtStatus == 7 %}
+                                                    <option value="7"   selected>ERROR - SCRAPPED</option> 
+                                                {% else %} 
+                                                    <option value="7"   >ERROR - SCRAPPED</option> 
+                                                {% endif %}      
+                                                {% if txtStatus == 8 %}
+                                                    <option value="8"   selected>RE-CALIBRATE</option> 
+                                                {% else %} 
+                                                    <option value="8"   >RE-CALIBRATE</option> 
+                                                {% endif %}      
+                                                
+                                            </select>
+                        
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top:20px;">
+ 
+                                        <div class="col">
+
+                                            <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Calibration / Limited Usage Remarks</h6> 
+                                        
+                                            <input type="text"    value="{{ThistorymainOBJA.scomments}}"    name="txtRemarks"  class="form-control"      tabindex="52"   maxlength="200"     style="background-color:white;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                                            
+                                
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+  
+
+                                    {% if ThistorymainOBJA.scalibrationresult == "OK"  %}
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Result : </br> </span><span  id="txtResult1" style="color:green;"> {{ThistorymainOBJA.scalibrationresult}}</span></h5>  
+                                 
+                                    <input type="text"    value="{{ThistorymainOBJA.scalibrationresult}}"   id="txtResult" name="txtResult"  class="form-control"      tabindex="52"   maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                  
+                                    {% else  %}
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Result : </br> </span><span  id="txtResult1" style="color:red;"> {{ThistorymainOBJA.scalibrationresult}}</span></h5>  
+                                           
+                                    <input type="text"    value="{{ThistorymainOBJA.scalibrationresult}}"  id="txtResult"  name="txtResult"  class="form-control"      tabindex="52"   maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                  
+                                    {% endif  %}
+                   
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Entered By : </br> </span><span style="color:black;"> {{semployeename}} ({{semployeeno}})</span></h5>  
+                                               
+          
+                                </div>
+                                <div class="col-2">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Approved By : </br> </span><span style="color:black;"> {{ThistorymainOBJA.sapprovedby}}</span></h5>  
+                                 
+                                </div>
+                                <div class="col-1">
+
+                                    <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold;"><span>Approved :  </span><span style="color:black;"></span></h5>  
+                                    
+                                    {%if ThistorymainOBJA.bapproved == 1%}
+
+                                        <input type="checkbox" name="is_closed" checked="checked"   style="background-color:blue; border:1px blue solid;"/>
+                                    {%else%}
+                                        <input type="checkbox" name="is_closed"   style="background-color:red; border:1px blue solid;"/>
+                                    {%endif%}
+
+                                </div> 
+                                <div class="col-1">
+{% comment %}  
+                                    <input type="submit" name="cmdSave"  value="Save" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:50px;"> 
+                                      {% endcomment %}
+                                </div>
+                                <div class="col-1">
+ 
+                                    <input type="submit" name="cmdApprove"  value="Approve" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:50px;"> 
+                                     
+                                </div>
+                                <div class="col-1">
+ 
+                                    <input type="submit" name="cmbClose"  value="Close" class="btn btn-default btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:50px;"> 
+                                     
+                                </div>
+                            </div>
+
+
+  
+                        </div>
+                    </div>
+
+                    
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>  
+    </div>
+    
+    
+</div>
+    
+</form>
+    
+    
+{% endblock %}

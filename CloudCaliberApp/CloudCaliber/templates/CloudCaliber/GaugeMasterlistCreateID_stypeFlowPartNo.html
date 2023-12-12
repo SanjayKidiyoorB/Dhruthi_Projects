@@ -1,0 +1,4 @@
+<option  value="0"   value="">---select Part No---</option>
+{% for tcategoriesLsts in Adminassetcategorytypelist1_AddNew1OBJ %}
+<option value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartname}} | {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartname}} |  {{tcategoriesLsts.spartno}}   </option>
+{% endfor %}

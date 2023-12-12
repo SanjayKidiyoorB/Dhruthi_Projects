@@ -1,0 +1,83 @@
+{% comment %} if (document.getElementById('CategoryVal1').checked == true)
+					{ 
+				
+						
+						sCurrentStatus = "Gate 2 Approval";
+						sStatus = "Under Qualification Approval";
+						
+						oListItem.set_item('sCurrentStatus',  sCurrentStatus );	
+						oListItem.set_item('bStep2Approve', true);
+						oListItem.set_item('bNoBid', true);
+						oListItem.set_item('bStep2toStep3', false);
+						var bApprovePending = 1;
+						oListItem.set_item('bApprovePending', bApprovePending );
+			            //oListItem.set_item('sBidSubmissionTime1', today);
+	
+			            oListItem.set_item('sGate1SubmitDate', today);
+			           // oListItem.set_item('sGate2SubmitDate', today);
+			           // oListItem.set_item('sGate3SubmitDate', today);
+			           // oListItem.set_item('sGate4SubmitDate', today);
+			            //oListItem.set_item('sGate5SubmitDate', today);
+			            //oListItem.set_item('sGate2ApproveSubmitDate', today); 
+			           // oListItem.set_item('sGate4ApproveSubmitDate', today);
+			            oListItem.set_item('sGateSubmitDate', today); 
+
+
+				
+					}
+					else
+					if (document.getElementById('CategoryVal2').checked == true)
+					{  
+
+
+						sCurrentStatus = "Gate 2";
+						  sStatus = "Under Qualification";
+						
+						oListItem.set_item('sCurrentStatus',  sCurrentStatus );							
+						oListItem.set_item('bStep2Approve', true);
+						oListItem.set_item('bNoBid', false);
+						oListItem.set_item('bStep2toStep3', false);
+						var bApprovePending = 0;
+						oListItem.set_item('bApprovePending', bApprovePending );
+			            //oListItem.set_item('sBidSubmissionTime1', today);
+	
+			            oListItem.set_item('sGate1SubmitDate', today);
+			            //oListItem.set_item('sGate2SubmitDate', today);
+			           // oListItem.set_item('sGate3SubmitDate', today);
+			           // oListItem.set_item('sGate4SubmitDate', today);
+			            //oListItem.set_item('sGate5SubmitDate', today);
+			            //oListItem.set_item('sGate2ApproveSubmitDate', today); 
+			           // oListItem.set_item('sGate4ApproveSubmitDate', today);
+			            oListItem.set_item('sGateSubmitDate', today); 
+
+
+					
+					}
+					else 
+					if (document.getElementById('CategoryVal3').checked == true)
+					{ 
+
+						sCurrentStatus =  "Gate 3";
+						  sStatus = "Under Estimation";
+						
+						oListItem.set_item('sCurrentStatus',  sCurrentStatus );	 
+						oListItem.set_item('bStep2Approve', false);
+						oListItem.set_item('bNoBid', false);
+						oListItem.set_item('bStep2toStep3', true);
+			            //oListItem.set_item('sBidSubmissionTime1', today);
+	
+						var bApprovePending = 0;
+						oListItem.set_item('bApprovePending', bApprovePending );
+			            oListItem.set_item('sGate1SubmitDate', today);
+			            //oListItem.set_item('sGate2SubmitDate', today);
+			           // oListItem.set_item('sGate3SubmitDate', today);
+			           // oListItem.set_item('sGate4SubmitDate', today);
+			            //oListItem.set_item('sGate5SubmitDate', today);
+			           //oListItem.set_item('sGate2ApproveSubmitDate', today); 
+			           // oListItem.set_item('sGate4ApproveSubmitDate', today);
+			            oListItem.set_item('sGateSubmitDate', today); 
+
+					
+					} 
+					else
+					{ {% endcomment %}

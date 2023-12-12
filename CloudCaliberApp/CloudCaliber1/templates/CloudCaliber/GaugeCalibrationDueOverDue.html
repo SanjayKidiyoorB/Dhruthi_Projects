@@ -1,0 +1,1188 @@
+{% extends "CloudCaliber/TemplateAdministrator.html" %}
+{% block title %}
+    Master List
+{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+
+<form method="post" id="CreateIDForm" data-Classification-url="{% url 'ajax_load_ClassificationDue' %}" data-courses-url="{% url 'ajax_load_CategoriesDue' %}" data-loadCodeFlowLabel1-url="{% url 'ajax_loadCode_FlowLabel1Due' %}" data-loadCodeFlow1-url="{% url 'ajax_loadCode_Flow1Due' %}"  data-loadCodeFlowLabel2-url="{% url 'ajax_loadCode_FlowLabel2Due' %}" data-loadCodeFlow2-url="{% url 'ajax_loadCode_Flow2Due' %}"   data-loadCodeFlowLabel3-url="{% url 'ajax_loadCode_FlowLabel3Due' %}" data-loadCodeFlow3-url="{% url 'ajax_loadCode_Flow3Due' %}"  data-loadCodeFlowLabel4-url="{% url 'ajax_loadCode_FlowLabel4Due' %}" data-loadCodeFlow4-url="{% url 'ajax_loadCode_Flow4Due' %}"  data-loadCodeFlowLabel5-url="{% url 'ajax_loadCode_FlowLabel5Due' %}" data-loadCodeFlow5-url="{% url 'ajax_loadCode_Flow5Due' %}"     >
+    {% csrf_token %}
+
+    
+    <div class="">
+
+
+
+        <div class="" style="width:100%; height:660px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px; padding-top:12px; ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master List</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                            <div class="col-1" style="padding-top:12px;  height:90px;">
+            
+                                                
+                                                <button type="submit" name="cmbPrinttoExcel"  class="btn btn-warning" style="font-size:14px; color:white; height:30px; width:180px;">
+                                                    <i class="fa fa-file-excel" style="color:white; font:16px;"></i>  &nbsp;  &nbsp;  &nbsp; Export to Excel 
+                                                </button>  
+
+                                            </div>   
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row" style="margin-top: 20px;">
+
+
+
+                            <div class="col box-Type3" style="height:508px; margin:10px 10px 10px 10px; ">
+                                 
+                                <div class="row" style="background-color:#E5E5E5; ">
+
+                                    <div class="col" style="padding-top:20px; height:90px;">
+
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Asset / Gauge / Instrument ID</h6> 
+                                
+                                        <input type="text"  name="txtSearchID" class="form-input basic " required  placeholder="Search ID..." tabindex="1"     style=" width: 300px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                        
+                                    </div>
+                                    <div class="col" style="padding-top:20px; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Location / Line</h6> 
+                                
+                                        <select name="Location" id="cmbLocation" class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                                
+                                            <option value="0" disabled="true" selected> --- Select Area of Usage --- </option> 
+                                            {% for AreaofUselist_list in AreaofUselist_list %}  
+                                                <option value="{{ AreaofUselist_list.lid }}" data-tokens="{{AreaofUselist_list.slocationname}}" >{{AreaofUselist_list.slocationname}} </option>
+                                            {% endfor %}
+                                        </select>
+  
+
+
+
+                                    </div>
+                                    <div class="col" style="padding-top:20px; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Classification</h6> 
+                                
+                                        <select name="Classification" id="cmbClassification" class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                                
+                                            <option value="0" disabled="true" selected> --- Select Classification --- </option> 
+                                            {% for Adminassettypelist_list in Adminassettypelist_list %}  
+                                                <option value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                            {% endfor %}
+                                        </select>
+ 
+                                        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                                        <script>
+
+                                          $("#cmbClassification").change(function () { 
+
+                                            var url = $("#CreateIDForm").attr("data-courses-url");  // get the url of the `load_courses` view
+                                            var ClassificationId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var CategoriesId = 0;
+
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowLabel1-url");
+                                            var urlB1 = $("#CreateIDForm").attr("data-loadCodeFlow1-url"); 
+                                            var urlA2 = $("#CreateIDForm").attr("data-loadCodeFlowLabel2-url");
+                                            var urlB2 = $("#CreateIDForm").attr("data-loadCodeFlow2-url");
+                                            var urlA3 = $("#CreateIDForm").attr("data-loadCodeFlowLabel3-url");
+                                            var urlB3 = $("#CreateIDForm").attr("data-loadCodeFlow3-url"); 
+                                            var urlA4 = $("#CreateIDForm").attr("data-loadCodeFlowLabel4-url");
+                                            var urlB4 = $("#CreateIDForm").attr("data-loadCodeFlow4-url");
+                                            var urlA5 = $("#CreateIDForm").attr("data-loadCodeFlowLabel5-url");
+                                            var urlB5 = $("#CreateIDForm").attr("data-loadCodeFlow5-url");   
+
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                             
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  // get the url of the `load_courses` view
+                                            
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: url,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDClassificationId': ClassificationId       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+ 
+                                                
+
+
+                                                 $("#Categories").html(data);  // replace the contents of the course input with the data that came from the server
+                                              }
+                                            });
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: url1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDClassificationId': ClassificationId       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+ 
+                                                
+
+
+                                                 $("#Code1").html(data);  // replace the contents of the course input with the data that came from the server
+                                              }
+                                            });
+                                       
+
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                    $("#flowID1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                            
+                                            $.ajax({                     // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+   
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                      
+                                          });
+                                        </script>
+
+
+
+                                    </div>
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Category</h6> 
+                                
+
+                                        <select name="Categories" id="Categories" class="form-select" data-show-subtext="true" data-live-search="true" style="color:black;   -moz-appearance: none; appearance: none;  -webkit-appearance: menulist; background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                      
+                                        </select>
+
+
+  
+
+
+
+
+
+                                        <script>
+                                            $("#Categories").change(function () {
+                                                 
+                                              var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowLabel1-url");
+                                              var urlB1 = $("#CreateIDForm").attr("data-loadCodeFlow1-url"); 
+                                              var urlA2 = $("#CreateIDForm").attr("data-loadCodeFlowLabel2-url");
+                                              var urlB2 = $("#CreateIDForm").attr("data-loadCodeFlow2-url");
+                                              var urlA3 = $("#CreateIDForm").attr("data-loadCodeFlowLabel3-url");
+                                              var urlB3 = $("#CreateIDForm").attr("data-loadCodeFlow3-url"); 
+                                              var urlA4 = $("#CreateIDForm").attr("data-loadCodeFlowLabel4-url");
+                                              var urlB4 = $("#CreateIDForm").attr("data-loadCodeFlow4-url");
+                                              var urlA5 = $("#CreateIDForm").attr("data-loadCodeFlowLabel5-url");
+                                              var urlB5 = $("#CreateIDForm").attr("data-loadCodeFlow5-url");   
+                                                
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+
+                                              var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  // get the url of the `load_courses` view
+                                            // get the url of the `load_courses` view 
+                                              var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                              
+                                              // document.getElementById("flowID1").innerHTML = "Test"
+                                             // alert(CategoriesId);
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                    $("#flowID1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlA5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+                                              
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlB5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+
+
+
+  
+                                              // document.getElementById("flowID1").innerHTML = "Test"
+                                              
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: url1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                   $("#Code1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                         
+  
+                                              $.ajax({                       // initialize an AJAX request
+                                                url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId 
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                   $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                                }
+                                              }); 
+  
+                                        
+                                            });
+                                          </script>
+
+
+
+
+
+                                    </div>
+
+
+
+                                </div> 
+ 
+                                
+
+                                <div class="row" style="margin-top:5px;">
+ 
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6 id="flowID1" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">  </h6> 
+                                
+                                        <select name="Flow1" id="Flow1"  class="form-control" style="color:black; -moz-appearance: none; appearance: none; -webkit-appearance: none; -webkit-appearance: listbox !important; min-width:100%; min-height:32px;  font-size: 12px;" >
+                
+                                        </select>
+                                        
+                                        
+ 
+
+
+
+ 
+                                        <script>
+                                          $("#Flow1").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue1-url"); 
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                            //var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                           
+                                           //alert(document.getElementById('Categories').value);
+                                           var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkill = document.getElementById('Flow1');
+
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                             
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  id="flowID2" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> </h6> 
+                                
+                                        <select name="Flow2" id="Flow2"  class="form-control" style="color:black; -moz-appearance: none; appearance: none; -webkit-appearance: none; -webkit-appearance: listbox !important; min-width:100%; min-height:32px;  font-size: 12px;" >
+                
+                                        </select>
+
+ 
+
+                                        <script>
+                                          $("#Flow2").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue2-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                           // var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow2');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                             
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  id="flowID3" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> </h6> 
+                                
+                                        <select name="Flow3" id="Flow3"  class="form-control" style="color:black; -moz-appearance: none; appearance: none; -webkit-appearance: none; -webkit-appearance: listbox !important; min-width:100%; min-height:32px;  font-size: 12px;" >
+                
+                                        </select>
+
+  
+
+                                        <script>
+                                          $("#Flow3").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue3-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                          //  var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow3');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+ 
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6 id="flowID4"  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> </h6> 
+                                
+                                        <select name="Flow4" id="Flow4"  class="form-control" style="color:black; -moz-appearance: none; appearance: none; -webkit-appearance: none; -webkit-appearance: listbox !important; min-width:100%; min-height:32px;  font-size: 12px;" >
+                
+                                        </select>
+
+ 
+                                        <script>
+                                          $("#Flow4").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue4-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                           // var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow4');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                             
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6 id="flowID5"  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> </h6> 
+                                
+                                        <select name="Flow5" id="Flow5"  class="form-control" style="color:black; -moz-appearance: none; appearance: none; -webkit-appearance: none; -webkit-appearance: listbox !important; min-width:100%; min-height:32px;  font-size: 12px;" >
+                
+                                        </select>
+ 
+
+                                        <script>
+                                          $("#Flow5").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue5-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                           // var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow5');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                            $.ajax({                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+ 
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+
+                                    <div class="col-1" style="padding-top:26px; background-color:#E5E5E5; height:90px;">
+    
+                                         
+                                         <button type="submit" name="cmbSearch"  class="btn btn-success" style="font-size:14px; height:30px; width:30px;">
+                                            <i class="fa fa-search"></i>  
+                                        </button>
+
+                                    </div> 
+
+
+
+                                </div> 
+
+
+                                <div class="row" style="margin-top:5px;">
+ 
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:390px; overflow: auto;">
+          
+                                      {% if Masterinstrumentslist_lists %}
+                                   
+                                            <div style="width:100%; height:450px; overflow: auto;">   
+                                                <table  class="table" style="width:100%;    ">
+                                                    
+                                                    <thead>         
+                                                        <tr   style="width:100%; height:46px;">
+                                                            <th   style="padding-top:10px; width:5%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Sl No</h6>
+                                                            
+                                                            </th>    
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">ID </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Description </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Last Calibration Date </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Next Calibration Date </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Location </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Specification </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px; ">Plant </h6>
+                                                            
+                                                            </th>  
+                                                            <th   style="padding-top:10px; width:10%; border: 1px solid white; background-color: #92caff;">
+                                                                
+                                                                <h6  style="color:black; text-align: center;  font-size: 13px;  width:90px; ">Action</h6>
+                                                            
+                                                            </th>  
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      {% for Masterinstrumentslist_listA in Masterinstrumentslist_lists %}
+                                                          <tr   style="width:100%;  height:21px; border:none;">
+                
+                
+                
+                                                                <td   style=" width:5%; height:21px; border: 1px solid lightgray;  background-color: white;">
+                                                                    <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> {{ forloop.counter }}</h6> 
+                                                            
+                                                                </td>  
+                                                                <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:190px; "> {{Masterinstrumentslist_listA.sinstrumentid}} </h6>  
+                                                                
+                
+                                                                </td>   
+                                                                <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:190px; "> {{Masterinstrumentslist_listA.sdescription}} </h6>  
+                                                                
+                
+                                                                </td>  
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                
+                
+                                                                </td>   
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> {{Masterinstrumentslist_listA.slocationname}} </h6>  
+                                                                
+                
+                                                                </td>  
+                                                                <td   style="  width:170px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                    
+                                                                    <h6 style="color:black; text-align: center;  font-size: 13px;  width:110px; "> </h6>  
+                                                                
+                
+                                                                </td>  
+                                                                <td   style="  width:110px;  height:21px; border: 1px solid lightgray; background-color: white;">
+                                                                     
+                                                                
+                
+                                                                </td>           
+                                                                <td   style=" width:10%; height:21px; border: 1px solid lightgray; background-color: white; width:90px; ">
+                                                                    
+                                                                    <a  data-toggle="tooltip" title="Start Calibration" class="btn btn-info" style="height:20px; width:20px; font-size:10px; font-weight: bold; padding: 0; padding-top:2px;" href="/adminStorageLocationListDetails/{{Masterinstrumentslist_listA.lid}}"><i class="fas fa-play"></i></a>
+                                                                
+                                                                    <a data-toggle="tooltip" title="Pre-Pone Calibration" class="btn btn-warning" style="height:20px; width:20px; font-size:10px; font-weight: bold; padding: 0; padding-top:2px;" href="/adminStorageLocationListDetails/{{Masterinstrumentslist_listA.lid}}"><i class="far fa-bell-slash"></i></a>
+                                                                
+                                                                    <a  data-toggle="tooltip" title="Postpone Calibration"  class="btn btn-default" style="height:20px; width:20px; font-size:10px; font-weight: bold; padding: 0; padding-top:2px;" href="/adminStorageLocationListDetails/{{Masterinstrumentslist_listA.lid}}"><i class="far fa-calendar-minus"></i></a>
+                                                                
+                                                                </td> 
+                                                            </tr> 
+                     
+                                                          {% endfor %}
+                                                    
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>  
+                                    
+                                          <center style="margin-top:15px;">
+
+
+                                            <ul class="pagination">
+                                                {% if Masterinstrumentslist_lists.has_previous %}
+                                                  <li><a href="?page={{ Masterinstrumentslist_lists.previous_page_number }}">&laquo;</a></li>
+                                                {% else %}
+                                                  <li class="disabled"><span>&laquo;</span></li>
+                                                {% endif %}
+                                                {% for i in Masterinstrumentslist_lists.paginator.page_range %}
+                                                  {% if Masterinstrumentslist_lists.number == i %}
+                                                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                                  {% else %}
+                                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                  {% endif %}
+                                                {% endfor %}
+                                                {% if Masterinstrumentslist_lists.has_next %}
+                                                  <li><a href="?page={{ Masterinstrumentslist_lists.next_page_number }}">&raquo;</a></li>
+                                                {% else %}
+                                                  <li class="disabled"><span>&raquo;</span></li>
+                                                {% endif %}
+                                              </ul>
+                                            </center>
+                                    
+                                      {% else %}
+                                                
+                                            <table style="width:100%;    ">
+                                                <tr class="row" style="width:100%;  height:40px;">
+                                                    <td class="col"  style="padding-top:10px; width:2%; background-color: white;">
+                                                            
+                                                        
+                                                    </td> 
+                                                    <td class="col"  style="padding-top:10px; width:90%; background-color: white;">
+                                                        
+                                                    
+                                                        <p>No INstrument / Gauge List are available.</p> 
+                                                    </td>
+                                                    <td class="col"  style="padding-top:10px; width:8%; background-color: white;">
+                                                        
+                                                      
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+                                      {% endif %}
+                                    </div>    
+                                </div>
+
+ 
+
+
+
+
+                            </div>
+                        </div> 
+                        
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,2570 @@
+{% extends "CloudCaliber/Template2.html" %}
+{% block title %}
+Masterlist Details - View & Edit / Update Details
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+{% for message in messages %}
+{% if forloop.counter == 1%}
+<center>
+<div class="toast notification bg-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+  <div class="toast-header">
+    <strong class="mr-auto">
+      {% if message.tags == 'error' %}
+        <i class="fas fa-times mr-2"></i>
+      {% elif message.tags == 'warning' %}
+        <i class="fas fa-exclamation mr-2"></i>
+      {% elif message.tags == 'info' %}
+        <i class="fas fa-info mr-2"></i>
+      {% elif message.tags == 'success' %}
+        <i class="fas fa-check mr-2"></i>
+      {% endif %}
+      {{message.tags|capfirst}}
+    </strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body" style="color:white;">
+    {{message|safe}}
+  </div>
+</div>
+<center>
+{% endif %} 
+{% endfor %}
+ 
+<form action="" method="POST"> 
+
+    
+    <div class="">
+
+
+
+      <div class="" style="height:910px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px; padding-top:20px; ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 520px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Masterlist Details - View & Edit / Update Details</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+{% comment %}                                                 
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:80px;"> 
+                                             {% endcomment %}
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+{% comment %}                                                 
+                                            <input type="submit" name="cmbSaveInward"  value="Inward" class="btn btn-warning btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:80px;"> 
+                                             {% endcomment %}
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+{% comment %}                                                 
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:80px;"> 
+                                             {% endcomment %}
+                                             <a  name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:80px;" href="javascript:window.open('','_self').close();">close</a>
+                                        
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top:5px;">
+                                
+                            <div class="col" style="height: 70px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                
+                                <div class="row" style="padding-top:10px; padding-bottom:10px;">
+                                        
+                                    <div class="col-3" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Gauge / Instrument Code</h6> 
+                                
+                                        <input type="text"  name="txtCode"  class="form-control"   tabindex="-1"  value="{{Masterinstrumentslist_list.sinstrumentid}}"      tabindex="1"  maxlength="200"  readonly   style="background-color:#DCF4FD; width: 300px;  font-size: 12px;  "  autofocus/>
+                                        <input type="hidden" id="id" name="txtID1"   value="{{Masterinstrumentslist_list.lid}}" > 
+                                        <div style="display:none;">
+
+                                            <input type="text"  name="txtID"  class="form-control"   tabindex="-1"  value="{{Masterinstrumentslist_list.lid}}"      tabindex="1"  maxlength="200"  readonly   style="background-color:#DCF4FD; width: 300px;  font-size: 12px;  "  autofocus/>
+                                        
+                                        </div>
+                                            
+                                        
+
+                                    </div>
+                                    <div class="col-3" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Gauge / Instrument Description</h6> 
+                                        
+                                        
+                                        {% if Masterinstrumentslist_list.sdescription == "-" %} 
+                                        <input type="text"  name="txtDesc"  class="form-control"     tabindex="-1"  value="{{Masterinstrumentslist_list.categorytype}}"    tabindex="1"  maxlength="200"  readonly   style="background-color:#DCF4FD; width: 350px;  font-size: 12px;  "  autofocus/>
+                                        {% else %}
+
+                                        <input type="text"  name="txtDesc"  class="form-control"     tabindex="-1"  value="{{Masterinstrumentslist_list.sdescription}}"    tabindex="1"  maxlength="200"  readonly   style="background-color:#DCF4FD; width: 350px;  font-size: 12px;  "  autofocus/>
+                                                    
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Classification</h6> 
+                                
+                                        <input type="text"  name="txtClassification"  class="form-control"        tabindex="-1"  value="{{Masterinstrumentslist_list.assettype}}"    maxlength="200"  readonly   style="background-color:#DCF4FD; width: 250px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Category</h6> 
+                                
+                                        <input type="text"  name="txtCategory"  class="form-control"        tabindex="-1"  value="{{Masterinstrumentslist_list.categorytype}}"    maxlength="200"  readonly   style="background-color:#DCF4FD; width: 250px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Plant</h6> 
+                                
+                                        <input type="text"  name="txtPlant"  class="form-control"        tabindex="-1"  value="{{Masterinstrumentslist_list.splanttype}}"   maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        
+                                    <div class="col" style="  ">
+                                        
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row" style="margin-top:5px;">
+                                
+                            <div class="col" style="height: 70px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                
+                                <div class="row" style="padding-top:10px; padding-bottom:10px;">
+                                        
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{Masterinstrumentslist_list.scategorytype1}}</h6> 
+                                
+                                        <input type="text"  name="txtFlow1"  class="form-control"          tabindex="-1"  value="{{Masterinstrumentslist_list.styperefname1}}"   maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{Masterinstrumentslist_list.scategorytype2}}</h6> 
+                                
+                                        <input type="text"  name="txtFlow2"  class="form-control"         tabindex="-1"  value="{{Masterinstrumentslist_list.styperefname2}}"   maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{Masterinstrumentslist_list.scategorytype3}}</h6> 
+                                
+                                        <input type="text"  name="txtFlow3"  class="form-control"          tabindex="-1"  value="{{Masterinstrumentslist_list.styperefname3}}"   maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{Masterinstrumentslist_list.scategorytype4}}</h6> 
+                                
+                                        <input type="text"  name="txtFlow4"  class="form-control"         tabindex="-1"  value="{{Masterinstrumentslist_list.styperefname4}}"  maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">{{Masterinstrumentslist_list.scategorytype5}}</h6> 
+                                
+                                        <input type="text"  name="txtFlow5"  class="form-control"          tabindex="-1"  value="{{Masterinstrumentslist_list.styperefname5}}"   maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                           
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Status</h6> 
+                                
+                                        <input type="text"  name="txtStatus"  class="form-control"          tabindex="-1"  value="{{Masterinstrumentslist_list.scurrentstatus}}"   maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                 
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        
+                                    <div class="col" style="  ">
+                                        
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="margin-top:5px;">
+                                
+                            <div class="col" style="height: 70px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                
+                                <div class="row" style="padding-top:10px; padding-bottom:10px;">
+                                        
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Current Location</h6> 
+                                
+                                        <input type="text"  name="txtLocation"  class="form-control"        tabindex="-1"  value="{{Masterinstrumentslist_list.slocationname}}"  maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Make</h6> 
+                                
+                                        <select name="cmbMake" id="cmbMake1" class="  selectpicker" data-show-subtext="true"   tabindex="1" data-live-search="true" style="color:black;  background-color:white; min-width:200px%; min-height:52px;  font-size: 12px;" >
+                                                                
+                                            <option value="0" disabled="true" selected> --- Select Make --- </option> 
+                                            {% for AdminmakelistActiveA in AdminmakelistActive %} 
+
+                                                {% if Masterinstrumentslist_list.smake == AdminmakelistActiveA.smake  %} 
+                                                  <option selected="true" value="{{ AdminmakelistActiveA.lid }}" data-tokens="{{AdminmakelistActiveA.smake}}" >{{AdminmakelistActiveA.smake}} </option>
+                                            
+                                                {% else %}
+                                                  <option   value="{{ AdminmakelistActiveA.lid }}" data-tokens="{{AdminmakelistActiveA.smake}}" >{{AdminmakelistActiveA.smake}} </option>
+                                            
+                                                {% endif %}
+
+                                              {% endfor %}
+                                        </select>
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Storage</h6> 
+                                
+                                        <select name="cmbStorage" id="cmbStorage1" class="  selectpicker" data-show-subtext="true"   tabindex="2" data-live-search="true" style="color:black;  background-color:white; min-width:200px%; min-height:52px;  font-size: 12px;" >
+                                                                
+                                            <option value="0" disabled="true" selected> --- Select Storage --- </option> 
+                                            {% for AdminstoragelocationlistActiveA in AdminstoragelocationlistActive %} 
+
+                                                {% if Masterinstrumentslist_list.sstoragelocation == AdminstoragelocationlistActiveA.sstoragelocation  %} 
+                                                  <option selected="true" value="{{ AdminstoragelocationlistActiveA.lid }}" data-tokens="{{AdminstoragelocationlistActiveA.sstoragelocation}}" >{{AdminstoragelocationlistActiveA.sstoragelocation}} </option>
+                                            
+                                                {% else %}
+                                                  <option   value="{{ AdminstoragelocationlistActiveA.lid }}" data-tokens="{{AdminstoragelocationlistActiveA.sstoragelocation}}" >{{AdminstoragelocationlistActiveA.sstoragelocation}} </option>
+                                            
+                                                {% endif %}
+
+                                              {% endfor %}
+                                        </select>
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Specification</h6> 
+                                
+                                        <input type="text"  name="txtSpecification"  class="form-control"   value="{{Masterinstrumentslistpart2Det.ssize1}}"     tabindex="3"  maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">SAP Code</h6> 
+                                
+                                        <input type="text"  name="txtSAPCode"  class="form-control"   value="{{Masterinstrumentslist_list.serpcode}}"     tabindex="4"  maxlength="200"  readonly   style="background-color:#DCF4FD; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                           
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">OLD Code</h6> 
+                                
+                                        <input type="text"  name="txtOLDCode"  class="form-control"      tabindex="5" value="{{Masterinstrumentslist_list.oldinstrument_id}}"   maxlength="200"      style="background-color:white; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                 
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        
+                                    <div class="col" style="  ">
+                                        
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="margin-top:5px;">
+                                
+                            <div class="col" style="height: 70px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                
+                                <div class="row" style="padding-top:10px; padding-bottom:10px;">
+                                        
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Model #</h6> 
+                                
+                                        <input type="text"  name="txtModelNo"  class="form-control"      tabindex="6" value="{{Masterinstrumentslistpart2Det.smodelno}}"   maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Manufacturer Serial No.</h6> 
+                                
+                                        <input type="text"  name="txtManufacturerSerialNo"  class="form-control"      tabindex="7" value="{{Masterinstrumentslistpart2Det.sserialno}}"   maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Least Count</h6> 
+                                
+                                        <input type="text"  name="txtLC"  class="form-control"      tabindex="8" value="{{Masterinstrumentslistpart2Det.fleastcount}}"   maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Acceptance Criteria</h6> 
+                                
+                                        <input type="text"  name="txtAC"  class="form-control"      tabindex="9" value="{{Masterinstrumentslistpart2Det.saccuracy}}"   maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Date of Purchase</h6> 
+                                
+                                        <input type="date"  name="txtPurchaseDate"  class="form-control"      tabindex="10" value="{{sDateofPurchase}}"   maxlength="200"      style="background-color:white; width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                           
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Cost of Purchase</h6> 
+                                
+                                        <input type="text"  name="txtPurchaseCost"  class="form-control"      tabindex="11"  value="{{Masterinstrumentslistpart2Det.dpurchaseprice}}"   maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        
+                                    <div class="col" style="  ">
+                                        
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row" style="margin-top:5px;">
+                                
+                            <div class="col" style="height: 70px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                
+                                <div class="row" style="padding-top:10px; padding-bottom:10px;">
+                                        
+                                    <div class="col-2" style="  ">
+                                        
+ 
+
+                                        <div class="row" style="">
+                                        
+                                            <div class="col-6" style="  ">
+                                                <label for="RadioOwn">Property </label>
+                                                
+                                                <select name="cmbProperty" id="cmbProperty1" tabindex="12" class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                    
+                                                        
+                                                    {% if Masterinstrumentslistpart2Det.sproperty == "O" %} 
+                                                        <option value="0" selected="true"  data-tokens="OWN"   selected>OWN</option> 
+                                                    {% else %}
+                                                    <option value="0"   data-tokens="OWN"   >OWN</option> 
+                                                    {% endif %}
+                                                    {% if Masterinstrumentslistpart2Det.sproperty == "R" %} 
+                                                        <option value="1" selected="true"  data-tokens="RENTED"   selected>RENTED</option> 
+                                                    {% else %}
+                                                    <option value="1"    data-tokens="RENTED"   >RENTED</option> 
+                                                    {% endif %} 
+                                                    {% if  Masterinstrumentslistpart2Det.sproperty == "C" %} 
+                                                        <option value="2" selected="true"  data-tokens="CUSTOMER"   selected>CUSTOMER</option> 
+                                                    {% else %}
+                                                    <option value="2"   data-tokens="CUSTOMER"   >CUSTOMER</option> 
+                                                    {% endif %}  
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-6" style="  ">
+                                                <label for="RadioOwn">Calibration Type </label>
+                                                
+                                                <select name="cmbCalibrationType" id="cmbCalibrationType1" tabindex="13"  class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                               
+                                                    {% if  Masterinstrumentslistpart2Det.sagencyservice == "I" %} 
+                                                        <option value="0" selected="true"  data-tokens="InHouse"   selected>InHouse</option> 
+                                                    {% else %}
+                                                        <option value="0"   data-tokens="InHouse"   >InHouse</option> 
+                                                    {% endif %}
+                                                    {% if  Masterinstrumentslistpart2Det.sagencyservice == "E"  %} 
+                                                        <option value="1" selected="true"  data-tokens="External"   selected>External</option> 
+                                                    {% else %}
+                                                        <option value="1"   data-tokens="External"   >External</option> 
+                                                    {% endif %} 
+                                                    {% if   Masterinstrumentslistpart2Det.sagencyservice == "C"  %} 
+                                                        <option value="2" selected="true"  data-tokens="Customer"   selected>Customer</option> 
+                                                    {% else %}
+                                                        <option value="2"    data-tokens="Customer"   >Customer</option> 
+                                                    {% endif %}         
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <div class="row" style="">
+                                         
+
+                                                <div class="col-4" style="  ">
+                                                         
+                                                    <label for="chkbMasterGauge">Master Gauge / Instrument</label>
+             
+                                                </div>
+                                                <div class="col-2" style="  ">
+                                                     
+                                                    {% if  Masterinstrumentslist_list.bcalibstandards is True %} 
+                                                        <input type="checkbox" id="chkbMasterGauge" name="chkbMasterGauge"  checked    value=""  tabindex="14"  style="  "  />
+                                                    {% else %}
+                                                        <input type="checkbox" id="chkbMasterGauge" name="chkbMasterGauge"     value=""  tabindex="14"  style="  "  />
+                                                    {% endif %}
+                                                   
+            
+                                                </div>
+                                                <div class="col-4" style="  ">
+                                                         
+                                                    <label for="chkbReferenceGauge">Reference Gauge (No Calibration)</label>
+             
+                                                </div>
+                                                <div class="col-2" style="  ">
+                                                     
+                                                    {% if  Masterinstrumentslist_list.breferencegauge  == 1 %} 
+                                                        <input type="checkbox" id="chkbReferenceGauge" name="chkbReferenceGauge"  checked    value=""  tabindex="15"  style="  "  />
+                                                    {% else %}
+                                                        <input type="checkbox" id="chkbReferenceGauge" name="chkbReferenceGauge"     value=""  tabindex="15"  style="  "  />
+                                                    {% endif %} 
+                                                </div>
+ 
+                                        </div> 
+ 
+                                    </div> 
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Replaced To</h6> 
+                                
+                                        <input type="text"  name="txtReplacedTo"  class="form-control"   value="{{Masterinstrumentslistpart2Det.srevno}}"     tabindex="16"  maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Drawing No</h6> 
+                                
+                                        <input type="text"  name="txtDrawingNo"  class="form-control"    value="{{Masterinstrumentslistpart2Det.sdrawingno}}"    tabindex="17"  maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                        
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Drawing Revision No</h6> 
+                                
+                                        <input type="text"  name="txtDrawingRevNo"  class="form-control"   value="{{Masterinstrumentslistpart2Det.sdrawingrevno}}"     tabindex="18"  maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                    <div class="col-2" style="  ">
+                                            
+                                        <h6  style="color:black; text-align: center;  width: 220px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Purchase Vendor</h6> 
+                                
+                                        <input type="text"  name="txtPurchaseVendor"  class="form-control"   value="{{Masterinstrumentslistpart2Det.scatalogueno}}"     tabindex="19"  maxlength="200"     style="  width: 200px;  font-size: 12px;  "  autofocus/>
+                                                    
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        
+                                    <div class="col" style="  ">
+                                        
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="margin-top:5px;">
+
+                            <div class="col-4" style="  ">
+                                
+
+                                <div class="row" style="margin:5px;">
+                                
+                                    <div class="col" style="  ">
+                                        <div class="row">
+                                                
+                                            <div class="col" style="padding-top:5px;   box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                    
+                                                
+                                                <div class="row"  style="">
+                                                
+                                                    <div class="col-12" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Gauge / Instrument used for </h6> 
+                                        
+                
+                
+                                                    </div> 
+                                                </div>
+                                                <div class="row">
+                                                
+                                                    <div class="col-1" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Serial</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-7" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Part No.</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-4" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Part Rev. No.</h6> 
+                                        
+                
+                                                    </div>
+                                                    
+                                                </div>
+
+
+                                                <div class="row">
+                                                
+                                                    <div class="col-1" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">1</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-7" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartNo1"  class="form-control"    value="{{Masterinstrumentslistpart4Det.spartno1}}"      tabindex="20"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-4" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartRevNo1"  class="form-control"    value="{{Masterinstrumentslistpart4Det.spartrivision1}}"      tabindex="21"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                                <div class="row">
+                                                
+                                                    <div class="col-1" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">2</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-7" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartNo2"  class="form-control"     value="{{Masterinstrumentslistpart4Det.spartno2}}"     tabindex="22"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-4" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartRevNo2"  class="form-control"   value="{{Masterinstrumentslistpart4Det.spartrivision2}}"      tabindex="23"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="row">
+                                                
+                                                    <div class="col-1" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">3</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-7" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartNo3"  class="form-control"     value="{{Masterinstrumentslistpart4Det.spartno3}}"     tabindex="24"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-4" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartRevNo3"  class="form-control"    value="{{Masterinstrumentslistpart4Det.spartrivision3}}"     tabindex="25"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="row">
+                                                
+                                                    <div class="col-1" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">4</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-7" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartNo4"  class="form-control"    value="{{Masterinstrumentslistpart4Det.spartno4}}"      tabindex="26"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-4" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartRevNo4"  class="form-control"    value="{{Masterinstrumentslistpart4Det.spartrivision4}}"     tabindex="27"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="row">
+                                                
+                                                    <div class="col-1" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">5</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-7" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartNo5"  class="form-control"    value="{{Masterinstrumentslistpart4Det.spartno5}}"      tabindex="28"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-4" style="  ">
+                                                        
+                                                        <input type="text"  name="txtPartRevNo5"  class="form-control"   value="{{Masterinstrumentslistpart4Det.spartrivision5}}"      tabindex="29"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-top:5px; ">
+                                                
+                                            <div class="col" style=" height:231px;  box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                    
+                                                
+                                                <div class="row"  style="">
+                                                
+                                                    <div class="col-12" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> Upload Document </h6> 
+                                        
+                
+                
+                                                    </div> 
+                                                </div>
+                                                <div class="row" style="padding-top:5px;">
+                                                
+                                                    <div class="col-2" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Type</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-8" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">File Name</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Action</h6> 
+                                        
+                
+                                                    </div>
+                                                    
+                                                </div>
+
+
+                                                <div class="row" style="padding-top:10px;">
+                                                
+                                                    <div class="col-2" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">SOP</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-8" style="  ">
+                                                        
+                                                        <input type="text"  name="txtFile1"  class="form-control"    value="{{Masterinstrumentslistpart3Det.stypeoffile1}}"     tabindex="30"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                            
+                                                        <a  type="button" id="idUpload1"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                                            <span class="fa fa-upload"></span>
+                                                        </a>  
+                                             
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+
+
+                                                <div class="row" style="padding-top:5px;">
+                                                
+                                                    <div class="col-2" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Drawing</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-8" style="  ">
+                                                        
+                                                        <input type="text"  name="txtFile2"  class="form-control"      value="{{Masterinstrumentslistpart3Det.stypeoffile2}}"     tabindex="31"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                            
+                                                        <a  type="button" id="idUpload2"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                                            <span class="fa fa-upload"></span>
+                                                        </a>  
+                                             
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+
+
+
+                                                <div class="row" style="padding-top:5px;">
+                                                
+                                                    <div class="col-2" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Other</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-8" style="  ">
+                                                        
+                                                        <input type="text"  name="txtFile3"  class="form-control"    value="{{Masterinstrumentslistpart3Det.stypeoffile3}}"     tabindex="32"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                            
+                                                        <a  type="button" id="idUpload3"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                                            <span class="fa fa-upload"></span>
+                                                        </a>  
+                                             
+                
+                                                    </div>
+                                                    
+                                                </div>
+
+
+
+                                                <div class="row" style="padding-top:5px;">
+                                                
+                                                    <div class="col-2" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Other</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-8" style="  ">
+                                                        
+                                                        <input type="text"  name="txtFile4"  class="form-control"     value="{{Masterinstrumentslistpart3Det.stypeoffile4}}"     tabindex="33"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                            
+                                                        <a  type="button" id="idUpload4"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                                            <span class="fa fa-upload"></span>
+                                                        </a>  
+                                             
+                
+                                                    </div>
+                                                    
+                                                </div>
+
+
+
+
+                                                <div class="row" style="padding-top:5px;">
+                                                
+                                                    <div class="col-2" style="  ">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Other</h6> 
+                                        
+                
+                                                    </div>
+                                                    <div class="col-8" style="  ">
+                                                        
+                                                        <input type="text"  name="txtFile5"  class="form-control"      value="{{Masterinstrumentslistpart3Det.stypeoffile5}}"     tabindex="34"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                            
+                                                        <a  type="button" id="idUpload5"  title="Upload" class="read-book btn btn-sm btn-outline-warning"  style="border:1px gray solid;"     target ="_blank" >
+                                                            <span class="fa fa-upload"></span>
+                                                        </a>  
+                                             
+                
+                                                    </div>
+                                                    
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-top:5px; display:none;">
+                                                
+                                            <div class="col" style="height: 70px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                    
+                                                
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>  
+                                    
+                                    
+                                </div> 
+
+
+                            </div>
+
+
+
+
+                            <div class="col-4" style="  ">
+                                
+
+                                <div class="row" style="margin:5px;">
+                                
+                                    <div class="col" style="     ">
+                                    
+                                        <div class="row" style="   ">
+                                                
+                                            <div class="col" style="height: 25px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                    
+                                                <div class="row">
+                                                 
+                                                    <div class="col-3" style="  ">
+                                                         
+                                                        <label for="chkbRegularUsage">Regular Usage</label>
+                 
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                          
+                                                        {% if  Masterinstrumentslist_list.bregularpartusage is True %} 
+                                                            <input type="checkbox" id="chkbRegularUsage" name="chkbRegularUsage"  Checked    value=""  tabindex="35"  style="  "  />
+                                                        {% else %}
+                                                            <input type="checkbox" id="chkbRegularUsage" name="chkbRegularUsage"     value=""  tabindex="35"  style="  "  />
+                                                        {% endif %} 
+                                                    </div>
+                                                    <div class="col-6" style="  ">
+                                                         
+                                                        <label for="chkbSampleUsage">Sample Usage</label>
+                
+                                                    </div>
+                                                    <div class="col-1" style="  ">
+                                                          
+                                                        {% if  Masterinstrumentslist_list.bsamplepartusage  is True %} 
+                                                            <input type="checkbox" id="chkbSampleUsage" name="chkbSampleUsage"  Checked    value=""  tabindex="36"  style="  "  />
+                                                        {% else %}
+                                                            <input type="checkbox" id="chkbSampleUsage" name="chkbSampleUsage"     value=""  tabindex="36"  style="  "  />
+                                                        {% endif %} 
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top:5px;  ">
+                                                
+                                            <div class="col" style="height: 40px; box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                    
+                                                <div class="row">
+                                                 
+                                                    <div class="col-3" style="  ">
+                                                         
+                                                        <label for="chkbMonthlyValidation">Monthly Validation</label>
+                 
+                                                    </div>
+                                                    <div class="col-2" style="  ">
+                                                          
+                                                        {% if  Masterinstrumentslist_list.bvalidation  is True %} 
+                                                            <input type="checkbox" id="chkbMonthlyValidation" name="chkbMonthlyValidation"  Checked    value=""  tabindex="37"  style="  "  />
+                                                        {% else %}
+                                                            <input type="checkbox" id="chkbMonthlyValidation1" name="chkbMonthlyValidation"     value=""  tabindex="37"  style="  "  />
+                                                        {% endif %} 
+
+                                                    </div>
+                                                    <div class="col-6" style="  ">
+                                                         
+                                                        <label for="chkbcalibrateidle1">Calibrate even when IDLE / SPARE (NEW Gauge / Instrument)</label>
+                  
+                
+                                                    </div>
+                                                    <div class="col-1" style="  ">
+                                                          
+                                                        {% if  Masterinstrumentslist_list.bcalibrateidle  is True %} 
+                                                            <input type="checkbox" id="chkbcalibrateidle1" name="chkbcalibrateidle"  Checked    value=""  tabindex="38"  style="  "  />
+                                                        {% else %}
+                                                            <input type="checkbox" id="chkbcalibrateidle1" name="chkbcalibrateidle"     value=""  tabindex="38"  style="  "  />
+                                                        {% endif %} 
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-top:5px; ">
+                                                
+                                            <div class="col" style="  box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                           
+                                                <div class="row">
+                                                 
+                                                    <div class="col-6" style="  ">
+                                                          
+                  
+                                                          
+                                                        <label >Last Validation Date</label>
+                                                        <input type="text"  name="txtLastValidationDate"  class="form-control"     value="{{Masterinstrumentslistpart2Det.svalidationlastdate}}"     tabindex="39"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                                    </div>
+                                                    <div class="col-6" style="  ">
+                                                          
+                                                        <label >Next Validation Date</label>
+                  
+                  
+                                                          
+                                                        <input type="text"  name="txtNextValidationDate"  class="form-control"    value="{{Masterinstrumentslistpart2Det.svalidationnextdate}}"     tabindex="40"   maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row" style="margin-top:10px; ">
+                                                
+                                            <div class="col" style="  box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                           
+                                                <div class="row">
+                                                 
+                                                    <div class="col-6" style="  ">
+                                                          
+                  
+                                                          
+                                                        <label >Last Calibration Date</label>
+                                                        <input type="text"  name="txtLastCalibrationDate"  class="form-control"       value="{{Masterinstrumentslist_list.slastcalibdate}}"     tabindex="41"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                                    </div>
+                                                    <div class="col-6" style="  ">
+                                                          
+                                                        <label >Next Calibration Date</label>
+                  
+                  
+                                                          
+                                                        <input type="text"  name="txtNextCalibrationDate"  class="form-control"      value="{{Masterinstrumentslist_list.snextcalibdate}}"     tabindex="42"  maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-top:10px; ">
+                                                
+                                            <div class="col" style="  box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                           
+                                                <div class="row">
+                                                 
+                                                    <div class="col-6" style="  ">
+                                                          
+                  
+                                                          
+                                                        <label >Interval</label>
+                                                        <input type="number"  name="txtCalibInterval"  class="form-control"     value="{{Masterinstrumentslistpart2Det.lintervalcalib}}"     tabindex="43"   maxlength="200"     style="background-color:white;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                                    </div>
+                                                    <div class="col-6" style="  ">
+                                                          
+                                                        <label >Period</label>
+                  
+                  
+                                                        <select name="cmbPeriod" id="cmbPeriod1" class="  selectpicker" data-show-subtext="true"  tabindex="44"  data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                                   
+                                                            {% if    Masterinstrumentslistpart2Det.sintervalperiodcalib  == "D" %} 
+                                                                <option value="0" selected="true"  data-tokens="Days"   selected>Days</option> 
+                                                            {% else %}
+                                                                <option value="0"   data-tokens="Days"   >Days</option> 
+                                                            {% endif %}
+                                                            {% if  Masterinstrumentslistpart2Det.sintervalperiodcalib  == "W" %} 
+                                                                <option value="1" selected="true"  data-tokens="Weeks"   selected>Weeks</option> 
+                                                            {% else %}
+                                                                <option value="1"   data-tokens="Weeks"   >Weeks</option> 
+                                                            {% endif %} 
+                                                            {% if   Masterinstrumentslistpart2Det.sintervalperiodcalib   == "M" %} 
+                                                                <option value="2" selected="true"  data-tokens="Months"   selected>Months</option> 
+                                                            {% else %}
+                                                                <option value="2"    data-tokens="Months"   >Months</option> 
+                                                            {% endif %}       
+                                                            {% if   Masterinstrumentslistpart2Det.sintervalperiodcalib   == "Y" %} 
+                                                                <option value="3" selected="true"  data-tokens="Years"   selected>Years</option> 
+                                                            {% else %}
+                                                                <option value="3"    data-tokens="Years"   >Years</option> 
+                                                            {% endif %}          
+                                                            
+                                                        </select>
+                                                           
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-top:10px; ">
+                                                
+                                            <div class="col" style="height:170px;  box-shadow: 2px 2px lightgray; background-color: #E5E5E5;    ">
+                                           
+                                                <div class="row">
+                                                 
+                                                    <div class="col-6" style="  ">
+                                                          
+                  
+                                                          
+                                                        <label >Alert before due date</label>
+                                                        <input type="number"  name="txtCalibAlert"  class="form-control"       value="{{Masterinstrumentslistpart2Det.lcalibalert}}"     tabindex="45"   maxlength="200"     style="background-color:white;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+                                                        <div class="row"  style="padding-top:5px;">
+                                                        
+                                                            <div class="col-12" style="  ">
+                                                            </div>
+                                                        </div>
+
+                                                        
+                                                        <div class="row"  style="padding-top:5px;">
+                                                        
+                                                            <div class="col-12" style="  ">
+                                                                
+                                                                <label >Gauge Master to be Used for Calibration</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row"  style="padding-top:5px;">
+                                                        
+                                                            <div class="col-12" style="  ">
+                                                                 
+                                                                <select name="cmbMasterGauge1" id="cmbMasterGauge11"  tabindex="46"  class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                                                    
+                                                                    <option value="0" disabled="true" selected> --- Select Masters --- </option> 
+                                                                     
+                                                                        {% for MasterinstrumentslistMasters_listA in MasterinstrumentslistMasters_list %} 
+
+                                                                            {% if Masterinstrumentslistpart3Det.lmasterinstrumentid1 == MasterinstrumentslistMasters_listA.lid %} 
+                                                                            <option selected="true" value="{{ MasterinstrumentslistMasters_listA.lid }}" data-tokens="{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}" >{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}</option>
+                                                                        
+                                                                            {% else %}
+                                                                            <option   value="{{ MasterinstrumentslistMasters_listA.lid }}" data-tokens="{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}" >{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}</option>
+                                                                        
+                                                                            {% endif %}
+
+                                                                        {% endfor %} 
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row"  style="padding-top:5px;">
+                                                        
+                                                            <div class="col-12" style="  ">
+                                                                 
+                                                                <select name="cmbMasterGauge2" id="cmbMasterGauge12"  tabindex="47"  class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                                                    
+                                                                    <option value="0" disabled="true" selected> --- Select Masters --- </option> 
+                                                                    
+                                                                    {% for MasterinstrumentslistMasters_listA in MasterinstrumentslistMasters_list %} 
+
+                                                                    {% if Masterinstrumentslistpart3Det.lmasterinstrumentid2 == MasterinstrumentslistMasters_listA.lid %} 
+                                                                    <option selected="true" value="{{ MasterinstrumentslistMasters_listA.lid }}" data-tokens="{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}" >{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}</option>
+                                                                
+                                                                    {% else %}
+                                                                    <option   value="{{ MasterinstrumentslistMasters_listA.lid }}" data-tokens="{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}" >{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}</option>
+                                                                
+                                                                    {% endif %}
+
+                                                                {% endfor %} 
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row"  style="padding-top:5px;">
+                                                        
+                                                            <div class="col-12" style="  ">
+                                                                 
+                                                                <select name="cmbMasterGauge3" id="cmbMasterGauge13"  tabindex="48"  class="  selectpicker" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                                                    
+                                                                    <option value="0" disabled="true" selected> --- Select Masters --- </option> 
+                                                                    
+                                                                    {% for MasterinstrumentslistMasters_listA in MasterinstrumentslistMasters_list %} 
+
+                                                                    {% if Masterinstrumentslistpart3Det.lmasterinstrumentid3 == MasterinstrumentslistMasters_listA.lid %} 
+                                                                    <option selected="true" value="{{ MasterinstrumentslistMasters_listA.lid }}" data-tokens="{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}" >{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}</option>
+                                                                
+                                                                    {% else %}
+                                                                    <option   value="{{ MasterinstrumentslistMasters_listA.lid }}" data-tokens="{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}" >{{MasterinstrumentslistMasters_listA.sinstrumentid}} | {{MasterinstrumentslistMasters_listA.sdescription}}</option>
+                                                                
+                                                                    {% endif %}
+
+                                                                {% endfor %} 
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="col-6" style="  ">
+                                                            
+                                                          
+                                                    
+                                                        <div class="row"  style="padding-top:5px;">
+                                                        
+                                                            <div class="col-10" style="  ">
+                                                                            
+                                                                        
+                                                                <label for="chkbUsageWise">Usage Wise</label>
+                        
+                        
+                                                            </div>
+                                                            <div class="col-2" style="  ">
+                                                                
+                                                                {% if  Masterinstrumentslist_list.busagewise is True %} 
+                                                                    <input type="checkbox" id="chkbUsageWise" name="chkbUsageWise"  checked   value=""  tabindex="49"  style="  "  />
+                                                                {% else %}
+                                                                    <input type="checkbox" id="chkbUsageWise" name="chkbUsageWise"     value=""  tabindex="49"  style="  "  />
+                                                                {% endif %} 
+                        
+                        
+                                                            </div>
+                                                            
+                                                        </div>
+
+
+
+                                                        <div class="row"  style="padding-top:5px;">
+                                                        
+                                                            <div class="col-6" style="  ">
+                                                                            
+                                                                        
+                                                                <label >Planned Cycle Use</label>
+                                                                <input type="text"  name="txtPlannedCycleUse"  class="form-control"       value="{{Masterinstrumentslistpart2Det.llusagedefault}}"     tabindex="49"    maxlength="200"     style="background-color:white;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                            
+                        
+                        
+                                                            </div>
+                                                            <div class="col-6" style="  ">
+                                                                 
+                                                                <label >Current Cycle Use</label>
+                                                                <input type="text"  name="txtCurrentCycleUse"  class="form-control"       value="{{Masterinstrumentslistpart2Det.llusagecount}}"     tabindex="50"    maxlength="200"  readonly   style="background-color:#DCF4FD;   width: 100%;  font-size: 12px;  "  autofocus/>
+                                                            
+                        
+                        
+                                                            </div>
+                                                            
+                                                        </div>
+
+
+
+                
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+                                        <div class="row" style="margin-top:5px; display:none;">
+                                                
+                                        </div>
+
+
+                                    </div>  
+                                      
+                                </div> 
+
+                                
+                            </div>
+                            
+                            <div class="col-4" style="  ">
+                                
+                                <div class="row" style="margin:5px;">
+                                
+                                    <div class="col" style="height:415px;  box-shadow: 2px 2px lightgray; background-color: #E5E5E5;  overflow-y:scroll ;  ">
+                                    
+
+                                        <div class="row"  style="padding-top:5px;">
+                                        
+                                            <div class="col-8" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Calibration Parameters & Acceptance Criteria</h6> 
+                                
+         
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Allowed Error</h6> 
+                                
+         
+        
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Serial</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                 <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Parameter</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                 <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Applied Value</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">from</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">To</h6> 
+                                
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">1</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue1}}"   name="txtParamter1"  class="form-control"      tabindex="51"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea1}}"  name="txtAcceptanceCriteria11"  class="form-control"      tabindex="52"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin1}}"   name="txtACFrom1"  class="form-control"      tabindex="53"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text" value="{{Masterinstrumentslistpart3Det.dmax1}}"  name="txtACTo1"  class="form-control"      tabindex="54"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">2</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue2}}"   name="txtParamter2"  class="form-control"      tabindex="55"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea2}}"  name="txtAcceptanceCriteria12"  class="form-control"      tabindex="56"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin2}}"   name="txtACFrom2"  class="form-control"      tabindex="57"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax2}}" name="txtACTo2"  class="form-control"      tabindex="58"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">3</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue3}}"   name="txtParamter3"  class="form-control"      tabindex="59"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea3}}"  name="txtAcceptanceCriteria13"  class="form-control"      tabindex="60"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin3}}"   name="txtACFrom3"  class="form-control"      tabindex="61"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax3}}" name="txtACTo3"  class="form-control"      tabindex="62"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">4</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue4}}"   name="txtParamter4"  class="form-control"      tabindex="63"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea4}}"  name="txtAcceptanceCriteria14"  class="form-control"      tabindex="64"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin4}}"   name="txtACFrom4"  class="form-control"      tabindex="65"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax4}}" name="txtACTo4"  class="form-control"      tabindex="66"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">5</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue5}}"   name="txtParamter5"  class="form-control"      tabindex="67"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea5}}"  name="txtAcceptanceCriteria15"  class="form-control"      tabindex="68"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin5}}"   name="txtACFrom5"  class="form-control"      tabindex="69"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax5}}" name="txtACTo5"  class="form-control"      tabindex="70"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">6</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue6}}"   name="txtParamter6"  class="form-control"      tabindex="71"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea6}}"  name="txtAcceptanceCriteria16"  class="form-control"      tabindex="72"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin6}}"   name="txtACFrom6"  class="form-control"      tabindex="73"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax6}}" name="txtACTo6"  class="form-control"      tabindex="74"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">7</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue7}}"   name="txtParamter7"  class="form-control"      tabindex="75"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea7}}"  name="txtAcceptanceCriteria17"  class="form-control"      tabindex="76"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin7}}"   name="txtACFrom7"  class="form-control"      tabindex="77"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax7}}" name="txtACTo7"  class="form-control"      tabindex="78"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">8</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue8}}"   name="txtParamter8"  class="form-control"      tabindex="79"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea8}}"  name="txtAcceptanceCriteria18"  class="form-control"      tabindex="80"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin8}}"   name="txtACFrom8"  class="form-control"      tabindex="81"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax8}}" name="txtACTo8"  class="form-control"      tabindex="82"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">9</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue9}}"   name="txtParamter9"  class="form-control"      tabindex="83"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea9}}"  name="txtAcceptanceCriteria19"  class="form-control"      tabindex="84"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin9}}"   name="txtACFrom9"  class="form-control"      tabindex="85"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax9}}" name="txtACTo9"  class="form-control"      tabindex="86"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">10</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue10}}"   name="txtParamter10"  class="form-control"      tabindex="87"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea10}}"  name="txtAcceptanceCriteria110"  class="form-control"      tabindex="88"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin10}}"   name="txtACFrom10"  class="form-control"      tabindex="89"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax10}}" name="txtACTo10"  class="form-control"      tabindex="90"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+
+
+                                        
+
+                                          
+                                         
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">11</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue11}}"   name="txtParamter11"  class="form-control"      tabindex="91"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea11}}"  name="txtAcceptanceCriteria111"  class="form-control"      tabindex="92"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin11}}"   name="txtACFrom11"  class="form-control"      tabindex="93"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text" value="{{Masterinstrumentslistpart3Det.dmax11}}"  name="txtACTo11"  class="form-control"      tabindex="94"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">12</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue12}}"   name="txtParamter12"  class="form-control"      tabindex="95"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea12}}"  name="txtAcceptanceCriteria112"  class="form-control"      tabindex="96"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin12}}"   name="txtACFrom12"  class="form-control"      tabindex="97"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax12}}" name="txtACTo12"  class="form-control"      tabindex="98"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">13</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue13}}"   name="txtParamter13"  class="form-control"      tabindex="99"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea13}}"  name="txtAcceptanceCriteria113"  class="form-control"      tabindex="100"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin13}}"   name="txtACFrom13"  class="form-control"      tabindex="101"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax13}}" name="txtACTo13"  class="form-control"      tabindex="102"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">14</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue14}}"   name="txtParamter14"  class="form-control"      tabindex="103"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea14}}"  name="txtAcceptanceCriteria114"  class="form-control"      tabindex="104"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin14}}"   name="txtACFrom14"  class="form-control"      tabindex="105"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax14}}" name="txtACTo14"  class="form-control"      tabindex="106"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">15</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue15}}"   name="txtParamter15"  class="form-control"      tabindex="107"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea15}}"  name="txtAcceptanceCriteria115"  class="form-control"      tabindex="108"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin15}}"   name="txtACFrom15"  class="form-control"      tabindex="109"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax15}}" name="txtACTo15"  class="form-control"      tabindex="110"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">16</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue16}}"   name="txtParamter16"  class="form-control"      tabindex="111"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea16}}"  name="txtAcceptanceCriteria116"  class="form-control"      tabindex="112"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin16}}"   name="txtACFrom16"  class="form-control"      tabindex="113"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax16}}" name="txtACTo16"  class="form-control"      tabindex="114"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">17</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue17}}"   name="txtParamter17"  class="form-control"      tabindex="115"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea17}}"  name="txtAcceptanceCriteria117"  class="form-control"      tabindex="116"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin17}}"   name="txtACFrom17"  class="form-control"      tabindex="117"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax17}}" name="txtACTo17"  class="form-control"      tabindex="118"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">18</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue18}}"   name="txtParamter18"  class="form-control"      tabindex="119"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea18}}"  name="txtAcceptanceCriteria118"  class="form-control"      tabindex="120"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin18}}"   name="txtACFrom18"  class="form-control"      tabindex="121"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax18}}" name="txtACTo18"  class="form-control"      tabindex="122"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">19</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue19}}"   name="txtParamter19"  class="form-control"      tabindex="123"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea19}}"  name="txtAcceptanceCriteria119"  class="form-control"      tabindex="124"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin19}}"   name="txtACFrom19"  class="form-control"      tabindex="125"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax19}}" name="txtACTo19"  class="form-control"      tabindex="126"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">20</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue20}}"   name="txtParamter20"  class="form-control"      tabindex="127"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea20}}"  name="txtAcceptanceCriteria120"  class="form-control"      tabindex="128"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin20}}"   name="txtACFrom20"  class="form-control"      tabindex="129"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax20}}" name="txtACTo20"  class="form-control"      tabindex="130"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">21</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue21}}"   name="txtParamter21"  class="form-control"      tabindex="131"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea21}}"  name="txtAcceptanceCriteria121"  class="form-control"      tabindex="132"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin21}}"   name="txtACFrom21"  class="form-control"      tabindex="133"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text" value="{{Masterinstrumentslistpart3Det.dmax21}}"  name="txtACTo21"  class="form-control"      tabindex="134"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">22</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue22}}"   name="txtParamter22"  class="form-control"      tabindex="135"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea22}}"  name="txtAcceptanceCriteria122"  class="form-control"      tabindex="136"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin22}}"   name="txtACFrom22"  class="form-control"      tabindex="137"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax22}}" name="txtACTo22"  class="form-control"      tabindex="138"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">23</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue23}}"   name="txtParamter23"  class="form-control"      tabindex="139"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea23}}"  name="txtAcceptanceCriteria123"  class="form-control"      tabindex="140"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin23}}"   name="txtACFrom23"  class="form-control"      tabindex="141"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax23}}" name="txtACTo23"  class="form-control"      tabindex="142"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">24</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue24}}"   name="txtParamter24"  class="form-control"      tabindex="143"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea24}}"  name="txtAcceptanceCriteria124"  class="form-control"      tabindex="144"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin24}}"   name="txtACFrom24"  class="form-control"      tabindex="145"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax24}}" name="txtACTo24"  class="form-control"      tabindex="146"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">25</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue25}}"   name="txtParamter25"  class="form-control"      tabindex="147"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea25}}"  name="txtAcceptanceCriteria125"  class="form-control"      tabindex="148"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin25}}"   name="txtACFrom25"  class="form-control"      tabindex="149"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax25}}" name="txtACTo25"  class="form-control"      tabindex="150"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">26</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue26}}"   name="txtParamter26"  class="form-control"      tabindex="151"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea26}}"  name="txtAcceptanceCriteria126"  class="form-control"      tabindex="152"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin26}}"   name="txtACFrom26"  class="form-control"      tabindex="153"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax26}}" name="txtACTo26"  class="form-control"      tabindex="154"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">27</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue27}}"   name="txtParamter27"  class="form-control"      tabindex="155"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea27}}"  name="txtAcceptanceCriteria127"  class="form-control"      tabindex="156"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin27}}"   name="txtACFrom27"  class="form-control"      tabindex="157"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax27}}" name="txtACTo27"  class="form-control"      tabindex="158"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">28</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue28}}"   name="txtParamter28"  class="form-control"      tabindex="159"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea28}}"  name="txtAcceptanceCriteria128"  class="form-control"      tabindex="160"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin28}}"   name="txtACFrom28"  class="form-control"      tabindex="161"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax28}}" name="txtACTo28"  class="form-control"      tabindex="162"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">29</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue29}}"   name="txtParamter29"  class="form-control"      tabindex="163"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea29}}"  name="txtAcceptanceCriteria129"  class="form-control"      tabindex="164"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin29}}"   name="txtACFrom29"  class="form-control"      tabindex="165"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax29}}" name="txtACTo29"  class="form-control"      tabindex="166"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:5px;">
+                                        
+                                            <div class="col-1" style="  ">
+                                                
+                                                <h6  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">30</h6> 
+                                
+        
+                                            </div>
+                                            <div class="col-4" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.sappliedvalue30}}"   name="txtParamter30"  class="form-control"      tabindex="167"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-3" style="  ">
+                                                
+                                                <input type="text"   value="{{Masterinstrumentslistpart3Det.fappliedvaluea30}}"  name="txtAcceptanceCriteria130"  class="form-control"      tabindex="168"  maxlength="200"     style="  width: 100%;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmin30}}"   name="txtACFrom30"  class="form-control"      tabindex="169"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                            <div class="col-2" style="  ">
+                                                
+                                                <input type="text"  value="{{Masterinstrumentslistpart3Det.dmax30}}" name="txtACTo30"  class="form-control"      tabindex="170"  maxlength="200"     style="  width: 64px;  font-size: 12px;  "  autofocus/>
+                                                    
+        
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+                                                
+                                            <div class="col" style="  ">
+                                                
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                                
+                                            <div class="col" style="  ">
+                                                
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                                
+                                            <div class="col" style="  ">
+                                                
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                                
+                                            <div class="col" style="  ">
+                                                
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                                
+                                            <div class="col" style="  ">
+                                                
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>  
+                                       
+                                </div> 
+
+                            </div>
+
+
+                        </div>
+                         
+
+                        <div class="row" style="margin-top:5px;">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                        </td>
+                                        <td class=""  style="width:500px; padding-top:20px; ">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:80px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+{% comment %}                                                 
+                                            <input type="submit" name="cmbSaveInward"  value="Inward" class="btn btn-warning btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:80px;"> 
+                                             {% endcomment %}
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+                                                 
+                                        </td>
+                                    </tr>
+                                </table> 
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row" style="margin-top:5px;">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                        </td>
+                                        <td class=""  style="width:500px; padding-top:20px; ">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+                                            
+
+                                            
+                                            {% if Masterinstrumentslist_list.bCalibrateIdle == 1 %}
+
+                                                <a  type="button" id="idEdit1"  title="Start Calibration" class="read-book btn btn-sm btn-outline-danger"  style="border:1px gray solid;"     href="/CalibrationStart/{{Masterinstrumentslist_list.lid}}"   target ="_blank" >
+                                                <span class="fa fa-tools"></span>
+                                                </a>   
+                                            
+                                            {% elif Masterinstrumentslist_list.scurrentstatus == "ISSUED" %}
+
+                                                <a  type="button" id="idEdit1"  title="Start Calibration" class="read-book btn btn-sm btn-outline-danger"  style="border:1px gray solid;"     href="/CalibrationStart/{{Masterinstrumentslist_list.lid}}"   target ="_blank" >
+                                                    <span class="fa fa-tools"></span>
+                                                    </a>   
+
+                                            {% else %}
+
+                                                <a  type="button" id="idEdit1"  title="Start Calibration" class="read-book btn btn-sm btn-outline-danger"  style="border:1px gray solid;"     href="/CalibrationStart/{{Masterinstrumentslist_list.lid}}"   target ="_blank" >
+                                                    <span class="fa fa-tools"></span>
+                                                    </a>   
+
+                                            {% endif %}
+                                            {% comment %} <a  type="button" id="idEdit1"  title="Start Calibration" class="read-book btn btn-sm btn-outline-danger"  style="border:1px gray solid;"     href="/CalibrationStart/{{Masterinstrumentslist_list.lid}}"   target ="_blank" >
+                                                <span class="fa fa-tools"></span>
+                                              </a>    {% endcomment %}
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top:10px; ">
+                                                 
+                                        </td>
+                                    </tr>
+                                </table> 
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+ 
+                        
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</form>
+
+{% endblock %}

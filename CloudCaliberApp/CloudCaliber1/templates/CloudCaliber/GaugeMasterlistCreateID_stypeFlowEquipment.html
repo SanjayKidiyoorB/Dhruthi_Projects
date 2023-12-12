@@ -1,0 +1,4 @@
+<option  value="0"   value="">---select Equipment---</option>
+{% for tcategoriesLsts in Adminassetcategorytypelist1_AddNew1OBJ %}
+<option value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}} | {{tcategoriesLsts.scode}}   " > {{tcategoriesLsts.sequipmentname}} |  {{tcategoriesLsts.scode}}   </option>
+{% endfor %}

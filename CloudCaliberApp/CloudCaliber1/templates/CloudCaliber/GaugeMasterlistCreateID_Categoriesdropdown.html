@@ -1,0 +1,5 @@
+<option  value="0"   value="">---select Categories---</option>
+<option  value="0"   value=""> </option>
+{% for tcategoriesLsts in tcategoriesLst %}
+<option value="{{ tcategoriesLsts.lcategoryid }}"  data-tokens="{{tcategoriesLsts.categorytype}}" >{{ tcategoriesLsts.categorytype }}</option>
+{% endfor %}

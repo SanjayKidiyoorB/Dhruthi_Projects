@@ -1,0 +1,342 @@
+{% extends "CloudCaliber/TemplateAdministratorA.html" %}
+{% block title %}
+View / Edit New Tolerance Class Details
+{% endblock %}
+{% block content %}
+
+
+
+
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST">
+
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:560px; background-color: white; padding-top: 10px; padding-left: 230px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:560px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+                        <div style="display: none;">
+                                                
+                            <input type="text"  name="txtID" class="form-input basic " value="{{Admintoleranceclasslist_list.lid}}"   maxlength="20"     tabindex="1"     style=" width: 300px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                            
+                        
+                        </div>
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Master - View / Edit New Tolerance Class Details</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+
+
+
+                                <table style="width:100%; height:100%">
+                                    <tr class="row" style="width:100%; ">
+                                        <td class=""  style="width:5%;">
+
+                                        </td>
+                                        <td class=""  style="width:80%;">
+                                              
+                                                        
+                                            <table style="width:100%;  ">
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%;">
+                                                            
+                                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Tolerance Class</h6> 
+                                        
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                        
+                                                        <input type="text"  name="txtToleranceClass" value="{{Admintoleranceclasslist_list.stoleranceclass}}" class="form-input basic " required    tabindex="1"  maxlength="200"     style=" width: 400px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:30px;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:60%;">
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+
+     
+                                            <table style="width:1100px;  ">
+
+
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:180px;">
+                                                        
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:170px; ">Size From</h6>
+                                            
+                                                    </td> 
+                                                    <td class=""  style="width:180px;">
+                                                             
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:170px; ">To</h6>
+                                            
+                                                    </td> 
+                                                    <td class=""  style="width:180px;">
+                                                             
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:170px; ">Acceptance Criteria - Minimum</h6>
+                                            
+                                                    </td> 
+                                                    <td class=""  style="width:180px;">
+                                                             
+                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:170px; ">Acceptance Criteria - Maximum</h6>
+                                            
+                                                    </td>  
+                                                    <td class=""  style="width:180px;">
+                                                             
+                                                    </td>  
+                                                </tr> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:20%; height:10px;">
+                                                             
+                                                    </td> 
+                                                    <td class=""  style="width:20%;">
+                                                             
+                                                    </td> 
+                                                    <td class=""  style="width:20%;">
+                                                             
+                                                    </td> 
+                                                    <td class=""  style="width:20%;">
+                                                             
+                                                    </td>  
+                                                    <td class=""  style="width:20%;">
+                                                             
+                                                    </td>  
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:180px;">
+                                                             
+                                                        <input type="text"  name="txtFrom" class="form-input basic "      tabindex="2"  maxlength="20"     style=" width: 170px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                    <td class=""  style="width:180px;">
+                                                             
+                                                        <input type="text"  name="txtTo" class="form-input basic "      tabindex="3"  maxlength="20"     style=" width: 170px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td> 
+                                                    <td class=""  style="width:180px;">
+                                                           
+                                                        <input type="text"  name="txtMin" class="form-input basic "      tabindex="4"  maxlength="20"     style=" width: 170px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                      
+                                                    </td> 
+                                                    <td class=""  style="width:180px;">
+                                                             
+                                                        <input type="text"  name="txtMax" class="form-input basic "      tabindex="5"  maxlength="20"     style=" width: 170px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+                                                    </td>  
+                                                    <td class=""  style="width:180px;">
+                                                          
+                                                        <button type="submit"  name="cmbSaveValues"   class="btn btn-success" style="width:30px; height:30px; padding-top:3px; padding-left: 6px;">
+                                                            <i class="fa fa-plus"></i> 
+                                                        </button>
+                                                    </td>  
+                                                </tr>
+
+                                            </table>
+
+     
+                                            <table style="width:1100px; "> 
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                        
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+
+     
+                                            <table style="width:900px;">
+                                                <tr class="row" style="width:900px; "> 
+                                                    <td class=""  style="width:900px;">
+                                                             
+                                                                {% if Admintoleranceclasschartlist_list %}
+                                                                        
+                                                                <div style="width:850px; height:310px; overflow: auto;">   
+                                                                    <table  class="table" style="width:1300px;   ">
+                                                                        
+                                                                        <thead> 
+                                                                            <tr class="row" style="width:100%; "> 
+                                                                                <th   style=" width:70px;   border: 1px solid white; background-color: #92caff;">
+                                                                                    <h6 style="color:black; text-align: center;  font-size: 12px; width:40px;"> Sl. No.</h6> 
+                                                                            
+                                                                                </th>  
+                                                                                <th class=""  style="width:190px;  border: 1px solid white; background-color: #92caff; ">
+                                                                                    
+                                                                                    <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">Size From</h6>
+                                                                        
+                                                                                </th> 
+                                                                                <th class=""  style="width:190px;  border: 1px solid white; background-color: #92caff;">
+                                                                                         
+                                                                                    <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">To</h6>
+                                                                        
+                                                                                </th> 
+                                                                                <th class=""  style="width:190px;  border: 1px solid white; background-color: #92caff;">
+                                                                                         
+                                                                                    <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">Acceptance Criteria - <br/> Minimum</h6>
+                                                                        
+                                                                                </th> 
+                                                                                <th class=""  style="width:190px;  border: 1px solid white; background-color: #92caff;">
+                                                                                         
+                                                                                    <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">Acceptance Criteria - Maximum</h6>
+                                                                        
+                                                                                </th>   
+                                                                            </tr> 
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            {% for Admintoleranceclasslist_list in Admintoleranceclasschartlist_list %}
+                                                                                
+                                                                            
+                                                                                <tr class="row" style="width:100%;" > 
+                                                                                    <td   style=" width:70px;  border: 1px solid lightgray;  background-color: white;">
+                                                                                        <h6 style="color:black; text-align: center;  font-size: 12px; width:30px;"> {{ forloop.counter }}</h6> 
+                                                                                
+                                                                                    </td>  
+                                                                                    <td class=""  style="width:190px; border: 1px solid lightgray;  background-color: white;">
+                                                                                        
+                                                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">{{Admintoleranceclasslist_list.dbasicsizemin}}</h6>
+                                                                            
+                                                                                    </td> 
+                                                                                    <td class=""  style="width:190px; border: 1px solid lightgray;  background-color: white;">
+                                                                                            
+                                                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">{{Admintoleranceclasslist_list.dbasicsizemax}}</h6>
+                                                                            
+                                                                                    </td> 
+                                                                                    <td class=""  style="width:190px; border: 1px solid lightgray;  background-color: white;">
+                                                                                            
+                                                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">{{Admintoleranceclasslist_list.dtolmin}}</h6>
+                                                                            
+                                                                                    </td> 
+                                                                                    <td class=""  style="width:190px; border: 1px solid lightgray;  background-color: white;">
+                                                                                            
+                                                                                        <h6  style="color:black; text-align: center;  font-size: 13px;  width:180px; ">{{Admintoleranceclasslist_list.dtolmax}}</h6>
+                                                                            
+                                                                                    </td>   
+                                                                                </tr> 
+                                                                             
+
+                                                                            {% endfor %}
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            {% else %}
+                                                                    
+                                                                <table style="width:100%;    ">
+                                                                    <tr class="row" style="width:100%;  height:40px;">
+                                                                        <td class="col"  style="padding-top:10px; width:2%; background-color: white;">
+                                                                                
+                                                                            
+                                                                        </td> 
+                                                                        <td class="col"  style="padding-top:10px; width:90%; background-color: white;">
+                                                                            
+                                                                        
+                                                                            <p>No Tolerance Class Details are available.</p> 
+                                                                        </td>
+                                                                        <td class="col"  style="padding-top:10px; width:8%; background-color: white;">
+                                                                            
+                                                                        
+                                                                        </td> 
+                                                                    </tr> 
+                                                                    </table>
+                                                            {% endif %}
+                                                    </td> 
+                                                </tr>
+                                                <tr class="row" style="width:100%; "> 
+                                                    <td class=""  style="width:40%; height:20px;">
+                                                        
+                                                         
+                                                    </td> 
+                                                </tr> 
+                                            </table>
+                                             
+                                        </td> 
+                                        <td class=""  style="width:5%;">
+                                                
+                                        </td>
+                                    </tr>
+                                </table>
+ 
+
+
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}

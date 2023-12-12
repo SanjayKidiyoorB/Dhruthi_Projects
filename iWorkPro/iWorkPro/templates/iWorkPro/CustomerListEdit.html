@@ -1,0 +1,425 @@
+{% extends "iWorkPro/templatehome.html" %}
+{% load static %} 
+{% block title %}
+Welcome to
+{% endblock %}
+{% block content %}
+
+    {% for message in messages %}
+        <!-- <div class="alert alert-danger alert-dismissible" role="alert" onclick="this.style.display='none';">
+
+
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"> {{ message }}</span>
+            
+                
+                
+        </div>-->
+        <div class="callout">
+            <div class="callout-header">Notifications</div>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+            <div class="callout-container">
+            
+                <div class="alert alert-danger alert-dismissible">
+                    <p> {{ message }}</p>
+                    </div>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+     
+    <form action="" method="POST">  
+        <div class=""  style="width:100%; height:560px; background-color:  #f1f1f1;  padding-left: 10px;   padding-right: 10px;    ">
+                <div class="row">
+                    <div class="col-sm-12">
+            
+                        <div class="box-Type3" style="height:560px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;  margin-left: 1.4ch;   margin-right: 20px; ">
+                        
+            
+            
+            
+                            <div class="row">
+                                    
+                                <div class="col-sm-12" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #dad6d6; height:50px;   ">
+                                     
+                                    <table style="width:100%; height:100%">
+                                                                  
+                                         
+                                        <tr class="" style="width:100%; height:60%">
+                                            <td class=""  style="width:10%; padding-top: 1px;">
+            
+                                                <h6  style="color:black; text-align: right;  width: 420px; font-weight: bold; font-size: 15px;  ">Master - Customer List</h6> 
+                                
+                                            </td> 
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style="width:20%; padding-top:1px;">
+                                                       
+                                            </td> 
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style=" width:20%; padding-top:1px;"> 
+                                                
+               
+                                            </td>
+                                            <td class=""  style="width:4%; padding-top:1px;">
+                                                     
+                                            </td>
+                                            <td class=""  style="width:10%; ppadding-top:1px;">
+                                                     
+                                                    <input type="submit" name="cmdSave"  value="Save" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px;   background-image: linear-gradient(#42A1EC, #0070C9);  border: 1px solid #13aa52;  border-radius: 4px;  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;  box-sizing: border-box;  color: #fff; transform: translateY(0);  transition: transform 150ms, box-shadow 150ms;  user-select: none;  -webkit-user-select: none;  touch-action: manipulation; height:31px; width:90px;"> 
+                                                        
+                                            </td> 
+                                        </tr>
+                                    </table>
+                                    <table style="width:100%; height:100%; margin-top:20px;">
+                                        <tr class="" style="width:100%; height:20%">
+                                            <td class=""  style="width:7%;">
+            
+                                            </td>
+                                            <td class=""  style="width:63%;">
+                                                    
+                                                <div class="row">
+                                                    <div class="col-sm-9" style="padding-top: 4px;">
+                                                        
+                                                        <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Customer Name :</label> 
+                                                    
+                                                            
+                                                        <input type="text" maxlength="250" name="txtName" value="{{Acustomerlst_list.scustomername}}" placeholder="Enter Customer Name..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                    </div>
+                                                    <div class="col-sm-3" style="padding-top: 4px;">
+                                                        
+                                                        <label style="font-size:12px; width:100%; font-weight:bold; color:#494a4c">Customer Abv :</label> 
+                                                    
+                                                            
+                                                        <input type="text" maxlength="6" name="txtNameAbv" value="{{Acustomerlst_list.scustomerabv}}" placeholder="Enter Customer Name..." autofocus required style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                    </div>
+
+                                                </div>      
+                                                <div class="row" style="padding-top:15px;">
+                                                    <div class="col-sm-3" style="padding-top: 4px;">
+                                                             
+                                                        {% if Acustomerlst_list.bprioritya == 1 %}         
+                                                            <div class="row">
+                                                                <div class="col-sm-3" style="padding-top: 4px;">
+                                                                    <input type="radio"    id="PriorityA" name="rad_Priority" value="PriorityA"  checked  style="width: 20px;">
+                                                                </div>
+                                                                <div class="col-sm-9">
+
+                                                                    <label for="PriorityA"  style="color:black;   font-size: 12px; font-weight: bold;">Priority A Customer</label>
+                                                                
+                                                                </div>
+
+                                                            </div>
+                                                        {% else %}
+        
+                                                            <div class="row">
+                                                                <div class="col-sm-3" style="padding-top: 4px;">
+                                                                    <input type="radio"    id="PriorityA" name="rad_Priority" value="PriorityA"     style="width: 20px;">
+                                                                </div>
+                                                                <div class="col-sm-9">
+
+                                                                    <label for="PriorityA"  style="color:black;   font-size: 12px; font-weight: bold;">Priority A Customer</label>
+                                                                
+                                                                </div>
+
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-sm-3" style="padding-top: 4px;">
+                                                         
+                                                        {% if Acustomerlst_list.bpriorityb == 1 %}         
+                                                        <div class="row">
+                                                            <div class="col-sm-3" style="padding-top: 4px;">
+                                                                <input type="radio"    id="PriorityB" name="rad_Priority" value="PriorityB"  checked  style="width: 20px;">
+                                                            </div>
+                                                            <div class="col-sm-9">
+
+                                                                <label for="PriorityB"  style="color:black;   font-size: 12px; font-weight: bold;">Priority B Customer</label>
+                                                            
+                                                            </div>
+
+                                                        </div>
+                                                    {% else %}
+    
+                                                        <div class="row">
+                                                            <div class="col-sm-3" style="padding-top: 4px;">
+                                                                <input type="radio"    id="PriorityB" name="rad_Priority" value="PriorityB"     style="width: 20px;">
+                                                            </div>
+                                                            <div class="col-sm-9">
+
+                                                                <label for="PriorityB"  style="color:black;   font-size: 12px; font-weight: bold;">Priority B Customer</label>
+                                                            
+                                                            </div>
+
+                                                        </div>
+                                                    {% endif %}
+                                                    </div>
+                                                    <div class="col-sm-3" style="padding-top: 4px;">
+                                                         
+                                                        {% if Acustomerlst_list.bpriorityc == 1 %}         
+                                                        <div class="row">
+                                                            <div class="col-sm-3" style="padding-top: 4px;">
+                                                                <input type="radio"    id="PriorityC" name="rad_Priority" value="PriorityC"  checked  style="width: 20px;">
+                                                            </div>
+                                                            <div class="col-sm-9">
+
+                                                                <label for="PriorityC"  style="color:black;   font-size: 12px; font-weight: bold;">Priority C Customer</label>
+                                                            
+                                                            </div>
+
+                                                        </div>
+                                                    {% else %}
+    
+                                                        <div class="row">
+                                                            <div class="col-sm-3" style="padding-top: 4px;">
+                                                                <input type="radio"    id="PriorityC" name="rad_Priority" value="PriorityC"     style="width: 20px;">
+                                                            </div>
+                                                            <div class="col-sm-9">
+
+                                                                <label for="PriorityC"  style="color:black;   font-size: 12px; font-weight: bold;">Priority C Customer</label>
+                                                            
+                                                            </div>
+
+                                                        </div>
+                                                    {% endif %}
+                                                    </div>
+                                                    <div class="col-sm-3" style="padding-top: 4px;">
+                                                         
+                                                        {% if Acustomerlst_list.bpriorityd == 1 %}         
+                                                        <div class="row">
+                                                            <div class="col-sm-3" style="padding-top: 4px;">
+                                                                <input type="radio"    id="PriorityD" name="rad_Priority" value="PriorityD"  checked  style="width: 20px;">
+                                                            </div>
+                                                            <div class="col-sm-9">
+
+                                                                <label for="PriorityD"  style="color:black;   font-size: 12px; font-weight: bold;">Priority D Customer</label>
+                                                            
+                                                            </div>
+
+                                                        </div>
+                                                    {% else %}
+    
+                                                        <div class="row">
+                                                            <div class="col-sm-3" style="padding-top: 4px;">
+                                                                <input type="radio"    id="PriorityD" name="rad_Priority" value="PriorityD"     style="width: 20px;">
+                                                            </div>
+                                                            <div class="col-sm-9">
+
+                                                                <label for="PriorityD"  style="color:black;   font-size: 12px; font-weight: bold;">Priority D Customer</label>
+                                                            
+                                                            </div>
+
+                                                        </div>
+                                                    {% endif %}
+                                                    </div>
+
+                                                </div>  
+                                            </td>
+                                            <td class=""  style="width:30%;">
+                                                
+                                                <table style="width:100%; height:100%; margin-top:20px;">
+                                                    <tr class="" style="width:100%; height:20%">
+                                                        <td class="col-sm-12"  style="width:10%;">
+                                                                
+                                                            {% if Acustomerlst_list.binternational == 0 %}      
+                                                                <div class="row">
+                                                                    <div class="col-sm-3">
+                                                                    
+                                                                    </div>
+                                                                    <div class="col-sm-1" style="padding-top: 4px;">
+                                                                        <input type="radio"    id="Domestic" name="rad_TypeofCustomer" value="Domestic"  checked  style="width: 20px;">
+                                                                    </div>
+                                                                        <div class="col-sm-5">
+
+                                                                            <label for="Domestic"  style="color:black;   font-size: 12px; font-weight: bold;">Domestic Customer</label>
+                                                                        </div>
+                                                                        <div class="col-sm-3">
+                                                                        
+                                                                        </div>
+
+                                                                </div>
+                                                            {% else %}
+  
+                                                                <div class="row">
+                                                                    <div class="col-sm-3">
+                                                                    
+                                                                    </div>
+                                                                    <div class="col-sm-1" style="padding-top: 4px;">
+                                                                        <input type="radio"     id="Domestic" name="rad_TypeofCustomer" value="Domestic"    style="width: 20px;">
+                                                                    </div>
+                                                                        <div class="col-sm-5">
+
+                                                                            <label for="Domestic"  style="color:black;   font-size: 12px; font-weight: bold;">Domestic Customer</label>
+                                                                        </div>
+                                                                        <div class="col-sm-3">
+                                                                        
+                                                                        </div>
+
+                                                                </div>
+                                                            {% endif %}
+                                                        </td>   
+                                                    </tr>
+                                                    <tr class="" style="width:100%; height:20%">
+                                                        <td class="col-sm-12"  style="width:10%;">
+                             
+                                                            {% if Acustomerlst_list.binternational == 1 %}      
+                                                                <div class="row">
+                                                                    <div class="col-sm-3">
+                                                                    
+                                                                    </div>
+                                                                    <div class="col-sm-1" style="padding-top: 4px;">
+                                                                        <input type="radio"     id="International" name="rad_TypeofCustomer" value="International"  checked  style="width: 20px;">
+                                                                    </div>
+                                                                        <div class="col-sm-5">
+
+                                                                            <label for="International"  style="color:black;   font-size: 12px; font-weight: bold;">International Customer</label>
+                                                                        </div>
+                                                                        <div class="col-sm-3">
+                                                                        
+                                                                        </div>
+
+                                                                </div>
+                                                            {% else %}
+    
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                
+                                                                </div>
+                                                                <div class="col-sm-1" style="padding-top: 4px;">
+                                                                    <input type="radio"     id="International" name="rad_TypeofCustomer" value="International"     style="width: 20px;">
+                                                                </div>
+                                                                    <div class="col-sm-5">
+
+                                                                        <label for="International"  style="color:black;   font-size: 12px; font-weight: bold;">International Customer</label>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                    
+                                                                    </div>
+
+                                                            </div>
+                                                            {% endif %}
+                                                        </td>   
+                                                    </tr>
+                                                </table> 
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  
+                            </div> 
+
+                            <div class="row">
+                                
+                                <div class="col-sm-12" style="margin-top:140px;">
+ 
+                    
+                                        <div style="width:100%; height:250px; overflow: auto;">         
+                                            <table  class="table  table-borderless   table-hover" style="width:100%;   border:none;  ">
+                                                
+                                                <thead>         
+                                                    <tr   style="width:100%; height:46px;  border:none; border-bottom:2px solid #E8E8E8;">  
+                                                        <th   style="padding-top:10px; width:10%;  border:none; ">
+                                                            
+                                                            <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Sl No</h6>
+                                                        
+                                                        </th>  
+                                                        <th   style="  width:30%;  height:21px; border:none;  background-color: white;">
+                                                            
+                                                            <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Contact Name</h6>
+                                                        
+                                                            <input type="text" maxlength="250" name="txtContactContactName"   placeholder="Enter Customer Contact Name..." autofocus   style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                        </th>   
+                                                        <th   style="  width:20%;  height:21px; border:none;  background-color: white;">
+                                                            
+                                                            <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Contact User ID</h6>
+                                                        
+                                                            <input type="text" maxlength="20" name="txtContactUserID"   placeholder="Enter Customer Contact User Id..." autofocus   style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                        </th>  
+                                                        <th   style="  width:20%;  height:21px; border:none;  background-color: white;">
+                                                            
+                                                            <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Email Address</h6>
+                                                        
+                                                            <input type="email" maxlength="250" name="txtContactEmailAddress"   placeholder="Enter Customer Contact Email ID..." autofocus   style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                        </th>  
+                                                        <th   style="  width:15%;  height:21px; border:none;  background-color: white;">
+                                                            
+                                                            <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Contact No.</h6>
+                                                        
+                                                            <input type="text" maxlength="50" name="txtContactContactNo"   placeholder="Enter Customer Contact No..." autofocus   style="width:100%; border:1px solid #b8babe;"/>
+                                                            
+                                                        </th>  
+                                                        <th   style="  width:5%;  height:21px; border:none;  background-color: white;">
+
+                                                            <h6  style="color:black; text-align: left;  font-weight:bold; font-size: 9px; ">Action</h6>
+                                                        
+
+                                                            <input type="submit" name="cmdContactSave"  value="+" class="btn btn-success btn-user btn-block" style="font-size:20px; font-weight: bold; padding:2px 2px 2px 2px;   background-image: linear-gradient(#1b4d3e, #018749);  border: 1px solid #13aa52;  border-radius: 4px;  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;  box-sizing: border-box;  color: #fff; transform: translateY(0);  transition: transform 150ms, box-shadow 150ms;  user-select: none;  -webkit-user-select: none;  touch-action: manipulation; height:31px; width:31px;"> 
+                                                        
+
+                                                        </th>  
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for Acustomercontactlist_listOBJ in Acustomercontactlist_list %}
+                                                        <tr   style="width:100%;  height:21px; border:none; border-bottom:2px solid #E8E8E8;">
+            
+            
+            
+                                                            <td   style=" width:10%; height:21px;  border:none;  background-color: white;">
+                                                                <h6 style="color:black; text-align: left;  font-size: 12px; "> {{ forloop.counter }}</h6> 
+                                                        
+                                                            </td> 
+                                                            <td   style="  width:30%;  height:21px; border:none;  background-color: white;">
+                                                                
+                                                                <h6 style="color:black; text-align: left;  font-size: 9px; ">{{Acustomercontactlist_listOBJ.scustomercontactname}}</h6>  
+                                                            
+                                                            </td>   
+                                                            <td   style="  width:20%;  height:21px; border:none;  background-color: white;">
+                                                                
+                                                                <h6 style="color:black; text-align: left;  font-size: 9px; ">{{Acustomercontactlist_listOBJ.suserid}}</h6>  
+                                                            
+                                                            </td>   
+                                                            <td   style="  width:20%;  height:21px; border:none;  background-color: white;">
+                                                                
+                                                                <h6 style="color:black; text-align: left;  font-size: 9px; ">{{Acustomercontactlist_listOBJ.sempemailid}}</h6>  
+                                                            
+                                                            </td>   
+                                                            <td   style="  width:15%;  height:21px; border:none;  background-color: white;">
+                                                                
+                                                                <h6 style="color:black; text-align: left;  font-size: 9px; ">{{Acustomercontactlist_listOBJ.smobile}}</h6>  
+                                                            
+                                                            </td>  
+                                                            <td   style="  width:5%;  height:21px; border:none;  background-color: white;">
+
+                                                            </td>   
+                                                        </tr>   
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div> 
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div> 
+                    </div> 
+                </div>  
+            
+
+        </div> 
+    </form>
+
+
+
+        {% endblock %}

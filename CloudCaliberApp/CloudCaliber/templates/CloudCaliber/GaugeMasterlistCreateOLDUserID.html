@@ -1,0 +1,1636 @@
+{% extends "CloudCaliber/Template2.html" %}
+{% block title %}
+Create Masterlist
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+{% for message in messages %}
+{% if forloop.counter == 1%}
+<center>
+<div class="toast notification bg-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+  <div class="toast-header">
+    <strong class="mr-auto">
+      {% if message.tags == 'error' %}
+        <i class="fas fa-times mr-2"></i>
+      {% elif message.tags == 'warning' %}
+        <i class="fas fa-exclamation mr-2"></i>
+      {% elif message.tags == 'info' %}
+        <i class="fas fa-info mr-2"></i>
+      {% elif message.tags == 'success' %}
+        <i class="fas fa-check mr-2"></i>
+      {% endif %}
+      {{message.tags|capfirst}}
+    </strong>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" >
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+  <div class="toast-body" style="color:white;">
+    {{message|safe}}
+  </div>
+</div>
+<center>
+{% endif %} 
+{% endfor %}
+ 
+<form method="post" id="CreateIDForm" data-Classification-url="{% url 'ajax_load_Classification' %}" data-courses-url="{% url 'ajax_load_Categories' %}" data-loadCodeFlowLabel1-url="{% url 'ajax_loadCode_FlowLabel1' %}" data-loadCodeFlow1-url="{% url 'ajax_loadCode_Flow1' %}"  data-loadCodeFlowLabel2-url="{% url 'ajax_loadCode_FlowLabel2' %}" data-loadCodeFlow2-url="{% url 'ajax_loadCode_Flow2' %}"   data-loadCodeFlowLabel3-url="{% url 'ajax_loadCode_FlowLabel3' %}" data-loadCodeFlow3-url="{% url 'ajax_loadCode_Flow3' %}"  data-loadCodeFlowLabel4-url="{% url 'ajax_loadCode_FlowLabel4' %}" data-loadCodeFlow4-url="{% url 'ajax_loadCode_Flow4' %}"  data-loadCodeFlowLabel5-url="{% url 'ajax_loadCode_FlowLabel5' %}" data-loadCodeFlow5-url="{% url 'ajax_loadCode_Flow5' %}"  data-loadCodeFlowValue1-url="{% url 'ajax_loadCode_FlowValue1' %}"   data-loadCodeFlowValue2-url="{% url 'ajax_loadCode_FlowValue2' %}"   data-loadCodeFlowValue3-url="{% url 'ajax_loadCode_FlowValue3' %}"   data-loadCodeFlowValue4-url="{% url 'ajax_loadCode_FlowValue4' %}"   data-loadCodeFlowValue5-url="{% url 'ajax_loadCode_FlowValue5' %}"     data-loadCodeForAsse-url="{% url 'ajax_loadCode_ForAsset' %}"    data-loadCodeForAsseIDNewChecked-url="{% url 'ajax_loadCodeIDNewChecked_ForAsset' %}" >
+    {% csrf_token %}
+
+    
+    <div class="">
+
+
+
+      <div class="" style="height:690px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:660px; background-color: white; padding-left: 1.4ch; padding-right: 2ch;">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray; background-color: #92caff; height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color:black; text-align: center;  width: 320px; font-weight: bold; font-size: 15px; text-shadow: 1px 1px grey;">Create Masterlist</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:10%; padding-top: 0.1em; height:10px;">
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:50%; padding-top: 0.2em;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:5%;  "> 
+                                        </td>
+                                        <td class=""  style="width:5%; "> 
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                            
+                                        </td> 
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row" style="margin-top: 20px;">
+
+
+
+                            <div class="col box-Type3" style="height:508px; margin:10px 10px 10px 10px; ">
+                                 
+                                <div class="row" style="">
+
+                                    <div class="col">
+
+                                      <div class="row" style="">
+
+                                        <div class="col">
+                                            
+                                          <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold; font-size:14px;"><span>Old Gauge No : </span><span>{{Masterinstrumentslist_listA.oldinstrument_id}}</span></h5>  
+          
+                                            
+                                          <div class="" style="display:none;">
+                                              
+                                              
+                                            <input type="text"  name="txtID" class="form-input basic "     tabindex="1"  maxlength="200"    value="{{Masterinstrumentslist_listA.lid}}"  style=" width: 400px;  font-size: 12px; border-radius: 0ch;"  autofocus/>
+                                                    
+
+                                          </div>
+
+                                        </div>
+                                      </div>
+
+                                      <div class="row" style="padding-top:13px;">
+
+                                        <div class="col">
+                                            
+                                          <h5 class="modal-title" id="exampleModalLongTitle1" style="color:blue; font-weight:bold; font-size:14px;"><span>Current SAP ID : </span><span>{{Masterinstrumentslist_listA.sinstrumentid}}</span></h5>  
+          
+                                             
+
+                                        </div>
+                                      </div>
+                                      <div class="row" style="padding-top:13px;">
+
+                                        <div class="col">
+                                            
+
+                                          <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Description : </span><span>{{Masterinstrumentslist_listA.sdescription}}</span></h5>  
+          
+
+                                        </div>
+                                      </div>
+                                      
+                                      <div class="row" style="">
+
+                                        <div class="col">
+                                            
+
+
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Classification</h6> 
+                                
+                                        <select name="Classification" id="cmbClassification" class="selectpicker" data-show-subtext="true"  title="Choose Classification..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                                
+                                            <option value="0" disabled="true" selected> --- Select Classification --- </option> 
+                                            {% for Adminassettypelist_list in Adminassettypelist_list %} 
+
+                                                {% if cmbClassificationID == Adminassettypelist_list.lcategorytypeid %} 
+                                                  <option selected="true" value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                            
+                                                {% else %}
+                                                  <option   value="{{ Adminassettypelist_list.lcategorytypeid }}" data-tokens="{{Adminassettypelist_list.scategorytype}}" >{{Adminassettypelist_list.scategorytype}} </option>
+                                            
+                                                {% endif %}
+
+                                              {% endfor %}
+                                        </select>
+ 
+                                        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                                        <script>
+                                          $("#cmbClassification1").change(function () {
+
+                                            var url = $("#CreateIDForm").attr("data-courses-url");  // get the url of the `load_courses` view
+                                            var ClassificationId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var CategoriesId = 0;
+
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowLabel1-url");
+                                            var urlB1 = $("#CreateIDForm").attr("data-loadCodeFlow1-url"); 
+                                            var urlA2 = $("#CreateIDForm").attr("data-loadCodeFlowLabel2-url");
+                                            var urlB2 = $("#CreateIDForm").attr("data-loadCodeFlow2-url");
+                                            var urlA3 = $("#CreateIDForm").attr("data-loadCodeFlowLabel3-url");
+                                            var urlB3 = $("#CreateIDForm").attr("data-loadCodeFlow3-url"); 
+                                            var urlA4 = $("#CreateIDForm").attr("data-loadCodeFlowLabel4-url");
+                                            var urlB4 = $("#CreateIDForm").attr("data-loadCodeFlow4-url");
+                                            var urlA5 = $("#CreateIDForm").attr("data-loadCodeFlowLabel5-url");
+                                            var urlB5 = $("#CreateIDForm").attr("data-loadCodeFlow5-url");   
+
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                             
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  // get the url of the `load_courses` view
+                                            
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: url,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDClassificationId': ClassificationId       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+ 
+                                                
+
+
+                                                 $("#Categories").html(data);  // replace the contents of the course input with the data that came from the server
+                                              }
+                                            });
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: url1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDClassificationId': ClassificationId       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+ 
+                                                
+
+
+                                                 $("#Code1").html(data);  // replace the contents of the course input with the data that came from the server
+                                              }
+                                            });
+                                       
+
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                    $("#flowID1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                            
+                                             $.ajax({                         
+                                                type:'POST',                     // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+   
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                      
+                                          });
+                                        </script>
+
+
+
+                                    </div>
+                                    <div class="col">
+    
+
+                                      <div class="row" style="padding-top:13px;">
+
+                                        <div class="col">
+                                            
+
+
+                                          <h5 class="modal-title" id="exampleModalLongTitle3"><span style="font-weight:bold; color:blue;">Plant : </span><span>{{Masterinstrumentslist_listA.splanttype}}</span></h5>  
+          
+                                        </div>
+                                      </div>
+                                      
+                                      <div class="row" style="padding-top:13px;">
+
+                                        <div class="col">
+                                            
+                                            <h5   class="modal-title" id="exampleModalLongTitle11"><span style="font-weight:bold; color:blue;">Current Status : </span>  <span>IDLE</span></h5>  
+          
+
+
+                                        </div>
+                                      </div>
+                                      
+                                      <div class="row" style="padding-top:13px;">
+
+                                        <div class="col">
+                                            
+                                          
+
+                                        </div>
+                                      </div>
+                                      
+                                      <div class="row" style="padding-top:13px;">
+
+                                        <div class="col">
+                                            
+                                          
+
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                </div> 
+
+
+ 
+
+
+ 
+                                        
+      
+                                      <div class="row" style="margin-top:5px;">
+      
+                                        <div class="col">
+      
+                                        </div> 
+                                        <div class="col">
+      
+                                        </div>  
+                                        <div class="col" style="padding-top:4px;   height:30px;">
+      
+                                          <button name="cmbGetCategory"  type="submit"><i class="fa fa-arrow-circle-down" style="font-size:16px; color:green"></i></button>
+      
+                                        </div> 
+                                        <div class="col">
+        
+                                        </div>
+                                    </div> 
+
+
+
+                                <div class="row" style="margin-top:5px;">
+
+                                    <div class="col">
+
+                                    </div>
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Category</h6> 
+                                
+
+                                        <select name="Categories" id="Categories"  class="selectpicker" data-show-subtext="true"  title="Choose Classification..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                               
+                                          
+                                          <option  value="0"   value="">---select Categories---</option>
+                                          <option  value="0"   value=""> </option>
+                                          {% for tcategoriesLsts in tcategoriesLst %}
+                                            
+                                          
+                                              {% if cmbCategoryID == tcategoriesLsts.lcategoryid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lcategoryid }}"  data-tokens="{{tcategoriesLsts.categorytype}}" >{{ tcategoriesLsts.categorytype }}</option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lcategoryid }}"  data-tokens="{{tcategoriesLsts.categorytype}}" >{{ tcategoriesLsts.categorytype }}</option>
+                                          
+                                              {% endif %}
+                                            
+                                          {% endfor %} 
+                                        </select>
+
+
+ 
+                                        <script>
+                                            $("#Categories1").change(function () {
+                                                 
+                                              var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowLabel1-url");
+                                              var urlB1 = $("#CreateIDForm").attr("data-loadCodeFlow1-url"); 
+                                              var urlA2 = $("#CreateIDForm").attr("data-loadCodeFlowLabel2-url");
+                                              var urlB2 = $("#CreateIDForm").attr("data-loadCodeFlow2-url");
+                                              var urlA3 = $("#CreateIDForm").attr("data-loadCodeFlowLabel3-url");
+                                              var urlB3 = $("#CreateIDForm").attr("data-loadCodeFlow3-url"); 
+                                              var urlA4 = $("#CreateIDForm").attr("data-loadCodeFlowLabel4-url");
+                                              var urlB4 = $("#CreateIDForm").attr("data-loadCodeFlow4-url");
+                                              var urlA5 = $("#CreateIDForm").attr("data-loadCodeFlowLabel5-url");
+                                              var urlB5 = $("#CreateIDForm").attr("data-loadCodeFlow5-url");   
+                                                
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+
+                                              var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  // get the url of the `load_courses` view
+                                            // get the url of the `load_courses` view 
+                                              var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                              
+                                              // document.getElementById("flowID1").innerHTML = "Test"
+                                             // alert(CategoriesId);
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                    $("#flowID1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlA5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#flowID5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+  
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB2,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow2").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB3,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow3").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB4,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow4").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+                                              
+                                              
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlB5,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+   
+  
+  
+                                                    $("#Flow5").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+
+
+
+
+
+
+  
+                                              // document.getElementById("flowID1").innerHTML = "Test"
+                                              
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: url1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId       // add the programming id to the GET parameters
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                   $("#Code1").html(data);  // replace the contents of the course input with the data that came from the server
+                                                }
+                                              });
+                                         
+  
+                                               $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                                url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                                data: {
+                                                  'IDCategories': CategoriesId 
+                                                },
+                                                success: function (data, status){  
+    
+  
+  
+                                                   $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                                }
+                                              }); 
+  
+                                        
+                                            });
+                                          </script>
+
+
+
+
+
+                                    </div>
+                                    <div class="col">
+    
+                                    </div>
+                                </div> 
+                                
+
+                                <div class="row" style="margin-top:5px;">
+      
+                                  <div class="col">
+
+                                  </div> 
+                                  <div class="col">
+
+                                  </div>  
+                                  <div class="col" style="padding-top:4px;   height:30px;">
+
+                                    <button name="cmbGetFlow"  type="submit"><i class="fa fa-arrow-circle-down" style="font-size:16px; color:lightblue"></i></button>
+
+                                  </div> 
+                                  <div class="col">
+  
+                                  </div>
+                              </div> 
+
+                                <div class="row" style="margin-top:5px;">
+ 
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                        <h6 id="flowID1" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow1label  }} </h6> 
+                                
+                                        <select name="Flow1" id="Flow1"  class="selectpicker" data-show-subtext="true"  title="Choose Flow..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                    
+                                          <option  value="0"   value="">---select  {{ cmbFlow1label  }}---</option>
+                                          <option  value="0"   value=""> </option>
+                                          {% for tcategoriesLsts in Adminassetcategorytypelist1_AddNew1OBJ %}
+                                            {% if cmbFlow1label == "Part No" %}
+
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                          
+                                              {% endif %}
+
+                                            {% elif cmbFlow1label == "Equipment" %}
+
+                                            
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                          
+                                              {% endif %}
+
+
+                                            {% elif cmbFlow1label == "Operation" %}
+
+                                            
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                          
+                                              {% endif %}
+
+
+
+                                            {% elif cmbFlow1label == "Material" %}
+
+                                              
+                                              {% if cmbFlow1ID == tcategoriesLsts.lid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                          
+                                              {% endif %}
+
+                                            {% else %}
+                                            
+                                              {% if cmbFlow1ID == tcategoriesLsts.lcategorytypeid %} 
+                                                <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% else %}
+                                                <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                          
+                                              {% endif %}
+
+                                            {% endif %}
+ 
+                                          {% endfor %}
+
+                                        </select>
+                                        
+                                        
+ 
+
+
+
+ 
+                                        <script>
+                                          $("#Flow12").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue1-url"); 
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                            //var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                           
+                                           //alert(document.getElementById('Categories').value);
+                                           var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkill = document.getElementById('Flow1');
+
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                             
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                      <h6 id="flowID2" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow2label  }} </h6> 
+                                
+                                      <select name="Flow2" id="Flow2"  class="selectpicker" data-show-subtext="true"  title="Choose Flow..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                    
+                                        <option  value="0"   value="">---select  {{ cmbFlow2label  }}---</option>
+                                        <option  value="0"   value=""> </option>
+                                        {% for tcategoriesLsts in Adminassetcategorytypelist2_AddNew1OBJ %}
+                                          {% if cmbFlow2label == "Part No" %}
+
+                                            {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% elif cmbFlow2label == "Equipment" %}
+
+                                          
+                                            {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% endif %}
+
+
+                                          {% elif cmbFlow2label == "Operation" %}
+
+                                          
+                                            {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% endif %}
+
+
+
+                                          {% elif cmbFlow2label == "Material" %}
+
+                                            
+                                            {% if cmbFlow2ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% else %}
+                                          
+                                            {% if cmbFlow2ID == tcategoriesLsts.lcategorytypeid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% endif %}
+
+                                        {% endfor %}
+
+                                      </select>
+                                      
+
+ 
+
+                                        <script>
+                                          $("#Flow2a").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue2-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                           // var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow2');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                             
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                      <h6 id="flowID3" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow3label  }} </h6> 
+                                
+                                      <select name="Flow3" id="Flow3"  class="selectpicker" data-show-subtext="true"  title="Choose Flow..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                    
+                                        <option  value="0"   value="">---select  {{ cmbFlow3label  }}---</option>
+                                        <option  value="0"   value=""> </option>
+                                        {% for tcategoriesLsts in Adminassetcategorytypelist3_AddNew1OBJ %}
+                                          {% if cmbFlow3label == "Part No" %}
+
+                                            {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% elif cmbFlow3label == "Equipment" %}
+
+                                          
+                                            {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% endif %}
+
+
+                                          {% elif cmbFlow3label == "Operation" %}
+
+                                          
+                                            {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% endif %}
+
+
+
+                                          {% elif cmbFlow3label == "Material" %}
+
+                                            
+                                            {% if cmbFlow3ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% else %}
+                                          
+                                            {% if cmbFlow3ID == tcategoriesLsts.lcategorytypeid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% endif %}
+
+                                        {% endfor %}
+
+                                      </select>
+                                      
+
+  
+
+                                        <script>
+                                          $("#Flow3e").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue3-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                          //  var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow3');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+ 
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                      <h6 id="flowID4" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow4label  }} </h6> 
+                                
+                                      <select name="Flow4" id="Flow4"  class="selectpicker" data-show-subtext="true"  title="Choose Flow..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                    
+                                        <option  value="0"   value="">---select  {{ cmbFlow4label  }}---</option>
+                                        <option  value="0"   value=""> </option>
+                                        {% for tcategoriesLsts in Adminassetcategorytypelist4_AddNew1OBJ %}
+                                          {% if cmbFlow4label == "Part No" %}
+
+                                            {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% elif cmbFlow4label == "Equipment" %}
+
+                                          
+                                            {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% endif %}
+
+
+                                          {% elif cmbFlow4label == "Operation" %}
+
+                                          
+                                            {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% endif %}
+
+
+
+                                          {% elif cmbFlow4label == "Material" %}
+
+                                            
+                                            {% if cmbFlow4ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% else %}
+                                          
+                                            {% if cmbFlow4ID == tcategoriesLsts.lcategorytypeid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% endif %}
+
+                                        {% endfor %}
+
+                                      </select>
+                                      
+
+ 
+                                        <script>
+                                          $("#Flow4f").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue4-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                           // var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow4');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                             
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+
+                                    </div> 
+
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+    
+                                      <h6 id="flowID5" style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;"> {{ cmbFlow5label  }} </h6> 
+                                
+                                      <select name="Flow5" id="Flow5"   class="selectpicker" data-show-subtext="true"  title="Choose Flow..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                    
+                                        <option  value="0"   value="">---select  {{ cmbFlow5label  }}---</option>
+                                        <option  value="0"   value=""> </option>
+                                        {% for tcategoriesLsts in Adminassetcategorytypelist5_AddNew1OBJ %}
+                                          {% if cmbFlow5label == "Part No" %}
+
+                                            {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.spartno}}   " > {{tcategoriesLsts.spartno}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% elif cmbFlow5label == "Equipment" %}
+
+                                          
+                                            {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.sequipmentname}}   " > {{tcategoriesLsts.sequipmentname}}   </option>
+                                        
+                                            {% endif %}
+
+
+                                          {% elif cmbFlow5label == "Operation" %}
+
+                                          
+                                            {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.soperation}}   " > {{tcategoriesLsts.soperation}}   </option>
+                                        
+                                            {% endif %}
+
+
+
+                                          {% elif cmbFlow5label == "Material" %}
+
+                                            
+                                            {% if cmbFlow5ID == tcategoriesLsts.lid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lid }}"  data-tokens=" {{tcategoriesLsts.smaterial}}   " > {{tcategoriesLsts.smaterial}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% else %}
+                                          
+                                            {% if cmbFlow5ID == tcategoriesLsts.lcategorytypeid %} 
+                                              <option selected="true" value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% else %}
+                                              <option   value="{{ tcategoriesLsts.lcategorytypeid }}"  data-tokens=" {{tcategoriesLsts.scategorytype}}   " > {{tcategoriesLsts.scategorytype}}   </option>
+                                        
+                                            {% endif %}
+
+                                          {% endif %}
+
+                                        {% endfor %}
+
+                                      </select>
+                                      
+ 
+
+                                        <script>
+                                          $("#Flow5r").change(function () {
+                                               
+                                            var urlA1 = $("#CreateIDForm").attr("data-loadCodeFlowValue5-url"); 
+                                              
+                                            var url1 = $("#CreateIDForm").attr("data-loadCodeForAsse-url");  
+                                              
+                                            var urlNewId = $("#CreateIDForm").attr("data-loadCodeForAsseIDNewChecked-url");   
+                                            // get the url of the `load_courses` view
+                                          // get the url of the `load_courses` view 
+                                           // var CategoriesId = $(this).val();  // get the selected programming ID from the HTML input
+                                            var vSkill = document.getElementById('Flow5');
+
+                                            var CategoriesId = document.getElementById('Categories').value;
+                                            var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+                                           // alert(vSkillText);
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                           // alert(CategoriesId);
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlA1,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId,
+                                                'sCode': vSkillText       // add the programming id to the GET parameters
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#Code1").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+                                             $.ajax({                         
+                                                type:'POST',                       // initialize an AJAX request
+                                              url: urlNewId,                    // set the url of the request (= localhost:8000/load-courses/)
+                                              data: {
+                                                'IDCategories': CategoriesId 
+                                              },
+                                              success: function (data, status){  
+  
+
+
+                                                 $("#bNewIDorNot").html(data); // replace the contents of the course input with the data that came from the server
+                                              }
+                                            }); 
+
+
+
+
+
+                                            // document.getElementById("flowID1").innerHTML = "Test"
+                                            
+ 
+                                       
+
+                                      
+                                          });
+                                        </script>
+
+
+                                    </div> 
+
+
+
+
+                                </div> 
+
+                                <div class="row" style="margin-top:5px;">
+      
+                                  <div class="col">
+
+                                  </div> 
+                                  <div class="col">
+
+                                  </div>  
+                                  <div class="col" style="padding-top:4px;   height:30px;">
+
+                                    <button name="cmbGetID"  type="submit"><i class="fa fa-arrow-circle-down" style="font-size:16px; color:green"></i></button>
+
+                                  </div> 
+                                  <div class="col">
+  
+                                  </div>
+                                </div> 
+  
+                                <div class="row" style="margin-top:5px; height:44px;">
+
+
+                                  <div class="col-2" style="padding-top:20px; background-color:#E5E5E5; display:none;  ">
+                                      
+                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Last Calibration Date</h6> 
+                                                 
+                                         
+                                  </div>   
+                                  <div class="col-2" style="padding-top:10px; background-color:#E5E5E5;  display:none;  ">
+                                      
+                                    <input type="date"  name="txtLastCalibrationDate" class="custom-select"     tabindex="1"  maxlength="200"    value="{{sLastDate}}"  style=" width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                           
+                                         
+                                  </div> 
+                                  <div class="col-2" style="padding-top:20px; background-color:#E5E5E5; display:none; ">
+                                      
+                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Next Calibration Date</h6> 
+                                                 
+                                         
+                                  </div>   
+                                  <div class="col-2" style="padding-top:10px; background-color:#E5E5E5; display:none;   ">
+                                      
+                                    <input type="date"  name="txtNextCalibrationDate" class="custom-select"     tabindex="1"  maxlength="200"    value="{{sNextDate}}"  style=" width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                           
+                                         
+                                  </div>  
+                                  <div class="col-2" style="padding-top:20px; background-color:#E5E5E5;  ">
+                                      
+                                    <h6  style="color:black; text-align: center;   font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Calibrate even during Idle / Spare state</h6> 
+                                          
+                                         
+                                  </div>   
+                                  <div class="col" style="padding-top:20px; background-color:#E5E5E5;  ">
+                                      
+                                    {% if bcalibrateidle == 1 %}
+                                        <input type="checkbox" id="bCalibrateWhenIdle" name="bCalibrateWhenIdle1"  checked="true"      tabindex="6"  style="border: 2px solid $border-color; #FF4040; background:#FF4040;  position:  absolute; left:10px;"  />
+                                    {% else %}
+                                        <input type="checkbox" id="bCalibrateWhenIdle" name="bCalibrateWhenIdle1"       tabindex="6"  style="border: 2px solid $border-color; #FF4040; background:#FF4040;  position:  absolute; left:10px;"  />
+                                    {% endif %}
+                                  </div>   
+
+                                </div> 
+
+                                <div class="row" style="margin-top:5px;">
+
+                                    <div class="col-2" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+        
+                                         
+                                    </div>   
+                                    <div class="col" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+        
+                                        
+                                        <h6 id="Code13"  style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 18px; text-shadow: 1px 1px grey;"> {{ sCodeFinal1 }} <br/> {{ sCodeFinal2 }}</h6> 
+                                         
+                                        
+                                    </div>   
+                                    <div class="col-1" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+
+                                        
+                                      
+                                      <h6    style="color:black; text-align: center;  width: 100%; font-weight: bold; font-size: 11px; text-shadow: 1px 1px grey;"> New code to create in SAP </h6> 
+                                        
+                                        
+                                         
+                                    </div>  
+                                    <div id="bNewIDorNot2" class="col-2" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+                                      {% if bNewID == 1 %}
+                                          <input type="checkbox" id="bNewIDorNot" name="bMSA"  checked="true"      tabindex="6"  style="pointer-events: none;  border: 2px solid $border-color; #FF4040; background:#FF4040;  position:  absolute; left:10px;"  />
+                                      {% else %}
+                                          <input type="checkbox" id="bNewIDorNot" name="bMSA"        tabindex="6"  style="pointer-events: none; border: 2px solid $border-color; #FF4040; background:#FF4040;  position:  absolute; left:10px;"  />
+                                      {% endif %}
+                                    </div>  
+                                </div>
+
+
+                                <div class="row" style="margin-top:5px;">
+
+                                    <div class="col-4" style="padding-top:20px; background-color:#E5E5E5; height:90px;  ">
+        
+                                      <div   style="padding-top:20px; background-color:#E5E5E5; height:90px; display:none;">
+                                      <h6  style="color:black; text-align: center;  width: 120px; font-weight: bold; font-size: 12px; text-shadow: 1px 1px grey;">Tolerance Class</h6> 
+                                
+                                      <select name="GaugeClass" id="cmbGaugeClass" class="custom-select" data-show-subtext="true" data-live-search="true" style="color:black;  background-color:white; min-width:100%; min-height:52px;  font-size: 12px;" >
+                                                              
+                                          <option value="0" disabled="true" selected> --- Select Tolerance Class --- </option> 
+                                          {% for Admintoleranceclasslist_listA in Admintoleranceclasslist_list %}  
+                                              <option value="{{ Admintoleranceclasslist_listA.lid }}" data-tokens="{{Admintoleranceclasslist_listA.stoleranceclass}}" >{{Admintoleranceclasslist_listA.stoleranceclass}} </option>
+                                          {% endfor %}
+                                      </select>
+                                         
+                                    </div>   
+                                    </div>   
+                                    <div class="col-4" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+        
+                                        
+                                    </div>  
+                                    <div  class="col-2" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+       
+                                      {% if bsapcodegenerate == 0 %}
+                                        <input type="submit" name="cmbSaveAdd"  value="Create" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                      {% endif %}  
+
+                                    </div>  
+                                    <div  class="col-2" style="padding-top:20px; background-color:#E5E5E5; height:90px;">
+       
+                                        <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-primary btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 1px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:40px;"> 
+                                     
+                                    </div>  
+                                </div>
+
+
+
+
+                            </div>
+                        </div> 
+                        
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</form>
+
+{% endblock %}

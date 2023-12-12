@@ -1,0 +1,489 @@
+{% extends "CloudCaliber/Template2.html" %}
+
+
+{% block title %}
+    Master List
+{% endblock %}
+{% block content %}
+ 
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    {% comment %} <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span> {% endcomment %}
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST"   > 
+
+
+    <div  class="modal-dialog modal-dialog-centered" role="document" style="min-width:800px;">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #E5E7E7; min-width:600px;">
+    
+            <table style="min-width:90%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle1" ><span class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px; font-weight: 500;"> ID :   </span><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.sinstrumentid}}</span></h5>  
+            
+            
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle2" ><span class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px; font-weight: 500;"> Description :   </span><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.sdescription}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            
+            </table>
+    
+    
+            <button type="button" class="btn-close" data-bs-dismiss="modal"  style="background-color: #E5E7E7;"></button>
+          </div>
+          <div class="modal-body"  style="background-color: #f2f2f2; min-width:600px;">
+            
+    
+            <table  style="min-width:100%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle3"><span class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px; font-weight: 500;">Plant :   </span><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.splanttype}}</span></h5>  
+            
+            
+                </td> 
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            
+            </table>
+            <table  style="min-width:100%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle4"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Classification : </span>  <span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.sassettype}}</span></h5>  
+            
+            
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle5"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Category : </span>  <span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.categorytype}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style=" height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%;">
+    
+              <tr>
+    
+                <td>
+    
+                  <h5 class="modal-title" id="exampleModalLongTitle6"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">{{Masterinstrumentslist_listA.scategorytype1}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.styperefname1}}</span></h5>  
+            
+            
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle7"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">{{Masterinstrumentslist_listA.scategorytype2}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.styperefname2}}</span></h5>  
+            
+              
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle8"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">{{Masterinstrumentslist_listA.scategorytype3}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.styperefname3}}</span></h5>  
+            
+              
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle9"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">{{Masterinstrumentslist_listA.scategorytype4}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.styperefname4}}</span></h5>  
+            
+              
+                </td>
+                <td>
+      
+                  <h5 class="modal-title" id="exampleModalLongTitle10"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">{{Masterinstrumentslist_listA.scategorytype5}} : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.styperefname5}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+              </tr>
+            </table>
+    
+            
+    
+            <table style="min-width:100%;">
+    
+              <tr>
+    
+                <td style="min-width:120px;">
+    
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Current Location : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.slocationname}}</span></h5>  
+            
+            
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle12"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Make : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.smake}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle13"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">For Part No : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.spartno}}</span></h5>  
+            
+              
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle14"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Old Id (if any) : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.oldinstrument_id}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle15"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Status : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.scurrentstatus}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            </table>
+    
+    
+            
+    
+            <table style="min-width:100%;">
+    
+              <tr>
+    
+                <td style="min-width:120px;">
+    
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle11"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Calibration Frequency : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.sfreqtype}}</span></h5>  
+            
+            
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle12"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Last Calibration : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.snextcalibdate}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle13"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Next Calibration : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.snextcalibdate}}</span></h5>  
+            
+              
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle14"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Issued on : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.sissueddate}}</span></h5>  
+            
+              
+                </td>
+                <td style="width:30px;">
+      
+                </td>
+                <td  style="min-width:120px;">
+      
+                  <h5 style="width:120px;" class="modal-title" id="exampleModalLongTitle15"><span  class="label" style="min-width:200px; color: black; font-size:11px;font-weight: 500; background-color:white; border:1px solid silver; height:20px; width:60px;">Returned on : </span> </br><span style="font-family: Goudy Bookletter 1911, sans-serif; color: black; font-size:11px;font-weight: 500; color: blue; height:20px; width:60px;">{{Masterinstrumentslist_listA.sreturneddate}}</span></h5>  
+            
+              
+                </td>
+            
+              </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            </table>
+   
+  
+  
+              <table  style="min-width:100%; margin-top:10px;">
+                <tr>
+      
+                  <td style=" border-top: 1px lightgray solid;"> 
+       
+                    <div class="col-sm-2" style="padding-top: 4px;">
+                        {% if rad_Priority == "Line / Location Issue" %}
+                          <input type="radio"    id="PriorityA" name="rad_Priority" value="Line / Location Issue"  checked   >
+                        {% else %} 
+                          <input type="radio"    id="PriorityA" name="rad_Priority" value="Line / Location Issue"     >
+                        {% endif %}
+                  
+                    </div>
+                    <div class="col-sm-10" style="padding-top: 4px;">
+
+                        <label for="PriorityA"  style="color:black;   text-align:left; width:100%;   font-size: 12px; font-weight: bold;">Line / Location Issue</label>
+                    
+                    </div>
+
+                  </td> 
+                  <td style=" border-top: 1px lightgray solid;"> 
+       
+                    <div class="col-sm-2" style="padding-top: 4px;"> 
+                  
+                        {% if rad_Priority == "Supplier Issue" %}
+                          <input type="radio"    id="PriorityB" name="rad_Priority" value="Supplier Issue"  checked   >
+                        {% else %} 
+                          <input type="radio"    id="PriorityB" name="rad_Priority" value="Supplier Issue"     >
+                        {% endif %}
+                  
+                    </div>
+                    <div class="col-sm-10" style="padding-top: 4px;">
+
+                        <label for="PriorityB"    style="color:black; text-align:left; width:100%;   font-size: 12px; font-weight: bold;">Supplier Issue</label>
+                    
+                    </div>
+
+              
+                  </td> 
+                  <td style=" border-top: 1px lightgray solid;"> 
+       
+                    <div class="col-sm-2" style="padding-top: 4px;"> 
+                  
+                        {% if rad_Priority == "Transfer to other plant" %}
+                          <input type="radio"    id="PriorityC" name="rad_Priority" value="Transfer to other plant"  checked   >
+                        {% else %} 
+                          <input type="radio"    id="PriorityC" name="rad_Priority" value="Transfer to other plant"     >
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-10" style="padding-top: 4px;">
+
+                        <label for="PriorityC"  style="color:black;  text-align:left; width:100%;  font-size: 12px; font-weight: bold;">Transfer to other plant</label>
+                    
+                    </div>
+
+              
+                  </td> 
+                  <td style=" border-top: 1px lightgray solid;"> 
+                     
+                    <button type="submit" name="cmbSearch"  class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px;   background-image: linear-gradient(  45deg,  hsl(192deg 100% 20%) 0%,  hsl(191deg 100% 24%) 11%,  hsl(188deg 100% 27%) 22%,  hsl(184deg 100% 30%) 33%,  hsl(178deg 100% 32%) 44%,  hsl(171deg 100% 35%) 56%,  hsl(164deg 100% 39%) 67%,  hsl(156deg 100% 43%) 78%,  hsl(148deg 100% 47%) 89%,  hsl(139deg 100% 50%) 100%);  border: 1px solid #13aa52;  border-radius: 4px;  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;  box-sizing: border-box;  color: #fff; transform: translateY(0);  transition: transform 150ms, box-shadow 150ms;  user-select: none;  -webkit-user-select: none;  touch-action: manipulation; height:31px; width:31px;"> 
+                    
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>          
+                  </td> 
+              
+                </tr>
+            </table>
+    
+            <table  style="min-width:100%; margin-top:10px;">
+            
+              <tr>
+    
+                <td style="height:10px; border-top: 1px lightgray solid;"> 
+     
+            
+                </td> 
+            
+              </tr>
+            </table>
+   
+  
+  
+              <table  style="min-width:100%; margin-top:10px;">
+              
+                <tr>
+      
+                  <td style="height:10px; border-top: 1px lightgray solid;"> 
+      
+                    
+                    {% if rad_Priority == "Line / Location Issue" %}  
+                        <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span> Line / Location Issued to :  </br></span></h5>  
+                        
+                        <select name="cmbLocationNew" id="cmbLocationNew"   class="selectpicker" data-show-subtext="true"  title="Choose Line / Location To Issue..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                        
+                          <option  value="0"    >---select Location / Line ---</option>
+                          
+                          {% for AreaofUselist_listA in AreaofUselist_list %} 
+      
+                          
+                            <option   value="{{ AreaofUselist_listA.lid }}" data-tokens="{{AreaofUselist_listA.slocationname}}" >{{AreaofUselist_listA.slocationname}} </option>
+                                                  
+                          {% endfor %}
+        
+                        </select>  
+                        
+                      {% elif rad_Priority == "Transfer to other plant" %}  
+                          <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span> Transfer to other plant :  </br></span></h5>  
+                          
+                          <select name="cmbLocationNew" id="cmbLocationNew"   class="selectpicker" data-show-subtext="true"  title="Choose Transfer to other plant To Issue..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                          
+                            <option  value="0"    >---select Transfer to other plant ---</option>
+                            
+                            {% for AreaofUselist_listA in AreaofUselist_list %} 
+        
+                            
+                              <option   value="{{ AreaofUselist_listA.lid }}" data-tokens="{{AreaofUselist_listA.splantno}} | {{AreaofUselist_listA.splantname}}  " >{{AreaofUselist_listA.splantno}} | {{AreaofUselist_listA.splantname}}  </option>
+                                                    
+                            {% endfor %}
+          
+                          </select>  
+
+                      {% elif rad_Priority == "Supplier Issue" %}  
+
+                          <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Supplier Issued to :  </br></span></h5>  
+                          
+                          <select name="cmbLocationNew" id="cmbLocationNew"   class="selectpicker" data-show-subtext="true"  title="Choose Supplier Issued to..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                          
+                            <option  value="0"    >---select Supplier to Issue ---</option>
+                            
+                            {% for AreaofUselist_listA in AreaofUselist_list %} 
+        
+                            
+                              <option   value="{{ AreaofUselist_listA.lagencyid }}" data-tokens="{{AreaofUselist_listA.sdescription}}" >{{AreaofUselist_listA.sdescription}} </option>
+                                                    
+                            {% endfor %}
+          
+                          </select>  
+
+                          
+                      {% endif %}
+
+                  </td> 
+      
+                  <td style="height:10px; border-top: 1px lightgray solid;"> 
+                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Issued To :  </br></span></h5>  
+                    
+                    <input type="text"  name="txtIssuedTo" class="form-control"        tabindex="1"  maxlength="200"     style=" width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                              
+                  </td>  
+      
+                  <td style="height:10px; border-top: 1px lightgray solid;"> 
+                    <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Machine Name :  </br></span></h5>  
+                    
+                    <input type="text"  name="txtMachineTo" class="form-control"        tabindex="1"  maxlength="200"       style=" width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                                
+                  </td>  
+       
+                </tr>
+
+
+            </table>
+                
+              <table  style="min-width:100%; margin-top:10px;">
+              
+                <tr>
+       
+        
+                    <td style="height:10px; border-top: 1px lightgray solid;"> 
+                      <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Part No :  </br></span></h5>  
+                      
+                      <input type="text"  name="txtPartNo" class="form-control"        tabindex="1"  maxlength="200"      style=" width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                                  
+                    </td>  
+        
+                    <td style="height:10px; border-top: 1px lightgray solid;"> 
+                      <h5 class="modal-title" id="exampleModalLongTitle2" style="color:blue; font-weight:bold;"><span>Issued On :  </br></span></h5>  
+                      
+                      <input type="date"  name="txtIssuedDate" class="custom-select"   value={{ sIssueDate}}     tabindex="1"  maxlength="200"     style=" width: 200px;  font-size: 12px; border-radius: 0ch; height:30px;"  autofocus/>
+                                                
+                    </td>  
+        
+                    <td style="height:10px; border-top: 1px lightgray solid;">  
+    
+                      
+                      <input type="submit" name="cmbIssued"  value="Issued" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px;   background-image: linear-gradient(-180deg, #00D775, #13aa52);  border: 1px solid #13aa52;  border-radius: 4px;  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;  box-sizing: border-box;  color: #fff; transform: translateY(0);  transition: transform 150ms, box-shadow 150ms;  user-select: none;  -webkit-user-select: none;  touch-action: manipulation; height:31px; width:60px;"> 
+                                    
+                
+                  </tr>
+              </table>
+   
+  
+          </div>
+          <div class="modal-footer" style="background-color:  #DBF9FC;">
+            <a  type="button" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:8px 2px 2px 2px;   background-image: linear-gradient(-180deg, #e01f2d, #943c22);  border: 1px solid #13aa52;  border-radius: 4px;  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;  box-sizing: border-box;  color: #fff; transform: translateY(0);  transition: transform 150ms, box-shadow 150ms;  user-select: none;  -webkit-user-select: none;  touch-action: manipulation; height:31px; width:60px;"   href="/Dashboard">Close</a>
+            <!--<button type="button" class="btn btn-primary">Save changes</button> -->
+    
+          </div>
+        </div>
+      </div>
+    
+</form> 
+{% endblock %}

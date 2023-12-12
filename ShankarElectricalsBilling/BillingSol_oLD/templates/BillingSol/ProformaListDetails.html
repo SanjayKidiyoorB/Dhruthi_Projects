@@ -1,0 +1,1264 @@
+{% extends "BillingSol/templateuser.html" %}
+{% block title %}
+View / Edit  Proforma Invoice List
+{% endblock %}
+{% block content %}
+
+
+
+
+
+{% for message in messages %} 
+<div class="callout">
+    <div class="callout-header">Notifications</div>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+    <div class="callout-container">
+    
+        <div class="alert alert-danger alert-dismissible">
+            <p> {{ message }}</p>
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<form action="" method="POST">
+
+    {% for Tproformadetailslist_list in Tproformadetailslist_list %}
+
+    <div class="modal"  tabindex="-1" id="myModelViewDetails-{{forloop.counter}}" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div  class="modal-dialog modal-dialog-centered" role="document" style="min-width:1100px;">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #E5E7E7; min-width:1000px;">
+        
+        
+        
+                <button type="button" class="btn-close" data-bs-dismiss="modal"  style="background-color: #E5E7E7;"></button>
+                </div>
+                <div class="modal-body"  style="background-color: #f2f2f2; min-width:600px;">
+                
+                    
+
+                    <table style="width:100%; ">
+                                                            
+                        <tr class="row" style="width:100%; " >            
+                            <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                <div style="display:none;">
+
+                                    <input type="text"  name="txtItemID{{Tproformadetailslist_list.salesordermultiid}}"  value="{{Tserviceinvoicedetailslist_list.salesordermultiid }}"    class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                   
+        
+                                </div>
+
+                            </td>        
+                            <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Description</h6> 
+                    
+                                <input type="text"  name="txtItemDesc{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.sdesc }}"  class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td>
+                            <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">HSN Code</h6> 
+                    
+                                <input type="text"  name="txtHSNCode{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.shsn }}"       class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td> 
+                            <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">P O Amt</h6> 
+                    
+                                <input type="text"  name="txtPOAMt{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.staxnotify }}"   class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td> 
+                            <td class=""  style="width:5%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;    font-size: 12px;  ">Units</h6> 
+                    
+                                <input type="text"  name="txtUnits{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.units }}"   class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td>
+                            <td class=""  style="width:5%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Quantity</h6> 
+                    
+                                <input type="text"  name="txtQuantity{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.qty }}" class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td>
+                            <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Total Rate</h6> 
+                    
+                                <input type="text"  name="txtRate{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.unitprice|floatformat:2  }}" class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td>  
+                            <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Total</h6> 
+                    
+                                <input type="text"  name="txtItemAmt{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.dcgst1pt00|floatformat:2 }}" class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td>  
+                            <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">GST Rate</h6> 
+                    
+                                <input type="text"  name="txtGSTRate{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.dsgst01|floatformat:2 }}" class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td> 
+                            <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Tax Amount</h6> 
+                    
+                                <input type="text"  name="txtGSTAmt{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.dcgst1pt0|floatformat:2 }}" class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td> 
+                            <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Amount</h6> 
+                    
+                                <input type="text"  name="txtItemTotalAmt{{Tproformadetailslist_list.salesordermultiid}}"   value="{{Tproformadetailslist_list.ddescitemtotal|floatformat:2 }}" class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                
+
+                            </td> 
+                            <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+
+                                <button name="cmdItemSave1"  type="submit"><i class="fa fa-save" style="font-size:16px; color:green"></i></button>
+
+
+                            </td> 
+                        </tr>
+                                
+                    </table>
+                    
+                </div>
+                <div class="modal-footer" style="background-color:  #DBF9FC;">
+                    <button type="button" class="btn btn-danger"  data-dismiss="modal">Close</button> 
+
+                </div>
+        
+            </div>
+        
+        </div>
+        
+    </div>
+
+    {% endfor %}
+    
+    <div class="">
+        
+    
+        
+        <div class="" style="width:100%; height:960px; background-color: white; padding-top: 10px;  padding-left:50px; padding-right:50px;  ">
+            <div class="row">
+                <div class="col">
+
+                    <div class="box-Type3" style="height:960px; background-color: white; ">
+                    
+
+
+
+                        <div class="row">
+                                
+                            <div class="col" style="height: 50px; box-shadow: 2px 2px lightgray;  height:50px;   ">
+                                
+                                <table style="width:100%; height:100%">
+                                        
+                                    <tr class="row" style="width:100%; "> 
+                                        <td class=""  style="width:20%;">
+                                                
+                                        </td>
+                                        <td class=""  style="width:500px;  ">
+                                                
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">View / Edit  Proforma Invoice</h6> 
+                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbSaveAdd"  value="Save Invoice" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 3px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmdPrint"  value="Print Invoice" class="btn btn-success btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 3px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                        </td>
+                                        <td class=""  style="width:10%;">
+                                                
+                                            <input type="submit" name="cmbCloseAdd"  value="Close" class="btn btn-default btn-user btn-block" style="font-size:11px; font-weight: bold; padding:2px 2px 2px 2px; border-radius: 3px; height:31px;  box-shadow: 2px 1px 2px rgb(141, 124, 124);  width:90px;"> 
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                
+                        <div class="row" style="display:none;">
+                        
+                            <div class="col" style="   height:30px; border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:100%; padding-top: 0.1em;  ">
+                                            <div class="row">
+
+                                                <div class="col"  style="width:100%; height:30px;  padding-top: 3px; height:30px; ">
+                                                        
+                                                    <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">1. e-Invoice Details Invoice</h6> 
+                            
+                                                </div>
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                        
+                            <div class="col" style="     border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:100%; padding-top: 0.1em;  ">
+                                            <div class="row" style="display:none;">
+
+                                                <div class="col"  style="padding-left:34px; width:100%; height:56px;  ">
+
+                                                   <table style="width:100%; ">
+                                            
+                                                        <tr class="row" style="width:100%; " >
+
+                                                            <td class=""  style="width:20%; padding-top: 0.1em; ">
+
+                                                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">IRN No</h6> 
+                                                    
+                                                                <input type="text"  name="txtIRNNo" value="{{Tproformalist_list.inrno }}"     class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                   
+
+                                                            </td> 
+                                                            <td class=""  style="width:20%; padding-top: 0.1em; ">
+
+                                                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Ack. No</h6> 
+                                                    
+                                                                <input type="text"  name="txtAckNo"   value="{{Tproformalist_list.ackno }}"  class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                   
+
+                                                            </td>
+                                                            <td class=""  style="width:20%; padding-top: 0.1em; ">
+
+                                                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Ack. Date</h6> 
+                                                    
+                                                                <input type="text"  name="txtAckDate" value="{{Tproformalist_list.ackdate }}"   class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                   
+
+                                                            </td> 
+                                                            <td class=""  style="width:20%; padding-top: 0.1em; ">
+
+                                                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">eWay No</h6> 
+                                                    
+                                                                <input type="text"  name="txteWayNo"  value="{{Tproformalist_list.ewayno }}"   class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                   
+
+                                                            </td> 
+                                                            <td class=""  style="width:20%; padding-top: 0.1em; ">
+
+                                                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">eWay Date</h6> 
+                                                    
+                                                                <input type="text"  name="txteWayDate"  value="{{Tproformalist_list.ewaydate }}"   class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                   
+
+                                                            </td> 
+                                                        </tr>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </td> 
+                                    </tr>
+
+                                </table>
+
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                        
+                            <div class="col" style="   height:30px; border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:100%; padding-top: 0.1em;  ">
+                                            <div class="row">
+
+
+                                                <div class="col"  style="width:100%; height:30px;  padding-top: 3px; height:30px; ">
+                                                        
+                                                        
+                                                    <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">2. Transportation Details</h6> 
+                            
+                                                </div>
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                            
+                                </table>
+
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                        
+                            <div class="col" style="     border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:100%; padding-top: 0.1em;  ">
+                                            <div class="row">
+
+                                                <div class="col"  style="padding-left:34px; width:100%; height:56px;  ">
+
+                                                   <table style="width:100%; ">
+                                            
+                                                        <tr class="row" style="width:100%; " >
+ 
+                                                            <td class=""  style="width:100%; padding-top: 0.1em; padding-left:34px; ">
+                                                                
+                                                               <table style="width:100%; ">
+                                            
+                                                                    <tr class="row" style="width:100%; " >
+            
+                                                                        <td class=""  style="width:21%; padding-top: 0.1em; padding-left:34px; ">
+                                                                            <div style="display:none;">
+                                                                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Category</h6> 
+                                                                    
+                                                                                <input type="text"  name="txtCategory" value="{{Tproformalist_list.scategoryofservice }}"  value="B2B - Project"  class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                                
+                
+                                                                                <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Document Type</h6> 
+                                                                    
+                                                                                <input type="text"  name="txtDocType"   value="TAX INVOICE"     class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                            </div>
+            
+                                                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">SEZ ?</h6> 
+                                                            
+                                                                            {%if Tproformalist_list.bsitesez == 1%}
+                                                                                <input type="checkbox" id="bsitesez" name="bsitesez"  checked="true"      tabindex="6"  style="border: 2px solid $border-color; #FF4040; background:#FF4040;  position:  right; left:10px;"  />
+                                        
+                                                                            {%else%}
+                                                                                <input type="checkbox" id="bsitesez" name="bsitesez"        tabindex="6"  style="border: 2px solid $border-color; #FF4040; background:#FF4040;  position:  right; left:10px;"  />
+                                        
+                                                                            {%endif%} 
+                                                                        </td>
+                                                                        <td class=""  style="width:15%; padding-top: 0.1em; padding-left:34px; ">
+             
+            
+                                                                        </td> 
+                                                                        <td class=""  style="width:17%; padding-top: 0.1em; padding-left:34px; ">
+            
+                                                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Invoice No</h6> 
+                                                                
+                                                                            <input type="text"  name="txtInvNo"   value="{{Tproformalist_list.sinvoicerefno }}"    class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                               
+            
+                                                                        </td>
+                                                                        <td class=""  style="width:15%; padding-top: 0.1em; padding-left:34px; ">
+            
+                                                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Invoice Date</h6> 
+                                                                
+                                                                            <input type="date"  name="txtInvoiceDate"  value="{{Tproformalist_list.sdate1 }}"     class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                               
+            
+                                                                        </td> 
+                                                                        <td class=""  style="width:17%; padding-top: 0.1em; padding-left:34px; ">
+            
+                                                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">P O Ref #</h6> 
+                                                                
+                                                                            <input type="text"  name="txtPONo"   value="{{Tproformalist_list.pono }}"    class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                               
+            
+                                                                        </td> 
+                                                                        <td class=""  style="width:15%; padding-top: 0.1em; padding-left:34px; ">
+            
+                                                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">P O  Date</h6> 
+                                                                
+                                                                            <input type="text"  name="txtPOeDate"  value="{{Tproformalist_list.podate1 }}"    class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                                               
+            
+                                                                        </td> 
+                                                                    </tr>  
+                                                                </table>
+
+                                                           
+                                                            
+                                                            
+                                                            </td> 
+                                                        </tr>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </td> 
+                                    </tr>
+
+
+                                </table>
+
+                            </div>
+                        </div>
+                
+                        
+                        <div class="row">
+                        
+                            <div class="col" style="   height:30px; border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:100%; padding-top: 0.1em;  ">
+                                            <div class="row">
+
+
+                                                <div class="col"  style="width:100%; height:30px;  padding-top: 3px; height:30px; ">
+                                                        
+                                                        
+                                                    <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">3. Party Details</h6> 
+                            
+                                                </div>
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                            
+                                </table>
+
+                            </div>
+                        </div>
+
+ 
+                        <div class="row">
+                        
+                            <div class="col" style="    border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:50%; padding-top: 0.1em;  "> 
+                                            
+                                            <div class="row">
+                                            
+                                                <div class="col-11"  >
+
+                                                    <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Customer</h6> 
+                                        
+                                                    <select name="cmbClient" id="cmbClient" class="selectpicker" data-show-subtext="true"  title="Choose Classification..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                        
+                                                        <option value="0" disabled="true" selected> --- Select Client --- </option> 
+                                                        {% for Mcustomerlist_list in Mcustomerlist_list %} 
+
+                                                            {% if Tproformalist_list.customerid == Mcustomerlist_list.customerid %} 
+                                                                <option selected="true" value="{{ Mcustomerlist_list.customerid }}" data-tokens="{{Mcustomerlist_list.customername}}" >{{Mcustomerlist_list.customername}} </option>
+                                                        
+                                                            {% else %}
+                                                                <option   value="{{ Mcustomerlist_list.customerid }}" data-tokens="{{Mcustomerlist_list.customername}}" >{{Mcustomerlist_list.customername}} </option>
+                                                        
+                                                            {% endif %}
+
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="col-1"  style="padding-top:13px;">
+
+                                                    <button name="cmdGetClient"  type="submit"><i class="fa fa-arrow-circle-right" style="font-size:16px; color:green"></i></button>
+      
+                                                </div>
+                                            </div>
+        
+                                        </td> 
+                                        <td class=""  style="width:50%; padding-top: 0.1em;  "> 
+
+                                            
+                                            <div class="row">
+                                            
+                                                <div class="col-11"  >
+
+                                                    <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Site</h6> 
+                                                                                
+                                                    <select name="cmbSite" id="cmbSite" class="selectpicker" data-show-subtext="true"  title="Choose Classification..."   data-live-search="true"   style="color:black;   background-color:white; min-width:100%; min-height:32px;  font-size: 12px;" >
+                                                                        
+                                                        <option value="0" disabled="true" selected> --- Select Site --- </option> 
+                                                        {% for Msitelist_list in Msitelist_list %} 
+
+                                                            {% if Tproformalist_list.customersiteid == Msitelist_list.lcontactdetailnoid %} 
+                                                                <option selected="true" value="{{ Msitelist_list.lcontactdetailnoid }}" data-tokens="{{Msitelist_list.slocation}} -  {{Msitelist_list.splace}}" >{{Msitelist_list.slocation}} -  {{Msitelist_list.splace}} </option>
+                                                        
+                                                            {% else %}
+                                                                <option   value="{{ Msitelist_list.lcontactdetailnoid }}" data-tokens=" {{Msitelist_list.slocation}} -  {{Msitelist_list.splace}}" > {{Msitelist_list.slocation}} -  {{Msitelist_list.splace}} </option>
+                                                        
+                                                            {% endif %}
+
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="col-1"  style="padding-top:13px;">
+
+                                                    <button name="cmdGetSite"  type="submit"><i class="fa fa-arrow-circle-down" style="font-size:16px; color:green"></i></button>
+
+                                                </div>
+                                            </div>
+                                        </td> 
+                                    </tr>     
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:50%; padding-top: 0.1em;  "> 
+                                            <textarea id="txtCustomerAddress" name="txtCustomerAddress"    class="form-control"  rows="4" cols="50" readonly style="background-color:#ecf6ff; height:65px; width: 68%;  font-size: 12px; border-radius: 2px;" > {{Tproformalist_list.saddressclient }} </textarea>
+                          
+                                        </td> 
+                                        <td class=""  style="width:50%; padding-top: 0.1em;  "> 
+                                            <textarea id="txtBuyerAddress" name="txtSellerAddress"     class="form-control"  rows="4" cols="50" readonly style="background-color:#ecf6ff; height:65px; width: 68%;  font-size: 12px; border-radius: 2px;" > {{Tproformalist_list.saddresssite }}  </textarea>
+                          
+                                        </td> 
+                                    </tr>     
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:50%; padding-top: 0.1em;  "> 
+                                            
+                                            <table style="width:100%; ">
+                                                        
+                                                <tr class="row" style="width:100%; " >
+                                                    <td class=""  style="width:25%; padding-top: 0.1em;  "> 
+
+                                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">State Code</h6> 
+        
+                                                        <input type="text"  name="txtStateCode"  class="form-control"  value="{{Tproformalist_list.sstatecode }}"     tabindex="1"  maxlength="200"       style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                         
+                                                    </td> 
+                                                    <td class=""  style="width:25%; padding-top: 0.1em;  "> 
+ 
+                                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">GST #</h6> 
+                                                            
+                                                        <input type="text"  name="txtGSTNo"  class="form-control"   value="{{Tproformalist_list.scustomergst }}"    tabindex="1"  maxlength="200"   readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                         
+                                                    </td> 
+                                                     <td class=""  style="width:25%; padding-top: 0.1em;  "> 
+ 
+                                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Work From</h6> 
+                                                            
+                                                        <input type="date"  name="txtFrom"  class="form-control"   value="{{Tproformalist_list.sworkfrom }}"    tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                         
+                                                    </td> 
+                                                    <td class=""  style="width:25%; padding-top: 0.1em;  "> 
+ 
+                                                        <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">To</h6> 
+                                                            
+                                                        <input type="date"  name="txtTo"  class="form-control"   value="{{Tproformalist_list.sworkfto }}"    tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                                         
+                                                    </td>  
+                                                </tr>
+                                                        
+                                            </table>
+
+                                        </td>  
+                                        <td class=""  style="width:50%; padding-top: 0.1em;  "> 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Description</h6> 
+                     
+                                            <textarea id="txtDescription" name="txtDescription"      class="form-control"  rows="4" cols="50"   style="background-color:#ecf6ff; height:45px; width: 98%;  font-size: 12px; border-radius: 2px;" > {{Tproformalist_list.note1 }}</textarea>
+                          
+                                        </td> 
+                                    </tr>
+                                            
+                                </table>
+
+                            </div>
+                        </div>
+     
+
+
+                        <div class="row">
+                        
+                            <div class="col" style="   height:30px; border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >
+                                        <td class=""  style="width:100%; padding-top: 0.1em;  ">
+                                            <div class="row">
+
+
+                                                <div class="col"  style="width:100%; height:30px;  padding-top: 3px; height:30px; ">
+                                                        
+                                                        
+                                                    <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 15px;  ">4. Goods Details</h6> 
+                            
+                                                </div>
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                            
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                        
+                            <div class="col" style="    border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%; " >            
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;  width: 320px;   font-size: 12px;  ">Description</h6> 
+                                
+                                            <input type="text"  name="txtItemDesc"    class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">HSN Code</h6> 
+                                
+                                            <input type="text"  name="txtHSNCode"       class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">P O Amt</h6> 
+                                
+                                            <input type="text"  name="txtPOAMt"       class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;    font-size: 12px;  ">Units</h6> 
+                                
+                                            <input type="text"  name="txtUnits"       class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td>
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Quantity</h6> 
+                                
+                                            <input type="text"  name="txtQuantity"     class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Total Rate</h6> 
+                                
+                                            <input type="text"  name="txtRate"     class="form-control"     tabindex="1"  maxlength="200"     style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Total</h6> 
+                                
+                                            <input type="text"  name="txtItemAmt"     class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">GST Rate</h6> 
+                                
+                                            <input type="text"  name="txtGSTRate"     class="form-control"     tabindex="1"  maxlength="200"      style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Tax Amount</h6> 
+                                
+                                            <input type="text"  name="txtGSTAmt"     class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Amount</h6> 
+                                
+                                            <input type="text"  name="txtItemTotalAmt"     class="form-control"     tabindex="1"  maxlength="200"  readonly   style="background-color:#ecf6ff;  height:25px; width: 98%;  font-size: 12px; border-radius: 2px;"  autofocus/>
+                                               
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+ 
+                                            <button name="cmdItemSave"  type="submit"><i class="fa fa-save" style="font-size:16px; color:green"></i></button>
+
+
+                                        </td> 
+                                    </tr>
+                                            
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                        
+                            <div class="col" style="      ">
+                                <table class="table table-hover" style="width:100%;    ">
+                                
+                                <thead class="thead-dark">
+                                </thead>
+                                <tbody> 
+
+                                  {% for Tproformadetailslist_list in Tproformadetailslist_list %}
+                                            
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:2%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;    float: left;  width: 320px;   font-size: 12px;  "> {{ forloop.counter }}</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: left;     font-size: 12px;  ">  {{Tproformadetailslist_list.sdesc }} </h6> 
+                                 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: center;    font-size: 12px;  "> {{Tproformadetailslist_list.shsn }}</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: center;    font-size: 12px;  "> {{Tproformadetailslist_list.staxnotify }}</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: center;     font-size: 12px;  "> {{Tproformadetailslist_list.units }}</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left: 4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: right;     font-size: 12px;  "> {{Tproformadetailslist_list.qty }}</h6> 
+                                 
+
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: right;     font-size: 12px;  "> {{Tproformadetailslist_list.unitprice|floatformat:2  }}</h6> 
+                                 
+
+                                        </td>  
+                                        <td class=""  style="width:7%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: right;     font-size: 12px;  "> {{Tproformadetailslist_list.dcgst1pt00|floatformat:2  }}</h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 120px;  float: right;     font-size: 12px;  ">   {{Tproformadetailslist_list.dsgst01|floatformat:2  }}</h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 120px;  float: right;     font-size: 12px;  "> {{Tproformadetailslist_list.dcgst1pt0|floatformat:2  }}</h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 120px;  float: right;     font-size: 12px;  "> {{Tproformadetailslist_list.ddescitemtotal|floatformat:2  }}</h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:3%; padding-top:12px; padding-left:4px;  ">
+  
+  
+                                            <a  class="btn btn-danger" style="height:20px; width:20px; font-size:10px; font-weight: bold; padding: 0; padding-top:2px;" href="/ProjectListDetailsDelete/{{Tproformadetailslist_list.salesordermultiid}}"><i class="fa fa-trash"></i></a>
+                                                                    
+
+                                        </td> 
+                                    </tr>
+                                    {% endfor %}
+
+                                  </tbody>
+                                            
+                                </table>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                        
+                            <div class="col" style="    border-bottom:1px solid #CCCCCC;  ">
+                                <table style="width:100%; ">
+                                            
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >             
+                                        <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  float: left;     font-size: 12px;  ">Taxable Amount</h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dtotal|floatformat:2  }} </h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>
+                                         
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">I-GST Amount</h6> 
+                                 
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">C-GST Amount</h6> 
+                                 
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">S-GST Amount</h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Tax Amount</h6> 
+                                  
+
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">GST 5%</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            {%if Tproformalist_list.dsgst5 == 0 %}
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst5|floatformat:2 }} </h6> 
+                                            
+                                            {% endif %} 
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst5|floatformat:2 }} </h6> 
+                            
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst5|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst5|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">GST 12%</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            {%if Tproformalist_list.dsgst12 == 0 %}
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst12|floatformat:2 }} </h6> 
+                                            
+                                            {% endif %} 
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst12|floatformat:2 }} </h6> 
+                            
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst12|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst12|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">GST 18%</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            {%if Tproformalist_list.dsgst18 == 0 %}
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst18|floatformat:2 }} </h6> 
+                                            
+                                            {% endif %} 
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst18|floatformat:2 }} </h6> 
+                            
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst18|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst18|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">GST 28%</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+                                            
+                                            {%if Tproformalist_list.dsgst28 == 0 %}
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst28|floatformat:2 }} </h6> 
+                                            
+                                            {% endif %}
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst28|floatformat:2 }} </h6> 
+                            
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dsgst28|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst28|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">GST 0%</h6> 
+                                 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst01|floatformat:2 }} </h6> 
+                            
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst01|floatformat:2 }} </h6> 
+                            
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst01|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dcgst01|floatformat:2 }} </h6> 
+                            
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>
+                                    <tr class="row" style="width:100%;  border-bottom:1px solid #CCCCCC;  " >           
+                                         <td class=""  style="width:1%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>        
+                                        <td class=""  style="width:20%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td> 
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:8%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+
+                                        </td>
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left: 4px; ">
+ 
+                                        </td>  
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+ 
+                                        </td>  
+                                        <td class=""  style="width:5%; padding-top: 0.1em; padding-left:4px; ">
+ 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 130px;  float: left;     font-size: 12px;  ">Grand Total</h6> 
+                                 
+
+                                        </td> 
+                                        <td class=""  style="width:10%; padding-top: 0.1em; padding-left:4px; ">
+
+                                            <h6  style="color: #B4886B;  font-weight: bold;  width: 100%;  text-align: right;     font-size: 12px;  ">   {{Tproformalist_list.dtotalfinal|floatformat:2 }} </h6> 
+                                
+
+                                        </td> 
+                                        <td class=""  style="width:5%; padding-top:12px; padding-left:4px;  ">
+  
+
+                                        </td> 
+                                    </tr>   
+                                </table>
+
+                            </div>
+                        </div>
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}
